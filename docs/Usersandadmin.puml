@@ -1,0 +1,14 @@
+@startuml
+left to right direction
+(Разместить документ) as Rdoc
+(Изменить документ) as Rdox
+:Администратор: -- Rdoc
+:Администратор: -- Rdox
+
+(Искать) as Sdoc
+(Просмотр) as Pdoc
+(Подписка) as Poddoc
+:Пользователь: -- Sdoc
+:Пользователь: -- Pdoc
+:Пользователь: -- Poddoc
+@enduml

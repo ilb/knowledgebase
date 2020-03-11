@@ -1,0 +1,61 @@
+@startuml
+class Catalog {
++ __construct();
++ editDoc($idDoc);
+}
+
+class Document {
++ __construct($idDoc);
++ setNameDocument($newNameDocument);
+- addKeyWord($keyWord);
++ getIdDoc();
++ getUnicalName();
+}
+
+class Element{
++ notify();
++ changeContent()
+}
+class ElementObserver { 
++ update();
++ send($user, $text);
+}
+
+interface Observer {
++ update();
+}
+
+class Subscription {
++ getElement();
++ getUser();
++ __construct($user, $element);
+}
+
+class Subscriptions {
++ __construct();
++ foundSubscription($changeElement);
+- isClass($obj1, $obj2);
+}
+
+class Resource {
++ __construct($tag);
++ getUnicalName();
+} 
+
+class User {
++ getLogin();
+}
+
+
+
+Catalog o-- Document
+Document --|> Element
+ElementObserver --|> Observer
+Document --o ElementObserver 
+ElementObserver o-- Resource
+User o-- Subscription
+Subscription o-- Subscriptions
+Subscription o-- Document
+Subscription o-- Resource
+Subscriptions o-- ElementObserver
+@enduml

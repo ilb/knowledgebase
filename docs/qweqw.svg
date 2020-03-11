@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1081px" preserveAspectRatio="none" style="width:539px;height:1081px;" version="1.1" viewBox="0 0 539 1081" width="539px" zoomAndPan="magnify">
+    <defs>
+        <filter height="300%" id="f6738g4qnj91m" width="300%" x="-1" y="-1">
+            <feGaussianBlur result="blurOut" stdDeviation="2.0"/>
+            <feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/>
+            <feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/>
+            <feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/>
+        </filter>
+    </defs>
+    <g>
+        <!--class Document-->
+        <rect fill="#FEFECE" filter="url(#f6738g4qnj91m)" height="122.0112" style="stroke: #A80036; stroke-width: 1.5;" width="180" x="84" y="351"/>
+        <ellipse cx="133.25" cy="370.584" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M136.25,375.584 Q135.6406,376.084 134.9844,376.334 Q134.3281,376.584 133.5938,376.584 Q130.9844,376.584 129.6172,375.0449 Q128.25,373.5059 128.25,370.584 Q128.25,367.6621 129.6172,366.123 Q130.9844,364.584 133.5938,364.584 Q134.3281,364.584 135,364.834 Q135.6719,365.084 136.25,365.584 L136.25,368.584 Q135.6406,367.5527 135.0625,367.0684 Q134.4844,366.584 133.875,366.584 Q132.5781,366.584 131.9141,367.5918 Q131.25,368.5996 131.25,370.584 Q131.25,372.5684 131.9141,373.5762 Q132.5781,374.584 133.875,374.584 Q134.4844,374.584 135.0625,374.0996 Q135.6406,373.6152 136.25,372.584 L136.25,375.584 Z "/>
+        <text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="77" x="151.75" y="368.0645">«Документ»</text>
+        <text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="63" x="158.75" y="382.6484">Document</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="85" x2="263" y1="390.168" y2="390.168"/>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="92" y="399.3523"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="10" x="104" y="405.2271">id</text>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="92" y="412.7209"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="38" x="104" y="418.5957">source</text>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="92" y="426.0896"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="56" x="104" y="431.9644">resources</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="85" x2="263" y1="438.2739" y2="438.2739"/>
+        <ellipse cx="95" cy="450.4583" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="154" x="104" y="453.333">__construct(name, source)</text>
+        <rect fill="#F24D5C" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="92" y="460.8269"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="105" x="104" y="466.7017">createResources()</text>
+        <!--class Source-->
+        <rect fill="#FEFECE" filter="url(#f6738g4qnj91m)" height="81.9053" style="stroke: #A80036; stroke-width: 1.5;" width="120" x="60" y="542.5"/>
+        <ellipse cx="91.2" cy="562.084" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M94.2,567.084 Q93.5906,567.584 92.9344,567.834 Q92.2781,568.084 91.5438,568.084 Q88.9344,568.084 87.5672,566.5449 Q86.2,565.0059 86.2,562.084 Q86.2,559.1621 87.5672,557.623 Q88.9344,556.084 91.5438,556.084 Q92.2781,556.084 92.95,556.334 Q93.6219,556.584 94.2,557.084 L94.2,560.084 Q93.5906,559.0527 93.0125,558.5684 Q92.4344,558.084 91.825,558.084 Q90.5281,558.084 89.8641,559.0918 Q89.2,560.0996 89.2,562.084 Q89.2,564.0684 89.8641,565.0762 Q90.5281,566.084 91.825,566.084 Q92.4344,566.084 93.0125,565.5996 Q93.5906,565.1152 94.2,564.084 L94.2,567.084 Z "/>
+        <text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="56" x="106.8" y="559.5645">«Ресурс»</text>
+        <text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="43" x="113.3" y="574.1484">Source</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="61" x2="179" y1="581.668" y2="581.668"/>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="68" y="590.8523"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="80" y="596.7271">tag</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="61" x2="179" y1="603.0366" y2="603.0366"/>
+        <ellipse cx="71" cy="615.2209" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="94" x="80" y="618.0957">__construct(tag)</text>
+        <!--class Subscribtion-->
+        <rect fill="#FEFECE" filter="url(#f6738g4qnj91m)" height="95.2739" style="stroke: #A80036; stroke-width: 1.5;" width="185" x="218.5" y="836"/>
+        <ellipse cx="268.25" cy="855.584" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M271.25,860.584 Q270.6406,861.084 269.9844,861.334 Q269.3281,861.584 268.5938,861.584 Q265.9844,861.584 264.6172,860.0449 Q263.25,858.5059 263.25,855.584 Q263.25,852.6621 264.6172,851.123 Q265.9844,849.584 268.5938,849.584 Q269.3281,849.584 270,849.834 Q270.6719,850.084 271.25,850.584 L271.25,853.584 Q270.6406,852.5527 270.0625,852.0684 Q269.4844,851.584 268.875,851.584 Q267.5781,851.584 266.9141,852.5918 Q266.25,853.5996 266.25,855.584 Q266.25,857.5684 266.9141,858.5762 Q267.5781,859.584 268.875,859.584 Q269.4844,859.584 270.0625,859.0996 Q270.6406,858.6152 271.25,857.584 L271.25,860.584 Z "/>
+        <text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="76" x="289.25" y="853.0645">«Подписка»</text>
+        <text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="77" x="288.75" y="867.6484">Subscribtion</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="219.5" x2="402.5" y1="875.168" y2="875.168"/>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="226.5" y="884.3523"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="25" x="238.5" y="890.2271">user</text>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="226.5" y="897.7209"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="56" x="238.5" y="903.5957">document</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="219.5" x2="402.5" y1="909.9053" y2="909.9053"/>
+        <ellipse cx="229.5" cy="922.0896" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="159" x="238.5" y="924.9644">__construct(user, resource)</text>
+        <!--class Catalog-->
+        <rect fill="#FEFECE" filter="url(#f6738g4qnj91m)" height="122.0112" style="stroke: #A80036; stroke-width: 1.5;" width="142" x="337" y="169"/>
+        <ellipse cx="373.6" cy="188.584" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M376.6,193.584 Q375.9906,194.084 375.3344,194.334 Q374.6781,194.584 373.9438,194.584 Q371.3344,194.584 369.9672,193.0449 Q368.6,191.5059 368.6,188.584 Q368.6,185.6621 369.9672,184.123 Q371.3344,182.584 373.9438,182.584 Q374.6781,182.584 375.35,182.834 Q376.0219,183.084 376.6,183.584 L376.6,186.584 Q375.9906,185.5527 375.4125,185.0684 Q374.8344,184.584 374.225,184.584 Q372.9281,184.584 372.2641,185.5918 Q371.6,186.5996 371.6,188.584 Q371.6,190.5684 372.2641,191.5762 Q372.9281,192.584 374.225,192.584 Q374.8344,192.584 375.4125,192.0996 Q375.9906,191.6152 376.6,190.584 L376.6,193.584 Z "/>
+        <text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="66" x="390.4" y="186.0645">«Каталог»</text>
+        <text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="49" x="398.9" y="200.6484">Catalog</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="338" x2="478" y1="208.168" y2="208.168"/>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="345" y="217.3523"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="62" x="357" y="223.2271">documents</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="338" x2="478" y1="229.5366" y2="229.5366"/>
+        <ellipse cx="348" cy="241.7209" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="76" x="357" y="244.5957">__construct()</text>
+        <ellipse cx="348" cy="255.0896" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="99" x="357" y="257.9644">editDocument(id)</text>
+        <ellipse cx="348" cy="268.4583" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="104" x="357" y="271.333">viewDocument(id)</text>
+        <ellipse cx="348" cy="281.8269" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="116" x="357" y="284.7017">searchDocument(id)</text>
+        <!--class User-->
+        <rect fill="#FEFECE" filter="url(#f6738g4qnj91m)" height="81.9053" style="stroke: #A80036; stroke-width: 1.5;" width="133" x="244.5" y="991"/>
+        <ellipse cx="259.5" cy="1010.584" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M262.5,1015.584 Q261.8906,1016.084 261.2344,1016.334 Q260.5781,1016.584 259.8438,1016.584 Q257.2344,1016.584 255.8672,1015.0449 Q254.5,1013.5059 254.5,1010.584 Q254.5,1007.6621 255.8672,1006.123 Q257.2344,1004.584 259.8438,1004.584 Q260.5781,1004.584 261.25,1004.834 Q261.9219,1005.084 262.5,1005.584 L262.5,1008.584 Q261.8906,1007.5527 261.3125,1007.0684 Q260.7344,1006.584 260.125,1006.584 Q258.8281,1006.584 258.1641,1007.5918 Q257.5,1008.5996 257.5,1010.584 Q257.5,1012.5684 258.1641,1013.5762 Q258.8281,1014.584 260.125,1014.584 Q260.7344,1014.584 261.3125,1014.0996 Q261.8906,1013.6152 262.5,1012.584 L262.5,1015.584 Z "/>
+        <text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="105" x="271.5" y="1008.0645">«Пользователь»</text>
+        <text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="29" x="309.5" y="1022.6484">User</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="245.5" x2="376.5" y1="1030.168" y2="1030.168"/>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="252.5" y="1039.3523"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="27" x="264.5" y="1045.2271">login</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="245.5" x2="376.5" y1="1051.5366" y2="1051.5366"/>
+        <ellipse cx="255.5" cy="1063.7209" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="103" x="264.5" y="1066.5957">__construct(login)</text>
+        <!--class Adapter-->
+        <rect fill="#FEFECE" filter="url(#f6738g4qnj91m)" height="101.4746" style="stroke: #A80036; stroke-width: 1.5;" width="140" x="338" y="8"/>
+        <ellipse cx="379.1" cy="24" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M382.1,29 Q381.4906,29.5 380.8344,29.75 Q380.1781,30 379.4438,30 Q376.8344,30 375.4672,28.4609 Q374.1,26.9219 374.1,24 Q374.1,21.0781 375.4672,19.5391 Q376.8344,18 379.4438,18 Q380.1781,18 380.85,18.25 Q381.5219,18.5 382.1,19 L382.1,22 Q381.4906,20.9688 380.9125,20.4844 Q380.3344,20 379.725,20 Q378.4281,20 377.7641,21.0078 Q377.1,22.0156 377.1,24 Q377.1,25.9844 377.7641,26.9922 Q378.4281,28 379.725,28 Q380.3344,28 380.9125,27.5156 Q381.4906,27.0313 382.1,26 L382.1,29 Z "/>
+        <text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="50" x="398.9" y="28.7725">Adapter</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="339" x2="477" y1="40" y2="40"/>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="346" y="49.1843"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="38" x="358" y="55.0591">source</text>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="346" y="62.553"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="26" x="358" y="68.4277">docs</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="339" x2="477" y1="74.7373" y2="74.7373"/>
+        <ellipse cx="349" cy="86.9216" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="114" x="358" y="89.7964">__construct(sourse)</text>
+        <ellipse cx="349" cy="100.2903" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="56" x="358" y="103.165">getDocs()</text>
+        <!--class ResourceAdapter-->
+        <rect fill="#FEFECE" filter="url(#f6738g4qnj91m)" height="114.8433" style="stroke: #A80036; stroke-width: 1.5;" width="296" x="6" y="172.5"/>
+        <ellipse cx="95.75" cy="188.5" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M98.75,193.5 Q98.1406,194 97.4844,194.25 Q96.8281,194.5 96.0938,194.5 Q93.4844,194.5 92.1172,192.9609 Q90.75,191.4219 90.75,188.5 Q90.75,185.5781 92.1172,184.0391 Q93.4844,182.5 96.0938,182.5 Q96.8281,182.5 97.5,182.75 Q98.1719,183 98.75,183.5 L98.75,186.5 Q98.1406,185.4688 97.5625,184.9844 Q96.9844,184.5 96.375,184.5 Q95.0781,184.5 94.4141,185.5078 Q93.75,186.5156 93.75,188.5 Q93.75,190.4844 94.4141,191.4922 Q95.0781,192.5 96.375,192.5 Q96.9844,192.5 97.5625,192.0156 Q98.1406,191.5313 98.75,190.5 L98.75,193.5 Z "/>
+        <text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="108" x="116.25" y="193.2725">ResourceAdapter</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="301" y1="204.5" y2="204.5"/>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="14" y="213.6843"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="50" x="26" y="219.5591">resource</text>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="14" y="227.053"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="38" x="26" y="232.9277">source</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="301" y1="239.2373" y2="239.2373"/>
+        <ellipse cx="17" cy="251.4216" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="114" x="26" y="254.2964">__construct(source)</text>
+        <rect fill="#F24D5C" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="14" y="261.7903"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="106" x="26" y="267.665">getSource(source)</text>
+        <ellipse cx="17" cy="278.1589" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="270" x="26" y="281.0337">getResources(tag = "h[0-6]+", attribute = "id")</text>
+        <!--class Subscribtions-->
+        <rect fill="#FEFECE" filter="url(#f6738g4qnj91m)" height="81.9053" style="stroke: #A80036; stroke-width: 1.5;" width="173" x="303.5" y="694"/>
+        <ellipse cx="344.15" cy="713.584" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M347.15,718.584 Q346.5406,719.084 345.8844,719.334 Q345.2281,719.584 344.4938,719.584 Q341.8844,719.584 340.5172,718.0449 Q339.15,716.5059 339.15,713.584 Q339.15,710.6621 340.5172,709.123 Q341.8844,707.584 344.4938,707.584 Q345.2281,707.584 345.9,707.834 Q346.5719,708.084 347.15,708.584 L347.15,711.584 Q346.5406,710.5527 345.9625,710.0684 Q345.3844,709.584 344.775,709.584 Q343.4781,709.584 342.8141,710.5918 Q342.15,711.5996 342.15,713.584 Q342.15,715.5684 342.8141,716.5762 Q343.4781,717.584 344.775,717.584 Q345.3844,717.584 345.9625,717.0996 Q346.5406,716.6152 347.15,715.584 L347.15,718.584 Z "/>
+        <text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="77" x="367.35" y="711.0645">«Подписки»</text>
+        <text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="84" x="363.85" y="725.6484">Subscribtions</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="304.5" x2="475.5" y1="733.168" y2="733.168"/>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="311.5" y="742.3523"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="74" x="323.5" y="748.2271">subscribtions</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="304.5" x2="475.5" y1="754.5366" y2="754.5366"/>
+        <ellipse cx="314.5" cy="766.7209" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="147" x="323.5" y="769.5957">subscribe(user, resource)</text>
+        <!--class WatcherSubscribtions-->
+        <rect fill="#FEFECE" filter="url(#f6738g4qnj91m)" height="114.8433" style="stroke: #A80036; stroke-width: 1.5;" width="178" x="319" y="354.5"/>
+        <ellipse cx="338.05" cy="370.5" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M341.05,375.5 Q340.4406,376 339.7844,376.25 Q339.1281,376.5 338.3938,376.5 Q335.7844,376.5 334.4172,374.9609 Q333.05,373.4219 333.05,370.5 Q333.05,367.5781 334.4172,366.0391 Q335.7844,364.5 338.3938,364.5 Q339.1281,364.5 339.8,364.75 Q340.4719,365 341.05,365.5 L341.05,368.5 Q340.4406,367.4688 339.8625,366.9844 Q339.2844,366.5 338.675,366.5 Q337.3781,366.5 336.7141,367.5078 Q336.05,368.5156 336.05,370.5 Q336.05,372.4844 336.7141,373.4922 Q337.3781,374.5 338.675,374.5 Q339.2844,374.5 339.8625,374.0156 Q340.4406,373.5313 341.05,372.5 L341.05,375.5 Z "/>
+        <text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="137" x="352.95" y="375.2725">WatcherSubscribtions</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="320" x2="496" y1="386.5" y2="386.5"/>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="327" y="395.6843"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="62" x="339" y="401.5591">notification</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="320" x2="496" y1="407.8687" y2="407.8687"/>
+        <ellipse cx="330" cy="420.053" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="152" x="339" y="422.9277">setNotification(notification)</text>
+        <ellipse cx="330" cy="433.4216" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="130" x="339" y="436.2964">notification(elemntDiv)</text>
+        <rect fill="#F24D5C" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="327" y="443.7903"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="58" x="339" y="449.665">getId(tag)</text>
+        <rect fill="#F24D5C" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="327" y="457.1589"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="64" x="339" y="463.0337">etText(tag)</text>
+        <!--class Notification-->
+        <rect fill="#FEFECE" filter="url(#f6738g4qnj91m)" height="101.4746" style="stroke: #A80036; stroke-width: 1.5;" width="244" x="286" y="533"/>
+        <ellipse cx="368.75" cy="549" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M371.75,554 Q371.1406,554.5 370.4844,554.75 Q369.8281,555 369.0938,555 Q366.4844,555 365.1172,553.4609 Q363.75,551.9219 363.75,549 Q363.75,546.0781 365.1172,544.5391 Q366.4844,543 369.0938,543 Q369.8281,543 370.5,543.25 Q371.1719,543.5 371.75,544 L371.75,547 Q371.1406,545.9688 370.5625,545.4844 Q369.9844,545 369.375,545 Q368.0781,545 367.4141,546.0078 Q366.75,547.0156 366.75,549 Q366.75,550.9844 367.4141,551.9922 Q368.0781,553 369.375,553 Q369.9844,553 370.5625,552.5156 Q371.1406,552.0313 371.75,551 L371.75,554 Z "/>
+        <text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="70" x="389.25" y="553.7725">Notification</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="287" x2="529" y1="565" y2="565"/>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="294" y="574.1843"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="74" x="306" y="580.0591">subscribtions</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="287" x2="529" y1="586.3687" y2="586.3687"/>
+        <ellipse cx="297" cy="598.553" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="177" x="306" y="601.4277">setSubscribtions(subscribtions)</text>
+        <ellipse cx="297" cy="611.9216" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="157" x="306" y="614.7964">notify(idDoc, textNotificate)</text>
+        <ellipse cx="297" cy="625.2903" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="218" x="306" y="628.165">sendNotification(user, textNotification)</text>
+        <path d="M150.804,485.809 C144.629,505.193 138.183,525.427 132.792,542.346 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#FFFFFF" points="154.81,473.237,149.1776,477.7399,151.1679,484.6709,156.8003,480.168,154.81,473.237" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M326.317,293.833 C302.257,312.341 275.997,332.541 252.163,350.874 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#FFFFFF" points="336.839,285.739,329.6444,286.2265,327.3272,293.0551,334.5218,292.5677,336.839,285.739" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M311,944.588 C311,960.079 311,976.3819 311,990.6017 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#FFFFFF" points="311,931.256,307,937.256,311,943.256,315,937.256,311,931.256" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M408,109.439 C408,124.01 408,140.244 408,155.933 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#FFFFFF" points="408,168.935,412,162.935,408,156.935,404,162.935,408,168.935" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M160.328,287.953 C162.08,303.72 164.006,321.058 165.846,337.618 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#FFFFFF" points="167.299,350.687,170.6119,344.2819,165.9737,338.7604,162.6608,345.1655,167.299,350.687" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M362.134,787.675 C353.687,803.339 344.461,820.449 336.2,835.769 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#FFFFFF" points="368.413,776.032,362.0444,779.4144,362.7172,786.5941,369.0858,783.2116,368.413,776.032" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M195.334,486.113 C223.817,583.724 273.447,753.807 297.357,835.744 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#FFFFFF" points="191.63,473.418,189.4709,480.2983,194.9916,484.9375,197.1506,478.0572,191.63,473.418" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M408,483.086 C408,499.786 408,517.27 408,532.836 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#FFFFFF" points="408,469.913,404,475.913,408,481.913,412,475.913,408,469.913" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M400.44,647.289 C398.542,663.055 396.556,679.55 394.832,693.869 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#FFFFFF" points="402.006,634.281,397.3173,639.7597,400.5713,646.1949,405.26,640.7162,402.006,634.281" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M408,304.318 C408,320.958 408,338.386 408,354.219 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#FFFFFF" points="408,291.188,404,297.188,408,303.188,412,297.188,408,291.188" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <!--
+@startuml
+
+
+class Document <<Документ>> {
+    - id
+    - source
+ - resources
+ + __construct(name, source)
+ - createResources()
+}
+
+class Source <<Ресурс>> {
+    - tag
+    + __construct(tag) 
+}
+
+class Subscribtion <<Подписка>> {
+    - user
+    - document
+     + __construct(user, resource)
+}
+
+class Catalog <<Каталог>> {
+    - documents
+    + __construct()
+    + editDocument(id)
+    + viewDocument(id)
+    + searchDocument(id)
+}
+
+class User <<Пользователь>> {
+    - login
+    + __construct(login)
+}
+
+class Adapter {
+    - source
+    - docs
+    + __construct(sourse) 
+    + getDocs()
+}
+
+class ResourceAdapter {
+    - resource
+    - source
+    + __construct(source)
+    - getSource(source)
+    + getResources(tag = "h[0-6]+", attribute = "id")
+}
+
+class Subscribtions <<Подписки>>{
+    - subscribtions
+    + subscribe(user, resource)
+}
+
+class WatcherSubscribtions {
+    - notification
+    + setNotification(notification)
+    + notification(elemntDiv)
+    - getId(tag)
+    - etText(tag)  
+} 
+
+class Notification {
+    - subscribtions
+    + setSubscribtions(subscribtions)
+    + notify(idDoc, textNotificate)
+    + sendNotification(user, textNotification)
+}
+
+Document o- - Source
+Catalog o- - Document
+Subscribtion o- - User
+Adapter - -o Catalog 
+ResourceAdapter - -o Document
+Subscribtions o- - Subscribtion
+Document o- - Subscribtion
+WatcherSubscribtions o- - Notification
+Notification o- - Subscribtions
+Catalog o- - WatcherSubscribtions
+@enduml
+
+PlantUML version 2017.11(Wed Apr 19 20:18:59 SAMT 2017)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_181-b13
+Operating System: Linux
+OS Version: 4.9.177-gentoo-r9000_p1_amd64
+Default Encoding: UTF-8
+Language: ru
+Country: RU
+-->
+    </g>
+</svg>
