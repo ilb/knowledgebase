@@ -18,7 +18,7 @@ class Resource extends Element {
     }
     
     /**
-     * Получает уникальное имя класса
+     * Получает уникальное имя ресурса
      * @return string
      */
     public function getUnicalName() {

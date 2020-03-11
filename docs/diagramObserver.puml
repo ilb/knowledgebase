@@ -1,61 +1,73 @@
 @startuml
 class Catalog {
-+ __construct();
-+ editDoc($idDoc);
+    - docs[]
+    + editDoc($idDoc)
 }
 
 class Document {
-+ __construct($idDoc);
-+ setNameDocument($newNameDocument);
-- addKeyWord($keyWord);
-+ getIdDoc();
-+ getUnicalName();
+    - source 
+    - resources[]
+    - idDoc
+    - keywords[]
+    - nameDocument
+    + __construct($idDoc)
+    + addKeyWord($keyWord)
+    + getIdDoc()
+    + getUnicalName()
 }
 
-class Element{
-+ notify();
-+ changeContent()
-}
-class ElementObserver { 
-+ update();
-+ send($user, $text);
-}
-
-interface Observer {
-+ update();
-}
-
-class Subscription {
-+ getElement();
-+ getUser();
-+ __construct($user, $element);
-}
-
-class Subscriptions {
-+ __construct();
-+ foundSubscription($changeElement);
-- isClass($obj1, $obj2);
+abstract class Element {
+    # observer
+    + notify()
+    + changeContent()
 }
 
 class Resource {
-+ __construct($tag);
-+ getUnicalName();
-} 
-
-class User {
-+ getLogin();
+    - tag
+    + __construct($tag) 
+    + getUnicalName()
 }
 
+class ElementObserver {
+    - subscriptions
+    + execute($element, $textNotification)
+    + send($user, $text)
+}
 
+interface Observer {
+    + execute($element, $textNotification)
+}
+
+class Subscriptions {
+    - subscriptions[]
+    + foundSubscription($changeElement)
+    - isClass($obj1, $obj2)
+}
+
+class Subscription {
+    - element
+    - user 
+    + __construct($user, $element)
+    + getElement()
+    + getUser()
+}
+
+class User {
+    - login
+    + __construct($login)
+    + getLogin()
+}
 
 Catalog o-- Document
-Document --|> Element
-ElementObserver --|> Observer
-Document --o ElementObserver 
-ElementObserver o-- Resource
-User o-- Subscription
-Subscription o-- Subscriptions
-Subscription o-- Document
+Document <|-- Element
+Resource <|-- Element
+Resource o-- ElementObserver
+Document o-- Resource
+Document o-- ElementObserver
+ElementObserver <|-- Observer
+ElementObserver o-- Subscriptions
+Subscriptions o-- Subscription
+Subscription o-- User
 Subscription o-- Resource
-Subscriptions o-- ElementObserver
+Subscription o-- Document
 @enduml
