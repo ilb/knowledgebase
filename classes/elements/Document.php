@@ -34,6 +34,10 @@ class Document extends Element {
      */
     private $nameDocument;
     
+    /**
+     * 
+     * @param string $idDoc
+     */
     public function __construct($idDoc) {
         $this->idDoc = $idDoc;
     }
@@ -70,5 +74,12 @@ class Document extends Element {
      */
     public function getUnicalName() {
         return $this->idDoc;
+    }
+    
+    /**
+     * По заданному $this->source парсит страницу 
+     */
+    public function createResource() {
+        // Тут должен быть парсер для ресурсов
     }
 }

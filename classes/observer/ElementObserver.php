@@ -14,7 +14,7 @@ class ElementObserver  implements \observer\Observer {
      * @param \elements\Element $element
      * @param string $textNotify
      */
-    public function execute($element, $textNotify) {
+    public function execute($element, $textNotify, $event) {
         $subscriptionNotify = $this->subscriptions->foundSubscription($element);
         foreach ($subscriptionNotify as $subscription) {
             $this->send($subscription->getUser(), $textNotify);

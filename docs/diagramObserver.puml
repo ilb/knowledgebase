@@ -1,7 +1,11 @@
 @startuml
+
 class Catalog {
     - docs[]
+    - source
+    + __construct($source)
     + editDoc($idDoc)
+    + createDocuments()
 }
 
 class Document {
@@ -10,7 +14,8 @@ class Document {
     - idDoc
     - keywords[]
     - nameDocument
-    + __construct($idDoc)
+    + __construct($idDoc, $source, $observer)
+    + createResource()
     + addKeyWord($keyWord)
     + getIdDoc()
     + getUnicalName()
@@ -26,7 +31,7 @@ abstract class Element {
 
 class Resource {
     - tag
-    + __construct($tag) 
+    + __construct($tag, $observer) 
     + getUnicalName()
 }
 
@@ -60,24 +65,20 @@ class User {
     + getLogin()
 }
 
-class Admin {
-    - catalog
-    - subscriptions
-    - users 
-    + setCatalog()
-    + createSubscription($users, $element)
-    + setUsers()
+class DocumentAdapter {
+    + getDocuments($source)
 }
 
-class Users {
-    - users
+class ResourceAdapter {
+    + getResource($source)
 }
-
 
 Catalog o-- Document
 Document <|-- Element
 Resource <|-- Element
 Resource o-- ElementObserver
+Document o-- ResourceAdapter
+Catalog o-- DocumentAdapter
 Document o-- Resource
 Document o-- ElementObserver
 ElementObserver <|-- Observer
@@ -85,8 +86,5 @@ Subscriptions o-- Subscription
 Subscription o-- User
 Subscription o-- Resource
 Subscription o-- Document
-Admin o-- Users
-Admin o-- Subscriptions
-Admin o-- Catalog
-Users o--"*" User
+
 @enduml
