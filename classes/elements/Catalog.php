@@ -3,16 +3,20 @@
 namespace elements;
 
 class Catalog {
+    /**
+     *
+     * @var array \elements\Document()
+     */
     private $docs = array();
     
-    public function __construct() {
-        
-    }
-    
+    /**
+     * Редактирование документа
+     * @param string $idDoc 
+     */
     public function editDoc($idDoc) {
         foreach ($this->docs as $doc) {
            if ($doc->getIdDoc() == $idDoc) {
-               return $doc->changeContent();
+               $doc->changeContent();
            }
         }
     }
