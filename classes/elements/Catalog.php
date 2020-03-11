@@ -18,6 +18,14 @@ class Catalog {
     private $source;
     
     /**
+     * 
+     * @param string $source
+     */
+    public function __construct($source) {
+        $this->source = $source;
+    }
+    
+    /**
      * Редактирование документа
      * @param string $idDoc 
      */
@@ -33,6 +41,10 @@ class Catalog {
      * Создает через адаптер документы
      */
     public function createDocuments() {
-        // Здесь разместить парсера для создания документов
+        $adapter = new \adapter\DocumentAdapter();
+        $rawDocuments = $adapter->getDocuments($this->source);
+        foreach ($rawDocuments as $rawDocument) {
+            $this->docs[] = new \elements\Document($rawDocument['name'], $rawDocument['source']);
+        }
     }
 } 

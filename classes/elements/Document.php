@@ -36,10 +36,12 @@ class Document extends Element {
     
     /**
      * 
-     * @param string $idDoc
+     * @param string $nameDocument
+     * @param string $source
      */
-    public function __construct($idDoc) {
-        $this->idDoc = $idDoc;
+    public function __construct($nameDocument, $source) {
+        $this->nameDocument = $nameDocument;
+        $this->source = $source;
     }
     
     /**
@@ -57,6 +59,14 @@ class Document extends Element {
      */
     private function addKeyWord($keyWord) {
         $this->keywords[] = $keyWord;
+        $this->notify();
+    }
+    
+    private function addKeyWords($keyWords) {
+        foreach ($keyWords as $keyWord) {
+            $this->keywords[] = $keyWord;   
+        }
+        
         $this->notify();
     }
     
@@ -80,6 +90,10 @@ class Document extends Element {
      * По заданному $this->source парсит страницу 
      */
     public function createResource() {
-        // Тут должен быть парсер для ресурсов
+        $resourceAdapter = new \adapter\ResourceAdapter();
+        $rawResources = $resourceAdapter->getResource($this->source);
+        foreach ($rawResources as $rawResource) {
+            $this->resources[] = new Resource($rawResource['name'], $rawResource['href']);
+        }
     }
 }

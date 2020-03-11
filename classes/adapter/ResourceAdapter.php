@@ -2,7 +2,7 @@
 
 namespace adapter;
 
-class ResourceAdapter {
+class ResourceAdapter extends Adapter {
     
     /**
      * 
@@ -10,6 +10,19 @@ class ResourceAdapter {
      * @return array
      */
     public function getResource($source) {
-        
+        $saitData = $this->getData($source);
+        $results = [];
+        $tags = array();
+        $attribute = array();
+        preg_match_all("/<a.*>(.+?)<\/a>/u", $saitData, $tags);
+        var_dump($tags);
+        for ($i = 0; $i < count($tags[0]); $i++) {
+            preg_match_all("/href=\"(.+?)\"/u", $tags[0][$i], $attribute);
+            $results[] = array(
+                "name" => $tags[1][$i],
+                "source" => $attribute[1][0]
+            );
+        }
+        return $results;
     }
 }

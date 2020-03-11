@@ -30,7 +30,7 @@ class MainController {
      * Создает $this->observer по классу \observer\ElementObserver
      */
     public function createObserver() {
-        
+        $this->observer = new \observer\ElementObserver();
     }
     
     /**
