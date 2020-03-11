@@ -20,4 +20,12 @@ class Catalog {
            }
         }
     }
+    
+    public function editResource($idDoc) {
+        foreach ($this->docs as $doc) {
+           if ($doc->getIdDoc() == $idDoc) {
+               return $doc->getResources()[0]->changeContent();
+           }
+        }
+    }
 } 

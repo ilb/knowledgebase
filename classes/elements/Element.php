@@ -23,4 +23,19 @@ abstract class Element {
         return $this->notify();
     }
     
+    /**
+     * Устанавливает наблюдателя
+     * @param \observer\ElementObserver $observer
+     */
+    public function setObserver($observer) {
+        $this->observer = $observer;
+    }
+    
+    /**
+     * Удаляет наблюдателя
+     */
+    public function deleteObserver() {
+        $this->observer = null;
+    }
+    
 }

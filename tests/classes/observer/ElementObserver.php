@@ -2,7 +2,7 @@
 
 namespace observer;
 
-class ElementObserver  implements \observer\Observer {
+class ElementObserver  implements Observer {
     private $subscriptions;
     
     public function __construct($s) {

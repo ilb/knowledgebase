@@ -28,7 +28,7 @@ class Subscriptions {
     public function foundSubscription($changeElement) {
         $foundSubscription = array();        
         foreach ($this->subscribtions as $element) {
-            if (!$this->isClass($element->getElement(), $changeElement)) {
+            if (!$element->getElement() instanceof $changeElement) {
                 continue;
             }
             if ($element->getElement()->getUnicalName() == $changeElement->getUnicalName()) {

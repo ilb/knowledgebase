@@ -32,7 +32,7 @@ class Resource {
 
 class ElementObserver {
     - subscriptions
-    + execute($element, $textNotification, $event)
+    + execute($element, $textNotification)
     + send($user, $text)
 }
 
@@ -48,7 +48,6 @@ class Subscriptions {
 class Subscription {
     - element
     - user 
-    - changeLog | Хранит массив где ключи номер оповещения подписки
     + __construct($user, $element)
     + getElement()
     + getUser()
@@ -60,20 +59,6 @@ class User {
     + getLogin()
 }
 
-class Admin {
-    - catalog
-    - subscriptions
-    - users 
-    + setCatalog()
-    + createSubscription($users, $element)
-    + setUsers()
-}
-
-class Users {
-    - users
-}
-
-
 Catalog o-- Document
 Document <|-- Element
 Resource <|-- Element
@@ -81,12 +66,9 @@ Resource o-- ElementObserver
 Document o-- Resource
 Document o-- ElementObserver
 ElementObserver <|-- Observer
+ElementObserver o-- Subscriptions
 Subscriptions o-- Subscription
 Subscription o-- User
 Subscription o-- Resource
 Subscription o-- Document
-Admin o-- Users
-Admin o-- Subscriptions
-Admin o-- Catalog
-Users o--"*" User
 @enduml
