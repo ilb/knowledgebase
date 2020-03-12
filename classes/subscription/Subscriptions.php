@@ -28,6 +28,11 @@ class Subscriptions {
         return $foundSubscription;
     }
 
+    /**
+     * 
+     * @param \user\User() $user
+     * @return array \subscription\Subscription()
+     */
     public function getMaterial($user) {
         $find = array();
         foreach ($this->subscribtions as $subscription) {

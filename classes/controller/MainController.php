@@ -102,7 +102,13 @@ class MainController {
          * а тут только для обязательного ознакомления 
          */
         $material = $this->subscriptions->getMaterial($user);
+        
     }
 
 }
 
+$mc = new MainController();
+
+$mc->createCatalog();
+$mc->createStructur();
+$mc->searchDocument("");

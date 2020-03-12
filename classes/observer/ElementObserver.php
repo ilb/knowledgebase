@@ -2,7 +2,7 @@
 
 namespace observer;
 
-class ElementObserver  implements \observer\Observer {
+class ElementObserver  implements Observer {
     /**
      *  Класс подписки
      * @var array \subscription\Subscriptions()
