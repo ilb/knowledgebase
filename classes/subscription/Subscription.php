@@ -18,6 +18,13 @@ class Subscription {
     private $user;
     
     /**
+     * Ключи номер обновления
+     * Значения логический прочитана или нет
+     * @var array 
+     */
+    private $readInfo = [];
+    
+    /**
      * 
      * @param \user\User $user
      * @param \elements\Element $element
@@ -41,6 +48,10 @@ class Subscription {
      */
     public function getUser() {
         return $this->user;
+    }
+    
+    public function getReadInfo() {
+        return $this->readInfo;
     }
 
 }

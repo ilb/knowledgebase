@@ -7,6 +7,6 @@ interface Observer {
      * @param \elements\Element $element
      * @param string $textNotify
      */
-    public function execute($element, $textNotify);
+    public function execute($element, $textNotify, $event);
 }
 

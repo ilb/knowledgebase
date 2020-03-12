@@ -13,7 +13,7 @@ abstract class Element {
      * Задействет класс наблюдателя
      */
     public function notify() {
-        return $this->observer->execute($this, "", $event);
+        return $this->observer->execute($this, "", "event");
     }
     
     /**

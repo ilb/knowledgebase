@@ -3,7 +3,7 @@
 namespace adapter;
 
 class ResourceAdapter extends Adapter {
-    
+
     /**
      * 
      * @param string $source
@@ -16,7 +16,10 @@ class ResourceAdapter extends Adapter {
         $attribute = array();
         preg_match_all("/<a.*>(.+?)<\/a>/u", $saitData, $tags);
         for ($i = 0; $i < count($tags[0]); $i++) {
-            preg_match_all("/href=\"(.+?)\"/u", $tags[0][$i], $attribute);
+            preg_match_all("/href=\"#(.+?)\"/u", $tags[0][$i], $attribute);
+            if (empty($attribute[1])) {
+                continue;
+            }
             $results[] = array(
                 "name" => $tags[1][$i],
                 "source" => $attribute[1][0]
@@ -24,4 +27,5 @@ class ResourceAdapter extends Adapter {
         }
         return $results;
     }
+
 }

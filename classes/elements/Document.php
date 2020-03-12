@@ -52,21 +52,32 @@ class Document extends Element {
         $this->nameDocument = $newNameDocument;
         $this->notify();
     }
+    
+    /**
+     * Возвращает все привязанные ключевые слова
+     * @return array string
+     */
+    public function getKeyWords() {
+        return $this->keywords;
+    }
 
     /**
      *  Добавляет ключевое слово и уведомляет пользователя
      * @param string $keyWord
      */
-    private function addKeyWord($keyWord) {
-        $this->keywords[] = $keyWord;
+    public function addKeyWord($keyWord) {
+        $this->keywords[] = strtolower($keyWord);
         $this->notify();
     }
     
-    private function addKeyWords($keyWords) {
+    /**
+     * Добавляет массив ключевых слов
+     * @param array $keyWords
+     */
+    public function addKeyWords($keyWords) {
         foreach ($keyWords as $keyWord) {
-            $this->keywords[] = $keyWord;   
-        }
-        
+            $this->keywords[] = strtolower($keyWord);   
+        }        
         $this->notify();
     }
     
@@ -93,7 +104,7 @@ class Document extends Element {
         $resourceAdapter = new \adapter\ResourceAdapter();
         $rawResources = $resourceAdapter->getResource($this->source);
         foreach ($rawResources as $rawResource) {
-            $this->resources[] = new Resource($rawResource['name'], $rawResource['href']);
+            $this->resources[] = new Resource($rawResource['name'], $rawResource['source']);
         }
     }
     
