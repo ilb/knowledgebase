@@ -89,11 +89,32 @@ class Document extends Element {
     /**
      * По заданному $this->source парсит страницу 
      */
-    public function createResource() {
+    public function createResources() {
         $resourceAdapter = new \adapter\ResourceAdapter();
         $rawResources = $resourceAdapter->getResource($this->source);
         foreach ($rawResources as $rawResource) {
             $this->resources[] = new Resource($rawResource['name'], $rawResource['href']);
+        }
+    }
+    
+    /**
+     * 
+     * @return array \elements\Resource()
+     */
+    public function getResources() {
+        return $this->resources;
+    }
+    
+    /**
+     * 
+     * @param string $tagResource
+     * @return \elements\Resource
+     */
+    public function getResourceByTag($tagResource) {
+        foreach ($this->resources as $resource) {
+            if ($resource->getTag() == $tagResource) {
+                return resource;
+            }
         }
     }
 }

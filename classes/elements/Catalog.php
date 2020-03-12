@@ -47,4 +47,25 @@ class Catalog {
             $this->docs[] = new \elements\Document($rawDocument['name'], $rawDocument['source']);
         }
     }
+    
+    /**
+     * 
+     * @return array \elements\Document()
+     */
+    public function getDocuments() {
+        return $this->docs;
+    }
+    
+    /**
+     * 
+     * @param string $idDocument
+     * @return \elements\Document
+     */
+    public function getDocumentById($idDocument) {
+        foreach ($this->docs as $doc) {
+            if ($doc->getIdDoc() == $idDocument) {
+                return $doc;
+            }
+        }
+    }
 } 

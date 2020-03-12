@@ -42,4 +42,11 @@ class Resource extends Element {
         return $this->tag;
     }
     
+    /**
+     * Возращает тег ресурса
+     * @return string
+     */
+    public function getTag() {
+        return $this->tag;
+    }
 }

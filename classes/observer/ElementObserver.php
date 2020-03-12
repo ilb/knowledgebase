@@ -26,11 +26,15 @@ class ElementObserver  implements \observer\Observer {
      * @param \user\User $user
      * @param string $text
      */
-    public function send($user, $text) {
+    private function send($user, $text) {
         /**
          * Для рассылки пока будет так
          */
         return "Уведомлен пользователь: " . $user->getLogin();
+    }
+    
+    public function setSubscriptions($subscriptions) {
+        $this->subscriptions = $subscriptions;
     }
 }
 

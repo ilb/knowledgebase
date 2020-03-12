@@ -19,7 +19,7 @@ class DocumentAdapter extends Adapter {
             preg_match_all("/href=\"(.+?)\"/u", $tags[0][$i], $attribute);
             $results[] = array(
                 "name" => $tags[1][$i],
-                "source" => $attribute[0][0]
+                "source" => $attribute[1][0]
             );
         }
         return $results;
