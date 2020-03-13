@@ -33,7 +33,7 @@ class Subscriptions {
      * @param \user\User() $user
      * @return array \subscription\Subscription()
      */
-    public function getMaterial($user) {
+    public function getMaterialDontRead($user) {
         $find = array();
         foreach ($this->subscribtions as $subscription) {
             if ($subscription->getUser()->getLogin() != $user->getLogin()) {

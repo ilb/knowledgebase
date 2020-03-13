@@ -93,7 +93,7 @@ class MainController {
     }
     
     
-    public function viewMaterial() {
+    public function viewMaterial($user) {
         /**
          * массив не прочитанных подписок 
          * Обработать для предоставления пользователю чтобы смог читать
@@ -101,7 +101,7 @@ class MainController {
          * Добавить еще один метод которы даже прочитанные тоже будет выдавать
          * а тут только для обязательного ознакомления 
          */
-        $material = $this->subscriptions->getMaterial($user);
+        $material = $this->subscriptions->getMaterialDontRead($user);
         
     }
 
