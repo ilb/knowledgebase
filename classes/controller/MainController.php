@@ -110,7 +110,6 @@ class MainController {
 
     public function viewDontReadSubsc($user) {
         $material = $this->subscriptions->getSubscriptionByUser($user, 1);
-        echo "\r\nDontRead \r\n";
         var_dump($material);
     }
 
@@ -148,15 +147,21 @@ $mc = new MainController();
 
 $mc->createCatalog();
 $mc->createStructur();
-
+echo "\r\n\r\n";
 $mc->searchDocument("");
-
+echo "\r\n\r\n";
 $mc->addSubscribtion();
-
 $user = new \user\User("User_1");
+echo "View all subscription \r\n";
 $mc->viewSubscription($user);
+echo "\r\n\r\n";
+echo "View dont read subscription \r\n";
 $mc->viewDontReadSubsc($user);
+echo "\r\n\r\n";
+echo "Change resource";
 $mc->checkNotificate();
+echo "\r\n\r\n";
+echo "Одобрение документа";
 $mc->addOffer($user);
 echo "\r\n\r\n";
 echo microtime(true) - $start . " sec. \r\n\r\n"; 
