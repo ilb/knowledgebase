@@ -1,6 +1,6 @@
 <?php
 
-namespace elements;
+namespace material;
 
 class Resource extends Element {
     /**
@@ -16,12 +16,24 @@ class Resource extends Element {
     private $nameResource;
 
     /**
+     * @var \observer\ObserverImpl
+     */
+    private $observer;
+    
+    /**
      * 
      * @param string $tag
      */
     public function __construct($name, $tag) {
         $this->nameResource = $name;
         $this->tag = $tag;
+    }
+    
+    /**
+     * Для уведомления наблюдателя 
+     */
+    public function notify() {
+        $this->observer->execute("#" . $this->tag, "Текст уведомления", "event");
     }
     
     /**
@@ -32,13 +44,12 @@ class Resource extends Element {
         $this->nameResource = $name;
         $this->notify();
     }
-
-
+    
     /**
-     * Получает уникальное имя ресурса
+     * 
      * @return string
      */
-    public function getUnicalName() {
+    public function getName() {
         return $this->tag;
     }
     
@@ -49,4 +60,13 @@ class Resource extends Element {
     public function getTag() {
         return $this->tag;
     }
+    
+    /**
+     * Редактирование ресурса
+     */
+    public function editResource($content) {
+        
+        $this->notify();
+    }
+    
 }

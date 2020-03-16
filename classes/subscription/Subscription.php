@@ -4,38 +4,34 @@ namespace subscription;
 
 class Subscription {
     /**
-     * Хранит в себе либо \elements\Document 
-     * или \elements\Resource
-     * 
-     * @var \element\Element 
+     * Хранит в себе либо nameDoc 
+     * #tag
+     * @var string
      */
     private $element;
     
     /**
-     *
      * @var \user\User
      */
     private $user;
     
     /**
-     * Ключи номер обновления
-     * Значения логический прочитана или нет
-     * @var array 
+     * Значение логический прочитана или нет
+     * @var boolean
      */
-    private $readInfo = [];
+    private $isRead;
     
     /**
-     * 
      * @param \user\User $user
-     * @param \elements\Element $element
+     * @param string $element
      */
     public function __construct($user, $element) {
         $this->user = $user;
         $this->element = $element;
+        $this->isRead = false;
     } 
     
     /**
-     * 
      * @return \elements\Element 
      */
     public function getElement() {
@@ -43,16 +39,29 @@ class Subscription {
     }
     
     /**
-     * 
      * @return \user\User
      */
     public function getUser() {
         return $this->user;
     }
     
-    public function getReadInfo() {
-        return $this->readInfo;
+    /**
+     * @return boolean
+     */
+    public function getIsRead() {
+        return $this->isRead;
     }
 
+    /**
+     * Принимает имя пользователя и проверяет прочитана ли подписка
+     * @param string $userName
+     * @return boolean
+     */
+    public function checkRead($userName) {
+        if ($this->user->getLogin() == $userName) {
+            return $this->isRead;
+        }
+        return false;
+    }
 }
 

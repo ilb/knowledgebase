@@ -1,11 +1,11 @@
 <?php
 
-namespace elements;
+namespace catalog;
 
 class Catalog {
     /**
      *
-     * @var array \elements\Document()
+     * @var array \material\Document
      */
     private $docs = array();
     
@@ -26,31 +26,19 @@ class Catalog {
     }
     
     /**
-     * Редактирование документа
-     * @param string $idDoc 
-     */
-    public function editDoc($idDoc) {
-        foreach ($this->docs as $doc) {
-           if ($doc->getIdDoc() == $idDoc) {
-               $doc->changeContent();
-           }
-        }
-    }
-    
-    /**
      * Создает через адаптер документы
      */
     public function createDocuments() {
-        $adapter = new \adapter\DocumentAdapter();
-        $rawDocuments = $adapter->getDocuments($this->source);
+        $parser = new \parser\DocumentParser();
+        $rawDocuments = $parser->getDocuments($this->source);
         foreach ($rawDocuments as $rawDocument) {
-            $this->docs[] = new \elements\Document($rawDocument['name'], $rawDocument['source']);
+            $this->docs[] = new \material\Document($rawDocument['name'], $rawDocument['source']);
         }
     }
     
     /**
      * 
-     * @return array \elements\Document()
+     * @return array \elements\Document
      */
     public function getDocuments() {
         return $this->docs;
@@ -70,25 +58,16 @@ class Catalog {
     }
     
     /**
-     * Находит документы и ресурсы содержащие в себе искомое значение
-     * Возвращает двумерный массив с ключами document и resource 
-     * Где в первом содержаться все найденные документы 
-     * А во стором все найденные ресурсы
+     * Находит документы содержащие в себе искомое значение
      * @param string $word
      * @return array
      */
-    public function searchElement($word) {
+    public function searchMaterials($word) {
         $result = array();
         foreach ($this->docs as $doc) {
             if (in_array(strtolower($word), $doc->getKeyWords())) {
-                $result['document'][] = $doc;
+                $result[] = [ "document" => $doc, "findName" => $doc->getName() . "#" . $word];
                 continue;
-            }
-            foreach ($doc->getResources() as $resource) {
-                if (strtolower($word) == $resource->getTag()) {
-                    $result['resource'][] = $resource;
-                    continue;
-                }
             }
         }
         return $result;

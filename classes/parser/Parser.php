@@ -1,9 +1,14 @@
 <?php
 
-namespace adapter;
+namespace parser;
 
-abstract class Adapter {
+abstract class Parser {
 
+    /**
+     * Возвращает полученный контент страницы
+     * @param string $source
+     * @return string
+     */
     protected function getData($source) {
         $ch = curl_init($source);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

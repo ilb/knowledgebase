@@ -1,13 +1,13 @@
 <?php
 
-namespace elements;
+namespace notify;
 
-abstract class Element {
+class NotifyImpl implements Notify {
     /**
      *
      * @var ElementObserver
      */
-    protected $observer;
+    private $observer;
     
     /**
      * Задействет класс наблюдателя

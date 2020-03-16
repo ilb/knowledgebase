@@ -1,9 +1,9 @@
 <?php
 
-namespace elements;
+namespace material;
 
 
-class Document extends Element {
+class Document {
     /**
      * источник данных документа
      * @var String
@@ -15,13 +15,12 @@ class Document extends Element {
      * @var array \elements\Resource()
      */
     private $resources = [];
-    
+
     /**
-     *
-     * @var string Уникальный идентификатор
+     * @var \observer\ObserverImpl
      */
-    private $idDoc;
-    
+    private $observer;
+   
     /**
      * Ключевые слова для поиска
      * @var array string
@@ -45,6 +44,13 @@ class Document extends Element {
     }
     
     /**
+     * Для уведомления наблюдателя
+     */
+    public function notify() {
+        $this->observer->execute($this->nameDocument, "Текст уведомления", "event");
+    }
+    
+    /**
      *  Меняет имя у документа и вызывает класс ElementObserver
      * @param string $newNameDocument
      */
@@ -53,6 +59,22 @@ class Document extends Element {
         $this->notify();
     }
     
+    /**
+     * 
+     * @return string
+     */
+    public function getNameDocument() {
+        return $this->nameDocument;
+    }
+    
+    /**
+     * 
+     * @return string
+     */
+    public function getName() {
+        return $this->nameDocument;
+    }
+
     /**
      * Возвращает все привязанные ключевые слова
      * @return array string
@@ -67,7 +89,6 @@ class Document extends Element {
      */
     public function addKeyWord($keyWord) {
         $this->keywords[] = strtolower($keyWord);
-        $this->notify();
     }
     
     /**
@@ -78,33 +99,17 @@ class Document extends Element {
         foreach ($keyWords as $keyWord) {
             $this->keywords[] = strtolower($keyWord);   
         }        
-        $this->notify();
-    }
-    
-    /**
-     * 
-     * @return string
-     */
-    public function getIdDoc() {
-        return $this->idDoc;
-    }
-
-    /**
-     * 
-     * @return string
-     */
-    public function getUnicalName() {
-        return $this->idDoc;
     }
     
     /**
      * По заданному $this->source парсит страницу 
      */
     public function createResources() {
-        $resourceAdapter = new \adapter\ResourceAdapter();
-        $rawResources = $resourceAdapter->getResource($this->source);
+        $resourceParser = new \parser\ResourceParser();
+        $rawResources = $resourceParser->getResource($this->source);
         foreach ($rawResources as $rawResource) {
-            $this->resources[] = new Resource($rawResource['name'], $rawResource['source']);
+            $this->resources[] = new \material\Resource($rawResource['name'], $rawResource['tag']);
+            $this->addKeyWord($rawResource['tag']);
         }
     }
     
@@ -127,5 +132,14 @@ class Document extends Element {
                 return resource;
             }
         }
+    }
+    
+    /**
+     * Редактированеи документа
+     * @param string $content
+     */
+    public function editDocument($content) {
+        
+        $this->notify();
     }
 }

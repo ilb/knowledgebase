@@ -17,12 +17,9 @@ class Subscriptions {
      */
     public function foundSubscription($changeElement) {
         $foundSubscription = array();
-        foreach ($this->subscribtions as $element) {
-            if (!$element->getElement() instanceof $changeElement) {
-                continue;
-            }
-            if ($element->getElement()->getUnicalName() == $changeElement->getUnicalName()) {
-                $foundSubscription[] = $element;
+        foreach ($this->subscribtions as $subscription) {
+            if ($subscription->getElement() == $changeElement) {
+                $foundSubscription[] = $subscription;
             }
         }
         return $foundSubscription;
@@ -30,20 +27,14 @@ class Subscriptions {
 
     /**
      * 
-     * @param \user\User() $user
+     * @param \user\User $user
      * @return array \subscription\Subscription()
      */
     public function getMaterialDontRead($user) {
         $find = array();
         foreach ($this->subscribtions as $subscription) {
-            if ($subscription->getUser()->getLogin() != $user->getLogin()) {
-                continue;
-            }
-            foreach ($subscription->getReadInfo() as $read) {
-                if (!$read) {
-                    $find[] = $subscription;
-                    break;
-                }
+            if (!$subscription->checkRead($user->getLogin())) {
+                $find = $subscription;
             }
         }
         return $find;

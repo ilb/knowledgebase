@@ -2,7 +2,7 @@
 
 namespace observer;
 
-class ElementObserver  implements Observer {
+class ObserverImpl  implements Observer {
     /**
      *  Класс подписки
      * @var array \subscription\Subscriptions()
@@ -11,7 +11,7 @@ class ElementObserver  implements Observer {
     
     /**
      * Какой элемент был изменен (и текст изменения?) 
-     * @param \elements\Element $element
+     * @param string $element
      * @param string $textNotify
      */
     public function execute($element, $textNotify, $event) {

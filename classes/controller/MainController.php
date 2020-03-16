@@ -5,6 +5,7 @@ namespace contrller;
 ini_set("error_reporting", E_ALL);
 ini_set("display_errors", 1);
 ini_set("display_startup_errors", 1);
+
 require_once '../__autoload.php';
 
 class MainController {
@@ -87,7 +88,7 @@ class MainController {
         echo '++++++++++++++SEARCH------------------------\r\n';
         $docs = $this->catalog->getDocuments();
         $word = "Knowlegebase";
-        $docs[12]->addKeyWord("knowlegebase");
+        $docs[12]->addKeyWord($word);
         var_dump($this->catalog->searchElement($word));
         var_dump($this->catalog->searchElement($word)['document']);
     }
