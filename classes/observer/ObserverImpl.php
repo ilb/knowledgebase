@@ -12,7 +12,7 @@ class ObserverImpl  implements Observer {
     /**
      * Какой элемент был изменен (и изменения) 
      * @param string $element
-     * @param string $textNotify
+     * @param string $diff
      */
     public function execute($element, $diff, $event) {
         $subscriptionNotify = $this->subscriptions->getSubscriptionByElementName($element);

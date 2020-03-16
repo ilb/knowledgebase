@@ -1,6 +1,6 @@
 <?php
 
-namespace material;
+namespace document;
 
 
 class Document {
@@ -12,7 +12,7 @@ class Document {
     
     /**
      * Массив ресурсов
-     * @var array \elements\Resource()
+     * @var array \resource\Resource()
      */
     private $resources = [];
 
@@ -116,14 +116,14 @@ class Document {
         $resourceParser = new \parser\ResourceParser();
         $rawResources = $resourceParser->getResource($this->source);
         foreach ($rawResources as $rawResource) {
-            $this->resources[] = new \material\Resource($rawResource['name'], $rawResource['tag']);
+            $this->resources[] = new \resource\Resource($rawResource['name'], $rawResource['tag']);
             $this->addKeyWord($rawResource['tag']);
         }
     }
     
     /**
      * 
-     * @return array \elements\Resource()
+     * @return array \resource\Resource
      */
     public function getResources() {
         return $this->resources;
@@ -132,7 +132,7 @@ class Document {
     /**
      * 
      * @param string $tagResource
-     * @return \elements\Resource
+     * @return \resource\Resource
      */
     public function getResourceByTag($tagResource) {
         foreach ($this->resources as $resource) {

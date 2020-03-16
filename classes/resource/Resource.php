@@ -1,6 +1,6 @@
 <?php
 
-namespace material;
+namespace resource;
 
 class Resource {
     /**

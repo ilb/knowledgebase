@@ -32,7 +32,7 @@ class Catalog {
         $parser = new \parser\DocumentParser();
         $rawDocuments = $parser->getDocuments($this->source);
         foreach ($rawDocuments as $rawDocument) {
-            $this->docs[] = new \material\Document($rawDocument['name'], $rawDocument['source']);
+            $this->docs[] = new \document\Document($rawDocument['name'], $rawDocument['source']);
         }
     }
     
@@ -67,6 +67,7 @@ class Catalog {
         $word = strtolower($word);
         foreach ($this->docs as $doc) {
             if (preg_filter("/.*[" . $word . "].*/", "", $doc->getKeyWords())) {
+                // Тег не всегда будет являться тегом ресурса                      ↓
                 $result[] = [ "document" => $doc, "findName" => $doc->getName() . "#" . $word];
             }
         }

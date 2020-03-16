@@ -24,36 +24,31 @@ class Subscriptions {
         }
         return $foundSubscription;
     }
-
-    /**
-     * Получает все не прочитаные подписки пользователя
-     * 
-     * А НУЖЕН ЛИ ЭТОТ МЕТОД? 
-     * МОЖНО ПРОСТО ПОЛУЧАТЬ ИЗ ВСЕХ ПОДПИСОК И ПРОСМАТРИВАТЬ
-     * ХМММ
-     * 
-     * @param \user\User $user
-     * @return array \subscription\Subscription()
-     */
-    public function getSubscriptionDontRead($user) {
-        $find = array();
-        foreach ($this->subscribtions as $subscription) {
-            if (!$subscription->checkRead($user->getLogin())) {
-                $find = $subscription;
-            }
-        }
-        return $find;
-    }
     
     /**
      * Получает все подписки пользователя
      * @param \user\User $user
+     * @param integer $filtr 
+     *  Содержит значения:
+     *  0 - без сортировки 
+     *  1 - только не прочитанные
+     *  2 - толкьо прочитанные 
      * @return array(\subscription\Subscription)
      */
-    public function getSubscriptionByUser($user) {
+    public function getSubscriptionByUser($user, $filtr = 0) {
         $find = array();
         foreach ($this->subscribtions as $subscription) {
-            if ($subscription->getUser()->getLogin() == $user->getLogin()) {
+            $userName = $user->getLogin();
+            
+            if (!$subscription->checkRead($userName) && $filtr == 1) {
+                $find[] = $subscription;
+            }
+            
+            if ($subscription->checkRead($userName) && $filtr == 2) {
+                $find[] = $subscription;
+            }
+            
+            if ($subscription->checkToken($userName) && $filtr == 0) {
                 $find[] = $subscription;
             }
         }

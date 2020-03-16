@@ -66,10 +66,14 @@ class Subscription {
      * @return boolean
      */
     public function checkRead($userName) {
-        if ($this->user->getLogin() == $userName) {
+        if ($this->checkUser($userName)) {
             return $this->isRead;
         }
         return false;
+    }
+    
+    public function checkUser($userName) {
+        return $userName == $this->user->getLogin();
     }
 }
 

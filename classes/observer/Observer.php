@@ -4,9 +4,10 @@ namespace observer;
 
 interface Observer {
     /**
-     * @param \elements\Element $element
-     * @param string $textNotify
+     * @param string $element
+     * @param string $diff
+     * @param string $event 
      */
-    public function execute($element, $textNotify, $event);
+    public function execute($element, $diff, $event);
 }
 
