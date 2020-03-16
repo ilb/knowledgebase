@@ -61,11 +61,11 @@ class Catalog {
      * @param string $word
      * @return array
      */
-    public function searchMaterials($word) {
+    public function searchByKeyword($word) {
         $result = array();
         $word = strtolower($word);
         foreach ($this->docs as $doc) {
-            if (preg_filter("/.*[" . $word . "].*/", "", $doc->getKeyWords())) {
+            if (in_array($word, $doc->getKeyWords())) {
                 // Тег не всегда будет являться тегом ресурса                    ↓
                 $result[] = [ "document" => $doc, "link" => $doc->getSource() . "#" . $word];
             }

@@ -47,7 +47,7 @@ class Subscriptions {
                 $find[] = $subscription;
             }
             
-            if ($subscription->checkToken($userName) && $filtr == 0) {
+            if ($subscription->checkUser($userName) && $filtr == 0) {
                 $find[] = $subscription;
             }
         }

@@ -5,6 +5,7 @@
 
 namespace contrller;
 
+$start = microtime(true);
 ini_set("error_reporting", E_ALL);
 ini_set("display_errors", 1);
 ini_set("display_startup_errors", 1);
@@ -42,7 +43,7 @@ class MainController {
      * Создает $this->observer по классу \observer\ElementObserver
      */
     public function createObserver() {
-        $this->observer = new \observer\ElementObserver();
+        $this->observer = new \observer\ObserverImpl();
         if (!empty($this->subscriptions)) {
             $this->observer->setSubscriptions($this->subscriptions);
         }
@@ -84,20 +85,17 @@ class MainController {
      * Поиск документа по ключевому слову
      */
     public function searchDocument($word) {
-        echo '++++++++++++++SEARCH------------------------';
+        echo "++++++++++++++SEARCH------------------------\r\n";
         $word = "precedent";
-        var_dump($this->catalog->searchElement($word));
-        var_dump($this->catalog->searchElement($word)['resource']);
-        echo '++++++++++++++SEARCH------------------------\r\n';
+        var_dump($this->catalog->searchByKeyword($word));
+        echo "+++++++++++++SEARCH------------------------ \r\n";
         $docs = $this->catalog->getDocuments();
-        $word = "Knowlegebase";
-        $docs[12]->addKeyWord($word);
-        var_dump($this->catalog->searchElement($word));
-        var_dump($this->catalog->searchElement($word)['document']);
+        $word = "kratkoe_opisanie_proekta";
+        var_dump($this->catalog->searchByKeyword($word));
     }
     
     
-    public function viewMaterial($user) {
+    public function viewSubscription($user) {
         /**
          * массив не прочитанных подписок 
          * Обработать для предоставления пользователю чтобы смог читать
@@ -105,15 +103,18 @@ class MainController {
          * Добавить еще один метод которы даже прочитанные тоже будет выдавать
          * а тут только для обязательного ознакомления 
          */
-        $material = $this->subscriptions->getMaterialDontRead($user);
+        $material = $this->subscriptions->getSubscriptionByUser($user);
         
     }
 
 }
-//
-//$mc = new MainController();
-//
-//$mc->createCatalog();
-//$mc->createStructur();
-//
-//$mc->searchDocument("");
+
+$mc = new MainController();
+
+$mc->createCatalog();
+$mc->createStructur();
+
+$mc->searchDocument("");
+
+echo "\r\n\r\n";
+echo microtime(true) - $start . " sec. \r\n\r\n"; 
