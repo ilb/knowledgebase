@@ -37,9 +37,10 @@ class Offer {
      * @param string $link
      * @param \user\User $user
      */
-    public function __construct($link, $user) {
+    public function __construct($link, $user, $offerObserver) {
         $this->link = $link;
         $this->user = $user;
+        $this->observer = $offerObserver;
     }
     
     /**

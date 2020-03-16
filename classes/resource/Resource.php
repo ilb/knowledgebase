@@ -26,7 +26,7 @@ class Resource {
      */
     public function __construct($name, $tag) {
         $this->nameResource = $name;
-        $this->tag = $tag;
+        $this->tag = "#" . $tag;
     }
     
     /**
@@ -41,7 +41,7 @@ class Resource {
      * Для уведомления наблюдателя 
      */
     public function notify() {
-        $this->observer->execute("#" . $this->tag, "Изменения", "event");
+        $this->observer->execute($this->tag, "Изменения", "event");
     }
 
     /**
@@ -73,7 +73,6 @@ class Resource {
      * Редактирование ресурса
      */
     public function editResource($content) {
-        
         $this->notify();
     }
     

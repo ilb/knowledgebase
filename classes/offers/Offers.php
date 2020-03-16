@@ -14,8 +14,8 @@ class Offers {
      * @param string $link
      * @param \user\User $user
      */
-    public function createOffer($link, $user) {
-        $this->offers[] = new \offers\Offer($link, $user);
+    public function createOffer($link, $user,$offerObserver) {
+        $this->offers[] = new \offers\Offer($link, $user, $offerObserver);
     }    
     
     /**

@@ -9,7 +9,11 @@ class Subscriptions {
      */
     private $subscribtions = array();
 
-    /**
+    public function subscribe($element, $user) {
+        $this->subscribtions[] = new \subscription\Subscription($user, $element);
+    }
+
+        /**
      * Находит все подписки содержащие в себе измененный документ
      * @param string $changeElement
      * @return array \subscription\Subscription
@@ -38,20 +42,32 @@ class Subscriptions {
         $find = array();
         foreach ($this->subscribtions as $subscription) {
             $userName = $user->getLogin();
-            
-            if (!$subscription->checkRead($userName) && $filtr == 1) {
-                $find[] = $subscription;
+            if (!$subscription->checkUser($userName)) {
+                continue;
             }
-            
-            if ($subscription->checkRead($userName) && $filtr == 2) {
-                $find[] = $subscription;
-            }
-            
-            if ($subscription->checkUser($userName) && $filtr == 0) {
+            if ($this->hasAddFind($subscription->checkRead($userName), $filtr)) {
                 $find[] = $subscription;
             }
         }
-        return  $subscription;
+        return  $find;
+    }
+    
+    /**
+     * @param boolean $readed
+     * @param integer $filter
+     * @return boolean
+     */
+    public function hasAddFind($readed, $filter) {
+        if ($filter == 0) {
+            return true;
+        } 
+        if ($filter == 1 && !$readed) {
+            return true;
+        }
+        if ($filter == 2 && $readed) {
+            return true;
+        }
+        return false;
     }
 
 }

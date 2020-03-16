@@ -18,7 +18,7 @@ class ObserverImpl  implements Observer {
         $subscriptionNotify = $this->subscriptions->getSubscriptionByElementName($element);
         foreach ($subscriptionNotify as $subscription) {
             $subscription->setIsRead(false);
-            $this->send($subscription->getUser(), $textNotify);
+            $this->send($subscription->getUser(), $diff);
         }
     }
     
@@ -31,7 +31,7 @@ class ObserverImpl  implements Observer {
         /**
          * Для рассылки пока будет так
          */
-        return "Уведомлен пользователь: " . $user->getLogin();
+        echo "\r\nУведомлен пользователь: " . $user->getLogin() . "\r\n";
     }
     
     /**

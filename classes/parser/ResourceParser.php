@@ -25,6 +25,7 @@ class ResourceParser extends Parser {
                 "name" => strtolower($tags[1][$i]),
                 "tag" => $attribute[1][0]
             );
+            
             foreach ($results as $res) {
                 if ($find['tag'] == $res['tag']) {
                     $flag = false;

@@ -104,9 +104,44 @@ class MainController {
          * а тут только для обязательного ознакомления 
          */
         $material = $this->subscriptions->getSubscriptionByUser($user);
+        var_dump($material);
         
     }
 
+    public function viewDontReadSubsc($user) {
+        $material = $this->subscriptions->getSubscriptionByUser($user, 1);
+        echo "\r\nDontRead \r\n";
+        var_dump($material);
+    }
+
+    public function addSubscribtion() {
+        $arr = ['knowlegebase.xhtml', '#kratkoe_opisanie_proekta', '#sloj_slabosvjzann_h_servisov', '#inzener-programmist'];
+        for ($i = 0; $i < 4; $i++) {
+            $user = new \user\User("User_" . $i);
+            $this->subscriptions->subscribe($arr[$i], $user);
+        }
+        $user = new \user\User("User_1");
+        $this->subscriptions->subscribe($arr[3], $user);
+        $this->subscriptions->subscribe($arr[2], $user);
+        $s = $this->subscriptions->getSubscriptionByElementName("#kratkoe_opisanie_proekta");
+        foreach ($s as $val) {
+            $val->setIsRead(true);
+        }
+    }
+    
+    public function addOffer($user) {
+        $offers = new \offers\Offers();
+        $offerObserver = new \observer\OfferObserver();
+        // вместо пустой строки должны быть ссылка docName#tagName
+        $offers->createOffer("", $user, $offerObserver);       
+        $offers->acceptOffer($user->getLogin(), "");
+    }
+    
+    public function checkNotificate() {
+        $d = $this->catalog->searchByKeyword("inzener-programmist");
+        $res = $d[0]['document']->getResourceByTag("#inzener-programmist");
+        $res->editResource("");
+    }
 }
 
 $mc = new MainController();
@@ -116,5 +151,12 @@ $mc->createStructur();
 
 $mc->searchDocument("");
 
+$mc->addSubscribtion();
+
+$user = new \user\User("User_1");
+$mc->viewSubscription($user);
+$mc->viewDontReadSubsc($user);
+$mc->checkNotificate();
+$mc->addOffer($user);
 echo "\r\n\r\n";
 echo microtime(true) - $start . " sec. \r\n\r\n"; 

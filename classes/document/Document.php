@@ -138,7 +138,7 @@ class Document {
     public function getResourceByTag($tagResource) {
         foreach ($this->resources as $resource) {
             if ($resource->getTag() == $tagResource) {
-                return resource;
+                return $resource;
             }
         }
     }

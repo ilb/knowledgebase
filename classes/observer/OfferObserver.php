@@ -11,7 +11,7 @@ class OfferObserver implements Observer {
      * @param string $event
      */
     public function execute($user, $textNotificate, $event) {
-        $this->send();
+        $this->send($user, "");
     }
     
     /**
@@ -21,6 +21,6 @@ class OfferObserver implements Observer {
      * @return string
      */
     private function send($user, $textNotificate) {
-        return "одобрение статьи. Уведомлен пользователь: " . $user->getLogin();
+        echo "одобрение статьи. Уведомлен пользователь: " . $user->getLogin() . "\r\n";
     }
 }
