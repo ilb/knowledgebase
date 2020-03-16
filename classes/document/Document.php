@@ -150,4 +150,12 @@ class Document {
         
         $this->notify();
     }
+    
+    /**
+     * 
+     * @return string
+     */
+    public function getSource() {
+        return $this->source;
+    }
 }

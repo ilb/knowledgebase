@@ -67,8 +67,8 @@ class Catalog {
         $word = strtolower($word);
         foreach ($this->docs as $doc) {
             if (preg_filter("/.*[" . $word . "].*/", "", $doc->getKeyWords())) {
-                // Тег не всегда будет являться тегом ресурса                      ↓
-                $result[] = [ "document" => $doc, "findName" => $doc->getName() . "#" . $word];
+                // Тег не всегда будет являться тегом ресурса                    ↓
+                $result[] = [ "document" => $doc, "link" => $doc->getSource() . "#" . $word];
             }
         }
         return $result;
