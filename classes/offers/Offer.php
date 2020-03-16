@@ -34,7 +34,7 @@ class Offer {
     private $observer;
     
     /**
-     * @param \elements\Element $element
+     * @param string $link
      * @param \user\User $user
      */
     public function __construct($link, $user) {

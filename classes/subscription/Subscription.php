@@ -3,8 +3,11 @@
 namespace subscription;
 
 class Subscription {
+    
     /**
-     * Хранит в себе либо nameDoc 
+     * Хранит в себе либо 
+     * nameDoc 
+     * или
      * #tag
      * @var string
      */
@@ -31,7 +34,7 @@ class Subscription {
     } 
     
     /**
-     * @return \elements\Element 
+     * @return string
      */
     public function getElement() {
         return $this->element;
@@ -71,6 +74,11 @@ class Subscription {
         return false;
     }
     
+    /**
+     * Проверяет пользователя есть ли у него данная подписка
+     * @param string $userName
+     * @return boolean
+     */
     public function checkUser($userName) {
         return $userName == $this->user->getLogin();
     }

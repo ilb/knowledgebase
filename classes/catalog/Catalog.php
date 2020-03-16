@@ -3,9 +3,9 @@
 namespace catalog;
 
 class Catalog {
+    
     /**
-     *
-     * @var array \material\Document
+     * @var array \document\Document
      */
     private $docs = array();
     
@@ -18,7 +18,6 @@ class Catalog {
     private $source;
     
     /**
-     * 
      * @param string $source
      */
     public function __construct($source) {
@@ -38,7 +37,7 @@ class Catalog {
     
     /**
      * 
-     * @return array \material\Document
+     * @return array \document\Document
      */
     public function getDocuments() {
         return $this->docs;
@@ -47,7 +46,7 @@ class Catalog {
     /**
      * 
      * @param string $idDocument
-     * @return \elements\Document
+     * @return \document\Document
      */
     public function getDocumentById($idDocument) {
         foreach ($this->docs as $doc) {

@@ -4,9 +4,10 @@ namespace document;
 
 
 class Document {
+    
     /**
      * источник данных документа
-     * @var String
+     * @var string
      */
     private $source;
     

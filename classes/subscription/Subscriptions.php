@@ -5,7 +5,6 @@ namespace subscription;
 class Subscriptions {
 
     /**
-     *
      * @var array \subscription\Subscription
      */
     private $subscribtions = array();

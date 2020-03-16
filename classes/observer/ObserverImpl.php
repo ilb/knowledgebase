@@ -5,7 +5,7 @@ namespace observer;
 class ObserverImpl  implements Observer {
     /**
      *  Класс подписки
-     * @var array \subscription\Subscriptions()
+     * @var \subscription\Subscriptions
      */
     private $subscriptions;
     
@@ -35,7 +35,6 @@ class ObserverImpl  implements Observer {
     }
     
     /**
-     * 
      * @param \subscription\Subscriptions $subscriptions
      */
     public function setSubscriptions($subscriptions) {

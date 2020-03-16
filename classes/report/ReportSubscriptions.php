@@ -1,14 +1,13 @@
 <?php
 
 class ReportSubscriptions {
+    
     /**
-     *
      * @var array \users\User()
      */
     private $users = array();
     
     /**
-     *
      * @var \subscriptions\Subscriptions()
      */
     private $subscriptions;

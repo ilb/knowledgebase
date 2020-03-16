@@ -11,7 +11,7 @@ class Offers {
     private $offers = array();
     
     /**
-     * @param \elements\Element $element
+     * @param string $link
      * @param \user\User $user
      */
     public function createOffer($link, $user) {
@@ -27,10 +27,12 @@ class Offers {
     }
     
     /**
-     * Нужно знать еще ссылку рессурса
+     * 
+     * @param string $userName
+     * @param string $link
      * @return \offers\Offer
      */
-    public function getOfferByUser($userName, $link) {
+    public function getOfferByUserLink($userName, $link) {
         foreach ($this->offers as $offer) {
             $offerUser = $offer->getUser()->getLogin();
             if ($offerUser == $userName && $link == $offer->getLink()) {
@@ -45,8 +47,10 @@ class Offers {
      * @param string $link
      */
     public function acceptOffer($userName, $link) {
-        $offer = $this->getOfferByUser($userName, $link);
+        $offer = $this->getOfferByUserLink($userName, $link);
         $offer->setPublished(true);
+        // как то нужно получить документ и изменить его Вызвав тем самым рассылку
+        
     }
 }
 
