@@ -12,10 +12,10 @@ class Subscriptions {
 
     /**
      * Находит все подписки содержащие в себе измененный документ
-     * @param type $changeElement
+     * @param string $changeElement
      * @return array \subscription\Subscription
      */
-    public function foundSubscription($changeElement) {
+    public function getSubscriptionByElementName($changeElement) {
         $foundSubscription = array();
         foreach ($this->subscribtions as $subscription) {
             if ($subscription->getElement() == $changeElement) {
@@ -26,11 +26,16 @@ class Subscriptions {
     }
 
     /**
+     * Получает все не прочитаные подписки пользователя
+     * 
+     * А НУЖЕН ЛИ ЭТОТ МЕТОД? 
+     * МОЖНО ПРОСТО ПОЛУЧАТЬ ИЗ ВСЕХ ПОДПИСОК И ПРОСМАТРИВАТЬ
+     * ХМММ
      * 
      * @param \user\User $user
      * @return array \subscription\Subscription()
      */
-    public function getMaterialDontRead($user) {
+    public function getSubscriptionDontRead($user) {
         $find = array();
         foreach ($this->subscribtions as $subscription) {
             if (!$subscription->checkRead($user->getLogin())) {
@@ -38,6 +43,21 @@ class Subscriptions {
             }
         }
         return $find;
+    }
+    
+    /**
+     * Получает все подписки пользователя
+     * @param \user\User $user
+     * @return array(\subscription\Subscription)
+     */
+    public function getSubscriptionByUser($user) {
+        $find = array();
+        foreach ($this->subscribtions as $subscription) {
+            if ($subscription->getUser()->getLogin() == $user->getLogin()) {
+                $find[] = $subscription;
+            }
+        }
+        return  $subscription;
     }
 
 }

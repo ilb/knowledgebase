@@ -10,13 +10,14 @@ class ObserverImpl  implements Observer {
     private $subscriptions;
     
     /**
-     * Какой элемент был изменен (и текст изменения?) 
+     * Какой элемент был изменен (и изменения) 
      * @param string $element
      * @param string $textNotify
      */
-    public function execute($element, $textNotify, $event) {
-        $subscriptionNotify = $this->subscriptions->foundSubscription($element);
+    public function execute($element, $diff, $event) {
+        $subscriptionNotify = $this->subscriptions->getSubscriptionByElementName($element);
         foreach ($subscriptionNotify as $subscription) {
+            $subscription->setIsRead(false);
             $this->send($subscription->getUser(), $textNotify);
         }
     }
@@ -33,6 +34,10 @@ class ObserverImpl  implements Observer {
         return "Уведомлен пользователь: " . $user->getLogin();
     }
     
+    /**
+     * 
+     * @param \subscription\Subscriptions $subscriptions
+     */
     public function setSubscriptions($subscriptions) {
         $this->subscriptions = $subscriptions;
     }

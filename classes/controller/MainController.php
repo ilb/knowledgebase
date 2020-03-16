@@ -49,7 +49,7 @@ class MainController {
      * Создает $this->catalog по классу \elements\Catalog
      */
     public function createCatalog() {
-        $this->catalog = new \elements\Catalog("../../index.html");
+        $this->catalog = new \catalog\Catalog("../../index.html");
         $this->catalog->createDocuments();
     }
     
@@ -107,9 +107,10 @@ class MainController {
     }
 
 }
-
-$mc = new MainController();
-
-$mc->createCatalog();
-$mc->createStructur();
-$mc->searchDocument("");
+//
+//$mc = new MainController();
+//
+//$mc->createCatalog();
+//$mc->createStructur();
+//
+//$mc->searchDocument("");

@@ -44,10 +44,18 @@ class Document {
     }
     
     /**
+     * 
+     * @param \observer\ObserverImpl $observer
+     */
+    public function setObserver($observer) {
+        $this->observer = $observer;
+    }
+    
+    /**
      * Для уведомления наблюдателя
      */
     public function notify() {
-        $this->observer->execute($this->nameDocument, "Текст уведомления", "event");
+        $this->observer->execute($this->nameDocument, "Изменение", "event");
     }
     
     /**

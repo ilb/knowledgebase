@@ -51,6 +51,14 @@ class Subscription {
     public function getIsRead() {
         return $this->isRead;
     }
+    
+    /**
+     * Задает значение прочитана или нет 
+     * @param boolean $value
+     */
+    public function setIsRead($value) {
+        $this->isRead = $value;
+    }
 
     /**
      * Принимает имя пользователя и проверяет прочитана ли подписка

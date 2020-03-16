@@ -26,7 +26,7 @@ class Catalog {
     }
     
     /**
-     * Создает через адаптер документы
+     * Создает через парсер документы
      */
     public function createDocuments() {
         $parser = new \parser\DocumentParser();
@@ -38,7 +38,7 @@ class Catalog {
     
     /**
      * 
-     * @return array \elements\Document
+     * @return array \material\Document
      */
     public function getDocuments() {
         return $this->docs;
@@ -64,10 +64,10 @@ class Catalog {
      */
     public function searchMaterials($word) {
         $result = array();
+        $word = strtolower($word);
         foreach ($this->docs as $doc) {
-            if (in_array(strtolower($word), $doc->getKeyWords())) {
+            if (preg_filter("/.*[" . $word . "].*/", "", $doc->getKeyWords())) {
                 $result[] = [ "document" => $doc, "findName" => $doc->getName() . "#" . $word];
-                continue;
             }
         }
         return $result;

@@ -2,7 +2,7 @@
 
 namespace material;
 
-class Resource extends Element {
+class Resource {
     /**
      *
      * @var string
@@ -30,12 +30,20 @@ class Resource extends Element {
     }
     
     /**
+     * 
+     * @param \observer\ObserverImpl $observer
+     */
+    public function setObserver($observer) {
+        $this->observer = $observer;
+    }
+    
+    /**
      * Для уведомления наблюдателя 
      */
     public function notify() {
-        $this->observer->execute("#" . $this->tag, "Текст уведомления", "event");
+        $this->observer->execute("#" . $this->tag, "Изменения", "event");
     }
-    
+
     /**
      * 
      * @param string $name
