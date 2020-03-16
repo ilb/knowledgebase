@@ -19,7 +19,7 @@ class Subscription {
      * Значение логический прочитана или нет
      * @var boolean
      */
-    private $isRead;
+    private $isRead = false;
     
     /**
      * @param \user\User $user
@@ -28,7 +28,6 @@ class Subscription {
     public function __construct($user, $element) {
         $this->user = $user;
         $this->element = $element;
-        $this->isRead = false;
     } 
     
     /**
