@@ -4,9 +4,11 @@ namespace observer;
 
 class OfferObserver implements Observer {
     
-    public function execute($element, $textNotify, $event) {
-        if ($element instanceof \offers\Offer) {
-            
-        }
+    public function execute($user, $textNotificate, $event) {
+        $this->send();
+    }
+    
+    private function send($user, $textNotificate) {
+        return "одобрение статьи. Уведомлен пользователь: " . $user->getLogin();
     }
 }

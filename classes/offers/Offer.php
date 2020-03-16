@@ -27,7 +27,6 @@ class Offer {
      * @var boolean
      */
     private $published;
-
     
     /**
      * @var \observer\OfferObserver
@@ -38,7 +37,7 @@ class Offer {
      * @param \elements\Element $element
      * @param \user\User $user
      */
-    public function __construct($link, $user, $content) {
+    public function __construct($link, $user) {
         $this->link = $link;
         $this->user = $user;
     }
@@ -84,7 +83,7 @@ class Offer {
      */
     public function setPublished($published) {
         $this->published = $published;
-        $this->observer->execute($this->user->getLogin(), "Вашу публикацию одобрили", "Опубликовано");
+        $this->observer->execute($this->user, "Вашу публикацию одобрили", "Опубликовано");
     }
 
     /**

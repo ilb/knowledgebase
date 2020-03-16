@@ -11,12 +11,11 @@ class Offers {
     private $offers = array();
     
     /**
-     * 
      * @param \elements\Element $element
      * @param \user\User $user
      */
-    public function offer($element, $user, $text) {
-        $this->offers[] = new Offer($element, $user, $text);
+    public function createOffer($link, $user) {
+        $this->offers[] = new \offers\Offer($link, $user);
     }    
     
     /**
@@ -28,15 +27,26 @@ class Offers {
     }
     
     /**
+     * Нужно знать еще ссылку рессурса
      * @return \offers\Offer
      */
-    public function getOfferByUser($user) {
+    public function getOfferByUser($userName, $link) {
         foreach ($this->offers as $offer) {
-            if ($offer->getUser()->getLogin() == $user->getLogin()) {
+            $offerUser = $offer->getUser()->getLogin();
+            if ($offerUser == $userName && $link == $offer->getLink()) {
                 return $offer;
             }
         }
     }
     
+    /**
+     * Принимает корректировку в статью
+     * @param string $userName
+     * @param string $link
+     */
+    public function acceptOffer($userName, $link) {
+        $offer = $this->getOfferByUser($userName, $link);
+        $offer->setPublished(true);
+    }
 }
 
