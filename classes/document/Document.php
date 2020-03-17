@@ -42,6 +42,7 @@ class Document {
     public function __construct($nameDocument, $source) {
         $this->nameDocument = $nameDocument;
         $this->source = $source;
+        $this->keywords[] = $nameDocument;
     }
     
     /**
@@ -117,7 +118,11 @@ class Document {
         $resourceParser = new \parser\ResourceParser();
         $rawResources = $resourceParser->getResource($this->source);
         foreach ($rawResources as $rawResource) {
-            $this->resources[] = new \resource\Resource($rawResource['name'], $rawResource['tag']);
+            $this->resources[] = new \resource\Resource(
+                    $rawResource['name'], 
+                    $this->nameDocument . "#" . $rawResource['tag']
+            );
+            
             $this->addKeyWord($rawResource['tag']);
         }
     }

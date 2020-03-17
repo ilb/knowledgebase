@@ -26,7 +26,7 @@ class Offer {
      *  Опубликована или нет
      * @var boolean
      */
-    private $published;
+    private $published = false;
     
     /**
      * @var \observer\OfferObserver

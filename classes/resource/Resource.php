@@ -26,7 +26,7 @@ class Resource {
      */
     public function __construct($name, $tag) {
         $this->nameResource = $name;
-        $this->tag = "#" . $tag;
+        $this->tag = $tag;
     }
     
     /**
@@ -66,7 +66,7 @@ class Resource {
      * @return string
      */
     public function getTag() {
-        return $this->tag;
+        return explode("#", $this->tag)[1];
     }
     
     /**

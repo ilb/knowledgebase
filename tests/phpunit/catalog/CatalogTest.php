@@ -19,10 +19,7 @@ class CatalogTest extends \PHPUnit_Framework_TestCase {
      * @dataProvider providerRes
      */
     public function testCountResource($result, $index) {
-        $this->docs[$index]->createResources();
-        $this->docs[8]->createResources();
-        echo "\r\n\r\n";
-        var_dump($this->docs[8]->getResources());
+        $this->docs[$index]->createResources();        
         $this->assertCount($result, $this->docs[$index]->getResources());
     }
 
@@ -30,7 +27,7 @@ class CatalogTest extends \PHPUnit_Framework_TestCase {
         return array(
                 [0, 0], [0, 1], [0, 2], [0, 3], [0, 4], [11, 5],
                 [4, 6], [7, 7], [28, 8], [5, 9], [1, 10], [1, 11],
-                [12, 12], [24, 13], [39, 14], [2, 15], [12, 16], [5, 17]
+                [12, 12], [27, 13], [39, 14], [2, 15], [12, 16], [5, 17]
         );
     }
 

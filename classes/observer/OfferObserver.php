@@ -21,6 +21,6 @@ class OfferObserver implements Observer {
      * @return string
      */
     private function send($user, $textNotificate) {
-        echo "одобрение статьи. Уведомлен пользователь: " . $user->getLogin() . "\r\n";
+        echo "\r\nодобрение статьи yведомлен пользователь: " . $user->getLogin() . "\r\n";
     }
 }

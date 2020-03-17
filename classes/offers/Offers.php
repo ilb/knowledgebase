@@ -45,12 +45,28 @@ class Offers {
      * Принимает корректировку в статью
      * @param string $userName
      * @param string $link
+     * @param \catalog\Catalog
      */
-    public function acceptOffer($userName, $link) {
-        $offer = $this->getOfferByUserLink($userName, $link);
-        $offer->setPublished(true);
-        // как то нужно получить документ и изменить его Вызвав тем самым рассылку
-        
+    public function acceptOffer($userName, $link, $catalog) {
+        // nameDoc#resTag
+        $arr = explode("#", $link);
+        $a = $catalog->getDocumentByName($arr[0]);
+        if ($a) {           
+            $offer = $this->getOfferByUserLink($userName, $link);
+            $offer->setPublished(true);   
+            $a = $a->getResourceByTag($arr[1]);
+            $a->editResource("");
+        }
+    }
+    
+    public function getDontPublushedOffer() {
+        $result = [];
+        foreach ($this->offers as $offer) {
+            if (!$offer->getPublished()) {
+                $result[] = $offer;
+            }
+        }
+        return $result;
     }
 }
 

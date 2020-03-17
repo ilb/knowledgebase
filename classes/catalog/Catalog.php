@@ -45,15 +45,16 @@ class Catalog {
     
     /**
      * 
-     * @param string $idDocument
+     * @param string $nameDocument
      * @return \document\Document
      */
-    public function getDocumentById($idDocument) {
+    public function getDocumentByName($nameDocument) {
         foreach ($this->docs as $doc) {
-            if ($doc->getIdDoc() == $idDocument) {
+            if ($doc->getNameDocument() == $nameDocument) {
                 return $doc;
             }
         }
+        return false;
     }
     
     /**

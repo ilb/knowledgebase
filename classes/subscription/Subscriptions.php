@@ -13,7 +13,7 @@ class Subscriptions {
         $this->subscribtions[] = new \subscription\Subscription($user, $element);
     }
 
-        /**
+    /**
      * Находит все подписки содержащие в себе измененный документ
      * @param string $changeElement
      * @return array \subscription\Subscription
@@ -68,6 +68,22 @@ class Subscriptions {
             return true;
         }
         return false;
+    }
+    
+    /**
+     * 
+     * @param string $element
+     * @param \user\User $user
+     * @return \subscription\Subscription
+     */
+    public function getSubscriptionsByUserElement( $user, $element) {
+        foreach ($this->subscribtions as $subscription) {
+            $nameElement = $subscription->getElement();
+            $userName = $subscription->getUser()->getLogin();
+            if ($nameElement == $element && $userName == $user->getLogin()) {
+                return $subscription;
+            }
+        }
     }
 
 }
