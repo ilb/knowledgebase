@@ -91,7 +91,7 @@ class Offer {
      * устанавливает наблюдателя
      * @param \observer\OfferObserver $observer
      */
-    public function setObserver(\observer\OfferObserver $observer) {
+    public function setObserver($observer) {
         $this->observer = $observer;
     }
 
