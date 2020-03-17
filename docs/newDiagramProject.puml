@@ -147,7 +147,6 @@ class MainController {
     + acceptOffer(userName, link)
     + checkNotificate(tag)
     + getUrlBySubscription(subscriptions)
-    + 
 }
 
 Observer --|> ObserverImpl
