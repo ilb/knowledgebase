@@ -63,7 +63,21 @@ class MainController {
         $this->catalog = new \catalog\Catalog("../../index.html");
         $this->catalog->createDocuments();
     }
-
+    
+    /**
+     * Поиск документа по ключевому слову
+     */
+    public function searchDocument($word) {
+        return $this->catalog->searchByKeyword($word);
+    }
+    
+    /**
+     * Создает \offers\Offers
+     */
+    public function createOffers() {
+        $this->offers = new \offers\Offers();
+    }
+    
     /**
      * Тестовый метод для проверки генерируется ли структура документов и ресурсов
      * 
@@ -79,12 +93,16 @@ class MainController {
             }
         }
     }
-
+    
     /**
-     * Поиск документа по ключевому слову
+     * Создает все сразу
      */
-    public function searchDocument($word) {
-        return $this->catalog->searchByKeyword($word);
+    public function createAll() {
+        $this->createCatalog();
+        $this->createSubscriptions();
+        $this->createObserver();
+        $this->createOffers();
+        $this->createStructur();
     }
 
     /**
@@ -123,13 +141,6 @@ class MainController {
         $s = $this->subscriptions->getSubscriptionsByUserElement($user, $nameElement);
         $s->setIsRead(true);
     }
-
-    /**
-     * Создает \offers\Offers
-     */
-    public function createOffers() {
-        $this->offers = new \offers\Offers();
-    }
     
     /**
      * @param \user\User $user
@@ -140,16 +151,9 @@ class MainController {
     }
     
     /**
-     * Создает все сразу
+     * 
+     * @return array
      */
-    public function createAll() {
-        $this->createCatalog();
-        $this->createSubscriptions();
-        $this->createObserver();
-        $this->createOffers();
-        $this->createStructur();
-    }
-    
     public function viewDontPublishedOffer() {
         return $this->offers->getDontPublushedOffer();
     }

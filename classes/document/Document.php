@@ -164,4 +164,9 @@ class Document {
     public function getSource() {
         return $this->source;
     }
+    
+    public function setSource($source) {
+        $this->source = $source;
+        $this->notify();
+    }
 }

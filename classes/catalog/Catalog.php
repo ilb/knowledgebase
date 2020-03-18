@@ -25,6 +25,15 @@ class Catalog {
     }
     
     /**
+     * Создает новый документ
+     * @param string $nameDocument
+     * @param string $source
+     */
+    public function createDocument ($nameDocument, $source) {
+        $this->docs[] = new Document($nameDocument, $source);
+    }
+    
+    /**
      * Создает через парсер документы
      */
     public function createDocuments() {
