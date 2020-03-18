@@ -15,13 +15,13 @@ class Subscriptions {
 
     /**
      * Находит все подписки содержащие в себе измененный документ
-     * @param string $changeElement
+     * @param string $nameElement
      * @return array \subscription\Subscription
      */
-    public function getSubscriptionByElementName($changeElement) {
+    public function getSubscriptionByElementName($nameElement) {
         $foundSubscription = array();
         foreach ($this->subscribtions as $subscription) {
-            if ($subscription->getElement() == $changeElement) {
+            if ($subscription->getElement() == $nameElement) {
                 $foundSubscription[] = $subscription;
             }
         }
@@ -52,8 +52,11 @@ class Subscriptions {
         return  $find;
     }
     
-    
-    public function getSubscriprionDontRead($filtr = 0) {
+    /**
+     * @param integer $filtr
+     * @return array \subscription\Subscription
+     */
+    public function getSubscriprions($filtr = 0) {
         $find = [];
         foreach ($this->subscribtions as $subscription) {
             if ($this->hasAddFind($subscription->checkRead(), $filtr)) {
@@ -68,13 +71,13 @@ class Subscriptions {
      * @return boolean
      */
     public function hasAddFind($readed, $filter) {
-        if ($filter == \EnumFiltr::noFiltr) {
+        if ($filter == EnumFiltr::noFiltr) {
             return true;
         } 
-        if ($filter == \EnumFiltr::dontReadFiltr && !$readed) {
+        if ($filter == EnumFiltr::dontReadFiltr && !$readed) {
             return true;
         }
-        if ($filter == \EnumFiltr::isReadFiltr && $readed) {
+        if ($filter == EnumFiltr::isReadFiltr && $readed) {
             return true;
         }
         return false;

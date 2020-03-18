@@ -1,5 +1,7 @@
 <?php
 
+namespace subscription;
+
 class EnumFiltr {
     const noFiltr = 0;
     const dontReadFiltr = 1;

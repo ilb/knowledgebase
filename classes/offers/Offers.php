@@ -42,6 +42,22 @@ class Offers {
     }
     
     /**
+     * 
+     * @param string $userName
+     * @return array
+     */
+    public function getOffersByUser($userName) {
+        $find = [];
+        foreach ($this->offers as $offer) {
+            $offerUser = $offer->getUser()->getLogin();
+            if ($offerUser == $userName) {
+                $find[] = $offer;
+            }
+        }
+        return $find;
+    }
+    
+    /**
      * Принимает корректировку в статью
      * @param string $userName
      * @param string $link
