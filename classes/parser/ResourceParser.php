@@ -16,14 +16,25 @@ class ResourceParser extends Parser {
         $attribute = array();
         preg_match_all("/<a.*>(.+?)<\/a>/u", $saitData, $tags);
         for ($i = 0; $i < count($tags[0]); $i++) {
+            $flag = true;
             preg_match_all("/href=\"#(.+?)\"/u", $tags[0][$i], $attribute);
             if (empty($attribute[1])) {
                 continue;
             }
-            $results[] = array(
-                "name" => $tags[1][$i],
+            $find = array(
+                "name" => strtolower($tags[1][$i]),
                 "tag" => $attribute[1][0]
             );
+            
+            foreach ($results as $res) {
+                if ($find['tag'] == $res['tag']) {
+                    $flag = false;
+                    break;
+                }
+            }
+            if ($flag) {
+                 $results[] = $find;
+            }
         }
         return $results;
     }

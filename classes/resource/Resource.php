@@ -41,7 +41,7 @@ class Resource {
      * Для уведомления наблюдателя 
      */
     public function notify() {
-        $this->observer->execute("#" . $this->tag, "Изменения", "event");
+        $this->observer->execute($this->tag, "Изменения", "event");
     }
 
     /**
@@ -66,14 +66,13 @@ class Resource {
      * @return string
      */
     public function getTag() {
-        return $this->tag;
+        return explode("#", $this->tag)[1];
     }
     
     /**
      * Редактирование ресурса
      */
     public function editResource($content) {
-        
         $this->notify();
     }
     

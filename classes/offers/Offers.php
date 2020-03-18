@@ -11,12 +11,11 @@ class Offers {
     private $offers = array();
     
     /**
-     * 
-     * @param \elements\Element $element
+     * @param string $link
      * @param \user\User $user
      */
-    public function offer($element, $user, $text) {
-        $this->offers[] = new Offer($element, $user, $text);
+    public function createOffer($link, $user,$offerObserver) {
+        $this->offers[] = new \offers\Offer($link, $user, $offerObserver);
     }    
     
     /**
@@ -28,15 +27,62 @@ class Offers {
     }
     
     /**
+     * 
+     * @param string $userName
+     * @param string $link
      * @return \offers\Offer
      */
-    public function getOfferByUser($user) {
+    public function getOfferByUserLink($userName, $link) {
         foreach ($this->offers as $offer) {
-            if ($offer->getUser()->getLogin() == $user->getLogin()) {
+            $offerUser = $offer->getUser()->getLogin();
+            if ($offerUser == $userName && $link == $offer->getLink()) {
                 return $offer;
             }
         }
     }
     
+    /**
+     * 
+     * @param string $userName
+     * @return array
+     */
+    public function getOffersByUser($userName) {
+        $find = [];
+        foreach ($this->offers as $offer) {
+            $offerUser = $offer->getUser()->getLogin();
+            if ($offerUser == $userName) {
+                $find[] = $offer;
+            }
+        }
+        return $find;
+    }
+    
+    /**
+     * Принимает корректировку в статью
+     * @param string $userName
+     * @param string $link
+     * @param \catalog\Catalog
+     */
+    public function acceptOffer($userName, $link, $catalog) {
+        // nameDoc#resTag
+        $arr = explode("#", $link);
+        $a = $catalog->getDocumentByName($arr[0]);
+        if ($a) {           
+            $offer = $this->getOfferByUserLink($userName, $link);
+            $offer->setPublished(true);   
+            $a = $a->getResourceByTag($arr[1]);
+            $a->editResource("");
+        }
+    }
+    
+    public function getDontPublushedOffer() {
+        $result = [];
+        foreach ($this->offers as $offer) {
+            if (!$offer->getPublished()) {
+                $result[] = $offer;
+            }
+        }
+        return $result;
+    }
 }
 

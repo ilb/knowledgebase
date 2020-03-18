@@ -3,9 +3,9 @@
 namespace catalog;
 
 class Catalog {
+    
     /**
-     *
-     * @var array \material\Document
+     * @var array \document\Document
      */
     private $docs = array();
     
@@ -18,7 +18,6 @@ class Catalog {
     private $source;
     
     /**
-     * 
      * @param string $source
      */
     public function __construct($source) {
@@ -38,7 +37,7 @@ class Catalog {
     
     /**
      * 
-     * @return array \material\Document
+     * @return array \document\Document
      */
     public function getDocuments() {
         return $this->docs;
@@ -46,15 +45,16 @@ class Catalog {
     
     /**
      * 
-     * @param string $idDocument
-     * @return \elements\Document
+     * @param string $nameDocument
+     * @return \document\Document
      */
-    public function getDocumentById($idDocument) {
+    public function getDocumentByName($nameDocument) {
         foreach ($this->docs as $doc) {
-            if ($doc->getIdDoc() == $idDocument) {
+            if ($doc->getNameDocument() == $nameDocument) {
                 return $doc;
             }
         }
+        return false;
     }
     
     /**
@@ -62,11 +62,11 @@ class Catalog {
      * @param string $word
      * @return array
      */
-    public function searchMaterials($word) {
+    public function searchByKeyword($word) {
         $result = array();
         $word = strtolower($word);
         foreach ($this->docs as $doc) {
-            if (preg_filter("/.*[" . $word . "].*/", "", $doc->getKeyWords())) {
+            if (in_array($word, $doc->getKeyWords())) {
                 // Тег не всегда будет являться тегом ресурса                    ↓
                 $result[] = [ "document" => $doc, "link" => $doc->getSource() . "#" . $word];
             }

@@ -5,7 +5,6 @@ namespace parser;
 class DocumentParser extends Parser {
 
     /**
-     * 
      * @param string $source
      * @return array 
      */

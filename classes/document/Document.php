@@ -4,9 +4,10 @@ namespace document;
 
 
 class Document {
+    
     /**
      * источник данных документа
-     * @var String
+     * @var string
      */
     private $source;
     
@@ -41,6 +42,7 @@ class Document {
     public function __construct($nameDocument, $source) {
         $this->nameDocument = $nameDocument;
         $this->source = $source;
+        $this->keywords[] = $nameDocument;
     }
     
     /**
@@ -116,7 +118,11 @@ class Document {
         $resourceParser = new \parser\ResourceParser();
         $rawResources = $resourceParser->getResource($this->source);
         foreach ($rawResources as $rawResource) {
-            $this->resources[] = new \resource\Resource($rawResource['name'], $rawResource['tag']);
+            $this->resources[] = new \resource\Resource(
+                    $rawResource['name'], 
+                    $this->nameDocument . "#" . $rawResource['tag']
+            );
+            
             $this->addKeyWord($rawResource['tag']);
         }
     }
@@ -137,7 +143,7 @@ class Document {
     public function getResourceByTag($tagResource) {
         foreach ($this->resources as $resource) {
             if ($resource->getTag() == $tagResource) {
-                return resource;
+                return $resource;
             }
         }
     }

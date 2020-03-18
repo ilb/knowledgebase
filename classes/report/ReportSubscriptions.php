@@ -1,22 +1,42 @@
 <?php
 
-class ReportSubscriptions {
-    /**
-     *
-     * @var array \users\User()
-     */
-    private $users = array();
+namespace report;
+
+class ReportSubscriptions extends Report {
     
     /**
-     *
-     * @var \subscriptions\Subscriptions()
+     * @var \subscription\Subscriptions
      */
-    private $subscriptions;
+    protected $subscriptions; 
     
     /**
      * создает отчет по не прочитанным подпискам
+     * Создает xml документ 
      */
-    public function generateReport() {
-        $material = $this->subscriptions->getMaterialDontRead();
+    public function generateReportAllSubscription() {
+        $arrayResponse = [];
+        foreach ($this->users as $user) {
+            $materials = $this->subscriptions->getSubscriptionByUser($user);
+            if (!empty($materials)) {
+                $arrayResponse['Subscriptions'][] = $materials;
+            }
+        }
+        return $this->serializer->encode($arrayResponse, "xml", $this->context);
     }
+    
+    /**
+     * 
+     * @param \subscription\Subscriptions $subscriptions
+     */
+    public function setSubscriptions($subscriptions) {
+        $this->subscriptions = $subscriptions;
+    }
+    
+    /**
+     * @return \subscription\Subscriptions
+     */
+    public function getSubscriptions() {
+        return $this->subscriptions;
+    }
+
 }
