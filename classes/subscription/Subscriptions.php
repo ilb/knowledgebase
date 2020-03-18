@@ -45,26 +45,36 @@ class Subscriptions {
             if (!$subscription->checkUser($userName)) {
                 continue;
             }
-            if ($this->hasAddFind($subscription->checkRead($userName), $filtr)) {
+            if ($this->hasAddFind($subscription->checkRead(), $filtr)) {
                 $find[] = $subscription;
             }
         }
         return  $find;
     }
     
+    
+    public function getSubscriprionDontRead($filtr = 0) {
+        $find = [];
+        foreach ($this->subscribtions as $subscription) {
+            if ($this->hasAddFind($subscription->checkRead(), $filtr)) {
+                $find[] = $subscription;
+            }
+        }
+        return $find;
+    }
     /**
      * @param boolean $readed
      * @param integer $filter
      * @return boolean
      */
     public function hasAddFind($readed, $filter) {
-        if ($filter == 0) {
+        if ($filter == \EnumFiltr::noFiltr) {
             return true;
         } 
-        if ($filter == 1 && !$readed) {
+        if ($filter == \EnumFiltr::dontReadFiltr && !$readed) {
             return true;
         }
-        if ($filter == 2 && $readed) {
+        if ($filter == \EnumFiltr::isReadFiltr && $readed) {
             return true;
         }
         return false;

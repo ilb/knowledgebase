@@ -10,6 +10,11 @@ class User {
     private $login;
     
     /**
+     * @var \conntroller\UserController
+     */
+    private $userController;
+    
+    /**
      * @param string $login
      */
     public function __construct($login) {

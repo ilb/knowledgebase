@@ -15,7 +15,8 @@ class ReportSubscriptions {
     /**
      * создает отчет по не прочитанным подпискам
      */
-    public function generateReport() {
+    public function generateReportDontRead() {
         $material = $this->subscriptions->getMaterialDontRead();
+        
     }
 }
