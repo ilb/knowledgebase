@@ -1,0 +1,83 @@
+@startuml
+left to right direction
+(Поиск) as Search
+(Искать документ) as Document
+(Открыть документа) as ViewDocument 
+(Подписка) as Subscription
+(Изучение разделов) as StudySections
+(Изменения) as Changes
+(Ознакомление с изменениями) as ViewChanges
+(Дополнения) as Addition
+(Предлагать изменение материалов) as SuggestChanges
+(Одобрение корректировки) as AcceptOffer
+(Принятие/одобрение добавления материалов) as AcceptMaterials
+:Пользователь: -- Search
+Search -- Document
+Document -- ViewDocument 
+:Пользователь: -- Subscription
+Subscription -- StudySections
+:Пользователь: -- Changes
+Changes -- ViewChanges
+:Пользователь: -- Addition
+Addition -- SuggestChanges
+:Пользователь: -- AcceptOffer
+AcceptOffer -- AcceptMaterials
+
+(Подписка пользователей) as SubscriptionUser
+(Ознакомление с обязательными разделами) as SubscriptionUserSection
+(Получение отчета) as Report
+(Ознакомление пользователя с подписками) as ViewSubscription
+(Все стандартные права пользователя) as CommonUserRights
+:Наставник: -- SubscriptionUser
+SubscriptionUser --SubscriptionUserSection
+:Наставник: -- Report
+Report -- ViewSubscription
+:Наставник: -- CommonUserRights
+
+(Размещение документа) as DocumentPlacement
+(Выбор типа документа) as TypeDocument
+(Редактирование документа) as ChangeDocument
+(Скрывать/удалять документы) as HideDelDoc
+(Создавать/удалять разделы) as ChangeSection
+(Устанавливать теги) as SetTags
+(Выбор документа) as ChoiceDoc
+(Создание ссылок) as CreateLinks
+(Выбор Материала) as ChoiceMat
+(Выдача прав пользователя) as Rights
+(Подписка групп пользователей на разделы системы) as SubscribeUsersToSections
+(Выборка группы) as SampleGroup
+(Подписка групп пользователей/пользователя на обязательное ознакомление документа) as SubscribeUsersToDocuments
+(Изменение документа) as ChangeDoc
+(Получение отчета об ознаколмении пользователя с обязательным разделом) as ReportAcquaintance
+(Информация о предложенных корректировках материалов) as MaterialAdjustment
+(Получение корректировок со стороны пользователей) as EditCnangeUsers
+(Редактирование и размещение корректировок в системе) as EditSys
+(Одобрение корректировок и их размещение) as ApprovalAdjustment
+(Редактирование корректировок) as EditChange
+(Отчет принятых корректировок) as ReportApproval
+(Общая форма корретировок) as GeneralForm
+:Администратор: -- DocumentPlacement
+ DocumentPlacement -- TypeDocument
+:Администратор: -- ChangeDocument
+ ChangeDocument -- HideDelDoc
+:Администратор: -- ChangeSection
+:Администратор: -- SetTags
+SetTags -- ChoiceDoc
+:Администратор: -- CreateLinks
+CreateLinks -- ChoiceMat
+:Администратор: -- Rights
+:Администратор: -- SubscribeUsersToSections
+SubscribeUsersToSections -- SampleGroup
+:Администратор: -- SubscribeUsersToDocuments
+SubscribeUsersToDocuments -- ChangeDoc
+:Администратор: -- ReportAcquaintance
+ ReportAcquaintance -- EditSys
+:Администратор: -- MaterialAdjustment
+MaterialAdjustment -- EditCnangeUsers
+:Администратор: -- ApprovalAdjustment
+ApprovalAdjustment -- EditChange
+:Администратор: -- ReportApproval
+ReportApproval -- GeneralForm
+@enduml
+
+

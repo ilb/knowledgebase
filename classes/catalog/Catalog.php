@@ -5,7 +5,7 @@ namespace catalog;
 class Catalog {
     
     /**
-     * @var array \document\Document
+     * @var array<\document\Document>
      */
     private $docs = array();
     
