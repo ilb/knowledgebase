@@ -7,7 +7,7 @@ class ReportSubscriptions extends Report {
     /**
      * @var \subscription\Subscriptions
      */
-    protected $subscriptions; 
+    private $subscriptions; 
     
     /**
      * создает отчет по не прочитанным подпискам

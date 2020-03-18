@@ -126,30 +126,94 @@ class User {
     + getLogin()
 }
 
-class MainController {
-    - subscriptions
-    - observer
-    - catalog
-    - offers
+class Admin {
+    - login
+    - adminController
+    + __construct(login)
+}
+
+class Mentor {
+    - login
+    - mentorController
+    + __construct(login)
+}
+
+class AdminController {
+    - reportOffer
+    + createReportOffers()
+    + getReportOffers()
+    + acceptOffer(userName, link)
+    + createDocument(nameDocument, sources)
+    + editDocument(nameDocument, content)
+    + addKeyWords(nameDocument, keyWord)
+    + changeSource(nameDocument, newSource)
+    + addMentor(user) 
+}
+
+class UserController {
+    # subscriptions
+    # observer
+    # catalog
+    # offers
     + createSubscriptions()
-    + createObserver() 
+    + createObserver()
     + createCatalog()
+    + createOffers()
     + createStructur()
+    + createAll()
     + searchDocument(word)
     + viewSubscription(user)
     + viewDontReadSubsc(user)
-    + addSubscribtion(nameElement, user)
     + readSubscribe(user, nameElement)
-    + createOffers()
     + addOffer(user, link)
-    + createAll()
-    + viewDontPublishedOffer()
-    + acceptOffer(userName, link)
-    + checkNotificate(tag)
-    + getUrlBySubscription(subscriptions)
 }
 
+class MentorController {
+    # reportSubscription
+    # users
+    + addSubscribtion(nameElement, user)
+    + createReportSubscriptions()
+    + getReportSubscribtions()
+}
+
+abstract class Report {
+    # serializer
+    # users[]
+    # context[]
+    + createSerializer()
+    + getUsers()
+    + setUsers()
+}
+
+class ReportOffers {
+    - offers
+    + generateReportAllOffers()
+    + getOffers()
+    + setOffers()
+}
+
+class ReportSubscriptions {
+    - subscriptions
+    + generateReportAllSubscription()
+    + setSubscriptions(subscriptions)
+    + getSubscriptions()
+}
+
+UserController --|> MentorController
+MentorController --|> AdminController
+AdminController o-- Admin 
+AdminController o-- ReportOffers
+MentorController o-- ReportSubscriptions
+MentorController o-- Mentor
+UserController o-- User
+UserController o-- Subscriptions
+UserController o-- ObserverImpl
+UserController o-- Catalog
+UserController o-- Offers
+Report --|> ReportSubscriptions
+Report --|> ReportOffers
 Observer --|> ObserverImpl
+Observer --|> OfferObserver
 Parser --|> DocumentParser
 Parser --|> ResourceParser
 Catalog o-- "*" Document
@@ -159,12 +223,8 @@ Document o-- DocumentParser
 Resource o-- ResourceParser
 Resource o-- ObserverImpl
 Subscriptions o-- "*" Subscription
-Subscription o-- User
+Subscription --o User
 Offers o-- "*" Offer
 Offer o-- User
 Offer o-- OfferObserver
-MainController o-- ObserverImpl
-MainController o-- Catalog
-MainController o-- Subscriptions
-MainController o-- Offers
 @enduml

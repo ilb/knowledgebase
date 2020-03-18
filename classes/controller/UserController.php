@@ -1,6 +1,6 @@
 <?php
 
-namespace contrller;
+namespace controller;
 
 class UserController {
 

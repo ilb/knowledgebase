@@ -4,7 +4,7 @@
  * Файл чисто для сценария, не использовать вообще нигде!
  */
 
-namespace contrller;
+namespace controller;
 
 ini_set("error_reporting", E_ALL);
 ini_set("display_errors", 1);
