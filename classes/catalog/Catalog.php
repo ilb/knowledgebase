@@ -83,4 +83,19 @@ class Catalog {
         return $result;
     }
     
+    /**
+     * Удаляет документ
+     * @param string $nameDocument
+     * @return boolean
+     */
+    public function deleteDocument($nameDocument) {
+        foreach ($this->docs as $key => $document) {
+            if ($document->getName() == $nameDocument) {
+                unset($this->docs[$key]);
+                return true;
+            }
+        }
+        return false;
+    }
+    
 } 

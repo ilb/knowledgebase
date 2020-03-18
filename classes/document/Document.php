@@ -13,7 +13,7 @@ class Document {
     
     /**
      * Массив ресурсов
-     * @var array \resource\Resource()
+     * @var array<\resource\Resource>
      */
     private $resources = [];
 
@@ -168,5 +168,28 @@ class Document {
     public function setSource($source) {
         $this->source = $source;
         $this->notify();
+    }
+    
+    /**
+     * Удаляет ресурс по имени
+     * @param string $nameResource
+     */
+    public function deleteResource($nameResource) {
+        foreach ($this->resources as $key => $resource) {
+            if ($resource->getTag() == $nameResource) {
+                unset($this->resources[$key]);
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    /**
+     * Удаляет ключевое слово
+     * @param string $keyWord
+     */
+    public function deleteKeyWord($keyWord) {
+        $index = array_search($keyWord, $this->keywords);
+        unset($this->keywords[$index]);
     }
 }
