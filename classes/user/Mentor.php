@@ -2,7 +2,7 @@
 
 namespace user;
 
-class Mentor {
+class Mentor extends User {
     
     /**
      * @var \controller\MentorController
@@ -15,9 +15,26 @@ class Mentor {
     private $login;
     
     /**
-     * @param string $login
+     * 
+     * @param \controller\MentorController $controller
      */
-    public function __construct($login) {
-        $this->login = $login;
+    public function setController($controller) {
+        $this->mentorController = $controller;
+    }
+    
+    /**
+     * Подписать пользователя
+     * @param string $nameElement
+     * @param \user\User $user
+     */
+    public function subscribeUser($nameElement, $user) {
+        $this->adminController->addSubscribtion($nameElement, $user);
+    }
+    
+    /**
+     * Отчет о всех подписках пользователей
+     */
+    public function getReportSubscription() {
+        $this->adminController->getReportSubscribtions();
     }
 }

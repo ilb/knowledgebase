@@ -81,4 +81,39 @@ class AdminController extends MentorController {
         unset($user);
         return new \user\Mentor($login);
     }
+   
+    /**
+     * Удаляет ресурс по его имени
+     * @param string $nameResource
+     */
+    public function deleteResource($nameResource) {
+        $documentName = explode("#", $nameResource)[0];
+        $doc = $this->catalog->getDocumentByName($documentName);
+        $doc->deleteResource($nameResource);
+    }
+    
+    /**
+     * 
+     * @param string $nameDocument
+     */
+    public function deleteDocument($nameDocument) {
+        $this->catalog->deleteDocument($nameDocument);
+    }
+    
+    /**
+     * 
+     * @param string $nameDocument
+     * @param string $keyWord
+     */
+    public function deleteKeyWord($nameDocument, $keyWord) {
+        $doc = $this->catalog->getDocumentByName($nameDocument);
+        $doc->deleteKeyWord($keyWord);
+    }
+    
+    /**
+     * @return \offers\Offers
+     */
+    public function getOffers() {
+        return $this->offers;
+    }
 }
