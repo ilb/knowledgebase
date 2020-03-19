@@ -24,6 +24,9 @@ class MentorController extends UserController {
         $this->subscriptions->subscribe($nameElement, $user);
     }
     
+    /**
+     * Создает все необходимое для формирования отчета
+     */
     public function createReportSubscriptions() {
         $this->reportSubscription = new \report\ReportSubscriptions();
         $this->reportSubscription->setSubscriptions($this->subscriptions);
@@ -33,9 +36,17 @@ class MentorController extends UserController {
 
 
     /**
-     * 
+     * Отчет по пользовательским подпискам
      */
     public function getReportSubscribtions() {
         $this->reportSubscription->generateReportAllSubscription();
+    }
+    
+    /**
+     * Добавление подключившегося пользователя
+     * @param \user\User $user
+     */
+    public function connctionUser($user) {
+        $this->users[] = $user;
     }
 }

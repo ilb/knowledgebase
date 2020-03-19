@@ -48,8 +48,8 @@ class UserController {
     /**
      * Создает $this->catalog по классу \elements\Catalog
      */
-    public function createCatalog() {
-        $this->catalog = new \catalog\Catalog("../../index.html");
+    public function createCatalog($source) {
+        $this->catalog = new \catalog\Catalog($source);
         $this->catalog->createDocuments();
     }
 
@@ -79,8 +79,8 @@ class UserController {
     /**
      * Создает все сразу
      */
-    public function createAll() {
-        $this->createCatalog();
+    public function createAll($sourceCatalog) {
+        $this->createCatalog($sourceCatalog);
         $this->createSubscriptions();
         $this->createObserver();
         $this->createOffers();
