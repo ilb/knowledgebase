@@ -11,9 +11,9 @@ class MentorController extends UserController {
     protected $reportSubscription;
     
     /**
-     * @var array \user\User
+     * @var array<\user\User>
      */
-    protected $users;
+    protected $users = [];
     
     /**
      * Добавляет подписку

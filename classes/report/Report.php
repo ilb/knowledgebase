@@ -13,7 +13,7 @@ abstract class Report {
     protected $serializer;
     
     /**
-     * @var array \users\User
+     * @var array<\users\User>
      */
     protected $users = array();   
     
@@ -36,14 +36,14 @@ abstract class Report {
     }
     
     /**
-     * @return array \user\User
+     * @return array<\user\User>
      */
     public function getUsers() {
         return $this->users;
     }
 
     /**
-     * @param array \user\User $users
+     * @param array<\user\User> $users
      */
     public function setUsers($users) {
         $this->users = $users;

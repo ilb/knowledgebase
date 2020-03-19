@@ -46,7 +46,7 @@ class Catalog {
     
     /**
      * 
-     * @return array \document\Document
+     * @return array<\document\Document>
      */
     public function getDocuments() {
         return $this->docs;

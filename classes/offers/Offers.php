@@ -6,7 +6,7 @@ class Offers {
     
      /**
      *
-     * @var array \offers\Offer
+     * @var array<\offers\Offer>
      */
     private $offers = array();
     
@@ -20,7 +20,7 @@ class Offers {
     
     /**
      * 
-     * @return array \offers\Offers
+     * @return array<\offers\Offers>
      */
     public function getOffers() {
         return $this->offers;
@@ -44,7 +44,7 @@ class Offers {
     /**
      * 
      * @param string $userName
-     * @return array
+     * @return array<\offers\Offer>
      */
     public function getOffersByUser($userName) {
         $find = [];
@@ -75,6 +75,10 @@ class Offers {
         }
     }
     
+    /**
+     * Возвращает не опубдликованные предложения пользователей
+     * @return array<\offers\Offer>
+     */
     public function getDontPublushedOffer() {
         $result = [];
         foreach ($this->offers as $offer) {

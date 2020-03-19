@@ -24,7 +24,7 @@ class Document {
    
     /**
      * Ключевые слова для поиска
-     * @var array string
+     * @var array<string>
      */
     private $keywords = array();
     
@@ -87,7 +87,7 @@ class Document {
 
     /**
      * Возвращает все привязанные ключевые слова
-     * @return array string
+     * @return array<string>
      */
     public function getKeyWords() {
         return $this->keywords;
@@ -129,7 +129,7 @@ class Document {
     
     /**
      * 
-     * @return array \resource\Resource
+     * @return array<\resource\Resource>
      */
     public function getResources() {
         return $this->resources;

@@ -6,7 +6,7 @@ class DocumentParser extends Parser {
 
     /**
      * @param string $source
-     * @return array 
+     * @return array
      */
     public function getDocuments($source) {
         $saitData = $this->getData($source);

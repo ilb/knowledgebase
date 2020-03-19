@@ -5,7 +5,7 @@ namespace subscription;
 class Subscriptions {
 
     /**
-     * @var array \subscription\Subscription
+     * @var array<\subscription\Subscription>
      */
     private $subscribtions = array();
 
@@ -16,7 +16,7 @@ class Subscriptions {
     /**
      * Находит все подписки содержащие в себе измененный документ
      * @param string $nameElement
-     * @return array \subscription\Subscription
+     * @return array<\subscription\Subscription>
      */
     public function getSubscriptionByElementName($nameElement) {
         $foundSubscription = array();
@@ -36,7 +36,7 @@ class Subscriptions {
      *  0 - без сортировки 
      *  1 - только не прочитанные
      *  2 - толкьо прочитанные 
-     * @return array(\subscription\Subscription)
+     * @return array<\subscription\Subscription>
      */
     public function getSubscriptionByUser($user, $filtr = 0) {
         $find = array();
@@ -54,7 +54,7 @@ class Subscriptions {
     
     /**
      * @param integer $filtr
-     * @return array \subscription\Subscription
+     * @return array<\subscription\Subscription>
      */
     public function getSubscriprions($filtr = 0) {
         $find = [];
