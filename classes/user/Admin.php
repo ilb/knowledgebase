@@ -2,12 +2,7 @@
 
 namespace user;
 
-class Admin {
-    
-    /**
-     * @var \controller\AdminController 
-     */
-    private $adminController;
+class Admin extends Mentor {
     
     /**
      * @var string
@@ -19,13 +14,6 @@ class Admin {
      */
     public function __construct($login) {
         $this->login = $login;
-    }
-    
-    /**
-     * @param \controller\AdminController $adminController
-     */
-    public function setAdminController($adminController) {
-        $this->adminController = $adminController;
     }
     
     /**
@@ -41,7 +29,7 @@ class Admin {
      * @param string $source
      */
     public function createDocument($nameDocument, $source) {
-        $this->adminController->createDocument($nameDocument, $source);
+        $this->controller->createDocument($nameDocument, $source);
     }
 
     /**
@@ -50,14 +38,23 @@ class Admin {
      * @param string $content
      */
     public function editDocument($nameDocument, $content) {
-        $this->adminController->editDocument($nameDocument, $content);
+        $this->controller->editDocument($nameDocument, $content);
+    }
+    
+    /**
+     * Редкактированеи ресурс
+     * @param string $nameResource
+     * @param string $content
+     */
+    public function editResource($nameResource, $content) {
+        $this->controller->editResource($nameResource, $content);
     }
     
     /**
      * Имя рессурса docName#tag
      */
     public function deleteResource($nameResource) {
-        $this->adminController->deleteResource($nameResource);
+        $this->controller->deleteResource($nameResource);
     }
     
     /**
@@ -65,7 +62,7 @@ class Admin {
      * @param string $nameDocument
      */
     public function deleteDocument($nameDocument) {
-        $this->adminController->deleteDocument($nameDocument);
+        $this->controller->deleteDocument($nameDocument);
     }
     
     /**
@@ -74,7 +71,7 @@ class Admin {
      * @param string $keyWord
      */
     public function deleteKeyWord($nameDocument, $keyWord) {
-        $this->adminController->deleteKeyWord($nameDocument, $keyWord);
+        $this->controller->deleteKeyWord($nameDocument, $keyWord);
     }
     
     /**
@@ -83,7 +80,7 @@ class Admin {
      * @param string $keyWord
      */
     public function addKeyword($nameDocument, $keyWord) {
-        $this->adminController->addKeyWords($nameDocument, $keyWord);
+        $this->controller->addKeyWords($nameDocument, $keyWord);
     }
     
     /**
@@ -92,15 +89,16 @@ class Admin {
      * @param string $newSource
      */
     public function changeSource($nameDocument, $newSource) {
-        $this->adminController->changeSource($nameDocument, $newSource);
+        $this->controller->changeSource($nameDocument, $newSource);
     }
     
     /**
      * 
      * @param \user\User $user
+     * @return \user\Mentor
      */
     public function addMentor($user) {
-        $this->adminController->addMentor($user);
+        return $this->controller->addMentor($user);
     }
     
     /**
@@ -109,34 +107,34 @@ class Admin {
      * @param \user\User $user
      */
     public function subscribeUser($nameElement, $user) {
-        $this->adminController->addSubscribtion($nameElement, $user);
+        $this->controller->addSubscribtion($nameElement, $user);
     }
     
     /**
      * Отчет о всех подписках пользователей
      */
     public function getReportSubscription() {
-        $this->adminController->getReportSubscribtions();
+        $this->controller->getReportSubscribtions();
     }
     
     /**
      * Получает все предложения без фильтров
      */
     public function getOffers() {
-        $this->adminController->getOffers();
+        $this->controller->getOffers();
     }
     
     /**
      * @param string $nameOffer
      */
-    public function acceptOffer($nameOffer, $link) {
-        $this->adminController->acceptOffer($nameOffer, $link);
+    public function acceptOffer($nameUser, $link) {
+        $this->controller->acceptOffer($nameUser, $link);
     }
     
     /**
      * отчет о предложенных корректировках
      */
     public function getReportOffers() {
-        $this->adminController->getReportOffers();
+        $this->controller->getReportOffers();
     }
 }

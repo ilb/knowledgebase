@@ -185,6 +185,15 @@ class Document {
     }
     
     /**
+     * @param string $nameResource
+     * @param string $content
+     */
+    public function editResource($nameResource, $content) {
+        $res = $this->getResourceByTag($nameResource);
+        $res->editResource($content);
+    }
+    
+    /**
      * Удаляет ключевое слово
      * @param string $keyWord
      */

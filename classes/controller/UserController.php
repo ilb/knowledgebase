@@ -75,17 +75,6 @@ class UserController {
             }
         }
     }
-
-    /**
-     * Создает все сразу
-     */
-    public function createAll($sourceCatalog) {
-        $this->createCatalog($sourceCatalog);
-        $this->createSubscriptions();
-        $this->createObserver();
-        $this->createOffers();
-        $this->createStructur();
-    }
     
     /**
      * Поиск документа по ключевому слову

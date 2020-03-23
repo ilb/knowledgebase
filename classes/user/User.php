@@ -10,9 +10,9 @@ class User {
     private $login;
     
     /**
-     * @var \conntroller\UserController
+     * @var \controller\AdminController
      */
-    private $userController;
+    protected $controller;
     
     /**
      * @param string $login
@@ -29,10 +29,10 @@ class User {
     }
     
     /**
-     * @param \controller\UserController $controller
+     * @param \controller\AdminController $controller
      */
     public function setController($controller) {
-        $this->userController = $controller;
+        $this->controller = $controller;
     }
     
     /**
@@ -40,27 +40,27 @@ class User {
      * @param string $word
      */
     public function search($word) {
-        $this->userController->searchDocument($word);
+        return $this->controller->searchDocument($word);
     }
     
     /**
      * Просмотр всех материалов на которые его подписали
      */
     public function viewSubscriptions() {
-        $this->userController->viewSubscription($this);
+        return $this->controller->viewSubscription($this);
     }
     
     /**
      * @param string $link
      */
     public function addOffer($link) {
-        $this->userController->addOffer($this, $link);
+        $this->controller->addOffer($this, $link);
     }
     
     /**
      * Просмотр не прочитанных подписок
      */
     public function viewSubscriptionDontRead() {
-        $this->userController->viewDontReadSubsc($this);
+        $this->controller->viewDontReadSubsc($this);
     }
 }

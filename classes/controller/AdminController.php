@@ -20,6 +20,18 @@ class AdminController extends MentorController {
     }
 
     /**
+     * Создает все сразу
+     */
+    public function createAll($sourceCatalog) {
+        $this->createCatalog($sourceCatalog);
+        $this->createSubscriptions();
+        $this->createObserver();
+        $this->createOffers();
+        $this->createStructur();
+        $this->createReportSubscriptions();
+    }
+    
+    /**
      * Формирует отчет по предложенным корректировкам
      */
     public function getReportOffers() {
@@ -90,6 +102,18 @@ class AdminController extends MentorController {
         $documentName = explode("#", $nameResource)[0];
         $doc = $this->catalog->getDocumentByName($documentName);
         $doc->deleteResource($nameResource);
+    }
+    
+    /**
+     * 
+     * @param string $nameResource
+     * @param string $content
+     */
+    public function editResource($nameResource, $content) {
+        $documentName = explode("#", $nameResource)[0];
+        $nameResource = explode("#", $nameResource)[1];
+        $doc = $this->catalog->getDocumentByName($documentName);
+        $doc->editResource($nameResource, $content);
     }
     
     /**

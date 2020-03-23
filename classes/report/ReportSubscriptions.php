@@ -18,7 +18,7 @@ class ReportSubscriptions extends Report {
         foreach ($this->users as $user) {
             $materials = $this->subscriptions->getSubscriptionByUser($user);
             if (!empty($materials)) {
-                $arrayResponse['Subscriptions'][] = $materials;
+                $arrayResponse['User'][] = $materials;
             }
         }
         return $this->serializer->encode($arrayResponse, "xml", $this->context);
