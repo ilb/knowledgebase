@@ -92,6 +92,9 @@ class Catalog {
         foreach ($this->docs as $key => $document) {
             if ($document->getName() == $nameDocument) {
                 unset($this->docs[$key]);
+                /**
+                 * SQL запрос еще 
+                 */
                 return true;
             }
         }
