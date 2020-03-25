@@ -4,7 +4,7 @@
  * Изменение документа
  */
 
-namespace usecase;
+namespace usecase\document;
 
 class DocumentChange {
     
@@ -26,10 +26,13 @@ class DocumentChange {
         $this->source = $source;
     }
     
-    public function executу() {
+    /**
+     * Приходит уведомление о изменении объекта
+     */
+    public function execute() {
         $catalog = new \catalog\Catalog($this->source);
         $catalog->createDocuments();
-        $subs = new \repository\Repository("", "", "", "");
+        $subs = new \repository\Repository();
         $observer = new \observer\ObserverImpl();
         $observer->setSubscriptions($subs);
         $doc->setObserver($observer);

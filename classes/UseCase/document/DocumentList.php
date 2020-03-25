@@ -4,7 +4,7 @@
  * для получения списка документов
  */
 
-namespace usecase;
+namespace usecase\document;
 
 class DocumentList {
     

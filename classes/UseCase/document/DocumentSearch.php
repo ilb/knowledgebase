@@ -4,7 +4,7 @@
  * Поиск по документам тут
  */
 
-namespace usecase;
+namespace usecase\document;
 
 class DocumentSearch {
     
@@ -32,7 +32,7 @@ class DocumentSearch {
      * @return array<array>
      */
     public function execute() {
-        $catalog = new \catalog\Catalog($this->source);
-        return $catalog->searchByKeyword($this->keyWord);
+        $repos = new \repository\Repository();
+        return $repos->getDocumentByKewords($this->keyWord);
     }
 }

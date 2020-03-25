@@ -1,17 +1,17 @@
 <?php
 
 /* 
- * Удаление документа
+ * Создание документа
  */
 
-namespace usecase;
+namespace usecase\document;
 
-class DocumentDelete {
+class DocumentCreate {
     
     /**
      * @var string
      */
-    private $nameDcoument;
+    private $nameDocument;
     
     /**
      * @var string
@@ -20,16 +20,17 @@ class DocumentDelete {
     
     /**
      * @param string $nameDocument
+     * @param string $source
      */
     public function __construct($nameDocument, $source) {
-        $this->nameDcoument = $nameDocument;
+        $this->nameDocument = $nameDocument;
         $this->source = $source;
     }
     
-    
     public function execute() {
-        $catalog = new \catalog\Catalog($this->source);
-        $catalog->createDocuments();
-        $catalog->deleteDocument($this->nameDcoument);
+        $repos = new \repository\Repository();
+        $repos->addDocument();
     }
+
 }
+
