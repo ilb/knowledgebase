@@ -11,6 +11,7 @@ header {
     background: rgba(255, 157, 0, .8);
     padding: 10px;
     margin-bottom: 10px;
+    box-shadow: 1px 1px 2px 5px rgba(255, 157, 0, .5);
 }
 
 header > img {
@@ -19,7 +20,7 @@ header > img {
 
 .search {
     display: flex;
-    width: 36%;
+    width: 54%;
     align-items: center;
     justify-content: space-between;
 }
@@ -29,40 +30,90 @@ header > img {
     padding: 10px;
     border-radius: 10px;
     outline: none;
-    border: 1px solid #c75218;
-    transition: .4s;
+    border: 1px solid rgba(255, 90, 0, .5);
+    transition: .1s;
     width: 85%;
 }
 
 .search > input:focus {
-    border: 2px solid #c75218;
-    transition: .4s;
+    border: 2px solid rgba(255, 90, 0, .5);
+    transition: .1s;
 }
 
 .search > img {
     width: 40px;
     cursor: pointer;
+    border-radius: 50%;
     transition: .4s;
 }
 
 .search > img:hover {
     transform: scale(1.2);
-    transition: .4s;
+    transition: .4s;    
+    box-shadow: 2px 3px 3px 5px rgba(255, 90, 0, .5);
 }
 
-header > nav {
+header > .search_section {
     font-size: 1.3em;
     color: #fff;
-    width: 70%;
+    width: 46%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 
-header > nav > h2 {
+header > .search_section > h2 {
     margin-right: 15px;
+}
+
+header > nav {
+    display: flex;
+    width: 48%;
+    margin: 0 2%;
+}
+
+header > nav > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1em;
+    width: 25%;
+    padding: 15px;
+    background: rgba(255, 90, 0, .5);
+    transition: .3s;
+    outline: none;
+}
+
+header > nav > a:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
+header > nav > a:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+header > nav > a:hover {
+    background: rgba(255, 90, 0, .2);
+    transition: .5s;
+    transform: scale(1.1);
 }
 
 h1{
     text-align: center;
+}
+
+main {
+    max-width: 85%;
+    margin: 0 7.5%;
+    font-size: 1.2em;
+}
+
+.level1 > h3 {
+    color: red;
+}
+
+.level2 {
+    margin-left: 45px;
 }

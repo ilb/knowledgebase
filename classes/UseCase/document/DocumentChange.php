@@ -32,7 +32,8 @@ class DocumentChange {
     public function execute() {
         $catalog = new \catalog\Catalog($this->source);
         $catalog->createDocuments();
-        $subs = new \repository\Repository();
+        $repo = new \repository\Repository();
+        $subs = $repo->getSubscribtions();
         $observer = new \observer\ObserverImpl();
         $observer->setSubscriptions($subs);
         $doc->setObserver($observer);
