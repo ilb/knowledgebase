@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>DocumentList</title>
-        <link rel="stylesheet" href="css/main.css"/>
+        <link rel="stylesheet" href="css/semantic.min.css"/>
         <link rel="shortcut icon" href="assets/img/pCIQeJeeRck.png" type="image/png">
     </head>
     <body>
@@ -15,7 +15,7 @@
                 <a href="DocumentList.php"> Лист документов </a>
                 <a href="SubscriptionsList.php"> Лист подписок </a>
                 <a href="OffersList.php"> Лист правок </a>
-                <a href="Notificate.php"> Уведомления </a>
+                <a href="Notificate.php"> Уведомления</a>
             </nav>
 
             <h2> %Пользователь% </h2>                 

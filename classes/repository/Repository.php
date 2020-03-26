@@ -41,13 +41,37 @@ class Repository {
     }
 
     /**
-     * SELECT `user`.`login` FROM `user` INNER JOIN `subscriptions` ON `subscriptions`.`user_id` = `user`.`id_user`
+     * SELECT
+      `material`.`name_material` AS `name`,
+      `material`.`source`,
+      `user`.`login`
+      FROM
+      `user`
+      INNER JOIN(
+      `subscriptions` INNER JOIN `material` ON `subscriptions`.`material_id` = `material`.`id_material`
+      )
+      ON
+      `user`.`id_user` = `subscriptions`.`user_id`
+      WHERE
+      `user`.`login` = ""
      * @return array 
      */
-    public function getSubscribtions() {
-        return [
-            []
-        ];
+    public function getSubscribtions($login) {
+        $sql = "SELECT
+                    `material`.`name_material` AS `name`,
+                    `material`.`source`,
+                    `user`.`login`
+                FROM
+                    `user`
+                    INNER JOIN(
+                        `subscriptions` INNER JOIN `material` ON `subscriptions`.`material_id` = `material`.`id_material`
+                    )
+                ON
+                    `user`.`id_user` = `subscriptions`.`user_id`
+                WHERE
+                    `user`.`login` = ?";
+        $res = $this->dbconnect->prepare($sql);
+        return $res->execute([$login]);
     }
 
     /**
