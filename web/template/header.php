@@ -10,19 +10,13 @@
     <body>
         <header>
             <img alt="Logo" src="assets/img/pCIQeJeeRck.png">
-            
+
             <nav>
-                <a href="#"> Лист документов </a>
-                <a href="#"> Лист подписок </a>
-                <a href="#"> Лист правок </a>
-                <a href="#"> Уведомления </a>
+                <a href="DocumentList.php"> Лист документов </a>
+                <a href="SubscriptionsList.php"> Лист подписок </a>
+                <a href="OffersList.php"> Лист правок </a>
+                <a href="Notificate.php"> Уведомления </a>
             </nav>
-            
-            <div class="search_section">
-                <h2> %Пользователь% </h2>
-                <div class="search">
-                    <input type="text" class="search" placeholder="Введите ключевое слово">
-                    <img alt="Поиск" src="assets/img/search.png">
-                </div>                  
-            </div>
+
+            <h2> %Пользователь% </h2>                 
         </header>

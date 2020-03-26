@@ -32,7 +32,11 @@ class DocumentSearch {
      * @return array<array>
      */
     public function execute() {
-        $repos = new \repository\Repository();
-        return $repos->getDocumentByKewords($this->keyWord);
+        $catalog = new \catalog\Catalog($this->source);
+        $catalog->createDocuments();
+        foreach ($catalog->getDocuments() as $doc) {
+            $doc->createResources();
+        }        
+        return $catalog->searchByKeyword($this->keyWord);
     }
 }

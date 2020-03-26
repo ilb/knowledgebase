@@ -16,6 +16,9 @@ class DocumentParser extends Parser {
         preg_match_all("/<td.+>(.+?)<\/a>/u", $saitData, $tags);
         for ($i = 0; $i < count($tags[0]); $i++) {
             preg_match_all("/href=\"(.+?)\"/u", $tags[0][$i], $attribute);
+            if ($tags[1][$i] == "Parent Directory") {
+                continue;
+            }
             $results[] = array(
                 "name" => $tags[1][$i],
                 "source" => $attribute[1][0]

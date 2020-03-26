@@ -26,7 +26,7 @@ class DocumentList {
     public function execute() {
         $catalog  = new \catalog\Catalog($this->source);
         $catalog->createDocuments();
-        return $catalog->getDocuments();
+        return $catalog;
     }
     
 }
