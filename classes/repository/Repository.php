@@ -60,7 +60,9 @@ class Repository {
         $sql = "SELECT
                     `material`.`name_material` AS `name`,
                     `material`.`source`,
-                    `user`.`login`
+                    `material`.`type`,
+                    `user`.`login`,
+                    `subscriptions`.`is_read`
                 FROM
                     `user`
                     INNER JOIN(
@@ -71,7 +73,20 @@ class Repository {
                 WHERE
                     `user`.`login` = ?";
         $res = $this->dbconnect->prepare($sql);
-        return $res->execute([$login]);
+        $answ = $res->execute([$login]);
+        $subscriptions = new \subscription\Subscriptions();
+        $user = new \user\User($login);
+        foreach ($answ as $value) {
+            $name = $value['name'];
+            if (preg_match_all("/[#]/", $name)) {
+                $name = "#" . explode("#", $name)[1];
+            }
+            $subscriptions->subscribe($name, $user);
+            if ($value['is_read']) {
+                $subscriptions->getSubscriptionsByUserElement($user, $name)->setIsRead(1);
+            }
+        }
+        return $subscriptions;
     }
 
     /**

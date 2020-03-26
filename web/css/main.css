@@ -1,0 +1,11 @@
+header {
+    padding: 10px;
+}
+
+.menu h3 {
+    font-weight: normal;
+}
+
+input[type='submit'] {
+    display: none;
+}

@@ -9,6 +9,11 @@ class Subscriptions {
      */
     private $subscribtions = array();
 
+    /**
+     * 
+     * @param string $element
+     * @param \user\User $user
+     */
     public function subscribe($element, $user) {
         $this->subscribtions[] = new \subscription\Subscription($user, $element);
     }

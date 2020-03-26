@@ -5,18 +5,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>DocumentList</title>
         <link rel="stylesheet" href="css/semantic.min.css"/>
+        <link rel="stylesheet" href="css/main.css"/>
         <link rel="shortcut icon" href="assets/img/pCIQeJeeRck.png" type="image/png">
     </head>
     <body>
         <header>
-            <img alt="Logo" src="assets/img/pCIQeJeeRck.png">
+            <div class="ui secondary  menu centered grid">
+                <a class="item" href="DocumentList.php"> 
+                    Лист документов
+                </a>
+                <a class="item" href="SubscriptionsList.php"> 
+                    Подписки
+                </a>
+                <a class="item" href="OffersList.php"> 
+                    Лист правок
+                </a>
+                <div class="right menu">
+                    <div class="item">
+                        <h3> %Пользователь% </h3> 
+                    </div>
+                    <a class="ui item">
+                        Logout
+                    </a>
+                </div>
+            </div>
 
-            <nav>
-                <a href="DocumentList.php"> Лист документов </a>
-                <a href="SubscriptionsList.php"> Лист подписок </a>
-                <a href="OffersList.php"> Лист правок </a>
-                <a href="Notificate.php"> Уведомления</a>
-            </nav>
-
-            <h2> %Пользователь% </h2>                 
         </header>
