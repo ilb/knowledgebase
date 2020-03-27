@@ -13,7 +13,7 @@ $sub = new \usecase\subscriptions\SubscriptionView();
 ?>
 
 <div class="ui two column grid container">
-    <div class="four column row">
+    <div class="two column row">
         <div class="column">
             <div class="ui vertical menu">
                 <a class="item active">

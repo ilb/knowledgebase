@@ -1,9 +1,15 @@
 header {
     padding: 10px;
+    margin-bottom: 15px;
 }
 
 .menu h3 {
     font-weight: normal;
+}
+
+.search {
+    display: flex;
+    align-items: center;
 }
 
 input[type='submit'] {
