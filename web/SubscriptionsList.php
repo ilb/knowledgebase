@@ -32,3 +32,5 @@ $sub = new \usecase\subscriptions\SubscriptionView();
     </div>
 </div>
 
+<?php
+require_once "../web/template/footer.php";

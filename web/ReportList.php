@@ -24,8 +24,8 @@ require_once '../config/bootstrap.php';
     <div class="container">
         <table class="ui celled table">
             <?php
+            $repo = new \repository\Repository();
             if (isset($_GET['reportSubscriptions'])):
-                $repo = new \repository\Repository();
                 $resultArr = $repo->getSubscribtions();
 //                $resultArr = $subs->getSubscriprions();
                 ?>             
@@ -61,6 +61,7 @@ require_once '../config/bootstrap.php';
                 </tbody>
                 <?php
             elseif (isset($_GET['reportOffer'])):
+                
                 ?>
                 <thead>
                     <tr>
@@ -70,11 +71,18 @@ require_once '../config/bootstrap.php';
                     </tr>
                 </thead> 
                 <tbody>
+                    <?php
+//                    foreach ($array as $value):
+                    ?>
                     <tr>
                         <td data-label='login'></td>
                         <td data-label='offers'></td>
                         <td data-label='accepted'></td>
                     </tr>
+                    <?php
+//                    endforeach;
+                    ?>
+
                 </tbody>
                 <?php
             endif;
@@ -83,3 +91,6 @@ require_once '../config/bootstrap.php';
     </div>
 
 </div>
+
+<?php
+require_once "../web/template/footer.php";
