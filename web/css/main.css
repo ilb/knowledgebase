@@ -24,10 +24,18 @@ input[type='submit'] {
     display: none;
 }
 
+.container {
+    margin-top: 20px;
+}
+
 .content a {
     margin: 0 10px;
 }
 
 .card h2 {
     font-weight: normal;
+}
+
+.mb-4 {
+    margin-bottom: 1.4rem !important;
 }

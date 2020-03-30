@@ -16,8 +16,8 @@ $catalog = $documentList->execute();
     <div class="two column row">
         <div class="text column grid centered">
             <h1>Список документов</h1>
-            <form class="search ui icon input" action="DocumentFind.php" method="post">
-                <input type="text" name="keyWord" placeholder="Поиск key word">
+            <form class="search ui icon input form" action="DocumentFind.php" method="post">
+                <input type="text" name="keyWord" placeholder="Поиск по ключевому слову">
                 <label for="search_button"><i class="circular search link icon"></i></label>
                 <input type="submit" id="search_button">
             </form> 

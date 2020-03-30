@@ -58,8 +58,8 @@ class Repository {
             WHERE
                 `material`.`name_material` = ?"
         );
-        return $res->execute([$documentName]);
-        
+        $res->execute([$documentName]);
+        return $res->fetchAll(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -78,7 +78,7 @@ class Repository {
                 `user`.`login` = ""
      * @return array 
      */
-    public function getSubscribtions($login) {
+    public function getSubscribtions() {
         $sql = "SELECT
                     `material`.`name_material` AS `name`,
                     `material`.`source`,
@@ -92,23 +92,23 @@ class Repository {
                     )
                 ON
                     `user`.`id_user` = `subscriptions`.`user_id`
-                WHERE
-                    `user`.`login` = ?";
-        $res = $this->dbconnect->prepare($sql);
-        $answ = $res->execute([$login]);
-        $subscriptions = new \subscription\Subscriptions();
-        $user = new \user\User($login);
-        foreach ($answ as $value) {
-            $name = $value['name'];
-            if (preg_match_all("/[#]/", $name)) {
-                $name = "#" . explode("#", $name)[1];
-            }
-            $subscriptions->subscribe($name, $user);
-            if ($value['is_read']) {
-                $subscriptions->getSubscriptionsByUserElement($user, $name)->setIsRead(1);
-            }
-        }
-        return $subscriptions;
+                ORDER BY
+                    `user`.`login`";
+        $res = $this->dbconnect->query($sql);
+        $answ = $res->fetchAll(\PDO::FETCH_ASSOC);
+//        $subscriptions = new \subscription\Subscriptions();
+//        $user = new \user\User($login);
+//        foreach ($answ as $value) {
+//            $name = $value['name'];
+//            if (preg_match_all("/[#]/", $name)) {
+//                $name = "#" . explode("#", $name)[1];
+//            }
+//            $subscriptions->subscribe($name, $user);
+//            if ($value['is_read']) {
+//                $subscriptions->getSubscriptionsByUserElement($user, $name)->setIsRead(1);
+//            }
+//        }
+        return $answ;
     }
 
     /**
