@@ -41,19 +41,41 @@ class Repository {
     }
 
     /**
+     * Возвращает все ключевые слова из базы данных
+     * @param string $documentName
+     */
+    public function getKeywords($documentName) {
+        $res = $this->dbconnect->prepare("SELECT
+                `keyword`.`name_keyword`
+            FROM
+                `keyword`
+            INNER JOIN(
+                    `material_from_keyword`
+                INNER JOIN `material` ON `material`.`id_material` = `material_from_keyword`.`material_id`
+                )
+            ON
+                `keyword`.`id_keyword` = `material_from_keyword`.`keyword_id`
+            WHERE
+                `material`.`name_material` = ?"
+        );
+        return $res->execute([$documentName]);
+        
+    }
+
+    /**
      * SELECT
-      `material`.`name_material` AS `name`,
-      `material`.`source`,
-      `user`.`login`
-      FROM
-      `user`
-      INNER JOIN(
-      `subscriptions` INNER JOIN `material` ON `subscriptions`.`material_id` = `material`.`id_material`
-      )
-      ON
-      `user`.`id_user` = `subscriptions`.`user_id`
-      WHERE
-      `user`.`login` = ""
+            `subscriptions`.`is_read`,
+            `material`.`name_material`,
+            `material`.`source`
+        FROM
+            `user`
+        INNER JOIN(
+                `subscriptions` INNER JOIN `material` ON `subscriptions`.`material_id` = `material`.`id_material`
+            )
+        ON
+            `user`.`id_user` = `subscriptions`.`user_id`
+        WHERE 
+                `user`.`login` = ""
      * @return array 
      */
     public function getSubscribtions($login) {

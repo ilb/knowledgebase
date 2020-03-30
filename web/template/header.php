@@ -23,15 +23,15 @@
                 <a class="item" href="ReportList.php"> 
                     Формирование отчетов
                 </a>
-                <a class="item" href="SubscribeUser.php"> 
-                    Подписать пользователей
+                <a class="item" href="ChangeUser.php"> 
+                    Управление пользователями
                 </a>
                 <div class="right menu">
                     <div class="item">
                         <h3> %Пользователь% </h3> 
                     </div>
                     <a class="ui item">
-                        Logout
+                        Выход
                     </a>
                 </div>
             </div>

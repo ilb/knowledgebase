@@ -3,6 +3,14 @@ header {
     margin-bottom: 15px;
 }
 
+.text > h1 {
+    text-align: center;
+}
+
+.add_document {
+    margin: 14px 0;
+}
+
 .menu h3 {
     font-weight: normal;
 }
@@ -14,4 +22,12 @@ header {
 
 input[type='submit'] {
     display: none;
+}
+
+.content a {
+    margin: 0 10px;
+}
+
+.card h2 {
+    font-weight: normal;
 }

@@ -13,27 +13,39 @@ $df = new \usecase\document\DocumentSearch("../web/index.html", $_POST['keyWord'
 
 $results = $df->execute();
 ?>
-<main>
-    <?php
-    if (empty($results)) :
-        ?>
-
-        <h1 id="err">Ничего не найдено</h1>
+<div class="container ui">
+    <div class="ui cards">
         <?php
-    else:
-        foreach ($results as $result) :
+        if (empty($results)):
             ?>
 
-            <div class="level2"> 
-                <h2>Найденно:</h2> <a href="<?= $result['link'] ?>" target="__blank"> <?= $result['link'] ?> </a>
-                <h2> В документе </h2> <?= $result['document']->getName() ?>
-            </div>
-
+            <h1 id="err">Ничего не найдено</h1>
             <?php
-        endforeach;
-    endif;
-    ?>
+        else:
+            foreach ($results as $result) :
+                $arr = explode("/", $result['link']);
+                $result['desc'] = $arr[count($arr) - 1];
+                ?>
 
-</main>
+                <div class="card"> 
+                    <div class="content">
+                        <div class="header">
+                            <h2> В документе </h2> 
+                            <u><?= $result['document']->getName() ?></u>
+                        </div>
+                        <div class="description">
+                            <p><?= $result['desc'] ?></p>
+                            <a <?= $result['desc'] ?>href="<?= $result['link'] ?>" target="__blank" class="ui button"> Прочитать </a>
+                        </div>
+                    </div>
+                </div>
+
+                <?php
+            endforeach;
+        endif;
+        ?>
+
+    </div>
+</div>
 <?php
 require_once '../web/template/footer.php';
