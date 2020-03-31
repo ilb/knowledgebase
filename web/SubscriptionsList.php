@@ -16,18 +16,18 @@ $sub = new \usecase\subscriptions\SubscriptionView();
     <div class="two column row">
         <div class="column">
             <div class="ui vertical menu">
-                <a class="item active">
+                <a class="item active text-green">
                     Все подписки
-                    <div class="ui label">51</div>
+                    <div class="ui label " >30</div>
                 </a>
-                <a class="item">
+                <a class="item  text-red">
                     Обновленные
-                    <div class="ui label">1</div>
+                    <div class="ui label">4</div>
                 </a>
             </div>
         </div>
         <div class="column">
-            
+            Тут будут отображатся подписки
         </div>
     </div>
 </div>

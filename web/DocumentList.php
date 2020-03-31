@@ -18,8 +18,9 @@ $catalog = $documentList->execute();
             <h1>Список документов</h1>
             <form class="search ui icon input form" action="DocumentFind.php" method="post">
                 <input type="text" name="keyWord" placeholder="Поиск по ключевому слову">
-                <label for="search_button"><i class="circular search link icon"></i></label>
-                <input type="submit" id="search_button">
+                <button type="submit" name="search" class="ui button">
+                    Поиск<i class="search link icon"></i>
+                </button>
             </form> 
             <div class="add_document">
                 <button class='ui button'>Создать документ</button>

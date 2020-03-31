@@ -15,9 +15,17 @@ header {
     font-weight: normal;
 }
 
-.search {
+form.search {
     display: flex;
     align-items: center;
+}
+
+form.search > button {
+    display: flex !important;
+}
+
+form.search > button > i {
+    margin-left: 10px !important;
 }
 
 input[type='submit'] {
@@ -38,4 +46,12 @@ input[type='submit'] {
 
 .mb-4 {
     margin-bottom: 1.4rem !important;
+}
+
+.text-green {
+    color: green !important;
+}
+
+.text-red {
+    color: red !important;
 }

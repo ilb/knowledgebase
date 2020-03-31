@@ -49,8 +49,8 @@ require_once '../config/bootstrap.php';
                             <td data-label='readed'>
                                 <?=
                                 $subscription['is_read'] ?
-                                        '<span style="color:green">Прочитано</span>' :
-                                        '<span style="color:red">Не прочитано</span>'
+                                        '<span class="text-green">Прочитано</span>' :
+                                        '<span class="text-red">Не прочитано</span>'
                                 ?>
                             </td>
                         </tr>
