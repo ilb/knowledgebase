@@ -4,8 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>DocumentList</title>
-        <link rel="stylesheet" href="css/semantic.min.css"/>
-        <link rel="stylesheet" href="css/main.css"/>
+        <link rel="stylesheet" href="css/oooxhtml.css"/>
         <link rel="shortcut icon" href="assets/img/pCIQeJeeRck.png" type="image/png">
     </head>
     <body>

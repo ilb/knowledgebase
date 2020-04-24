@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 25 2020 г., 02:16
+-- Время создания: Апр 12 2020 г., 10:08
 -- Версия сервера: 5.6.43
 -- Версия PHP: 5.6.40
 
@@ -21,101 +21,50 @@ SET time_zone = "+00:00";
 --
 -- База данных: `knowledgebase`
 --
-CREATE DATABASE IF NOT EXISTS `knowledgebase` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `knowledgebase`;
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `catalog`
+-- Структура таблицы `keyword`
 --
 
-CREATE TABLE `catalog` (
-  `id_catalog` int(7) NOT NULL,
-  `source_catalog` text NOT NULL,
-  `name_catalog` varchar(50) NOT NULL
+CREATE TABLE `keyword` (
+  `id_keyword` int(7) NOT NULL,
+  `name_keyword` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Очистить таблицу перед добавлением данных `catalog`
---
-
-TRUNCATE TABLE `catalog`;
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `document`
+-- Структура таблицы `material`
 --
 
-CREATE TABLE `document` (
-  `id_document` int(7) NOT NULL,
-  `name_document` varchar(50) NOT NULL,
-  `source_document` text NOT NULL,
-  `catalog_id` int(7) NOT NULL
+CREATE TABLE `material` (
+  `id_material` int(7) NOT NULL,
+  `name_material` varchar(100) NOT NULL,
+  `source` text NOT NULL,
+  `type` enum('document','resource') NOT NULL DEFAULT 'resource'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Очистить таблицу перед добавлением данных `document`
+-- Дамп данных таблицы `material`
 --
 
-TRUNCATE TABLE `document`;
+INSERT INTO `material` (`id_material`, `name_material`, `source`, `type`) VALUES
+(1, 'Test', 'link_to_material', 'document'),
+(2, 'Test1', 'link_to_material', 'resource'),
+(3, 'Test2', 'link_to_material', 'document');
+
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `elements`
+-- Структура таблицы `material_from_keyword`
 --
 
-CREATE TABLE `elements` (
-  `id_element` int(7) NOT NULL,
-  `type_id` int(7) NOT NULL
+CREATE TABLE `material_from_keyword` (
+  `material_id` int(7) NOT NULL,
+  `keyword_id` int(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Очистить таблицу перед добавлением данных `elements`
---
-
-TRUNCATE TABLE `elements`;
--- --------------------------------------------------------
-
---
--- Структура таблицы `resource`
---
-
-CREATE TABLE `resource` (
-  `id_resource` int(7) NOT NULL,
-  `name_resource` varchar(100) NOT NULL,
-  `document_id` int(7) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Очистить таблицу перед добавлением данных `resource`
---
-
-TRUNCATE TABLE `resource`;
--- --------------------------------------------------------
-
---
--- Структура таблицы `role`
---
-
-CREATE TABLE `role` (
-  `id_role` int(7) NOT NULL,
-  `name_role` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Очистить таблицу перед добавлением данных `role`
---
-
-TRUNCATE TABLE `role`;
---
--- Дамп данных таблицы `role`
---
-
-INSERT INTO `role` (`id_role`, `name_role`) VALUES
-(1, 'Admin'),
-(2, 'Mentor'),
-(3, 'User');
 
 -- --------------------------------------------------------
 
@@ -125,16 +74,20 @@ INSERT INTO `role` (`id_role`, `name_role`) VALUES
 
 CREATE TABLE `subscriptions` (
   `id_subscription` int(7) NOT NULL,
-  `is_read` tinyint(1) NOT NULL,
-  `element_id` int(7) NOT NULL,
-  `user_id` int(7) NOT NULL
+  `user_id` int(7) NOT NULL,
+  `material_id` int(7) NOT NULL,
+  `is_read` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Очистить таблицу перед добавлением данных `subscriptions`
+-- Дамп данных таблицы `subscriptions`
 --
 
-TRUNCATE TABLE `subscriptions`;
+INSERT INTO `subscriptions` (`id_subscription`, `user_id`, `material_id`, `is_read`) VALUES
+(1, 1, 2, 0),
+(2, 2, 3, 1),
+(3, 1, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -143,148 +96,99 @@ TRUNCATE TABLE `subscriptions`;
 
 CREATE TABLE `user` (
   `id_user` int(7) NOT NULL,
-  `login` int(11) NOT NULL,
-  `role_id` int(7) NOT NULL
+  `login` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Очистить таблицу перед добавлением данных `user`
+-- Дамп данных таблицы `user`
 --
 
-TRUNCATE TABLE `user`;
+INSERT INTO `user` (`id_user`, `login`) VALUES
+(1, 'USer1'),
+(2, 'User2');
+
 --
 -- Индексы сохранённых таблиц
 --
 
 --
--- Индексы таблицы `catalog`
+-- Индексы таблицы `keyword`
 --
-ALTER TABLE `catalog`
-  ADD PRIMARY KEY (`id_catalog`);
+ALTER TABLE `keyword`
+  ADD PRIMARY KEY (`id_keyword`);
 
 --
--- Индексы таблицы `document`
+-- Индексы таблицы `material`
 --
-ALTER TABLE `document`
-  ADD PRIMARY KEY (`id_document`),
-  ADD KEY `catalog_id` (`catalog_id`);
+ALTER TABLE `material`
+  ADD PRIMARY KEY (`id_material`);
 
 --
--- Индексы таблицы `elements`
+-- Индексы таблицы `material_from_keyword`
 --
-ALTER TABLE `elements`
-  ADD PRIMARY KEY (`id_element`),
-  ADD KEY `type_id` (`type_id`);
-
---
--- Индексы таблицы `resource`
---
-ALTER TABLE `resource`
-  ADD PRIMARY KEY (`id_resource`),
-  ADD KEY `document_id` (`document_id`);
-
---
--- Индексы таблицы `role`
---
-ALTER TABLE `role`
-  ADD PRIMARY KEY (`id_role`);
+ALTER TABLE `material_from_keyword`
+  ADD KEY `keyword_id` (`keyword_id`),
+  ADD KEY `material_id` (`material_id`);
 
 --
 -- Индексы таблицы `subscriptions`
 --
 ALTER TABLE `subscriptions`
   ADD PRIMARY KEY (`id_subscription`),
-  ADD KEY `element_id` (`element_id`),
+  ADD KEY `material_id` (`material_id`),
   ADD KEY `user_id` (`user_id`);
 
 --
 -- Индексы таблицы `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_user`),
-  ADD KEY `role_id` (`role_id`);
+  ADD PRIMARY KEY (`id_user`);
 
 --
 -- AUTO_INCREMENT для сохранённых таблиц
 --
 
 --
--- AUTO_INCREMENT для таблицы `catalog`
+-- AUTO_INCREMENT для таблицы `keyword`
 --
-ALTER TABLE `catalog`
-  MODIFY `id_catalog` int(7) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `keyword`
+  MODIFY `id_keyword` int(7) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT для таблицы `document`
+-- AUTO_INCREMENT для таблицы `material`
 --
-ALTER TABLE `document`
-  MODIFY `id_document` int(7) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT для таблицы `elements`
---
-ALTER TABLE `elements`
-  MODIFY `id_element` int(7) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT для таблицы `resource`
---
-ALTER TABLE `resource`
-  MODIFY `id_resource` int(7) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT для таблицы `role`
---
-ALTER TABLE `role`
-  MODIFY `id_role` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `material`
+  MODIFY `id_material` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `subscriptions`
 --
 ALTER TABLE `subscriptions`
-  MODIFY `id_subscription` int(7) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_subscription` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(7) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
 --
 
 --
--- Ограничения внешнего ключа таблицы `document`
+-- Ограничения внешнего ключа таблицы `material_from_keyword`
 --
-ALTER TABLE `document`
-  ADD CONSTRAINT `document_ibfk_1` FOREIGN KEY (`catalog_id`) REFERENCES `catalog` (`id_catalog`) ON DELETE CASCADE;
-
---
--- Ограничения внешнего ключа таблицы `elements`
---
-ALTER TABLE `elements`
-  ADD CONSTRAINT `elements_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `document` (`id_document`) ON DELETE CASCADE,
-  ADD CONSTRAINT `elements_ibfk_2` FOREIGN KEY (`type_id`) REFERENCES `resource` (`id_resource`) ON DELETE CASCADE;
-
---
--- Ограничения внешнего ключа таблицы `resource`
---
-ALTER TABLE `resource`
-  ADD CONSTRAINT `resource_ibfk_1` FOREIGN KEY (`document_id`) REFERENCES `document` (`id_document`) ON DELETE CASCADE;
+ALTER TABLE `material_from_keyword`
+  ADD CONSTRAINT `material_from_keyword_ibfk_1` FOREIGN KEY (`keyword_id`) REFERENCES `keyword` (`id_keyword`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `material_from_keyword_ibfk_2` FOREIGN KEY (`material_id`) REFERENCES `material` (`id_material`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `subscriptions`
 --
 ALTER TABLE `subscriptions`
-  ADD CONSTRAINT `subscriptions_ibfk_1` FOREIGN KEY (`element_id`) REFERENCES `elements` (`id_element`) ON DELETE CASCADE,
-  ADD CONSTRAINT `subscriptions_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`) ON DELETE CASCADE;
-
---
--- Ограничения внешнего ключа таблицы `user`
---
-ALTER TABLE `user`
-  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`id_role`);
+  ADD CONSTRAINT `subscriptions_ibfk_1` FOREIGN KEY (`material_id`) REFERENCES `material` (`id_material`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `subscriptions_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -122,7 +122,6 @@ class Document {
                     $rawResource['name'], 
                     $this->nameDocument . "#" . $rawResource['tag']
             );
-            
             $this->addKeyWord($rawResource['tag']);
         }
     }
