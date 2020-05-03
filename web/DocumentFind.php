@@ -13,7 +13,7 @@ $df = new \usecase\document\DocumentSearch("../web/index.html", $_POST['keyWord'
 
 $results = $df->execute();
 ?>
-<div class="container ui">
+<div class="box">
     <div class="ui cards">
         <?php
         if (empty($results)):
@@ -22,26 +22,42 @@ $results = $df->execute();
             <h1 id="err">Ничего не найдено</h1>
             <?php
         else:
-            foreach ($results as $result) :
-                $arr = explode("/", $result['link']);
-                $result['desc'] = $arr[count($arr) - 1];
-                ?>
-
-                <div class="card"> 
-                    <div class="content">
-                        <div class="header">
-                            <h2> В документе </h2> 
-                            <u><?= $result['document']->getName() ?></u>
-                        </div>
-                        <div class="description">
-                            <p><?= $result['desc'] ?></p>
-                            <a <?= $result['desc'] ?>href="<?= $result['link'] ?>" target="__blank" class="ui button"> Прочитать </a>
-                        </div>
-                    </div>
-                </div>
-
-                <?php
-            endforeach;
+            ?>
+            <div class="center-tabble">
+                <table>
+                    <tr>
+                        <th>
+                            Имя документа
+                        </th>
+                        <th>
+                            Ссылка 
+                        </th>
+                        <th>
+                            Ресурс документа
+                        </th>
+                    </tr>
+                    <?php
+                    foreach ($results as $result) :
+                        $arr = explode("/", $result['link']);
+                        $result['desc'] = $arr[count($arr) - 1];
+                        ?>
+                        <tr>
+                            <td>
+                                <?= $result['document']->getName() ?>
+                            </td>
+                            <td>
+                                <a href="<?= $result['link'] ?>" target="__blank" > Прочитать </a> 
+                            </td>
+                            <td>
+                                <?= $result['desc'] ?>
+                            </td>
+                        </tr>                            
+                        <?php
+                    endforeach;
+                    ?>
+                </table>
+            </div>
+        <?php
         endif;
         ?>
 

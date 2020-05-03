@@ -1,0 +1,40 @@
+header{
+    width: 80%;
+    margin: 0 10%;
+    display: flex;
+    justify-content: space-around;
+}
+
+header>nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.box {
+    width: 90%;
+    margin: 0 5%;
+}
+
+.box > form {
+    padding: 10px;
+}
+
+.box>form * {
+    margin: 5px;
+}
+
+.box>form>.search {
+    width: 200px;
+}
+
+.center-tabble {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+td, th {
+    padding: 10px;
+}

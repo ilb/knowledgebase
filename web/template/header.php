@@ -5,11 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>DocumentList</title>
         <link rel="stylesheet" href="css/oooxhtml.css"/>
+        <link rel="stylesheet" href="css/main.css"/>
         <link rel="shortcut icon" href="assets/img/pCIQeJeeRck.png" type="image/png">
     </head>
     <body>
         <header>
-            <div class="ui secondary  menu centered grid">
+            <nav>
                 <a class="item" href="DocumentList.php"> 
                     Лист документов
                 </a>
@@ -33,7 +34,7 @@
                         Выход
                     </a>
                 </div>
-            </div>
+            </nav>
 
         </header>
 

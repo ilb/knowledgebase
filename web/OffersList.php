@@ -10,27 +10,45 @@ ini_set("display_startup_errors", 1);
 require_once '../config/bootstrap.php';
 ?>
 
-<div class="ui container"> 
+<div class="box"> 
     <h1>Предложенные изменения</h1>
-    <div class="ui cards">
-        <div class="card">
-            <div class="content">
-                <img class="right floated mini ui image" src="https://picsum.photos/200/200">
-                <div class="header">
-                    Имя пользователя
-                </div>
-                <div class="description">
-                    Внесение в документ: <u>Имя документа</u>
-                    Изменения: <a class="ui" target="__blank">Посмотреть</a>
-                </div>
-            </div>
-            <div class="extra content">
-                <div class="ui two buttons">
-                    <div class="ui basic green button">Принять</div>
-                    <div class="ui basic red button">Отклонить</div>
-                </div>
-            </div>
-        </div>
+    <div class="center-tabble">
+        <table>
+            <tr>
+                <th>
+                    Пользователь
+                </th>
+                <th>
+                   Именения
+                </th>
+                <th>
+                    Принять
+                </th>
+                <th>
+                    Отклонить
+                </th>
+            </tr>
+            <tr>
+                <td>
+                  User1  
+                </td>
+                <td>
+                    <a href="#">
+                        Посмотреть
+                    </a>
+                </td>
+                <td>
+                    <a href="#">
+                        Принять
+                    </a>
+                </td>
+                <td>
+                    <a href="#">
+                        Отклонить
+                    </a>
+                </td>                
+            </tr>
+        </table>
     </div>
 </div>
 

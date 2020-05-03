@@ -12,23 +12,31 @@ require_once '../config/bootstrap.php';
 $sub = new \usecase\subscriptions\SubscriptionView();
 ?>
 
-<div class="ui two column grid container">
-    <div class="two column row">
-        <div class="column">
-            <div class="ui vertical menu">
-                <a class="item active text-green">
-                    Все подписки
-                    <div class="ui label " >30</div>
-                </a>
-                <a class="item  text-red">
-                    Обновленные
-                    <div class="ui label">4</div>
-                </a>
-            </div>
-        </div>
-        <div class="column">
-            Тут будут отображатся подписки
-        </div>
+<div class="box">
+    <div class="center-tabble">
+        <table>
+            <tr>
+                <th>
+                    Наименование
+                </th>
+                <th>
+                    Ссылка
+                </th>
+                <th>
+                    Прочитано
+                </th>
+            </tr>
+            <tr>
+                <td>ddd.xhtml</td>
+                <td><a href="#">Прочитать</a></td>
+                <td>Ознакомлен</td>
+            </tr>
+            <tr>
+                <td>productmanagement.xhtml</td>
+                <td><a href="#">Прочитать</a></td>
+                <td>Не прочитано</td>
+            </tr>
+        </table>
     </div>
 </div>
 

@@ -10,18 +10,16 @@ ini_set("display_startup_errors", 1);
 require_once '../config/bootstrap.php';
 ?>
 
-<div class="ui container">
-    <div class="centered ui grid mb-4">
-        <form action="" method="GET" class="ui form">
-            <button type="submit" class="ui button" name="reportSubscriptions">
-                Сформировать отчет по подпискам
-            </button>
-            <button type="submit" class="ui button" name="reportOffer">
-                Сформировать отчет по предложенным корректировкам
-            </button>   
-        </form>
-    </div>
-    <div class="container">
+<div class="box">
+    <form action="" method="GET" class="ui form">
+        <button type="submit" class="ui button" name="reportSubscriptions">
+            Сформировать отчет по подпискам
+        </button>
+        <button type="submit" class="ui button" name="reportOffer">
+            Сформировать отчет по предложенным корректировкам
+        </button>   
+    </form>
+    <div class="center-tabble">
         <table class="ui celled table">
             <?php
             $repo = new \repository\Repository();
@@ -45,7 +43,7 @@ require_once '../config/bootstrap.php';
                         <tr>
                             <td data-label='login'><?= $subscription['login'] ?></td>
                             <td data-label='name_material'><?= $subscription['name'] ?></td>
-                            <td data-label='link'><?= $subscription['source'] ?></td>
+                            <td data-label='link'><a href="#"><?= $subscription['source'] ?></a></td>
                             <td data-label='readed'>
                                 <?=
                                 $subscription['is_read'] ?
@@ -61,7 +59,6 @@ require_once '../config/bootstrap.php';
                 </tbody>
                 <?php
             elseif (isset($_GET['reportOffer'])):
-                
                 ?>
                 <thead>
                     <tr>
