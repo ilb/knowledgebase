@@ -7,7 +7,7 @@ require_once '../web/template/header.php';
 require_once '../config/bootstrap.php';
 
 $sub = new \usecase\subscriptions\SubscriptionView("User1");
-$subscription = $sub->execute();
+$subscriptions = $sub->execute();
 ?>
 
 <div class="box">
@@ -19,22 +19,23 @@ $subscription = $sub->execute();
                     Наименование
                 </th>
                 <th>
-                    Ссылка
-                </th>
-                <th>
                     Прочитано
                 </th>
+                <th>
+                    Ссылка
+                </th>
             </tr>
+            <?php
+            foreach ($subscriptions->getSubscriprions() as $subscription) :
+            ?>
             <tr>
-                <td>ddd.xhtml</td>
-                <td><a href="#">Прочитать</a></td>
-                <td>Ознакомлен</td>
+                <td><?=$subscription->getElement()?></td>
+                <td><?=$subscription->checkRead() ? "Yes" : "No" ?></td>
+                <td> <a href="#"> Ссылка на чтение</a></td>
             </tr>
-            <tr>
-                <td>productmanagement.xhtml</td>
-                <td><a href="#">Прочитать</a></td>
-                <td>Не прочитано</td>
-            </tr>
+            <?php
+            endforeach;
+            ?>
         </table>
     </div>
 </div>
