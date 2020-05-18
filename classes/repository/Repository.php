@@ -6,7 +6,8 @@
 
 namespace repository;
 
-class Repository {
+class Repository
+{
 
     /**
      * @var string
@@ -36,7 +37,8 @@ class Repository {
     /**
      * Создает подключение к базе при создании класса
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->dbconnect = new \PDO("mysql:host=$this->host;dbname=$this->dbname", $this->dbuser, $this->password);
     }
 
@@ -44,8 +46,10 @@ class Repository {
      * Возвращает все ключевые слова из базы данных
      * @param string $documentName
      */
-    public function getKeywords($documentName) {
-        $res = $this->dbconnect->prepare("SELECT
+    public function getKeywords($documentName)
+    {
+        $res = $this->dbconnect->prepare(
+            "SELECT
                 `keyword`.`name_keyword`
             FROM
                 `keyword`
@@ -59,26 +63,14 @@ class Repository {
                 `material`.`name_material` = ?"
         );
         $res->execute([$documentName]);
-        return $res->fetchAll(PDO::FETCH_ASSOC);
+        return $res->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     /**
-     * SELECT
-            `subscriptions`.`is_read`,
-            `material`.`name_material`,
-            `material`.`source`
-        FROM
-            `user`
-        INNER JOIN(
-                `subscriptions` INNER JOIN `material` ON `subscriptions`.`material_id` = `material`.`id_material`
-            )
-        ON
-            `user`.`id_user` = `subscriptions`.`user_id`
-        WHERE 
-                `user`.`login` = ""
      * @return array 
      */
-    public function getSubscribtions() {
+    public function getSubscribtions()
+    {
         $sql = "SELECT
                     `material`.`name_material` AS `name`,
                     `material`.`source`,
@@ -95,20 +87,46 @@ class Repository {
                 ORDER BY
                     `user`.`login`";
         $res = $this->dbconnect->query($sql);
-        $answ = $res->fetchAll(\PDO::FETCH_ASSOC);
-//        $subscriptions = new \subscription\Subscriptions();
-//        $user = new \user\User($login);
-//        foreach ($answ as $value) {
-//            $name = $value['name'];
-//            if (preg_match_all("/[#]/", $name)) {
-//                $name = "#" . explode("#", $name)[1];
-//            }
-//            $subscriptions->subscribe($name, $user);
-//            if ($value['is_read']) {
-//                $subscriptions->getSubscriptionsByUserElement($user, $name)->setIsRead(1);
-//            }
-//        }
-        return $answ;
+        //        $subscriptions = new \subscription\Subscriptions();
+        //        $user = new \user\User($login);
+        //        foreach ($answ as $value) {
+        //            $name = $value['name'];
+        //            if (preg_match_all("/[#]/", $name)) {
+        //                $name = "#" . explode("#", $name)[1];
+        //            }
+        //            $subscriptions->subscribe($name, $user);
+        //            if ($value['is_read']) {
+        //                $subscriptions->getSubscriptionsByUserElement($user, $name)->setIsRead(1);
+        //            }
+        //        }
+        return $res->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * @param string $login 
+     * @return array<dict<string,any>>
+     */
+    public function getSubscribtionsByUser($login)
+    {
+        $sql = "SELECT
+                `material`.`name_material` AS `name`,
+                `material`.`source`,
+                `material`.`type`,
+                `user`.`login`,
+                `subscriptions`.`is_read`
+            FROM
+                `user`
+                INNER JOIN(
+                    `subscriptions` INNER JOIN `material` ON `subscriptions`.`material_id` = `material`.`id_material`
+                )
+            ON
+                `user`.`id_user` = `subscriptions`.`user_id`
+            Where `user`.`login` = ?
+            ORDER BY
+                `user`.`login`";
+        $res = $this->dbconnect->prepare($sql);
+        $res->execute(array($login));
+        return $res->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     /**
@@ -126,7 +144,8 @@ class Repository {
       WHERE
       `keyword`.`name_keyword` = ?
      */
-    public function getDocumentByKewords($keyWord) {
+    public function getDocumentByKewords($keyWord)
+    {
         /**
          * $this->dbconnect
          */
@@ -136,5 +155,4 @@ class Repository {
             ]
         ];
     }
-
 }

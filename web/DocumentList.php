@@ -3,9 +3,6 @@ require_once '../web/template/header.php';
 /*
  * Выводит список всех документов
  */
-ini_set("error_reporting", E_ALL);
-ini_set("display_errors", 1);
-ini_set("display_startup_errors", 1);
 
 require_once '../config/bootstrap.php';
 
@@ -20,7 +17,7 @@ $catalog = $documentList->execute();
             Поиск
         </button>
         <!--<button>Создать документ</button>-->
-    </form> 
+    </form>
     <div class="center-tabble">
         <table>
             <tr>
@@ -29,9 +26,9 @@ $catalog = $documentList->execute();
                 <th>Тип материала</th>
             </tr>
             <?php
-            foreach ($catalog->getDocuments() as $document):
+            foreach ($catalog->getDocuments() as $document) :
                 $document->createResources();
-                ?>
+            ?>
                 <tr>
                     <td><?= $document->getName() ?> </td>
                     <td><a href="<?= $document->getSource() ?>" target="__blank">Просмотреть</a></td>
@@ -39,13 +36,13 @@ $catalog = $documentList->execute();
                 </tr>
                 <?php
                 foreach ($document->getResources() as $resource) :
-                    ?>
+                ?>
                     <tr>
                         <td><?= $resource->getTag() ?> </td>
                         <td><a href="<?= $document->getSource() . "#" . $resource->getTag() ?>" target="__blank">Просмотреть</a></td>
                         <td>Ресурс</td>
                     </tr>
-                    <?php
+            <?php
                 endforeach;
             endforeach;
             ?>

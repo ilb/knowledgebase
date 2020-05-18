@@ -29,7 +29,7 @@ class DocumentSearch {
     
     /**
      * ВОзвращает массив найденных ресурсов и ссылки на них
-     * @return array<array>
+     * @return array<array<Resource>>
      */
     public function execute() {
         $catalog = new \catalog\Catalog($this->source);
