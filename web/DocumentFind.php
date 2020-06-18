@@ -1,9 +1,4 @@
 <?php
-require_once '../web/template/header.php';
-/*
- * ПОиск документов ?? 
- */
-
 require_once '../config/bootstrap.php';
 
 $df = new \usecase\document\DocumentSearch("../web/index.html", $_POST['keyWord']);
