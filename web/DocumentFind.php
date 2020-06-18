@@ -1,4 +1,7 @@
 <?php
+/**
+ * Description Выводит список всех найденных ресурсов по ключевому слову 
+ */
 require_once '../config/bootstrap.php';
 if (!isset($_POST['keyWord'])):
     ?>

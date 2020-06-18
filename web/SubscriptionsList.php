@@ -1,7 +1,7 @@
 <?php
 require_once '../web/template/header.php';
 /*
- * Выводит список всех документов
+ * Description показывает все подписки на которые вы подписаны
  */
 
 require_once '../config/bootstrap.php';

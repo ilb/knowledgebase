@@ -1,7 +1,7 @@
 <?php
 require_once '../web/template/header.php';
 /*
- * Выводит список всех документов
+ * Description Выводит список всех документов и ресурсов предложенных на изменение
  */
 
 require_once '../config/bootstrap.php';

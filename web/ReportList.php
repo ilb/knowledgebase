@@ -1,7 +1,7 @@
 <?php
 require_once '../web/template/header.php';
 /*
- * Выводит список всех документов
+ * Description Формирует отчеты по предложенным изменениям. так же по подпискам
  */
 
 require_once '../config/bootstrap.php';

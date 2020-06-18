@@ -1,7 +1,7 @@
 <?php
 require_once '../web/template/header.php';
 /*
- * Выводит список всех документов
+ * Description Позволяет админу назначит пользователя ментором 
  */
 
 require_once '../config/bootstrap.php';

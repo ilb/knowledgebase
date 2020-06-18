@@ -1,24 +1,36 @@
 <?php
-/**
- * Description Выводит список всех документов и ресурсов
- */
-
-require_once '../config/bootstrap.php';
-
 header("Content-type: text/xml");
 
 echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN" 
 "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd">
 <?xml-stylesheet type="text/xsl" href="css/main.xsl"?>';
 
-$documentList = new \usecase\document\DocumentList("../web/index.html");
-$catalog = $documentList->execute();
+$files = (scandir('.'));
+$clear_files = array();
+$description_files = array();
+foreach ($files as $file) {
+
+    if (preg_match("/[*.]php/", $file) && $file != "index.php") {
+        $clear_files[] =  $file;
+    } else {
+        continue;
+    }
+
+    $f = fopen($file, "r");
+    $i = 0;
+    while (($buffer = fgets($f, 4096)) !== false) {
+        if (preg_match("/(Description)/", $buffer, $mathes)) {
+            $description_files[$file] = $buffer;
+            break;
+        }
+    }
+}
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Список документов</title>
+    <title>Действия</title>
 </head>
 
 <body>
@@ -40,37 +52,26 @@ $catalog = $documentList->execute();
         </form>
         <table style="width: 100%;">
             <caption>
-                Весь список ресурсов и документов
+                Весь список файлов
             </caption>
             <tr style="font-size: 1.3em">
                 <th>Наименование</th>
-                <th>Тип материала</th>
+                <th>Описание</th>
             </tr>
             <?php
-            foreach ($catalog->getDocuments() as $document) :
-                $document->createResources();
+            foreach ($clear_files as $file) :
             ?>
-                <tr class="document">
+                <tr class="resource">
                     <td>
-                        <a href="<?= $document->getSource() ?>" target="__blank">
-                            <h1 style="font-weight: normal; font-size: 1.2em"><?= $document->getName() ?> </h1>
+                        <a href="<?= $file ?>" target="__blank">
+                            <h1 style="font-weight: normal; font-size: 1.2em"><?= $file ?> </h1>
                         </a>
                     </td>
-                    <td>Документ</td>
+                    <td>
+                        <?= $description_files[$file] ?>
+                    </td>
                 </tr>
-                <?php
-                foreach ($document->getResources() as $resource) :
-                ?>
-                    <tr class="resource">
-                        <td>
-                            <a href="<?= $document->getSource() . "#" . $resource->getTag() ?>" target="__blank">
-                                <h2 style="font-weight: normal; font-size: 1.1em"><?= $resource->getTag() ?></h2>
-                            </a>
-                        </td>
-                        <td>Ресурс</td>
-                    </tr>
             <?php
-                endforeach;
             endforeach;
             ?>
         </table>
