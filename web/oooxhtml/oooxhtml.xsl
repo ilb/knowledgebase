@@ -32,11 +32,12 @@
     <xsl:template match="xhtml:head">
         <xsl:copy>
             <xsl:apply-templates select="@*|node()"/>
-            <link rel="stylesheet" type="text/css" href="/oooxhtml/oooxhtml.css"/>
+            <link rel="stylesheet" type="text/css" href="/web/oooxhtml/oooxhtml.css"/>
+            <link rel="stylesheet" type="text/css" href="/web/css/main.css"/>
             <script type="text/javascript" src="/privapi/web/scripts/privilegedAPI.js">
                 <xsl:text><![CDATA[]]></xsl:text>
             </script>
-            <script type="text/javascript" src="/oooxhtml/oooxhtml.js">
+            <script type="text/javascript" src="/web/oooxhtml/oooxhtml.js">
                 <xsl:text><![CDATA[]]></xsl:text>
             </script>
         </xsl:copy>

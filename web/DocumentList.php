@@ -5,7 +5,7 @@ header("Content-type: text/xml");
 
 echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN" 
 "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd">
-<?xml-stylesheet type="text/xsl" href="css/oooxhtml.xsl"?>';
+<?xml-stylesheet type="text/xsl" href="css/main.xsl"?>';
 
 $documentList = new \usecase\document\DocumentList("../web/index.html");
 $catalog = $documentList->execute();
@@ -18,41 +18,59 @@ $catalog = $documentList->execute();
 </head>
 
 <body>
-    <form action="DocumentFind.php" method="post">
-        <input type="text" name="keyWord" class='search' placeholder="Поиск по ключевому слову" />
-        <button type="submit" name="search">
-            Поиск
-        </button>
-        <!--<button>Создать документ</button>-->
-    </form>
-    <table>
-        <tr>
-            <th>Наименование</th>
-            <th>Ссылка на материал</th>
-            <th>Тип материала</th>
-        </tr>
-        <?php
-        foreach ($catalog->getDocuments() as $document) :
-            $document->createResources();
-        ?>
-            <tr>
-                <td><?= $document->getName() ?> </td>
-                <td><a href="<?= $document->getSource() ?>" target="__blank">Просмотреть</a></td>
-                <td>Документ</td>
+    <div class="container text">
+        <form action="documentfind.php">
+            <fieldset>
+                <input type="hidden" name="run" value="1" />
+                <legend>Список</legend>
+                <div>
+                    <label>
+                        Слово
+                        <input type="text" name="keyWord" placeholder="ключевое слово" />
+                    </label>
+                    <button type="submit" name="search">
+                        Поиск
+                    </button>
+                </div>
+            </fieldset>
+        </form>
+        <table style="width: 100%;">
+            <caption>
+                Весь список ресурсов и документов
+            </caption>
+            <tr style="font-size: 1.3em">
+                <th>Наименование</th>
+                <th>Тип материала</th>
             </tr>
             <?php
-            foreach ($document->getResources() as $resource) :
+            foreach ($catalog->getDocuments() as $document) :
+                $document->createResources();
             ?>
-                <tr>
-                    <td><?= $resource->getTag() ?> </td>
-                    <td><a href="<?= $document->getSource() . "#" . $resource->getTag() ?>" target="__blank">Просмотреть</a></td>
-                    <td>Ресурс</td>
+                <tr class="document">
+                    <td>
+                        <a href="<?= $document->getSource() ?>" target="__blank">
+                            <h1 style="font-weight: normal; font-size: 1.2em"><?= $document->getName() ?> </h1>
+                        </a>
+                    </td>
+                    <td>Документ</td>
                 </tr>
-        <?php
+                <?php
+                foreach ($document->getResources() as $resource) :
+                ?>
+                    <tr class="resource">
+                        <td>
+                            <a href="<?= $document->getSource() . "#" . $resource->getTag() ?>" target="__blank">
+                                <h2 style="font-weight: normal; font-size: 1.1em"><?= $resource->getTag() ?></h2>
+                            </a>
+                        </td>
+                        <td>Ресурс</td>
+                    </tr>
+            <?php
+                endforeach;
             endforeach;
-        endforeach;
-        ?>
-    </table>
+            ?>
+        </table>
+    </div>
 </body>
 
 </html>

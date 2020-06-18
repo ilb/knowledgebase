@@ -1,6 +1,12 @@
 <?php
 require_once '../config/bootstrap.php';
-
+if (!isset($_POST['keyWord'])):
+    ?>
+    <h1 id='err'>Ничего не найдено</h1>
+    <a href="documentList.php">Перейти к списк документов</a>
+<?php
+exit("");
+endif;
 $df = new \usecase\document\DocumentSearch("../web/index.html", $_POST['keyWord']);
 
 $results = $df->execute();
@@ -55,5 +61,3 @@ $results = $df->execute();
 
     </div>
 </div>
-<?php
-require_once '../web/template/footer.php';
