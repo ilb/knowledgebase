@@ -9,3 +9,15 @@ table > tr > td{
 .resource {
     background: rgba(173, 173, 173, .3);
 }
+.table_font {
+    font-weight: normal;
+    font-size: 1.2em
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    font-size: 1.2em;
+}

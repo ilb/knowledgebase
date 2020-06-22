@@ -1,19 +1,31 @@
 <?php
-require_once '../web/template/header.php';
 /*
  * Description показывает все подписки на которые вы подписаны
  */
 
+use usecase\subscriptions\SubscriptionView;
+
 require_once '../config/bootstrap.php';
 
-$sub = new \usecase\subscriptions\SubscriptionView("User1");
+header("Content-type: text/xml");
+echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN" 
+"http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd">
+<?xml-stylesheet type="text/xsl" href="css/main.xsl"?>';
+
+$sub = new SubscriptionView("User1");
 $subscriptions = $sub->execute();
 ?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
 
-<div class="box">
-    <h1>Список подписок</h1>
-    <div class="center-tabble">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Список подписок</title>
+</head>
+
+<body>
+    <div class="container text">
         <table>
+            <caption>Список подписок</caption>
             <tr>
                 <th>
                     Наименование
@@ -21,24 +33,23 @@ $subscriptions = $sub->execute();
                 <th>
                     Прочитано
                 </th>
-                <th>
-                    Ссылка
-                </th>
             </tr>
             <?php
             foreach ($subscriptions->getSubscriprions() as $subscription) :
-            ?>
-            <tr>
-                <td><?=$subscription->getElement()?></td>
-                <td><?=$subscription->checkRead() ? "Yes" : "No" ?></td>
-                <td> <a href="#"> Ссылка на чтение</a></td>
-            </tr>
+                ?>
+                <tr class="resource">
+                    <td>
+                        <a href="#"><h1 class="table_font"><?=$subscription->getElement()?></h1></a>
+                    </td>
+                    <td>
+                        <h2 class="table_font"><?=$subscription->checkRead() ? "Yes" : "No" ?></h2>
+                    </td>
+                </tr>
             <?php
             endforeach;
             ?>
         </table>
     </div>
-</div>
+</body>
 
-<?php
-require_once "../web/template/footer.php";
+</html>

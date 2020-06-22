@@ -44,6 +44,11 @@
 
     <xsl:template match="xhtml:body">
         <xsl:copy>
+            <div class="contents">
+                <a href="index.php">
+                    <h1 class="table_font"> &lt; - К файлам</h1>
+                </a>
+            </div>
             <xsl:apply-templates select="@*|node()"/>
         </xsl:copy>
     </xsl:template>

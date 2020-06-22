@@ -35,7 +35,7 @@ foreach ($files as $file) {
 
 <body>
     <div class="container text">
-        <form action="documentfind.php">
+        <form action="documentfind.php" method="post">
             <fieldset>
                 <input type="hidden" name="run" value="1" />
                 <legend>Список</legend>

@@ -1,5 +1,4 @@
 <?php
-require_once '../web/template/header.php';
 /*
  * Description Формирует отчеты по предложенным изменениям. так же по подпискам
  */
@@ -85,6 +84,3 @@ require_once '../config/bootstrap.php';
     </div>
 
 </div>
-
-<?php
-require_once "../web/template/footer.php";
