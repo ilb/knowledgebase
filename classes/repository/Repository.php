@@ -15,7 +15,7 @@ class Repository
     private $host = 'localhost';
 
     /**
-     * @var string 
+     * @var string
      */
     private $dbname = 'knowledgebase';
 
@@ -37,8 +37,7 @@ class Repository
     /**
      * Создает подключение к базе при создании класса
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->dbconnect = new \PDO("mysql:host=$this->host;dbname=$this->dbname", $this->dbuser, $this->password);
     }
 
@@ -46,8 +45,7 @@ class Repository
      * Возвращает все ключевые слова из базы данных
      * @param string $documentName
      */
-    public function getKeywords($documentName)
-    {
+    public function getKeywords($documentName) {
         $res = $this->dbconnect->prepare(
             "SELECT
                 `keyword`.`name_keyword`
@@ -67,10 +65,9 @@ class Repository
     }
 
     /**
-     * @return array 
+     * @return array
      */
-    public function getSubscribtions()
-    {
+    public function getSubscribtions() {
         $sql = "SELECT
                     `material`.`name_material` AS `name`,
                     `material`.`source`,
@@ -103,11 +100,10 @@ class Repository
     }
 
     /**
-     * @param string $login 
+     * @param string $login
      * @return array<dict<string,any>>
      */
-    public function getSubscribtionsByUser($login)
-    {
+    public function getSubscribtionsByUser($login) {
         $sql = "SELECT
                 `material`.`name_material` AS `name`,
                 `material`.`source`,
@@ -131,21 +127,20 @@ class Repository
 
     /**
      * SELECT
-      `document`.`name_document`,
-      `document`.`source_document`
-      FROM
-      `document`
-      INNER JOIN(
-      `document_to_keyword`
-      INNER JOIN `keyword` ON `document_to_keyword`.`keyword_id` = `keyword`.`id_keyword`
-      )
-      ON
-      `document_to_keyword`.`document_id` = `document`.`id_document`
-      WHERE
-      `keyword`.`name_keyword` = ?
+     * `document`.`name_document`,
+     * `document`.`source_document`
+     * FROM
+     * `document`
+     * INNER JOIN(
+     * `document_to_keyword`
+     * INNER JOIN `keyword` ON `document_to_keyword`.`keyword_id` = `keyword`.`id_keyword`
+     * )
+     * ON
+     * `document_to_keyword`.`document_id` = `document`.`id_document`
+     * WHERE
+     * `keyword`.`name_keyword` = ?
      */
-    public function getDocumentByKewords($keyWord)
-    {
+    public function getDocumentByKewords($keyWord) {
         /**
          * $this->dbconnect
          */
@@ -154,5 +149,30 @@ class Repository
                 "link" => "https://ilb.github.io/devmethodology/knowlegebase.xhtml#variant__ispol_zovanij"
             ]
         ];
+    }
+
+    public function getUsers() {
+        $sql = "
+            SELECT * FROM `user`
+        ";
+        $res = $this->dbconnect->query($sql);
+        return $res->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function getUserByName($name) {
+        $sql = "
+            SELECT * FROM `user` WHERE `user`.`login` = ?
+        ";
+        $res = $this->dbconnect->prepare($sql);
+        $res->execute(array($name));
+        return $res->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function changeStatus($id_user, $status) {
+        $sql = "
+            Update `user` SET `status` = ? WHERE `id_user` = ?
+        ";
+        $res = $this->dbconnect->prepare($sql);
+        return $res->execute(array($status, $id_user));
     }
 }

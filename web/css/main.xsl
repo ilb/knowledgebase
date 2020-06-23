@@ -36,9 +36,6 @@
             <script type="text/javascript" src="/privapi/web/scripts/privilegedAPI.js">
                 <xsl:text><![CDATA[]]></xsl:text>
             </script>
-            <script type="text/javascript" src="/web/oooxhtml/oooxhtml.js">
-                <xsl:text><![CDATA[]]></xsl:text>
-            </script>
         </xsl:copy>
     </xsl:template>
 
@@ -50,6 +47,9 @@
                 </a>
             </div>
             <xsl:apply-templates select="@*|node()"/>
+            <script type="text/javascript" src="/web/oooxhtml/oooxhtml.js">
+                <xsl:text><![CDATA[]]></xsl:text>
+            </script>
         </xsl:copy>
     </xsl:template>
 

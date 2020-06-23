@@ -48,6 +48,3 @@ require_once '../config/bootstrap.php';
         </table>
     </div>
 </div>
-
-<?php
-require_once "../web/template/footer.php";
