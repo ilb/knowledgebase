@@ -6,6 +6,8 @@
 
 namespace usecase\subscriptions;
 
+use repository\Repository;
+
 class SubscriptionCreate {
     
     /**
@@ -28,6 +30,7 @@ class SubscriptionCreate {
     }
     
     public function execute() {
-        
+        $repo = new Repository();
+        return $repo->addSubscription($this->user->getLogin(), $this->material);
     }
 }

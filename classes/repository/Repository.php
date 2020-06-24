@@ -216,4 +216,94 @@ class Repository
         $res = $this->dbconnect->query($sql);
         return $res->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    /**
+     * @param $login string
+     * @param $material_name string
+     */
+    public function subscriptionIsView($login, $material_name) {
+        $sql = "UPDATE
+                `user`
+                INNER JOIN(
+                    `subscriptions` INNER JOIN `material` ON `subscriptions`.`material_id` = `material`.`id_material`
+                )
+            ON
+                `user`.`id_user` = `subscriptions`.`user_id`
+            SET `subscriptions`.`is_read` = 1
+            Where `user`.`login` = ? and `material`.`name_material` = ?";
+        $res = $this->dbconnect->prepare($sql);
+        return $res->execute([$login, $material_name]);
+    }
+
+    /**
+     * Возвращает id пользователя из БД
+     * @param $login
+     * @return mixed
+     */
+    public function getUserId($login) {
+        $sql = "Select `id_user` FROM user WHERE login = ?";
+        $res = $this->dbconnect->prepare($sql);
+        $res->execute([ $login ]);
+        return $res->fetchAll(\PDO::FETCH_ASSOC)[0]['id_user'];
+    }
+
+    /**
+     * Возвращает id материала из БД
+     * @param $material_name
+     * @return mixed
+     */
+    public function getMaterialId($material_name) {
+        $sql = "SELECT `id_material` FROM `material` WHERE `name_material` = ?";
+        $res = $this->dbconnect->prepare($sql);
+        $res->execute([ $material_name ]);
+        return $res->fetchAll(\PDO::FETCH_ASSOC)[0]['id_material'];
+    }
+
+    /**
+     * Записывает подписку в БД
+     * @param $login
+     * @param $material_name
+     * @return bool
+     */
+    public function addSubscription($login, $material_name) {
+        $id_user = $this->getUserId($login);
+        $id_material = $this->getMaterialId($material_name);
+        $sql = "INSERT INTO `subscriptions`( `user_id`, `material_id`, `is_read`) VALUES (?, ?, 0)";
+        $res = $this->dbconnect->prepare($sql);
+        return $res->execute([$id_user, $id_material]);
+    }
+
+    /**
+     * Записывает материал предоженный на изменения в БД
+     * @param $login
+     * @param $material_name
+     * @param $diff
+     * @return bool
+     */
+    public function addOffers($login, $material_name, $diff) {
+        $id_user = $this->getUserId($login);
+        $id_material = $this->getMaterialId($material_name);
+        $sql = "INSERT INTO `offers`(`material_id`, `user_id`, `diff`) VALUES (?, ?, ?)";
+        $res = $this->dbconnect->prepare($sql);
+        return $res->execute([ $id_material, $id_user, $diff ]);
+    }
+
+    /**
+     * Добавляет ключевое слово к документу
+     * @param $document_name
+     * @param $new_keyword
+     * @return bool
+     */
+    public function addkeyword($document_name, $new_keyword) {
+        $id_document = $this->getMaterialId($document_name);
+        $sql = "INSERT INTO `keyword`(`name_keyword`) VALUES (?)";
+        $res = $this->dbconnect->prepare($sql);
+        if ( !$res->execute([ $new_keyword ]) ) {
+            return false;
+        }
+        $id_keyword = $this->dbconnect->lastInsertId();
+        $sql = "INSERT INTO `material_from_keyword`(`material_id`, `keyword_id`) VALUES (?, ?)";
+        $res = $this->dbconnect->prepare($sql);
+        return $res->execute([ $id_document, $id_keyword ]);
+    }
 }
