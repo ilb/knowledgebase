@@ -65,6 +65,7 @@ class Repository
     }
 
     /**
+     * Получить все подписки
      * @return array
      */
     public function getSubscribtions() {
@@ -100,6 +101,7 @@ class Repository
     }
 
     /**
+     * Получить подписку по логину пользователя
      * @param string $login
      * @return array<dict<string,any>>
      */
@@ -151,6 +153,10 @@ class Repository
         ];
     }
 
+    /**
+     * Список всех пользователей в базе
+     * @return array
+     */
     public function getUsers() {
         $sql = "
             SELECT * FROM `user`
@@ -159,6 +165,11 @@ class Repository
         return $res->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    /**
+     * Получение пользователя по логину
+     * @param $name
+     * @return array
+     */
     public function getUserByName($name) {
         $sql = "
             SELECT * FROM `user` WHERE `user`.`login` = ?
@@ -168,11 +179,41 @@ class Repository
         return $res->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    /**
+     * Изменяет статус пользователя
+     * @param $id_user
+     * @param $status
+     * @return bool
+     */
     public function changeStatus($id_user, $status) {
         $sql = "
             Update `user` SET `status` = ? WHERE `id_user` = ?
         ";
         $res = $this->dbconnect->prepare($sql);
         return $res->execute(array($status, $id_user));
+    }
+
+    /**
+     * Возвращает все правки
+     * @return array
+     */
+    public function getOffersList() {
+        $sql = "
+        SELECT
+            `offers`.`id_offer`,
+            `offers`.`diff`,
+            `material`.`name_material`,
+            `material`.`source`,
+            `user`.`login`
+        FROM
+          `user`
+        INNER JOIN(
+                `offers`
+            INNER JOIN `material` ON `offers`.`material_id` = `material`.`id_material`
+            )
+        ON
+            `user`.`id_user` = `offers`.`user_id`";
+        $res = $this->dbconnect->query($sql);
+        return $res->fetchAll(\PDO::FETCH_ASSOC);
     }
 }

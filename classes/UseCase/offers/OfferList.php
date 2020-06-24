@@ -6,10 +6,13 @@
 
 namespace usecase\offers;
 
+use repository\Repository;
+
 class OfferList {
     
-    public function execute() {
-        
+    public static function execute() {
+        $repo = new Repository();
+        return $repo->getOffersList();
     }
     
 }

@@ -12,6 +12,11 @@ echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1/
 "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd">
 <?xml-stylesheet type="text/xsl" href="css/main.xsl"?>';
 
+if (isset($_GET['link_to'])) {
+    //Прочтена
+}
+
+// Передавать логин пользователя
 $sub = new SubscriptionView("User1");
 $subscriptions = $sub->execute();
 ?>
@@ -39,7 +44,7 @@ $subscriptions = $sub->execute();
                 ?>
                 <tr class="resource">
                     <td>
-                        <a href="#"><h1 class="table_font"><?=$subscription->getElement()?></h1></a>
+                        <a href="SubscriptionsList.php?ling_to=<?=DOMEN?>"><h1 class="table_font"><?=$subscription->getElement()?></h1></a>
                     </td>
                     <td>
                         <h2 class="table_font"><?=$subscription->checkRead() ? "Yes" : "No" ?></h2>

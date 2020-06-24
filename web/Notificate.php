@@ -1,13 +1,8 @@
 <?php
-require_once '../web/template/header.php';
 /*
- * Description Выводит список всех документов и ресурсов с которыми нужно ознакомится
+ * Description получать информацию о принятых/одобренных его предложениях по корректировке или дополнении материалов. Пока все плохо
  */
 
 require_once '../config/bootstrap.php';
 ?>
 
-
-
-<?php
-require_once "../web/template/footer.php";
