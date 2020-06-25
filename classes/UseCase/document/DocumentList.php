@@ -6,25 +6,27 @@
 
 namespace usecase\document;
 
+use catalog\Catalog;
+
 class DocumentList {
     
     /**
-     * @var type 
+     * @var string
      */
     private $source;
 
     /**
-     * @param stirng $source
+     * @param string $source
      */
     public function __construct($source) {
         $this->source = $source;
     }
 
     /**
-     * @return array<\document\Document>
+     * @return Catalog
      */
     public function execute() {
-        $catalog  = new \catalog\Catalog($this->source);
+        $catalog  = new Catalog($this->source);
         $catalog->createDocuments();
         return $catalog;
     }

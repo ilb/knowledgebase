@@ -28,5 +28,6 @@ class DocumentAddTag {
     
     public function execute() {
         $repo = new \repository\Repository();
+        return $repo->addkeyword($this->documentName, $this->newKeyWord);
     }
 }
