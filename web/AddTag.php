@@ -8,17 +8,17 @@ use usecase\document\DocumentList;
 
 require_once '../config/bootstrap.php';
 
-//header("Content-type: text/xml");
-//echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
-//"http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd">
-/*<?xml-stylesheet type="text/xsl" href="css/main.xsl"?>';*/
+header("Content-type: text/xml");
+echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
+"http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd">
+<?xml-stylesheet type="text/xsl" href="css/main.xsl"?>';
 
 if (isset($_POST['document'])) {
     if (empty(trim($_POST['keyWord']))) {
         $result = "Ключевое слово не может быть пустым";
     } else {
         $res = new \usecase\document\DocumentAddTag($_POST['document'], $_POST['keyWord']);
-        $result = "Произошла оибка";
+        $result = "Произошла ошибка";
         if ($res->execute()) {
             $result = "Ключевое слово добавлено";
         }

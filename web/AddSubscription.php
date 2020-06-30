@@ -27,7 +27,7 @@ $catalog = $documentList->execute();
 
 <body>
     <div class="container text">
-        <h1>Как то не сложилось</h1>
+        <h1>Не могу придумать дизайн</h1>
     </div>
 </body>
 
