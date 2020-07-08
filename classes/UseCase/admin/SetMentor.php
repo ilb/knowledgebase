@@ -6,7 +6,9 @@
 
 namespace usecase\admin;
 
-class SetMentor {
+use usecase\helper\UseCase;
+
+class SetMentor extends UseCase  {
     
     /**
      * @var string 

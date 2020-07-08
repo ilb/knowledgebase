@@ -3,6 +3,8 @@
  * Description показывает все подписки на которые вы подписаны
  */
 
+use config\Config;
+use repository\Repository;
 use usecase\subscriptions\SubscriptionView;
 
 require_once '../config/bootstrap.php';
@@ -19,13 +21,12 @@ if (isset($_GET['link_to'])) {
     exit("<h2>Что то пошло не так</h2>");
 }
 
-header("Content-type: text/xml");
-echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN" 
-"http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd">
-<?xml-stylesheet type="text/xsl" href="css/main.xsl"?>';
+Config::getHeader();
 
+$repository = new Repository(Config::connect());
 // Передавать логин пользователя
 $sub = new SubscriptionView("User1");
+$sub->setRepository($repository);
 $subscriptions = $sub->execute();
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru">

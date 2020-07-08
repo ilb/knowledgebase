@@ -6,62 +6,23 @@
 
 namespace repository;
 
-class Repository
-{
-
-    /**
-     * @var string
-     */
-    private $host = 'localhost';
-
-    /**
-     * @var string
-     */
-    private $dbname = 'knowledgebase';
-
-    /**
-     * @var string
-     */
-    private $dbuser = 'root';
-
-    /**
-     * @var string
-     */
-    private $password = '';
+class Repository {
 
     /**
      * @var \PDO
      */
-    private $dbconnect;
+    protected $dbconnect;
 
     /**
      * Создает подключение к базе при создании класса
+     * @param $connect \PDO
      */
-    public function __construct() {
-        $this->dbconnect = new \PDO("mysql:host=$this->host;dbname=$this->dbname", $this->dbuser, $this->password);
+    public function __construct($connect) {
+        $this->dbconnect = $connect;
     }
 
-    /**
-     * Возвращает все ключевые слова из базы данных
-     * @param string $documentName
-     */
-    public function getKeywords($documentName) {
-        $res = $this->dbconnect->prepare(
-            "SELECT
-                `keyword`.`name_keyword`
-            FROM
-                `keyword`
-            INNER JOIN(
-                    `material_from_keyword`
-                INNER JOIN `material` ON `material`.`id_material` = `material_from_keyword`.`material_id`
-                )
-            ON
-                `keyword`.`id_keyword` = `material_from_keyword`.`keyword_id`
-            WHERE
-                `material`.`name_material` = ?"
-        );
-        $res->execute([$documentName]);
-        return $res->fetchAll(\PDO::FETCH_ASSOC);
+    public function deleteDocument($nameDcoument) {
+
     }
 
     /**
@@ -128,6 +89,61 @@ class Repository
     }
 
     /**
+     * @param $login string
+     * @param $material_name string
+     */
+    public function setSubscriptionIsView($login, $material_name) {
+        $sql = "UPDATE
+                `user`
+                INNER JOIN(
+                    `subscriptions` INNER JOIN `material` ON `subscriptions`.`material_id` = `material`.`id_material`
+                )
+            ON
+                `user`.`id_user` = `subscriptions`.`user_id`
+            SET `subscriptions`.`is_read` = 1
+            Where `user`.`login` = ? and `material`.`name_material` = ?";
+        $res = $this->dbconnect->prepare($sql);
+        return $res->execute([$login, $material_name]);
+    }
+
+    /**
+     * Записывает подписку в БД
+     * @param $login
+     * @param $material_name
+     * @return bool
+     */
+    public function addSubscription($login, $material_name) {
+        $id_user = $this->getUserId($login);
+        $id_material = $this->getMaterialId($material_name);
+        $sql = "INSERT INTO `subscriptions`( `user_id`, `material_id`, `is_read`) VALUES (?, ?, 0)";
+        $res = $this->dbconnect->prepare($sql);
+        return $res->execute([$id_user, $id_material]);
+    }
+
+    /**
+     * Возвращает все ключевые слова из базы данных
+     * @param string $documentName
+     */
+    public function getKeywords($documentName) {
+        $res = $this->dbconnect->prepare(
+            "SELECT
+                `keyword`.`name_keyword`
+            FROM
+                `keyword`
+            INNER JOIN(
+                    `material_from_keyword`
+                INNER JOIN `material` ON `material`.`id_material` = `material_from_keyword`.`material_id`
+                )
+            ON
+                `keyword`.`id_keyword` = `material_from_keyword`.`keyword_id`
+            WHERE
+                `material`.`name_material` = ?"
+        );
+        $res->execute([$documentName]);
+        return $res->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    /**
      * SELECT
      * `document`.`name_document`,
      * `document`.`source_document`
@@ -151,46 +167,6 @@ class Repository
                 "link" => "https://ilb.github.io/devmethodology/knowlegebase.xhtml#variant__ispol_zovanij"
             ]
         ];
-    }
-
-    /**
-     * Список всех пользователей в базе
-     * @return array
-     */
-    public function getUsers() {
-        $sql = "
-            SELECT * FROM `user`
-        ";
-        $res = $this->dbconnect->query($sql);
-        return $res->fetchAll(\PDO::FETCH_ASSOC);
-    }
-
-    /**
-     * Получение пользователя по логину
-     * @param $name
-     * @return array
-     */
-    public function getUserByName($name) {
-        $sql = "
-            SELECT * FROM `user` WHERE `user`.`login` = ?
-        ";
-        $res = $this->dbconnect->prepare($sql);
-        $res->execute(array($name));
-        return $res->fetchAll(\PDO::FETCH_ASSOC);
-    }
-
-    /**
-     * Изменяет статус пользователя
-     * @param $id_user
-     * @param $status
-     * @return bool
-     */
-    public function changeStatus($id_user, $status) {
-        $sql = "
-            Update `user` SET `status` = ? WHERE `id_user` = ?
-        ";
-        $res = $this->dbconnect->prepare($sql);
-        return $res->execute(array($status, $id_user));
     }
 
     /**
@@ -218,36 +194,6 @@ class Repository
     }
 
     /**
-     * @param $login string
-     * @param $material_name string
-     */
-    public function subscriptionIsView($login, $material_name) {
-        $sql = "UPDATE
-                `user`
-                INNER JOIN(
-                    `subscriptions` INNER JOIN `material` ON `subscriptions`.`material_id` = `material`.`id_material`
-                )
-            ON
-                `user`.`id_user` = `subscriptions`.`user_id`
-            SET `subscriptions`.`is_read` = 1
-            Where `user`.`login` = ? and `material`.`name_material` = ?";
-        $res = $this->dbconnect->prepare($sql);
-        return $res->execute([$login, $material_name]);
-    }
-
-    /**
-     * Возвращает id пользователя из БД
-     * @param $login
-     * @return mixed
-     */
-    public function getUserId($login) {
-        $sql = "Select `id_user` FROM user WHERE login = ?";
-        $res = $this->dbconnect->prepare($sql);
-        $res->execute([ $login ]);
-        return $res->fetchAll(\PDO::FETCH_ASSOC)[0]['id_user'];
-    }
-
-    /**
      * Возвращает id материала из БД
      * @param $material_name
      * @return mixed
@@ -257,20 +203,6 @@ class Repository
         $res = $this->dbconnect->prepare($sql);
         $res->execute([ $material_name ]);
         return $res->fetchAll(\PDO::FETCH_ASSOC)[0]['id_material'];
-    }
-
-    /**
-     * Записывает подписку в БД
-     * @param $login
-     * @param $material_name
-     * @return bool
-     */
-    public function addSubscription($login, $material_name) {
-        $id_user = $this->getUserId($login);
-        $id_material = $this->getMaterialId($material_name);
-        $sql = "INSERT INTO `subscriptions`( `user_id`, `material_id`, `is_read`) VALUES (?, ?, 0)";
-        $res = $this->dbconnect->prepare($sql);
-        return $res->execute([$id_user, $id_material]);
     }
 
     /**
@@ -305,5 +237,12 @@ class Repository
         $sql = "INSERT INTO `material_from_keyword`(`material_id`, `keyword_id`) VALUES (?, ?)";
         $res = $this->dbconnect->prepare($sql);
         return $res->execute([ $id_document, $id_keyword ]);
+    }
+
+    /**
+     * Добавление документа
+     */
+    public function addDocument($nameDocument, $source) {
+
     }
 }

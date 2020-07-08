@@ -5,7 +5,9 @@
  */
 namespace usecase\document;
 
-class DocumentAddTag {
+use usecase\helper\UseCase;
+
+class DocumentAddTag extends UseCase  {
     
     /**
      * @var string
@@ -27,7 +29,6 @@ class DocumentAddTag {
     }
     
     public function execute() {
-        $repo = new \repository\Repository();
-        return $repo->addkeyword($this->documentName, $this->newKeyWord);
+        return $this->repository->addkeyword($this->documentName, $this->newKeyWord);
     }
 }

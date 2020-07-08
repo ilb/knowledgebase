@@ -7,13 +7,14 @@
 namespace usecase\subscriptions;
 
 use repository\Repository;
+use usecase\helper\UseCase;
 
-class SubscriptionCreate {
+class SubscriptionCreate extends UseCase  {
     
     /**
-     * @var \user\User
+     * @var string
      */
-    private $user;
+    private $userLogin;
     
     /**
      * @var string
@@ -21,16 +22,15 @@ class SubscriptionCreate {
     private $material;
     
     /**
-     * @param \user\User $user
+     * @param string $userLogin
      * @param string $material
      */
-    public function __construct($user, $material) {
-        $this->user = $user;
+    public function __construct($userLogin, $material) {
+        $this->userLogin = $userLogin;
         $this->material = $material;
     }
     
     public function execute() {
-        $repo = new Repository();
-        return $repo->addSubscription($this->user->getLogin(), $this->material);
+        return $this->repository->addSubscription($this->userLogin, $this->material);
     }
 }

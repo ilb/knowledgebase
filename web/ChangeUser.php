@@ -3,8 +3,10 @@
  * Description Позволяет админу назначит пользователя ментором 
  */
 
+use config\Config;
+use repository\UserRepository;
 use usecase\user\ChangeStatus;
-use usecase\user\UsersList;
+use usecase\user\GetUsersList;
 
 require_once '../config/bootstrap.php';
 if (isset($_POST['changeBtn'])) {
@@ -16,12 +18,12 @@ if (isset($_POST['changeBtn'])) {
         $result = "Пользователь теперь является " . $_POST[$status];
     }
 }
-header("Content-type: text/xml");
-echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
-"http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd">
-<?xml-stylesheet type="text/xsl" href="css/main.xsl"?>';
+Config::getHeader();
 
-$userList = UsersList::execute();
+$repository = new UserRepository(Config::connect());
+$userList = new GetUsersList();
+$userList->setRepository($repository);
+$userList->execute();
 ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru">

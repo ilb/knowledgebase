@@ -2,6 +2,9 @@
 
 namespace catalog;
 
+use document\Document;
+use parser\DocumentParser;
+
 class Catalog {
     
     /**
@@ -37,10 +40,10 @@ class Catalog {
      * Создает через парсер документы
      */
     public function createDocuments() {
-        $parser = new \parser\DocumentParser();
+        $parser = new DocumentParser();
         $rawDocuments = $parser->getDocuments($this->source);
         foreach ($rawDocuments as $rawDocument) {
-            $this->docs[] = new \document\Document($rawDocument['name'], $rawDocument['source']);
+            $this->docs[] = new Document($rawDocument['name'], $rawDocument['source']);
         }
     }
     
@@ -55,7 +58,7 @@ class Catalog {
     /**
      * 
      * @param string $nameDocument
-     * @return \document\Document
+     * @return Document
      */
     public function getDocumentByName($nameDocument) {
         foreach ($this->docs as $doc) {
@@ -63,7 +66,7 @@ class Catalog {
                 return $doc;
             }
         }
-        return false;
+        return null;
     }
     
     /**
@@ -92,9 +95,7 @@ class Catalog {
         foreach ($this->docs as $key => $document) {
             if ($document->getName() == $nameDocument) {
                 unset($this->docs[$key]);
-                /**
-                 * SQL запрос еще 
-                 */
+
                 return true;
             }
         }

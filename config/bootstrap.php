@@ -2,7 +2,8 @@
 
 set_include_path(
         __DIR__ . '/../classes' . PATH_SEPARATOR .
-                __DIR__ . '/../libs'
+                __DIR__ . '/../libs' . PATH_SEPARATOR .
+                __DIR__ . "/../"
 );
 
 require_once '__autoload.php';

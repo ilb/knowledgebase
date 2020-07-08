@@ -6,7 +6,9 @@
 
 namespace usecase\document;
 
-class DocumentDelete {
+use usecase\helper\UseCase;
+
+class DocumentDelete extends UseCase  {
     
     /**
      * @var string
@@ -14,21 +16,14 @@ class DocumentDelete {
     private $nameDcoument;
     
     /**
-     * @var string
-     */
-    private $source;
-    
-    /**
      * @param string $nameDocument
      */
-    public function __construct($nameDocument, $source) {
+    public function __construct($nameDocument) {
         $this->nameDcoument = $nameDocument;
-        $this->source = $source;
     }
     
     
     public function execute() {
-        $repos = new \repository\Repository();
-        $repos->deleteDocument($this->nameDcoument);
+        $this->repository->deleteDocument($this->nameDcoument);
     }
 }

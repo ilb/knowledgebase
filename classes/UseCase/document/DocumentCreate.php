@@ -6,7 +6,9 @@
 
 namespace usecase\document;
 
-class DocumentCreate {
+use usecase\helper\UseCase;
+
+class DocumentCreate extends UseCase  {
     
     /**
      * @var string
@@ -28,8 +30,7 @@ class DocumentCreate {
     }
     
     public function execute() {
-        $repos = new \repository\Repository();
-        $repos->addDocument();
+        $this->repository->addDocument($this->nameDocument, $this->source);
     }
 
 }

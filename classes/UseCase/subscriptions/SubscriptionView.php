@@ -2,8 +2,11 @@
 
 namespace usecase\subscriptions;
 
-class SubscriptionView
-{
+use subscription\Subscriptions;
+use usecase\helper\UseCase;
+use user\User;
+
+class SubscriptionView extends UseCase {
 
     /**
      * Логин пользователя
@@ -14,21 +17,18 @@ class SubscriptionView
     /**
      * @param $user string
      */
-    public function __construct($login)
-    {
+    public function __construct($login) {
         $this->login = $login;
     }
 
     /**
      * Показывает все подписки пользователя
-     * @return \subscription\Subscriptions
+     * @return Subscriptions
      */
-    public function execute()
-    {
-        $repo = new \repository\Repository();
-        $subs = $repo->getSubscribtionsByUser($this->login);
-        $subscriptions = new \subscription\Subscriptions();
-        $user = new \user\User($this->login);
+    public function execute() {
+        $subs = $this->repository->getSubscribtionsByUser($this->login);
+        $subscriptions = new Subscriptions();
+        $user = new User($this->login);
         foreach ($subs as $value) {
             $name = $value['name'];
             if (preg_match_all("/[#]/", $name)) {

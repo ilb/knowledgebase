@@ -3,18 +3,17 @@
  * Description Выводит список всех документов и ресурсов предложенных на изменение
  */
 
-use usecase\offers\OfferList;
+use config\Config;
+use usecase\offers\GetOfferList;
 
 require_once '../config/bootstrap.php';
 
-header("Content-type: text/xml");
-echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
-"http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd">
-<?xml-stylesheet type="text/xsl" href="css/main.xsl"?>';
+Config::getHeader();
 
-$offerList = OfferList::execute();
-////print_r($offerList);
-//exit();
+$repository = new \repository\Repository(Config::connect());
+$offerList = new GetOfferList();
+$offerList->setRepository($repository);
+$offerList->execute();
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
 

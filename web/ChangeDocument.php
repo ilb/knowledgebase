@@ -3,14 +3,13 @@
  * Description Меняет ссылку документа
  */
 
-use usecase\document\DocumentList;
+use config\Config;
+use repository\Repository;
+use usecase\catalog\GetCatalog;
 
 require_once '../config/bootstrap.php';
 
-header("Content-type: text/xml");
-echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
-"http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd">
-<?xml-stylesheet type="text/xsl" href="css/main.xsl"?>';
+Config::getHeader();
 
 if (isset($_POST['document'])) {
     if (empty(trim($_POST['urlAddr']))) {
@@ -27,7 +26,9 @@ if (isset($_POST['document'])) {
 }
 
 // Нужно переделать БД чтобы ссылка на документ менялась с сылкой на ресурс
-$documentList = new DocumentList("../web/index.html");
+$repository = new Repository(Config::connect());
+$documentList = new GetCatalog("../web/index.html");
+$documentList->setRepository($repository);
 $catalog = $documentList->execute();
 ?>
 

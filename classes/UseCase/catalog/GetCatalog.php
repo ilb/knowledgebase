@@ -4,11 +4,12 @@
  * для получения списка документов
  */
 
-namespace usecase\document;
+namespace usecase\catalog;
 
 use catalog\Catalog;
+use usecase\helper\UseCase;
 
-class DocumentList {
+class GetCatalog extends UseCase {
     
     /**
      * @var string

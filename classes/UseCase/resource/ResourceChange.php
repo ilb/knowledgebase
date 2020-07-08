@@ -6,7 +6,10 @@
 
 namespace usecase\resource;
 
-class ResourceChange {
+use usecase\helper\UseCase;
+
+// Меняет ссылку на ресуср\документ
+class ResourceChange extends UseCase {
     
     /**
      * @var string

@@ -3,14 +3,12 @@
  * Description Формирует отчеты по предложенным изменениям. так же по подпискам
  */
 
+use config\Config;
 use repository\Repository;
 
 require_once '../config/bootstrap.php';
 
-header("Content-type: text/xml");
-echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN" 
-"http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd">
-<?xml-stylesheet type="text/xsl" href="css/main.xsl"?>';
+Config::getHeader();
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
 
@@ -36,7 +34,7 @@ echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1/
         </form>
         <table class="ui celled table">
             <?php
-            $repo = new Repository();
+            $repo = new Repository(Config::connect());
             if (isset($_GET['reportSubscriptions'])):
                 $resultArr = $repo->getSubscribtions();
 //                $resultArr = $subs->getSubscriprions();

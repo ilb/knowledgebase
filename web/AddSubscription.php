@@ -3,19 +3,22 @@
  * Description Добавляет пользователю подписки
  */
 
-use usecase\document\DocumentList;
-use usecase\user\UsersList;
+use config\Config;
+use repository\Repository;
+use usecase\catalog\GetCatalog;
+use usecase\user\GetUsersList;
 
 require_once '../config/bootstrap.php';
 
-header("Content-type: text/xml");
-echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
-"http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd">
-<?xml-stylesheet type="text/xsl" href="css/main.xsl"?>';
+Config::getHeader();
 
 //Получить список всех пользователей и документов и выбирать кого на что подписать
-$userList = UsersList::execute();
-$documentList = new DocumentList("../web/index.html");
+$repository = new Repository(Config::connect());
+$userList = new GetUsersList();
+$userList->setRepository($repository);
+$userList->execute();
+$documentList = new GetCatalog("../web/index.html");
+$documentList->setRepository($repository);
 $catalog = $documentList->execute();
 ?>
 <html  xmlns="http://www.w3.org/1999/xhtml" lang="ru">

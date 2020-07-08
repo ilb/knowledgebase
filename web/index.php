@@ -1,13 +1,13 @@
 <?php
-header("Content-type: text/xml");
 
-echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN" 
-"http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd">
-<?xml-stylesheet type="text/xsl" href="css/main.xsl"?>';
+require_once '../config/bootstrap.php';
+
+use config\Config;
+
+Config::getHeader();
 
 $files = (scandir('.'));
 $clear_files = array();
-$description_files = array();
 foreach ($files as $file) {
 
     if (preg_match("/[*.]php/", $file) && $file != "index.php") {
@@ -16,14 +16,6 @@ foreach ($files as $file) {
         continue;
     }
 
-    $f = fopen($file, "r");
-    $i = 0;
-    while (($buffer = fgets($f, 4096)) !== false) {
-        if (preg_match("/(Description)/", $buffer, $mathes)) {
-            $description_files[$file] = $buffer;
-            break;
-        }
-    }
 }
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -63,12 +55,11 @@ foreach ($files as $file) {
             ?>
                 <tr class="resource">
                     <td>
-                        <a href="<?= $file ?>" target="__blank">
+                        <a href="<?= $file ?>">
                             <h1 style="font-weight: normal; font-size: 1.2em"><?= $file ?> </h1>
                         </a>
                     </td>
                     <td>
-                        <?= $description_files[$file] ?>
                     </td>
                 </tr>
             <?php

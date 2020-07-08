@@ -4,7 +4,9 @@
 namespace usecase\user;
 
 
-class newOffers {
+use usecase\helper\UseCase;
+
+class NewOffers extends UseCase  {
 
     /**
      * Логин пользователя

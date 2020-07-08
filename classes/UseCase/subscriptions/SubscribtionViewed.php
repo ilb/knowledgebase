@@ -4,7 +4,9 @@
 namespace usecase\subscriptions;
 
 
-class SubscribtionViewed {
+use usecase\helper\UseCase;
+
+class SubscribtionViewed extends UseCase {
 
     /**
      * логин пользователя
@@ -28,8 +30,7 @@ class SubscribtionViewed {
     }
 
     public function execute() {
-        $repo = new \repository\Repository();
-        return $repo->subscriptionIsView($this->login, $this->material_name);
+        return $this->repository->setSubscriptionIsView($this->login, $this->material_name);
     }
 
 }

@@ -6,7 +6,10 @@
 
 namespace usecase\document;
 
-class DocumentSearch {
+use catalog\Catalog;
+use usecase\helper\UseCase;
+
+class DocumentSearch extends UseCase  {
     
     /**
      * @var string
@@ -32,7 +35,7 @@ class DocumentSearch {
      * @return array<array<Resource>>
      */
     public function execute() {
-        $catalog = new \catalog\Catalog($this->source);
+        $catalog = new Catalog($this->source);
         $catalog->createDocuments();
         foreach ($catalog->getDocuments() as $doc) {
             $doc->createResources();

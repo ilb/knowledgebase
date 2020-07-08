@@ -7,8 +7,9 @@ namespace usecase\user;
 
 
 use repository\Repository;
+use usecase\helper\UseCase;
 
-class ChangeStatus {
+class ChangeStatus extends UseCase {
 
     /**
      * @var int
@@ -26,7 +27,6 @@ class ChangeStatus {
     }
 
     public function execute() {
-        $repo = new Repository();
-        return $repo->changeStatus($this->id_user, $this->status);
+        return $this->repository->changeStatus($this->id_user, $this->status);
     }
 }

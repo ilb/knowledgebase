@@ -6,7 +6,11 @@
 
 namespace usecase\document;
 
-class DocumentChange {
+use catalog\Catalog;
+use observer\ObserverImpl;
+use usecase\helper\UseCase;
+
+class DocumentChange extends UseCase  {
     
     /**
      * @var string
@@ -30,14 +34,15 @@ class DocumentChange {
      * Приходит уведомление о изменении объекта
      */
     public function execute() {
-        $catalog = new \catalog\Catalog($this->source);
-        $catalog->createDocuments();
-        $repo = new \repository\Repository();
-        $subs = $repo->getSubscribtions();
-        $observer = new \observer\ObserverImpl();
-        $observer->setSubscriptions($subs);
-        $doc->setObserver($observer);
-        $doc = $catalog->getDocumentByName($this->nameDocument);
-        $doc->editDocument("");
+//        $catalog = new Catalog($this->source);
+//        $catalog->createDocuments();
+//        $subs = $this->repository->getSubscribtions();
+//        $observer = new ObserverImpl();
+//        $observer->setSubscriptions($subs);
+//        foreach ($catalog->getDocuments() as $doc) {
+//            $doc->setObserver($observer);
+//            $doc = $catalog->getDocumentByName($this->nameDocument);
+//            $doc->editDocument("");
+//        }
     }
 }
