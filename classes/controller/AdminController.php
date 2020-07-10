@@ -47,13 +47,6 @@ class AdminController extends MentorController {
     }
     
     /**
-     * Создает документ
-     */
-    public function createDocument($nameDocument, $sources) {
-        $this->catalog->crateDocument($nameDocument, $sources); 
-    }
-    
-    /**
      * Редкатирование документа
      * @param string $nameDocument
      * @param string $content
@@ -61,16 +54,6 @@ class AdminController extends MentorController {
     public function editDocument($nameDocument, $content) {
         $doc = $this->catalog->getDocumentByName($nameDocument);
         $doc->editDocument($content);
-    }
-    
-    /**
-     * Добавляет ключевое слово дял документа
-     * @param string $nameDocument
-     * @param string $keyWord
-     */
-    public function addKeyWords($nameDocument, $keyWord) {
-        $doc = $this->catalog->getDocumentByName($nameDocument);
-        $doc->addKeyWord($keyWord);
     }
     
     /**

@@ -12,6 +12,6 @@ use usecase\helper\UseCase;
 class GetUsersList extends UseCase {
 
     public function execute() {
-//        return $this->repository->getUsers();
+        return $this->repository->getUsers();
     }
 }

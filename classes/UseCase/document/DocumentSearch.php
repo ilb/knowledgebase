@@ -37,6 +37,7 @@ class DocumentSearch extends UseCase  {
     public function execute() {
         $catalog = new Catalog($this->source);
         $catalog->createDocuments();
+        // Если получать из репозитория то цикл можно убрать
         foreach ($catalog->getDocuments() as $doc) {
             $doc->createResources();
         }        

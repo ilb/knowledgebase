@@ -245,4 +245,11 @@ class Repository {
     public function addDocument($nameDocument, $source) {
 
     }
+
+    /**
+     *
+     */
+    public function editResource($documentName, $nameResource, $content) {
+
+    }
 }

@@ -13,7 +13,7 @@ Config::getHeader();
 $repository = new \repository\Repository(Config::connect());
 $offerList = new GetOfferList();
 $offerList->setRepository($repository);
-$offerList->execute();
+$offerList = $offerList->execute();
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
 

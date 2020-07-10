@@ -23,7 +23,7 @@ Config::getHeader();
 $repository = new UserRepository(Config::connect());
 $userList = new GetUsersList();
 $userList->setRepository($repository);
-$userList->execute();
+$userList = $userList->execute();
 ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
