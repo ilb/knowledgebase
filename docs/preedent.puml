@@ -1,0 +1,92 @@
+@startuml
+
+class Document <<Документ>> {
+    - id
+    - source
+ - resources
+ + __construct(name, source)
+ - createResources()
+}
+
+class Source <<Ресурс>> {
+    - tag
+    + __construct(tag) 
+}
+
+class Subscribtion <<Подписка>> {
+    - user
+    - document
+    - is_read 
+     + __construct(user, resource)
+}
+
+class Catalog <<Каталог>> {
+    - documents
+    + __construct()
+    + editDocument(id)
+    + viewDocument(id)
+    + searchDocument(id)
+}
+
+class Admin <<Администратор>> {
+    + subscribe($user, $document)
+}
+
+class User <<Пользователь>> {
+    - login
+    + __construct(login)
+}
+
+class Adapter {
+    - source
+    - docs
+    + __construct(sourse) 
+    + getDocs()
+}
+
+class ResourceAdapter {
+    - resource
+    - source
+    + __construct(source)
+    - getSource(source)
+    + getResources(tag = "h[0-6]+", attribute = "id")
+}
+
+class Subscribtions <<Подписки>>{
+    - subscribtions
+    + subscribe(user, resource)
+}
+
+class WatcherSubscribtions {
+    - notification
+    + setNotification(notification)
+    + notification(elemntDiv)
+    - getId(tag)
+    - etText(tag)  
+} 
+
+class Notification {
+    - subscribtions
+    + setSubscribtions(subscribtions)
+    + notify(idDoc, textNotificate)
+    + sendNotification(user, textNotification)
+}
+
+class Group <<Группы>> {
+    - users
+}
+
+Document o-- Source
+Catalog o-- Document
+Subscribtion o-- User
+Adapter --o Catalog 
+ResourceAdapter --o Document
+Subscribtions o-- Subscribtion
+Document o-- Subscribtion
+WatcherSubscribtions o-- Notification
+Notification o-- Subscribtions
+Catalog o-- WatcherSubscribtions
+Admin o-- Subscribtions
+Mentor o-- Subscribtions
+Group o-- User
+@enduml

@@ -1,0 +1,290 @@
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+table, th, td {border:solid 1px black;border-collapse:collapse;vertical-align:top; padding:0;}
+
+p, pre {
+    margin-top: 4pt;
+    margin-bottom: 4pt;
+}
+
+object {
+    max-width: 100%
+}
+
+table p, table pre {
+    margin: 0;
+}
+
+table > caption {
+    font-size: large;
+    font-weight: bold;
+    padding: 1rem 0;
+}
+.contents {
+    position: fixed;
+    top: 0;
+    max-height: 100%;
+    overflow: auto;
+    left: 0;
+    width: calc((100% - 1300px) / 2);
+    min-width: 160px;
+    word-break: break-all;
+    word-break: break-word;
+}
+.contents  ol  > li{
+  list-style-type: none;
+}
+
+.contents  ol {
+   padding: 0 0.3rem 0 1.3rem;
+   font-size: 0.8rem;
+}
+
+.container.spreadsheet {
+    font-size:10pt;line-height: 1.1;
+}
+
+.container.text {
+    width: 1300px;
+    max-width: 100%;
+    padding: 1rem;
+    margin: 0 auto !important;
+    box-sizing: border-box;
+}
+
+.with-annotations .container.text::before {
+    content: "";
+    position: fixed;;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    box-shadow: -80px 0 0 80px lightgray, 10000px 0 0 10000px white;
+}
+
+.annotation {
+    display: none;
+    width: 0;
+    height: 0;
+    margin-bottom: -0.2rem;
+    font-size: small;
+}
+
+.with-annotations .annotation {
+  display: inline-block;
+}
+
+.annotation > span {
+    position: absolute;
+    right: 0;
+    width: 160px;
+    text-align: left;
+    border-top: 2px solid #007bff;
+    border-bottom: 1px solid #007bff;
+    background: rgba(216, 232, 255, 0.8);
+    padding: 3px;
+    color: rgba(0, 0, 0, 0.87);
+    box-sizing: border-box;
+}
+
+.annotation:hover {
+    cursor: pointer !important;
+}
+
+.annotation:hover > span {
+    box-shadow: 0 0 1px 1px red inset;
+    background: rgb(216, 232, 255);
+    border-color: red;
+    z-index: 30;
+}
+
+.annotation:hover::before {
+    box-shadow: 10000px 10002px 0 10000px white, 10002px 10000px 0 10000px red;
+}
+
+.annotation:hover::after {
+    color: red;
+}
+
+.annotation:hover > span::before,
+.annotation:hover > span::after {
+    display: none;
+}
+
+.annotation .content {
+    margin-bottom: 1rem;
+}
+
+.annotation .creator,
+.annotation .date {
+    color: rgb(41, 96,  177);
+    display: block;
+}
+
+.annotation::before {
+    content: "";
+    position: absolute;
+    box-shadow: 10000px 10002px 0 10000px white, 10002px 10000px 0 10000px #007bff;
+    z-index: -2;
+}
+
+.annotation::after {
+    content: "\25B2";
+    position: absolute;
+    line-height: 1rem;
+    width: 1rem;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    margin: -1rem;
+    border-radius: 50%;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    color: #007bff;
+    z-index: 11;
+}
+
+.annotation > span::before,
+.annotation > span::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100vw;
+    right: 160px;
+    height: 0;
+    border-top: 2px dashed white;
+    margin-top: -2px;
+    pointer-events: none;
+    z-index: -2;
+}
+
+.annotation > span::after {
+    margin-top: -1px;
+}
+
+@media print {
+    .container.text::before,
+    .annotation, .annotation *,
+    .sidebar, .sidebar *,
+    .edit-menu, .edit-menu * {
+        display: none !important;
+    }
+
+    .container.text {
+        width: initial !important;
+        max-width: none !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+}
+
+
+
+/*******************************
+             Styles
+*******************************/
+.First_20_line_20_indent {text-indent: 1.5em;}
+
+.Situation {color:#ed1c24;}
+.Motivation {color:#0066b3;}
+.Outcome {color:#00a65d;}
+
+/*.Level1 {color:#fff200;}*/ /* желтый */
+.Level1 {color:#706e0c;} /* желтый */
+.Level2 {color:#f58220;} /* оранжевый */
+.Level3 {color:#00a65d;} /* зелёный */
+.Level4 {color:#0066b3;} /* синий */
+.Level5 {color:#a3238e;} /* фиолетовый */
+.Level6 {color:#000000;} /* черный */
+
+/*--------------
+    Positive
+---------------*/
+
+tr.Good,
+td.Good {
+    -webkit-box-shadow: 0px 0px 0px #A3C293 inset;
+    box-shadow: 0px 0px 0px #A3C293 inset;
+}
+
+tr.Good,
+td.Good {
+    background: #FCFFF5 !important;
+    color: #2C662D !important;
+}
+
+/*--------------
+     Negative
+---------------*/
+
+tr.Bad,
+td.Bad {
+    -webkit-box-shadow: 0px 0px 0px #E0B4B4 inset;
+    box-shadow: 0px 0px 0px #E0B4B4 inset;
+}
+
+tr.Bad,
+td.Bad {
+    background: #ffcccc !important;
+    color: #9F3A38 !important;
+}
+
+/*--------------
+      Error
+---------------*/
+
+tr.Error,
+td.Error {
+    -webkit-box-shadow: 0px 0px 0px #E0B4B4 inset;
+    box-shadow: 0px 0px 0px #E0B4B4 inset;
+}
+
+tr.Error,
+td.Error {
+    background: #FFF6F6 !important;
+    color: #9F3A38 !important;
+}
+
+/*--------------
+     Warning
+---------------*/
+
+tr.Warning,
+td.Warning {
+    -webkit-box-shadow: 0px 0px 0px #C9BA9B inset;
+    box-shadow: 0px 0px 0px #C9BA9B inset;
+}
+
+tr.Warning,
+td.Warning {
+    background: #FFFAF3 !important;
+    color: #573A08 !important;
+}
+
+tr.Neutral,
+td.Neutral {
+    background: #ffffcc !important;
+    color: #9F3A38 !important;
+}
+
+@media (max-width: 1620px) {
+  .contents + .container.text {
+    padding-left: calc(160px - ((100% - 1300px) / 2) + 1rem);
+  }
+
+  .with-annotations .container.text {
+    padding-right: calc(160px - ((100% - 1300px) / 2) + 1rem);
+  }
+}
+
+@media (max-width: 1300px) {
+  .contents + .container.text {
+    padding-left: calc(160px + 1rem);
+  }
+
+  .with-annotations .container.text {
+    padding-right: calc(160px + 1rem);
+  }
+}

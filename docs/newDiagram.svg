@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1312px" preserveAspectRatio="none" style="width:1413px;height:1312px;" version="1.1" viewBox="0 0 1413 1312" width="1413px" zoomAndPan="magnify">
+    <defs>
+        <filter height="300%" id="f19zkwlzd1vf3m" width="300%" x="-1" y="-1">
+            <feGaussianBlur result="blurOut" stdDeviation="2.0"/>
+            <feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/>
+            <feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/>
+            <feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/>
+        </filter>
+    </defs>
+    <g>
+        <!--class Catalog-->
+        <rect fill="#FEFECE" filter="url(#f19zkwlzd1vf3m)" height="141.5806" style="stroke: #A80036; stroke-width: 1.5;" width="250" x="342.5" y="383"/>
+        <ellipse cx="438.75" cy="399" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M441.75,404 Q441.1406,404.5 440.4844,404.75 Q439.8281,405 439.0938,405 Q436.4844,405 435.1172,403.4609 Q433.75,401.9219 433.75,399 Q433.75,396.0781 435.1172,394.5391 Q436.4844,393 439.0938,393 Q439.8281,393 440.5,393.25 Q441.1719,393.5 441.75,394 L441.75,397 Q441.1406,395.9688 440.5625,395.4844 Q439.9844,395 439.375,395 Q438.0781,395 437.4141,396.0078 Q436.75,397.0156 436.75,399 Q436.75,400.9844 437.4141,401.9922 Q438.0781,403 439.375,403 Q439.9844,403 440.5625,402.5156 Q441.1406,402.0313 441.75,401 L441.75,404 Z "/>
+        <text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="49" x="459.25" y="403.7725">Catalog</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="343.5" x2="591.5" y1="415" y2="415"/>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="350.5" y="424.1843"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="36" x="362.5" y="430.0591">docs[]</text>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="350.5" y="437.553"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="38" x="362.5" y="443.4277">source</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="343.5" x2="591.5" y1="449.7373" y2="449.7373"/>
+        <ellipse cx="353.5" cy="461.9216" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="114" x="362.5" y="464.7964">__construct(source)</text>
+        <ellipse cx="353.5" cy="475.2903" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="110" x="362.5" y="478.165">createDocuments()</text>
+        <ellipse cx="353.5" cy="488.6589" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="92" x="362.5" y="491.5337">getDocuments()</text>
+        <ellipse cx="353.5" cy="502.0276" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="224" x="362.5" y="504.9023">getDocumentByName(nameDocument)</text>
+        <ellipse cx="353.5" cy="515.3962" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="141" x="362.5" y="518.271">searchByKeyword(word)</text>
+        <!--class Document-->
+        <rect fill="#FEFECE" filter="url(#f19zkwlzd1vf3m)" height="302.0044" style="stroke: #A80036; stroke-width: 1.5;" width="258" x="274.5" y="585"/>
+        <ellipse cx="367.75" cy="601" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M370.75,606 Q370.1406,606.5 369.4844,606.75 Q368.8281,607 368.0938,607 Q365.4844,607 364.1172,605.4609 Q362.75,603.9219 362.75,601 Q362.75,598.0781 364.1172,596.5391 Q365.4844,595 368.0938,595 Q368.8281,595 369.5,595.25 Q370.1719,595.5 370.75,596 L370.75,599 Q370.1406,597.9688 369.5625,597.4844 Q368.9844,597 368.375,597 Q367.0781,597 366.4141,598.0078 Q365.75,599.0156 365.75,601 Q365.75,602.9844 366.4141,603.9922 Q367.0781,605 368.375,605 Q368.9844,605 369.5625,604.5156 Q370.1406,604.0313 370.75,603 L370.75,606 Z "/>
+        <text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="63" x="388.25" y="605.7725">Document</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="275.5" x2="531.5" y1="617" y2="617"/>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="282.5" y="626.1843"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="38" x="294.5" y="632.0591">source</text>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="282.5" y="639.553"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="66" x="294.5" y="645.4277">resources[]</text>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="282.5" y="652.9216"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="51" x="294.5" y="658.7964">observer</text>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="282.5" y="666.2903"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="65" x="294.5" y="672.165">keywords[]</text>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="282.5" y="679.6589"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="90" x="294.5" y="685.5337">nameDocument</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="275.5" x2="531.5" y1="691.8433" y2="691.8433"/>
+        <ellipse cx="285.5" cy="704.0276" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="212" x="294.5" y="706.9023">__construct(nameDocument, source)</text>
+        <ellipse cx="285.5" cy="717.3962" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="131" x="294.5" y="720.271">setObserver(observer)</text>
+        <ellipse cx="285.5" cy="730.7649" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="42" x="294.5" y="733.6396">notify()</text>
+        <ellipse cx="285.5" cy="744.1335" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="232" x="294.5" y="747.0083">setNameDocument(newNameDocument)</text>
+        <ellipse cx="285.5" cy="757.5022" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="119" x="294.5" y="760.377">getNameDocument()</text>
+        <ellipse cx="285.5" cy="770.8708" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="61" x="294.5" y="773.7456">getName()</text>
+        <ellipse cx="285.5" cy="784.2395" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="86" x="294.5" y="787.1143">getKeyWords()</text>
+        <ellipse cx="285.5" cy="797.6082" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="134" x="294.5" y="800.4829">addKeyWord(keyWord)</text>
+        <ellipse cx="285.5" cy="810.9768" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="146" x="294.5" y="813.8516">addKeyWords(keyWords)</text>
+        <ellipse cx="285.5" cy="824.3455" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="105" x="294.5" y="827.2202">createResources()</text>
+        <ellipse cx="285.5" cy="837.7141" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="87" x="294.5" y="840.5889">getResources()</text>
+        <ellipse cx="285.5" cy="851.0828" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="188" x="294.5" y="853.9575">getResourceByTag(tagResource)</text>
+        <ellipse cx="285.5" cy="864.4514" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="131" x="294.5" y="867.3262">editDocument(content)</text>
+        <ellipse cx="285.5" cy="877.8201" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="68" x="294.5" y="880.6948">getSource()</text>
+        <!--class Observer-->
+        <rect fill="#FEFECE" filter="url(#f19zkwlzd1vf3m)" height="61.3687" style="stroke: #A80036; stroke-width: 1.5;" width="193" x="526" y="1007.5"/>
+        <ellipse cx="591.25" cy="1023.5" fill="#B4A7E5" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M587.75,1019.5 L587.75,1017.5 L594.75,1017.5 L594.75,1019.5 L592.75,1019.5 L592.75,1027.5 L594.75,1027.5 L594.75,1029.5 L587.75,1029.5 L587.75,1027.5 L589.75,1027.5 L589.75,1019.5 L587.75,1019.5 Z "/>
+        <text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="54" x="611.75" y="1028.2725">Observer</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="527" x2="718" y1="1039.5" y2="1039.5"/>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="527" x2="718" y1="1047.5" y2="1047.5"/>
+        <ellipse cx="537" cy="1059.6843" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="167" x="546" y="1062.5591">execute(element, diff, event)</text>
+        <!--class ObserverImpl-->
+        <rect fill="#FEFECE" filter="url(#f19zkwlzd1vf3m)" height="114.8433" style="stroke: #A80036; stroke-width: 1.5;" width="450" x="322.5" y="1189"/>
+        <ellipse cx="500.75" cy="1205" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M503.75,1210 Q503.1406,1210.5 502.4844,1210.75 Q501.8281,1211 501.0938,1211 Q498.4844,1211 497.1172,1209.4609 Q495.75,1207.9219 495.75,1205 Q495.75,1202.0781 497.1172,1200.5391 Q498.4844,1199 501.0938,1199 Q501.8281,1199 502.5,1199.25 Q503.1719,1199.5 503.75,1200 L503.75,1203 Q503.1406,1201.9688 502.5625,1201.4844 Q501.9844,1201 501.375,1201 Q500.0781,1201 499.4141,1202.0078 Q498.75,1203.0156 498.75,1205 Q498.75,1206.9844 499.4141,1207.9922 Q500.0781,1209 501.375,1209 Q501.9844,1209 502.5625,1208.5156 Q503.1406,1208.0313 503.75,1207 L503.75,1210 Z "/>
+        <text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="85" x="521.25" y="1209.7725">ObserverImpl</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="323.5" x2="771.5" y1="1221" y2="1221"/>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="330.5" y="1230.1843"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="74" x="342.5" y="1236.0591">subscriptions</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="323.5" x2="771.5" y1="1242.3687" y2="1242.3687"/>
+        <ellipse cx="333.5" cy="1254.553" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="167" x="342.5" y="1257.4277">execute(element, diff, event)</text>
+        <rect fill="#F24D5C" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="330.5" y="1264.9216"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="424" x="342.5" y="1270.7964">getUnicalSubscriprions(subscriptionNotifyResource, subscriptionNotifyDoc)</text>
+        <rect fill="#F24D5C" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="330.5" y="1278.2903"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="92" x="342.5" y="1284.165">send(user, text)</text>
+        <rect fill="#F24D5C" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="330.5" y="1291.6589"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="177" x="342.5" y="1297.5337">setSubscriptions(subscriptions)</text>
+        <!--class OfferObserver-->
+        <rect fill="#FEFECE" filter="url(#f19zkwlzd1vf3m)" height="74.7373" style="stroke: #A80036; stroke-width: 1.5;" width="229" x="861" y="1000.5"/>
+        <ellipse cx="926.75" cy="1016.5" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M929.75,1021.5 Q929.1406,1022 928.4844,1022.25 Q927.8281,1022.5 927.0938,1022.5 Q924.4844,1022.5 923.1172,1020.9609 Q921.75,1019.4219 921.75,1016.5 Q921.75,1013.5781 923.1172,1012.0391 Q924.4844,1010.5 927.0938,1010.5 Q927.8281,1010.5 928.5,1010.75 Q929.1719,1011 929.75,1011.5 L929.75,1014.5 Q929.1406,1013.4688 928.5625,1012.9844 Q927.9844,1012.5 927.375,1012.5 Q926.0781,1012.5 925.4141,1013.5078 Q924.75,1014.5156 924.75,1016.5 Q924.75,1018.4844 925.4141,1019.4922 Q926.0781,1020.5 927.375,1020.5 Q927.9844,1020.5 928.5625,1020.0156 Q929.1406,1019.5313 929.75,1018.5 L929.75,1021.5 Z "/>
+        <text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="89" x="947.25" y="1021.2725">OfferObserver</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="862" x2="1089" y1="1032.5" y2="1032.5"/>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="862" x2="1089" y1="1040.5" y2="1040.5"/>
+        <ellipse cx="872" cy="1052.6843" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="203" x="881" y="1055.5591">execute(user, textNotificate, event)</text>
+        <rect fill="#F24D5C" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="869" y="1063.053"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="92" x="881" y="1068.9277">send(user, text)</text>
+        <!--class Offer-->
+        <rect fill="#FEFECE" filter="url(#f19zkwlzd1vf3m)" height="221.7925" style="stroke: #A80036; stroke-width: 1.5;" width="243" x="854" y="625"/>
+        <ellipse cx="955.75" cy="641" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M958.75,646 Q958.1406,646.5 957.4844,646.75 Q956.8281,647 956.0938,647 Q953.4844,647 952.1172,645.4609 Q950.75,643.9219 950.75,641 Q950.75,638.0781 952.1172,636.5391 Q953.4844,635 956.0938,635 Q956.8281,635 957.5,635.25 Q958.1719,635.5 958.75,636 L958.75,639 Q958.1406,637.9688 957.5625,637.4844 Q956.9844,637 956.375,637 Q955.0781,637 954.4141,638.0078 Q953.75,639.0156 953.75,641 Q953.75,642.9844 954.4141,643.9922 Q955.0781,645 956.375,645 Q956.9844,645 957.5625,644.5156 Q958.1406,644.0313 958.75,643 L958.75,646 Z "/>
+        <text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="976.25" y="645.7725">Offer</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="855" x2="1096" y1="657" y2="657"/>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="862" y="666.1843"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="25" x="874" y="672.0591">user</text>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="862" y="679.553"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="20" x="874" y="685.4277">link</text>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="862" y="692.9216"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="47" x="874" y="698.7964">changes</text>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="862" y="706.2903"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="54" x="874" y="712.165">published</text>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="862" y="719.6589"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="51" x="874" y="725.5337">observer</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="855" x2="1096" y1="731.8433" y2="731.8433"/>
+        <ellipse cx="865" cy="744.0276" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="217" x="874" y="746.9023">__construct(link, user, offerObserver)</text>
+        <ellipse cx="865" cy="757.3962" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="54" x="874" y="760.271">getUser()</text>
+        <ellipse cx="865" cy="770.7649" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="51" x="874" y="773.6396">getLink()</text>
+        <ellipse cx="865" cy="784.1335" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="78" x="874" y="787.0083">getChanges()</text>
+        <ellipse cx="865" cy="797.5022" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="82" x="874" y="800.377">getPublished()</text>
+        <ellipse cx="865" cy="810.8708" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="124" x="874" y="813.7456">setChanges(changes)</text>
+        <ellipse cx="865" cy="824.2395" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="135" x="874" y="827.1143">setPublished(published)</text>
+        <ellipse cx="865" cy="837.6082" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="131" x="874" y="840.4829">setObserver(observer)</text>
+        <!--class Offers-->
+        <rect fill="#FEFECE" filter="url(#f19zkwlzd1vf3m)" height="128.2119" style="stroke: #A80036; stroke-width: 1.5;" width="238" x="825.5" y="390"/>
+        <ellipse cx="921.25" cy="406" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M924.25,411 Q923.6406,411.5 922.9844,411.75 Q922.3281,412 921.5938,412 Q918.9844,412 917.6172,410.4609 Q916.25,408.9219 916.25,406 Q916.25,403.0781 917.6172,401.5391 Q918.9844,400 921.5938,400 Q922.3281,400 923,400.25 Q923.6719,400.5 924.25,401 L924.25,404 Q923.6406,402.9688 923.0625,402.4844 Q922.4844,402 921.875,402 Q920.5781,402 919.9141,403.0078 Q919.25,404.0156 919.25,406 Q919.25,407.9844 919.9141,408.9922 Q920.5781,410 921.875,410 Q922.4844,410 923.0625,409.5156 Q923.6406,409.0313 924.25,408 L924.25,411 Z "/>
+        <text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="38" x="941.75" y="410.7725">Offers</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="826.5" x2="1062.5" y1="422" y2="422"/>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="833.5" y="431.1843"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="43" x="845.5" y="437.0591">offers[]</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="826.5" x2="1062.5" y1="443.3687" y2="443.3687"/>
+        <ellipse cx="836.5" cy="455.553" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="212" x="845.5" y="458.4277">createOffer(link, user,offerObserver)</text>
+        <ellipse cx="836.5" cy="468.9216" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="63" x="845.5" y="471.7964">getOffers()</text>
+        <ellipse cx="836.5" cy="482.2903" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="207" x="845.5" y="485.165">getOfferByUserLink(userName, link)</text>
+        <ellipse cx="836.5" cy="495.6589" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="211" x="845.5" y="498.5337">acceptOffer(userName, link, catalog)</text>
+        <ellipse cx="836.5" cy="509.0276" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="142" x="845.5" y="511.9023">getDontPublushedOffer()</text>
+        <!--class DocumentParser-->
+        <rect fill="#FEFECE" filter="url(#f19zkwlzd1vf3m)" height="61.3687" style="stroke: #A80036; stroke-width: 1.5;" width="156" x="68.5" y="1007.5"/>
+        <ellipse cx="92.5" cy="1023.5" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M95.5,1028.5 Q94.8906,1029 94.2344,1029.25 Q93.5781,1029.5 92.8438,1029.5 Q90.2344,1029.5 88.8672,1027.9609 Q87.5,1026.4219 87.5,1023.5 Q87.5,1020.5781 88.8672,1019.0391 Q90.2344,1017.5 92.8438,1017.5 Q93.5781,1017.5 94.25,1017.75 Q94.9219,1018 95.5,1018.5 L95.5,1021.5 Q94.8906,1020.4688 94.3125,1019.9844 Q93.7344,1019.5 93.125,1019.5 Q91.8281,1019.5 91.1641,1020.5078 Q90.5,1021.5156 90.5,1023.5 Q90.5,1025.4844 91.1641,1026.4922 Q91.8281,1027.5 93.125,1027.5 Q93.7344,1027.5 94.3125,1027.0156 Q94.8906,1026.5313 95.5,1025.5 L95.5,1028.5 Z "/>
+        <text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="104" x="108.5" y="1028.2725">DocumentParser</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="69.5" x2="223.5" y1="1039.5" y2="1039.5"/>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="69.5" x2="223.5" y1="1047.5" y2="1047.5"/>
+        <ellipse cx="79.5" cy="1059.6843" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="130" x="88.5" y="1062.5591">getDocuments(source)</text>
+        <!--class Parser-->
+        <rect fill="#FEFECE" filter="url(#f19zkwlzd1vf3m)" height="61.3687" style="stroke: #A80036; stroke-width: 1.5;" width="119" x="6" y="705.5"/>
+        <ellipse cx="43.05" cy="721.5" fill="#A9DCDF" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M43.0813,718.5938 L41.7219,722 L44.3781,722 L43.0813,718.5938 Z M41.8156,715 L44.2844,715 L47.05,727 L44.6125,727 L43.8625,724 L42.2219,724 L41.4875,727 L39.05,727 L41.8156,715 Z "/>
+        <text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="38" x="61.95" y="726.2725">Parser</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="124" y1="737.5" y2="737.5"/>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="124" y1="745.5" y2="745.5"/>
+        <ellipse cx="17" cy="757.6843" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="93" x="26" y="760.5591">getData(source)</text>
+        <!--class ResourceParser-->
+        <rect fill="#FEFECE" filter="url(#f19zkwlzd1vf3m)" height="61.3687" style="stroke: #A80036; stroke-width: 1.5;" width="131" x="91" y="1216"/>
+        <ellipse cx="106" cy="1232" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M109,1237 Q108.3906,1237.5 107.7344,1237.75 Q107.0781,1238 106.3438,1238 Q103.7344,1238 102.3672,1236.4609 Q101,1234.9219 101,1232 Q101,1229.0781 102.3672,1227.5391 Q103.7344,1226 106.3438,1226 Q107.0781,1226 107.75,1226.25 Q108.4219,1226.5 109,1227 L109,1230 Q108.3906,1228.9688 107.8125,1228.4844 Q107.2344,1228 106.625,1228 Q105.3281,1228 104.6641,1229.0078 Q104,1230.0156 104,1232 Q104,1233.9844 104.6641,1234.9922 Q105.3281,1236 106.625,1236 Q107.2344,1236 107.8125,1235.5156 Q108.3906,1235.0313 109,1234 L109,1237 Z "/>
+        <text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="99" x="120" y="1236.7725">ResourceParser</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="92" x2="221" y1="1248" y2="1248"/>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="92" x2="221" y1="1256" y2="1256"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="119" x="97" y="1271.0591">getResource(source)</text>
+        <!--class Resource-->
+        <rect fill="#FEFECE" filter="url(#f19zkwlzd1vf3m)" height="181.6865" style="stroke: #A80036; stroke-width: 1.5;" width="160" x="259.5" y="947"/>
+        <ellipse cx="306.25" cy="963" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M309.25,968 Q308.6406,968.5 307.9844,968.75 Q307.3281,969 306.5938,969 Q303.9844,969 302.6172,967.4609 Q301.25,965.9219 301.25,963 Q301.25,960.0781 302.6172,958.5391 Q303.9844,957 306.5938,957 Q307.3281,957 308,957.25 Q308.6719,957.5 309.25,958 L309.25,961 Q308.6406,959.9688 308.0625,959.4844 Q307.4844,959 306.875,959 Q305.5781,959 304.9141,960.0078 Q304.25,961.0156 304.25,963 Q304.25,964.9844 304.9141,965.9922 Q305.5781,967 306.875,967 Q307.4844,967 308.0625,966.5156 Q308.6406,966.0313 309.25,965 L309.25,968 Z "/>
+        <text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="58" x="326.75" y="967.7725">Resource</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="260.5" x2="418.5" y1="979" y2="979"/>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="267.5" y="988.1843"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="279.5" y="994.0591">tag</text>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="267.5" y="1001.553"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="85" x="279.5" y="1007.4277">nameResource</text>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="267.5" y="1014.9216"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="51" x="279.5" y="1020.7964">observer</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="260.5" x2="418.5" y1="1027.106" y2="1027.106"/>
+        <ellipse cx="270.5" cy="1039.2903" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="134" x="279.5" y="1042.165">__construct(name, tag)</text>
+        <ellipse cx="270.5" cy="1052.6589" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="131" x="279.5" y="1055.5337">setObserver(observer)</text>
+        <ellipse cx="270.5" cy="1066.0276" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="42" x="279.5" y="1068.9023">notify()</text>
+        <ellipse cx="270.5" cy="1079.3962" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="99" x="279.5" y="1082.271">setName($name)</text>
+        <ellipse cx="270.5" cy="1092.7649" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="61" x="279.5" y="1095.6396">getName()</text>
+        <ellipse cx="270.5" cy="1106.1335" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="49" x="279.5" y="1109.0083">getTag()</text>
+        <ellipse cx="270.5" cy="1119.5022" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="126" x="279.5" y="1122.377">editResource(content)</text>
+        <!--class Subscription-->
+        <rect fill="#FEFECE" filter="url(#f19zkwlzd1vf3m)" height="181.6865" style="stroke: #A80036; stroke-width: 1.5;" width="181" x="1146" y="645"/>
+        <ellipse cx="1193.75" cy="661" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M1196.75,666 Q1196.1406,666.5 1195.4844,666.75 Q1194.8281,667 1194.0938,667 Q1191.4844,667 1190.1172,665.4609 Q1188.75,663.9219 1188.75,661 Q1188.75,658.0781 1190.1172,656.5391 Q1191.4844,655 1194.0938,655 Q1194.8281,655 1195.5,655.25 Q1196.1719,655.5 1196.75,656 L1196.75,659 Q1196.1406,657.9688 1195.5625,657.4844 Q1194.9844,657 1194.375,657 Q1193.0781,657 1192.4141,658.0078 Q1191.75,659.0156 1191.75,661 Q1191.75,662.9844 1192.4141,663.9922 Q1193.0781,665 1194.375,665 Q1194.9844,665 1195.5625,664.5156 Q1196.1406,664.0313 1196.75,663 L1196.75,666 Z "/>
+        <text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="77" x="1214.25" y="665.7725">Subscription</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="1147" x2="1326" y1="677" y2="677"/>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="1154" y="686.1843"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="46" x="1166" y="692.0591">element</text>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="1154" y="699.553"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="25" x="1166" y="705.4277">user</text>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="1154" y="712.9216"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="38" x="1166" y="718.7964">isRead</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="1147" x2="1326" y1="725.106" y2="725.106"/>
+        <ellipse cx="1157" cy="737.2903" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="155" x="1166" y="740.165">__construct(user, element)</text>
+        <ellipse cx="1157" cy="750.6589" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="74" x="1166" y="753.5337">getElement()</text>
+        <ellipse cx="1157" cy="764.0276" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="54" x="1166" y="766.9023">getUser()</text>
+        <ellipse cx="1157" cy="777.3962" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="68" x="1166" y="780.271">getIsRead()</text>
+        <ellipse cx="1157" cy="790.7649" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="98" x="1166" y="793.6396">setIsRead(value)</text>
+        <ellipse cx="1157" cy="804.1335" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="130" x="1166" y="807.0083">checkRead(userName)</text>
+        <ellipse cx="1157" cy="817.5022" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="127" x="1166" y="820.377">checkUser(userName)</text>
+        <!--class Subscriptions-->
+        <rect fill="#FEFECE" filter="url(#f19zkwlzd1vf3m)" height="128.2119" style="stroke: #A80036; stroke-width: 1.5;" width="305" x="1099" y="390"/>
+        <ellipse cx="1205.25" cy="406" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M1208.25,411 Q1207.6406,411.5 1206.9844,411.75 Q1206.3281,412 1205.5938,412 Q1202.9844,412 1201.6172,410.4609 Q1200.25,408.9219 1200.25,406 Q1200.25,403.0781 1201.6172,401.5391 Q1202.9844,400 1205.5938,400 Q1206.3281,400 1207,400.25 Q1207.6719,400.5 1208.25,401 L1208.25,404 Q1207.6406,402.9688 1207.0625,402.4844 Q1206.4844,402 1205.875,402 Q1204.5781,402 1203.9141,403.0078 Q1203.25,404.0156 1203.25,406 Q1203.25,407.9844 1203.9141,408.9922 Q1204.5781,410 1205.875,410 Q1206.4844,410 1207.0625,409.5156 Q1207.6406,409.0313 1208.25,408 L1208.25,411 Z "/>
+        <text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="84" x="1225.75" y="410.7725">Subscriptions</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="1100" x2="1403" y1="422" y2="422"/>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="1107" y="431.1843"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="84" x="1119" y="437.0591">subscriptions[]</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="1100" x2="1403" y1="443.3687" y2="443.3687"/>
+        <ellipse cx="1110" cy="455.553" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="143" x="1119" y="458.4277">subscribe(element, user)</text>
+        <ellipse cx="1110" cy="468.9216" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="279" x="1119" y="471.7964">getSubscriptionByElementName(changeElement)</text>
+        <ellipse cx="1110" cy="482.2903" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="215" x="1119" y="485.165">getSubscriptionByUser(user, filtr = 0)</text>
+        <ellipse cx="1110" cy="495.6589" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="149" x="1119" y="498.5337">hasAddFind(readed, filter)</text>
+        <ellipse cx="1110" cy="509.0276" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="270" x="1119" y="511.9023">getSubscriptionsByUserElement(user, element)</text>
+        <!--class User-->
+        <rect fill="#FEFECE" filter="url(#f19zkwlzd1vf3m)" height="88.106" style="stroke: #A80036; stroke-width: 1.5;" width="129" x="1149" y="994"/>
+        <ellipse cx="1194.75" cy="1010" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M1197.75,1015 Q1197.1406,1015.5 1196.4844,1015.75 Q1195.8281,1016 1195.0938,1016 Q1192.4844,1016 1191.1172,1014.4609 Q1189.75,1012.9219 1189.75,1010 Q1189.75,1007.0781 1191.1172,1005.5391 Q1192.4844,1004 1195.0938,1004 Q1195.8281,1004 1196.5,1004.25 Q1197.1719,1004.5 1197.75,1005 L1197.75,1008 Q1197.1406,1006.9688 1196.5625,1006.4844 Q1195.9844,1006 1195.375,1006 Q1194.0781,1006 1193.4141,1007.0078 Q1192.75,1008.0156 1192.75,1010 Q1192.75,1011.9844 1193.4141,1012.9922 Q1194.0781,1014 1195.375,1014 Q1195.9844,1014 1196.5625,1013.5156 Q1197.1406,1013.0313 1197.75,1012 L1197.75,1015 Z "/>
+        <text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="29" x="1215.25" y="1014.7725">User</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="1150" x2="1277" y1="1026" y2="1026"/>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="1157" y="1035.1843"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="27" x="1169" y="1041.0591">login</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="1150" x2="1277" y1="1047.3687" y2="1047.3687"/>
+        <ellipse cx="1160" cy="1059.553" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="103" x="1169" y="1062.4277">__construct(login)</text>
+        <ellipse cx="1160" cy="1072.9216" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="58" x="1169" y="1075.7964">getLogin()</text>
+        <!--class MainController-->
+        <rect fill="#FEFECE" filter="url(#f19zkwlzd1vf3m)" height="315.373" style="stroke: #A80036; stroke-width: 1.5;" width="238" x="739.5" y="8"/>
+        <ellipse cx="808.75" cy="24" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M811.75,29 Q811.1406,29.5 810.4844,29.75 Q809.8281,30 809.0938,30 Q806.4844,30 805.1172,28.4609 Q803.75,26.9219 803.75,24 Q803.75,21.0781 805.1172,19.5391 Q806.4844,18 809.0938,18 Q809.8281,18 810.5,18.25 Q811.1719,18.5 811.75,19 L811.75,22 Q811.1406,20.9688 810.5625,20.4844 Q809.9844,20 809.375,20 Q808.0781,20 807.4141,21.0078 Q806.75,22.0156 806.75,24 Q806.75,25.9844 807.4141,26.9922 Q808.0781,28 809.375,28 Q809.9844,28 810.5625,27.5156 Q811.1406,27.0313 811.75,26 L811.75,29 Z "/>
+        <text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="91" x="829.25" y="28.7725">MainController</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="740.5" x2="976.5" y1="40" y2="40"/>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="747.5" y="49.1843"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="74" x="759.5" y="55.0591">subscriptions</text>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="747.5" y="62.553"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="51" x="759.5" y="68.4277">observer</text>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="747.5" y="75.9216"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="41" x="759.5" y="81.7964">catalog</text>
+        <rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="747.5" y="89.2903"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="33" x="759.5" y="95.165">offers</text>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="740.5" x2="976.5" y1="101.4746" y2="101.4746"/>
+        <ellipse cx="750.5" cy="113.6589" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="122" x="759.5" y="116.5337">createSubscriptions()</text>
+        <ellipse cx="750.5" cy="127.0276" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="99" x="759.5" y="129.9023">createObserver()</text>
+        <ellipse cx="750.5" cy="140.3962" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="90" x="759.5" y="143.271">createCatalog()</text>
+        <ellipse cx="750.5" cy="153.7649" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="92" x="759.5" y="156.6396">createStructur()</text>
+        <ellipse cx="750.5" cy="167.1335" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="134" x="759.5" y="170.0083">searchDocument(word)</text>
+        <ellipse cx="750.5" cy="180.5022" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="131" x="759.5" y="183.377">viewSubscription(user)</text>
+        <ellipse cx="750.5" cy="193.8708" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="151" x="759.5" y="196.7456">viewDontReadSubsc(user)</text>
+        <ellipse cx="750.5" cy="207.2395" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="212" x="759.5" y="210.1143">addSubscribtion(nameElement, user)</text>
+        <ellipse cx="750.5" cy="220.6082" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="203" x="759.5" y="223.4829">readSubscribe(user, nameElement)</text>
+        <ellipse cx="750.5" cy="233.9768" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="81" x="759.5" y="236.8516">createOffers()</text>
+        <ellipse cx="750.5" cy="247.3455" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="113" x="759.5" y="250.2202">addOffer(user, link)</text>
+        <ellipse cx="750.5" cy="260.7141" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="60" x="759.5" y="263.5889">createAll()</text>
+        <ellipse cx="750.5" cy="274.0828" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="146" x="759.5" y="276.9575">viewDontPublishedOffer()</text>
+        <ellipse cx="750.5" cy="287.4514" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="162" x="759.5" y="290.3262">acceptOffer(userName, link)</text>
+        <ellipse cx="750.5" cy="300.8201" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="114" x="759.5" y="303.6948">checkNotificate(tag)</text>
+        <ellipse cx="750.5" cy="314.1887" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="203" x="759.5" y="317.0635">getUrlBySubscription(subscriptions)</text>
+        <path d="M611.754,1068.586 C602.185,1094.933 587.766,1134.633 575.011,1169.754 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="none" points="581.544,1172.271,568.137,1188.68,568.385,1167.492,581.544,1172.271" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M73.4883,766.586 C87.4014,818.116 116.214,924.829 133.188,987.696 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="none" points="139.996,986.059,138.452,1007.192,126.48,989.708,139.996,986.059" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M56.6058,766.83 C38.1547,834.164 1.3557,1001.964 50.5,1129 C61.2841,1156.877 82.184,1182.187 102.5952,1202.04 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="none" points="107.581,1197.115,117.575,1215.8,98.1103,1207.4256,107.581,1197.115" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M448.519,538.044 C445.128,552.877 441.503,568.739 437.836,584.781 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#FFFFFF" points="451.433,525.294,446.1971,530.2523,448.7602,536.9926,453.9961,532.0342,451.433,525.294" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="9" x="430.4677" y="574.1926">*</text>
+        <path d="M368.666,900.284 C365.257,916.263 361.892,932.039 358.726,946.88 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#FFFFFF" points="371.406,887.439,366.242,892.4722,368.9019,899.1748,374.0659,894.1416,371.406,887.439" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="9" x="351.0375" y="936.216">*</text>
+        <path d="M444.781,900.04 C463.289,970.705 485.991,1054.219 508.5,1129 C514.402,1148.607 521.361,1169.891 527.756,1188.838 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#FFFFFF" points="441.494,887.456,439.1403,894.2722,444.5268,899.0664,446.8806,892.2503,441.494,887.456" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M266.158,897.321 C229.983,939.55 194.746,980.682 171.989,1007.246 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#FFFFFF" points="274.624,887.439,267.6828,889.3935,266.8173,896.5525,273.7585,894.598,274.624,887.439" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M250.761,1139.134 C225.991,1167.085 200.951,1195.341 182.911,1215.698 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#FFFFFF" points="259.5,1129.274,252.5269,1131.1114,251.5411,1138.2548,258.5141,1136.4174,259.5,1129.274" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M429.093,1127.947 C449.856,1148.56 471.4,1169.949 490.329,1188.741 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#FFFFFF" points="419.621,1118.543,421.061,1125.6089,428.1372,1126.9972,426.6972,1119.9314,419.621,1118.543" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M1247.41,531.287 C1245.53,566.402 1243.29,608.314 1241.32,644.968 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#FFFFFF" points="1248.12,518.187,1243.805,523.9646,1247.4786,530.1698,1251.7936,524.3922,1248.12,518.187" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="9" x="1232.3485" y="634.3119">*</text>
+        <path d="M1228.59,840.174 C1224.56,892.747 1219.87,953.85 1216.81,993.858 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#FFFFFF" points="1229.6,827.01,1225.1527,832.6864,1228.6819,838.9748,1233.1292,833.2985,1229.6,827.01" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M952.968,531.481 C956.151,560.236 959.837,593.528 963.294,624.75 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#FFFFFF" points="951.496,518.187,948.1803,524.5906,952.816,530.1142,956.1317,523.7106,951.496,518.187" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="9" x="953.0672" y="614.1361">*</text>
+        <path d="M1070.9,857.247 C1109.24,905.582 1150.99,958.211 1179.35,993.955 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#FFFFFF" points="1062.77,847.005,1063.3651,854.1915,1070.2277,856.4062,1069.6326,849.2197,1062.77,847.005" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M975.5,860.068 C975.5,910.515 975.5,965.164 975.5,1000.172 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#FFFFFF" points="975.5,847.005,971.5,853.005,975.5,859.005,979.5,853.005,975.5,847.005" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M816.166,336.428 C812.955,352.118 809.999,367.818 807.5,383 C753.413,711.633 912.466,846.227 736.5,1129 C721.532,1153.054 699.579,1172.899 675.886,1188.969 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#FFFFFF" points="818.918,323.263,813.7743,328.317,816.4612,335.0088,821.6049,329.9548,818.918,323.263" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M728.623,261.67 C674.564,301.28 612.932,346.437 563.124,382.933 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#FFFFFF" points="739.329,253.82,732.1248,254.1355,729.6452,260.9069,736.8494,260.5914,739.329,253.82" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M988.461,261.24 C1046.42,303.49 1113.13,352.127 1164.87,389.844 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#FFFFFF" points="977.746,253.43,980.2408,260.1958,987.4456,260.4952,984.9509,253.7294,977.746,253.43" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M909.312,335.776 C915.039,354.854 920.575,373.295 925.494,389.683 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#FFFFFF" points="905.526,323.162,903.4206,330.0589,908.9772,334.655,911.0826,327.7581,905.526,323.162" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <!--
+@startuml
+class Catalog {
+    - docs[]
+    - source
+    + __construct(source)
+    + createDocuments()
+    + getDocuments()
+    + getDocumentByName(nameDocument)
+    + searchByKeyword(word)
+}
+
+class Document {
+    - source
+    - resources[]
+    - observer
+    - keywords[]
+    - nameDocument
+    + __construct(nameDocument, source)
+    + setObserver(observer)
+    + notify()
+    + setNameDocument(newNameDocument)
+    + getNameDocument()
+    + getName()
+    + getKeyWords()
+    + addKeyWord(keyWord)
+    + addKeyWords(keyWords)
+    + createResources()
+    + getResources()
+    + getResourceByTag(tagResource)
+    + editDocument(content)
+    + getSource()
+}
+
+interface Observer {
+    + execute(element, diff, event)
+} 
+
+class ObserverImpl {
+    - subscriptions
+    + execute(element, diff, event)
+    - getUnicalSubscriprions(subscriptionNotifyResource, subscriptionNotifyDoc)
+    - send(user, text)
+    - setSubscriptions(subscriptions)
+}
+
+class OfferObserver {
+    + execute(user, textNotificate, event)
+    - send(user, text)
+}
+
+class Offer {
+    - user
+    - link
+    - changes
+    - published
+    - observer
+    + __construct(link, user, offerObserver)
+    + getUser()
+    + getLink()
+    + getChanges()
+    + getPublished()
+    + setChanges(changes)
+    + setPublished(published)  
+    + setObserver(observer)
+}
+
+class Offers {
+    - offers[] 
+    + createOffer(link, user,offerObserver)
+    + getOffers()
+    + getOfferByUserLink(userName, link)
+    + acceptOffer(userName, link, catalog)
+    + getDontPublushedOffer()
+}
+
+class DocumentParser {
+    + getDocuments(source)
+}
+
+abstract class Parser {
+    + getData(source)
+}
+
+class ResourceParser {
+    getResource(source) 
+}
+
+class Resource {
+    - tag
+    - nameResource
+    - observer
+    + __construct(name, tag)
+    + setObserver(observer)
+    + notify()
+    + setName($name)
+    + getName()
+    + getTag()
+    + editResource(content)
+}
+
+class Subscription {
+    - element
+    - user
+    - isRead
+    + __construct(user, element)
+    + getElement()
+    + getUser() 
+    + getIsRead()
+    + setIsRead(value)
+    + checkRead(userName)
+    + checkUser(userName)
+}
+
+class Subscriptions {
+    - subscriptions[]
+    + subscribe(element, user)
+    + getSubscriptionByElementName(changeElement)
+    + getSubscriptionByUser(user, filtr = 0)
+    + hasAddFind(readed, filter)
+    + getSubscriptionsByUserElement(user, element)
+}
+
+class User {
+    - login
+    + __construct(login)
+    + getLogin()
+}
+
+class MainController {
+    - subscriptions
+    - observer
+    - catalog
+    - offers
+    + createSubscriptions()
+    + createObserver() 
+    + createCatalog()
+    + createStructur()
+    + searchDocument(word)
+    + viewSubscription(user)
+    + viewDontReadSubsc(user)
+    + addSubscribtion(nameElement, user)
+    + readSubscribe(user, nameElement)
+    + createOffers()
+    + addOffer(user, link)
+    + createAll()
+    + viewDontPublishedOffer()
+    + acceptOffer(userName, link)
+    + checkNotificate(tag)
+    + getUrlBySubscription(subscriptions)
+}
+
+Observer - -|> ObserverImpl
+Parser - -|> DocumentParser
+Parser - -|> ResourceParser
+Catalog o- - "*" Document
+Document o- - "*" Resource
+Document o- - ObserverImpl
+Document o- - DocumentParser
+Resource o- - ResourceParser
+Resource o- - ObserverImpl
+Subscriptions o- - "*" Subscription
+Subscription o- - User
+Offers o- - "*" Offer
+Offer o- - User
+Offer o- - OfferObserver
+MainController o- - ObserverImpl
+MainController o- - Catalog
+MainController o- - Subscriptions
+MainController o- - Offers
+@enduml
+
+PlantUML version 2017.11(Wed Apr 19 20:18:59 SAMT 2017)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_181-b13
+Operating System: Linux
+OS Version: 4.9.177-gentoo-r9000_p1_amd64
+Default Encoding: UTF-8
+Language: ru
+Country: RU
+-->
+    </g>
+</svg>

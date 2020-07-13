@@ -1,0 +1,74 @@
+@startuml
+class Catalog {
+    - docs[]
+    + editDoc($idDoc)
+}
+
+class Document {
+    - source 
+    - resources[]
+    - idDoc
+    - keywords[]
+    - nameDocument
+    + __construct($idDoc)
+    + addKeyWord($keyWord)
+    + getIdDoc()
+    + getUnicalName()
+}
+
+abstract class Element {
+    # observer
+    + notify()
+    + changeContent()
+    + setObserver($observer)
+    + deleteObserver()
+}
+
+class Resource {
+    - tag
+    + __construct($tag) 
+    + getUnicalName()
+}
+
+class ElementObserver {
+    - subscriptions
+    + execute($element, $textNotification)
+    + send($user, $text)
+}
+
+interface Observer {
+    + execute($element, $textNotification)
+}
+
+class Subscriptions {
+    - subscriptions[]
+    + foundSubscription($changeElement)
+}
+
+class Subscription {
+    - element
+    - user 
+    + __construct($user, $element)
+    + getElement()
+    + getUser()
+}
+
+class User {
+    - login
+    + __construct($login)
+    + getLogin()
+}
+
+Catalog o-- Document
+Document <|-- Element
+Resource <|-- Element
+Resource o-- ElementObserver
+Document o-- Resource
+Document o-- ElementObserver
+ElementObserver <|-- Observer
+ElementObserver o-- Subscriptions
+Subscriptions o-- Subscription
+Subscription o-- User
+Subscription o-- Resource
+Subscription o-- Document
+@enduml

@@ -1,0 +1,230 @@
+@startuml
+class Catalog {
+    - docs[]
+    - source
+    + __construct(source)
+    + createDocuments()
+    + getDocuments()
+    + getDocumentByName(nameDocument)
+    + searchByKeyword(word)
+}
+
+class Document {
+    - source
+    - resources[]
+    - observer
+    - keywords[]
+    - nameDocument
+    + __construct(nameDocument, source)
+    + setObserver(observer)
+    + notify()
+    + setNameDocument(newNameDocument)
+    + getNameDocument()
+    + getName()
+    + getKeyWords()
+    + addKeyWord(keyWord)
+    + addKeyWords(keyWords)
+    + createResources()
+    + getResources()
+    + getResourceByTag(tagResource)
+    + editDocument(content)
+    + getSource()
+}
+
+interface Observer {
+    + execute(element, diff, event)
+} 
+
+class ObserverImpl {
+    - subscriptions
+    + execute(element, diff, event)
+    - getUnicalSubscriprions(subscriptionNotifyResource, subscriptionNotifyDoc)
+    - send(user, text)
+    - setSubscriptions(subscriptions)
+}
+
+class OfferObserver {
+    + execute(user, textNotificate, event)
+    - send(user, text)
+}
+
+class Offer {
+    - user
+    - link
+    - changes
+    - published
+    - observer
+    + __construct(link, user, offerObserver)
+    + getUser()
+    + getLink()
+    + getChanges()
+    + getPublished()
+    + setChanges(changes)
+    + setPublished(published)  
+    + setObserver(observer)
+}
+
+class Offers {
+    - offers[] 
+    + createOffer(link, user,offerObserver)
+    + getOffers()
+    + getOfferByUserLink(userName, link)
+    + acceptOffer(userName, link, catalog)
+    + getDontPublushedOffer()
+}
+
+class DocumentParser {
+    + getDocuments(source)
+}
+
+abstract class Parser {
+    + getData(source)
+}
+
+class ResourceParser {
+    getResource(source) 
+}
+
+class Resource {
+    - tag
+    - nameResource
+    - observer
+    + __construct(name, tag)
+    + setObserver(observer)
+    + notify()
+    + setName($name)
+    + getName()
+    + getTag()
+    + editResource(content)
+}
+
+class Subscription {
+    - element
+    - user
+    - isRead
+    + __construct(user, element)
+    + getElement()
+    + getUser() 
+    + getIsRead()
+    + setIsRead(value)
+    + checkRead(userName)
+    + checkUser(userName)
+}
+
+class Subscriptions {
+    - subscriptions[]
+    + subscribe(element, user)
+    + getSubscriptionByElementName(changeElement)
+    + getSubscriptionByUser(user, filtr = 0)
+    + hasAddFind(readed, filter)
+    + getSubscriptionsByUserElement(user, element)
+}
+
+class User {
+    - login
+    + __construct(login)
+    + getLogin()
+}
+
+class Admin {
+    - login
+    - adminController
+    + __construct(login)
+}
+
+class Mentor {
+    - login
+    - mentorController
+    + __construct(login)
+}
+
+class AdminController {
+    - reportOffer
+    + createReportOffers()
+    + getReportOffers()
+    + acceptOffer(userName, link)
+    + createDocument(nameDocument, sources)
+    + editDocument(nameDocument, content)
+    + addKeyWords(nameDocument, keyWord)
+    + changeSource(nameDocument, newSource)
+    + addMentor(user) 
+}
+
+class UserController {
+    # subscriptions
+    # observer
+    # catalog
+    # offers
+    + createSubscriptions()
+    + createObserver()
+    + createCatalog()
+    + createOffers()
+    + createStructur()
+    + createAll()
+    + searchDocument(word)
+    + viewSubscription(user)
+    + viewDontReadSubsc(user)
+    + readSubscribe(user, nameElement)
+    + addOffer(user, link)
+}
+
+class MentorController {
+    # reportSubscription
+    # users
+    + addSubscribtion(nameElement, user)
+    + createReportSubscriptions()
+    + getReportSubscribtions()
+}
+
+abstract class Report {
+    # serializer
+    # users[]
+    # context[]
+    + createSerializer()
+    + getUsers()
+    + setUsers()
+}
+
+class ReportOffers {
+    - offers
+    + generateReportAllOffers()
+    + getOffers()
+    + setOffers()
+}
+
+class ReportSubscriptions {
+    - subscriptions
+    + generateReportAllSubscription()
+    + setSubscriptions(subscriptions)
+    + getSubscriptions()
+}
+
+UserController --|> MentorController
+MentorController --|> AdminController
+AdminController o-- Admin 
+AdminController o-- ReportOffers
+MentorController o-- ReportSubscriptions
+MentorController o-- Mentor
+UserController o-- User
+UserController o-- Subscriptions
+UserController o-- ObserverImpl
+UserController o-- Catalog
+UserController o-- Offers
+Report --|> ReportSubscriptions
+Report --|> ReportOffers
+Observer --|> ObserverImpl
+Observer --|> OfferObserver
+Parser --|> DocumentParser
+Parser --|> ResourceParser
+Catalog o-- "*" Document
+Document o-- "*" Resource
+Document o-- ObserverImpl
+Document o-- DocumentParser
+Resource o-- ResourceParser
+Resource o-- ObserverImpl
+Subscriptions o-- "*" Subscription
+Subscription --o User
+Offers o-- "*" Offer
+Offer o-- User
+Offer o-- OfferObserver
+@enduml
