@@ -4,7 +4,7 @@
  */
 
 use config\Config;
-use repository\Repository;
+use repository\UserRepository;
 use usecase\catalog\GetCatalog;
 use usecase\user\GetUsersList;
 
@@ -13,7 +13,7 @@ require_once '../config/bootstrap.php';
 Config::getHeader();
 
 //Получить список всех пользователей и документов и выбирать кого на что подписать
-$repository = new Repository(Config::connect());
+$repository = new UserRepository(Config::connect());
 $userList = new GetUsersList();
 $userList->setRepository($repository);
 $userList->execute();
