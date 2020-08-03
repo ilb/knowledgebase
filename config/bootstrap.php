@@ -9,7 +9,8 @@ set_include_path(
 require_once '__autoload.php';
 
 // Так лучше не делать наверное ? или вынести в отдельный файл
-define("DOMEN", "https://ilb.github.io/devmethodology");
+//define("DOMEN", "https://ilb.github.io/devmethodology");
+define("DOMEN", "https://demo01.ilb.ru/devmethodology/docs");
 
 // DEBUG 
 ini_set("error_reporting", E_ALL);
