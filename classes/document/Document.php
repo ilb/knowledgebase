@@ -3,6 +3,8 @@
 namespace document;
 
 
+use resource\Resources;
+
 class Document {
     
     /**
@@ -13,9 +15,9 @@ class Document {
     
     /**
      * Массив ресурсов
-     * @var array<\resource\Resource>
+     * @var \resource\Resources
      */
-    private $resources = [];
+    private $resources;
 
     /**
      * @var \observer\ObserverImpl
@@ -115,20 +117,14 @@ class Document {
      * По заданному $this->source парсит страницу 
      */
     public function createResources() {
-        $resourceParser = new \parser\ResourceParser();
-        $rawResources = $resourceParser->getResource($this->source);
-        foreach ($rawResources as $rawResource) {
-            $this->resources[] = new \resource\Resource(
-                    $rawResource['name'], 
-                    $this->nameDocument . "#" . $rawResource['tag']
-            );
-            $this->addKeyWord($rawResource['tag']);
-        }
+        $this->resources = new Resources();
+        $keywords = $this->resources->createResource($this->source, $this->nameDocument);
+        $this->addKeyWords($keywords);
     }
     
     /**
      * 
-     * @return array<\resource\Resource>
+     * @return \resource\Resources
      */
     public function getResources() {
         return $this->resources;
@@ -140,11 +136,7 @@ class Document {
      * @return \resource\Resource
      */
     public function getResourceByTag($tagResource) {
-        foreach ($this->resources as $resource) {
-            if ($resource->getTag() == $tagResource) {
-                return $resource;
-            }
-        }
+        $this->resources->searchByTag($tagResource);
     }
     
     /**

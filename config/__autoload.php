@@ -25,7 +25,7 @@ spl_autoload_register(function ($c) {
     $f = str_replace((strpos($c, "\\") !== FALSE ? "\\" : "_"), DIRECTORY_SEPARATOR, $c) . ".php";
     //проверяем сами - чтоб отловить место где произошла ошибка (стандартное сообщение неинформатвно)
     $r = null;
-    foreach (explode(PATH_SEPARATOR, get_include_path()) as $p) {     
+    foreach (explode(PATH_SEPARATOR, get_include_path()) as $p) {
         if (file_exists($p . DIRECTORY_SEPARATOR . $f)) {
             // файл класса существует
             $r = $p . DIRECTORY_SEPARATOR . $f;
