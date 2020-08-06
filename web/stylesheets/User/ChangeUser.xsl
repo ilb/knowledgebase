@@ -85,12 +85,10 @@
                             </td>
 
                             <td>
-                                <button class="ui button" name="changeBtn">
-
+                                <button class="ui fluid button" name="changeBtn">
                                     <xsl:attribute name="value">
                                         <xsl:value-of select="id_user"/>
                                     </xsl:attribute>
-
                                     Изменить
                                 </button>
                             </td>

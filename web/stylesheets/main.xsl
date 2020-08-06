@@ -14,9 +14,9 @@
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
             <link rel="stylesheet" type="text/css" href="/knowledgebase/web/oooxhtml/oooxhtml.css"/>
             <link rel="stylesheet" type="text/css" href="/knowledgebase/web/css/main.css"/>
-            <script type="text/javascript" src="/privapi/web/scripts/privilegedAPI.js">
-                <xsl:text><![CDATA[]]></xsl:text>
-            </script>
+<!--            <script type="text/javascript" src="/privapi/web/scripts/privilegedAPI.js">-->
+<!--                <xsl:text><![CDATA[]]></xsl:text>-->
+<!--            </script>-->
             <link rel="stylesheet" type="text/css" href="/knowledgebase/web/css/semantic.min.css"/>
             <script type="text/javascript" src="/knowledgebase/web/js/jquery.min.js">
             </script>
