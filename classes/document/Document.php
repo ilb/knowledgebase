@@ -121,6 +121,13 @@ class Document {
         $keywords = $this->resources->createResource($this->source, $this->nameDocument);
         $this->addKeyWords($keywords);
     }
+
+    /**
+     * @param $resources \resource\Resources
+     */
+    public function setResources($resources) {
+        $this->resources = $resources;
+    }
     
     /**
      * 

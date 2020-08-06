@@ -10,6 +10,9 @@ class Resources {
 
     private $resources = [];
 
+    public function addResource($nameDocument, $name, $tag) {
+        $this->resources[] = new Resource($name,$nameDocument . "#" . $tag);
+    }
 
     public function createResource($source, $nameDocument) {
         $keywords = [];

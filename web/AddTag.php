@@ -11,7 +11,6 @@ use usecase\document\DocumentAddTag;
 
 require_once '../config/bootstrap.php';
 
-Config::getHeader();
 
 $repository = new Repository(Config::connect());
 if (isset($_POST['document'])) {
