@@ -14,9 +14,9 @@ $serializer = new Serializer($normalizers, $encoders);
 
 $documentList = new GetCatalog("../web/index.html");
 $catalog = $documentList->execute();
-foreach ($catalog->getDocuments() as $document) :
+foreach ($catalog->getDocuments() as $document) {
     $document->createResources();
-endforeach;
+}
 // сериализованный класс
 // ради теста пока будет тут
 // сразу как получится вынесу в отдельную папку

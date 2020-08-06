@@ -7,6 +7,7 @@
 namespace usecase\catalog;
 
 use catalog\Catalog;
+use response\Response;
 use usecase\helper\UseCase;
 
 class GetCatalog extends UseCase {
@@ -24,12 +25,15 @@ class GetCatalog extends UseCase {
     }
 
     /**
-     * @return Catalog
+     * @return Response
      */
     public function execute() {
         $catalog  = new Catalog($this->source);
         $catalog->createDocuments();
-        return $catalog;
+        foreach ($catalog->getDocuments() as $document) {
+            $document->createResources();
+        }
+        return new Response($catalog);
     }
     
 }

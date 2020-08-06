@@ -11,7 +11,11 @@ use usecase\helper\UseCase;
 
 class GetUsersList extends UseCase {
 
+    /**
+     * @return array[]|\response\Response
+     */
     public function execute() {
-        return $this->repository->getUsers();
+        $users = $this->repository->getUsers();
+        return array("users" => ["user" => $users]);
     }
 }

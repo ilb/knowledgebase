@@ -24,16 +24,18 @@
         <html xml:lang="ru" xmlns="http://www.w3.org/1999/xhtml">
             <head>
                 <xsl:call-template name="head"/>
-                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
                 <title>Список документов</title>
             </head>
             <body onload="">
+                <xsl:call-template name="menu-header"/>
                 <xsl:apply-templates />
             </body>
         </html>
     </xsl:template>
 
     <xsl:template match="/response">
+        <div class="ui container" style="margin-bottom: 10px">
+            <table class="ui celled selectable table">
         <div class="ui container">
             <table summary="" class="ui celled  table">
                 <caption>
@@ -46,22 +48,56 @@
                     </tr>
                 </thead>
                 <tbody>
+<!--                    <xsl:if test="/response/elements/documents">-->
                     <xsl:for-each select="/response/elements/documents">
+<!--                        Переменная для ссылки на ресурс-->
+                        <xsl:variable name="src" select="source"/>
                         <tr>
-                            <td><xsl:value-of select="nameDocument"/></td>
+                            <td>
+                                <a>
+                                    <xsl:attribute name="href">
+                                        <xsl:value-of select="$src"/>
+                                    </xsl:attribute>
+
+                                    <xsl:value-of select="nameDocument"/>
+                                </a>
+                            </td>
                             <td>document</td>
                         </tr>
                         <xsl:for-each select="resources/resource[name!='']">
                             <tr>
-                                <td><xsl:value-of select="name"/></td>
-                                <td>resources</td>
+                                <td>
+                                    <a>
+                                        <xsl:attribute name="href">
+                                            <xsl:value-of select="concat($src, '#', tag)"/>
+                                        </xsl:attribute>
+
+                                        <xsl:value-of select="name"/>
+                                    </a>
+                                </td>
+                                <td>resource</td>
                             </tr>
                         </xsl:for-each>
+                    </xsl:for-each>
+<!--                    </xsl:if>-->
+                    <xsl:for-each select="/response/elements/resource">
+                        <tr>
+                            <td>
+                                <a>
+                                    <xsl:attribute name="href">
+                                        <xsl:value-of select="concat('#', tag)"/>
+                                    </xsl:attribute>
+
+                                    <xsl:value-of select="name"/>
+                                </a>
+                            </td>
+                            <td>resource</td>
+                        </tr>
                     </xsl:for-each>
                 </tbody>
             </table>
         </div>
-
+    <hr/>
     </xsl:template>
 
 </xsl:stylesheet>

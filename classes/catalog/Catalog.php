@@ -4,6 +4,7 @@ namespace catalog;
 
 use document\Document;
 use parser\DocumentParser;
+use resource\Resources;
 
 class Catalog {
     
@@ -72,15 +73,15 @@ class Catalog {
     /**
      * Находит документы содержащие в себе искомое значение
      * @param string $word
-     * @return array
+     * @return \resource\Resources
      */
     public function searchByKeyword($word) {
-        $result = array();
+        $result = new Resources();
         $word = strtolower($word);
         foreach ($this->docs as $doc) {
             if (in_array($word, $doc->getKeyWords())) {
                 // Тег не всегда будет являться тегом ресурса                    ↓
-                $result[] = [ "document" => $doc, "link" => $doc->getSource() . "#" . $word];
+                $result->addResource($doc->getName(),$doc->getSource(), $word);//[ "document" => $doc, "link" => $doc->getSource() . "#" . $word];
             }
         }
         return $result;

@@ -4,7 +4,7 @@ require_once '../config/bootstrap.php';
 
 use config\Config;
 
-Config::getHeader();
+//Config::getHeader();
 
 $files = (scandir('.'));
 $clear_files = array();
