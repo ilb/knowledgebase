@@ -35,7 +35,7 @@
 
     <xsl:template match="/response">
         <div class="ui container">
-            <table class="ui celled  table">
+            <table summary="" class="ui celled  table">
                 <caption>
                     Весь список ресурсов и документов
                 </caption>

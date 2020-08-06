@@ -11,15 +11,24 @@
     <xsl:template name="head">
         <xsl:copy>
             <xsl:apply-templates select="xhtml:head"/>
-            <link rel="stylesheet" type="text/css" href="/knowledgebase/web/oooxhtml/oooxhtml.css"/>
-            <link rel="stylesheet" type="text/css" href="/knowledgebase/web/css/main.css"/>
+            <link rel="stylesheet" type="text/css" href="/knowledgebase/web/oooxhtml/oooxhtml.css">
+                <xsl:text><![CDATA[]]></xsl:text>
+            </link>
+            <link rel="stylesheet" type="text/css" href="/knowledgebase/web/css/main.css">
+                <xsl:text><![CDATA[]]></xsl:text>
+
+            </link>
             <script type="text/javascript" src="/privapi/web/scripts/privilegedAPI.js">
                 <xsl:text><![CDATA[]]></xsl:text>
             </script>
-            <link rel="stylesheet" type="text/css" href="/knowledgebase/web/css/semantic.min.css"/>
+            <link rel="stylesheet" type="text/css" href="/knowledgebase/web/css/semantic.min.css">
+                <xsl:text><![CDATA[]]></xsl:text>
+            </link>
             <script type="text/javascript" src="/knowledgebase/web/js/jquery.min.js">
+                <xsl:text><![CDATA[]]></xsl:text>
             </script>
             <script type="text/javascript" src="/knowledgebase/web/js/semantic.min.js">
+                <xsl:text><![CDATA[]]></xsl:text>
             </script>
         </xsl:copy>
     </xsl:template>

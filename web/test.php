@@ -45,7 +45,11 @@ header("Content-type: text/xml");
 $arr = explode("\n", $xml);
 $xml = $arr[0] . '<?xml-stylesheet type="text/xsl" href="stylesheets/DocumentList/DocumentList.xsl"?>'
     . $arr[1];
-echo  $xml ;
+//echo  $xml ;
+
+//XML_Output::tryHTML($xml);
+XML_Output::tryHTML($xml,TRUE);
+
 /**
  * TODO:
  *  Реализовать класс по сериализации в json, xml, xhtml
