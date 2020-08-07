@@ -21,8 +21,6 @@ if (isset($_GET['link_to'])) {
     exit("<h2>Что то пошло не так</h2>");
 }
 
-Config::getHeader();
-
 $repository = new Repository(Config::connect());
 // Передавать логин пользователя
 $sub = new SubscriptionView("User1");
