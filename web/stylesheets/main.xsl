@@ -29,6 +29,9 @@
             <a class="item" href="DocumentList.php">
                 Список документов
             </a>
+            <a class="item" href="AddTag.php">
+                Добавить тег
+            </a>
             <a class="item" href="SubscriptionsList.php">
                 Список подписок
             </a>
