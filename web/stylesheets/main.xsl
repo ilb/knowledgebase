@@ -55,11 +55,11 @@
             <div class="right item">
                 <form class="ui form" action="DocumentFind.php">
                     <div class="ui icon input">
-                        <input type="text"  name="keyWord" placeholder="Поиск"/>
+                        <input type="text"  name="keyWord" />
                         <!-- Добавить JS чтобы при нажатии отправляласб форма-->
 <!--                        <i class="search link icon"/>-->
                     </div>
-                    <button style="display: none"/>
+<!--                    <button style="display: none"/>-->
                 </form>
             </div>
         </div>
