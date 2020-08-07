@@ -13,5 +13,6 @@ $catalog = $documentList->execute();
 
 $serialize = new Serialize();
 $xml = $serialize->objToXMLandXSL($catalog, "stylesheets/DocumentList/DocumentList.xsl");
-header("Content-type: text/xml");
-echo $xml;
+//header("Content-type: text/xml");
+XML_Output::tryHTML($xml,TRUE);
+//echo $xml;

@@ -17,7 +17,6 @@
             </link>
             <link rel="stylesheet" type="text/css" href="/knowledgebase/web/css/main.css">
                 <xsl:text><![CDATA[]]></xsl:text>
-
             </link>
             <script type="text/javascript" src="/privapi/web/scripts/privilegedAPI.js">
                 <xsl:text><![CDATA[]]></xsl:text>

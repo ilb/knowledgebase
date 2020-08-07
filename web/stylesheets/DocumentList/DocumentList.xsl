@@ -34,8 +34,6 @@
     </xsl:template>
 
     <xsl:template match="/response">
-        <div class="ui container" style="margin-bottom: 10px">
-            <table class="ui celled selectable table">
         <div class="ui container">
             <table summary="" class="ui celled  table">
                 <caption>
