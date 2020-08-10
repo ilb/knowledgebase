@@ -70,6 +70,7 @@ class Subscriptions {
         }
         return $find;
     }
+
     /**
      * @param boolean $readed
      * @param integer $filter

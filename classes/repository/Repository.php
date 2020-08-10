@@ -64,7 +64,7 @@ class Repository {
     /**
      * Получить подписку по логину пользователя
      * @param string $login
-     * @return array<dict<string,any>>
+     * @return array
      */
     public function getSubscribtionsByUser($login) {
         $sql = "SELECT
@@ -80,11 +80,9 @@ class Repository {
                 )
             ON
                 `user`.`id_user` = `subscriptions`.`user_id`
-            Where `user`.`login` = ?
-            ORDER BY
-                `user`.`login`";
+            Where `user`.`login` = ?";
         $res = $this->dbconnect->prepare($sql);
-        $res->execute(array($login));
+        $res->execute([$login]);
         return $res->fetchAll(\PDO::FETCH_ASSOC);
     }
 

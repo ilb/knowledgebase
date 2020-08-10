@@ -74,4 +74,8 @@ class Serialize {
         return $this->serializer->serialize($response, "json");
     }
 
+    public function objToArray($response) {
+        return $this->serializer->normalize($response);
+    }
+
 }

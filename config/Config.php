@@ -24,7 +24,7 @@ class Config {
      * Пароль пользователя для доступа DB
      * @var string
      */
-    const DBPASSWORD = "";
+    const DBPASSWORD = "gfhjkm";
 
     /**
      * Имя базы данных которую подключаем
