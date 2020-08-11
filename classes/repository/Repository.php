@@ -138,7 +138,11 @@ class Repository {
                 `material`.`name_material` = ?"
         );
         $res->execute([$documentName]);
-        return $res->fetchAll(\PDO::FETCH_ASSOC);
+        $keywords = [];
+        foreach ($res->fetchAll(\PDO::FETCH_ASSOC) as $keyW) {
+            $keywords[] = $keyW["name_keyword"];
+        }
+        return $keywords;
     }
 
     /**

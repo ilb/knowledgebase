@@ -118,8 +118,7 @@ class Document {
      */
     public function createResources() {
         $this->resources = new Resources();
-        $keywords = $this->resources->createResource($this->source, $this->nameDocument);
-        $this->addKeyWords($keywords);
+        $this->resources->createResource($this->source, $this->nameDocument);
     }
 
     /**

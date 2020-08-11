@@ -33,7 +33,7 @@ class Catalog {
      * @param string $nameDocument
      * @param string $source
      */
-    public function createDocument ($nameDocument, $source) {
+    public function createDocument($nameDocument, $source) {
         $this->docs[] = new Document($nameDocument, $source);
     }
     

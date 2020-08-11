@@ -5,14 +5,14 @@
         <xsd:complexType>
             <xsd:sequence>
 
-                <xsd:element name = 'class'>
+                <xsd:element name='SearchDocument'>
                     <xsd:complexType>
                         <xsd:sequence>
                             <xsd:element name='keyWord' type="xsd:string"/>
                         </xsd:sequence>
                     </xsd:complexType>
                 </xsd:element>
-                
+
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>

@@ -41,6 +41,10 @@ class DocumentSearch extends UseCase  {
         // Если получать из репозитория то цикл можно убрать
         foreach ($catalog->getDocuments() as $doc) {
             $doc->createResources();
+            $doc->getName();
+
+            $keywords = $this->repository->getKeywords($doc->getName());
+            $doc->addKeywords($keywords);
         }
         $res = $catalog->searchByKeyword($this->keyWord);
         return new Response($res);

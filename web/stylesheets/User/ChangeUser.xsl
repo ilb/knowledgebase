@@ -24,7 +24,7 @@
         <html xml:lang="ru" xmlns="http://www.w3.org/1999/xhtml">
             <head>
                 <xsl:call-template name="head"/>
-                <title>Список документов</title>
+                <title>Изменить пользователя</title>
             </head>
             <body onload="">
                 <xsl:call-template name="menu-header"/>

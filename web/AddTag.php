@@ -21,8 +21,9 @@ if (isset($_POST['document'])) {
         $res = new DocumentAddTag($_POST['document'], $_POST['keyWord']);
         $res->setRepository($repository);
 //        $result = "Произошла ошибка";
-        if ($res->execute()) {
-//            $result = "Ключевое слово добавлено";
+//        $result = "Ключевое слово добавлено";
+        if (!$res->execute()) {
+            exit("Все плохо");
         }
     }
 }

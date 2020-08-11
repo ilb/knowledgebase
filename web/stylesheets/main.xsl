@@ -40,6 +40,9 @@
             <a class="item" href="AddTag.php">
                 Добавить тег
             </a>
+            <a class="item" href="ChangeDocument.php">
+                Изменение документа
+            </a>
             <a class="item" href="SubscriptionsList.php">
                 Список подписок
             </a>
@@ -54,11 +57,17 @@
             </a>
             <div class="right item">
                 <form class="ui form" action="DocumentFind.php">
-                    <div class="ui icon input">
-                        <input type="text"  name="keyWord" />
-                        <!-- Добавить JS чтобы при нажатии отправляласб форма-->
-<!--                        <i class="search link icon"/>-->
+                    <div class="fields">
+                        <div class="fluid field">
+                            <input type="text"  name="keyWord" />
+                        </div>
+                        <div class="field">
+                            <button class="ui button">
+                                Поиск
+                            </button>
+                        </div>
                     </div>
+
 <!--                    <button style="display: none"/>-->
                 </form>
             </div>
