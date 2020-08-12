@@ -5,6 +5,19 @@
         <xsd:complexType>
             <xsd:sequence>
 
+                <xsd:element name="LoginRequest">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="referer" type="xsd:string"/>
+                            <xsd:element name="required" type="xsd:int"/>
+                            <xsd:element name="loginName" type="xsd:string" minOccurs="0"/>
+                            <xsd:element name="password" type="xsd:string" minOccurs="0"/>
+                            <xsd:element name="operUniqid" type="xsd:string" minOccurs="0"/>
+                            <xsd:element name="certUniqid" type="xsd:string" minOccurs="0"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+
                 <xsd:element name='SearchDocument'>
                     <xsd:complexType>
                         <xsd:sequence>
