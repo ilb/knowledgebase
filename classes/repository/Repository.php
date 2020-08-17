@@ -207,6 +207,12 @@ class Repository {
         return $res->fetchAll(\PDO::FETCH_ASSOC)[0]['id_material'];
     }
 
+    public function getMaterials() {
+        $sql = "SELECT * FROM `material`";
+        $res = $this->dbconnect->query($sql);
+        return $res->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
     /**
      * Записывает материал предоженный на изменения в БД
      * @param $login

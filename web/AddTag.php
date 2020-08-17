@@ -14,17 +14,15 @@ require_once '../config/bootstrap.php';
 
 
 $repository = new Repository(Config::connect());
-if (isset($_POST['document'])) {
-    if (empty(trim($_POST['keyWord']))) {
-//        $result = "Ключевое слово не может быть пустым";
-    } else {
-        $res = new DocumentAddTag($_POST['document'], $_POST['keyWord']);
-        $res->setRepository($repository);
-//        $result = "Произошла ошибка";
-//        $result = "Ключевое слово добавлено";
-        if (!$res->execute()) {
-            exit("Все плохо");
-        }
+
+$hreq = new HTTP_Request2Xml("schemas/command.xsd", null, "AddTag");
+if (!$hreq->isEmpty()) {
+    $hreq->validate();
+
+    $res = new DocumentAddTag($_POST['document'], $_POST['keyWord']);
+    $res->setRepository($repository);
+    if (!$res->execute()) {
+    exit("Все плохо");
     }
 }
 
@@ -33,5 +31,4 @@ $documentList->setRepository($repository);
 $catalog = $documentList->execute();
 $serialize = new Serialize();
 $xml = $serialize->objToXMLandXSL($catalog, "stylesheets/AddTag/AddTag.xsl");
-header("Content-type: text/xml");
-echo $xml;
+XML_Output::tryHTML($xml,TRUE);

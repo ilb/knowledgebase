@@ -8,7 +8,6 @@ use repository\Repository;
 
 require_once '../config/bootstrap.php';
 
-Config::getHeader();
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
 

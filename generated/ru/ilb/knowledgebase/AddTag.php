@@ -2,70 +2,70 @@
 
 namespace ru\ilb\knowledgebase;
 
-class DocumentListRequest extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplexType {
+class AddTag extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplexType {
 
     const NS = "";
-    const ROOT = "DocumentListRequest";
+    const ROOT = "AddTag";
     const PREF = NULL;
 
     /**
      * @maxOccurs 1 .
-     * @var ru\ilb\knowledgebase\\DocumentListRequest\LoginRequest
+     * @var \String
      */
-    protected $LoginRequest = null;
+    protected $KeyWord = null;
 
     /**
      * @maxOccurs 1 .
-     * @var ru\ilb\knowledgebase\\DocumentListRequest\SearchDocument
+     * @var \String
      */
-    protected $SearchDocument = null;
+    protected $Document = null;
 
     public function __construct() {
         parent::__construct();
-        $this->_properties["LoginRequest"] = array(
-            "prop" => "LoginRequest",
+        $this->_properties["keyWord"] = array(
+            "prop" => "KeyWord",
             "ns" => "",
             "minOccurs" => 1,
-            "text" => $this->LoginRequest
+            "text" => $this->KeyWord
         );
-        $this->_properties["SearchDocument"] = array(
-            "prop" => "SearchDocument",
+        $this->_properties["document"] = array(
+            "prop" => "Document",
             "ns" => "",
             "minOccurs" => 1,
-            "text" => $this->SearchDocument
+            "text" => $this->Document
         );
     }
 
     /**
-     * @param ru\ilb\knowledgebase\\DocumentListRequest\LoginRequest $val
+     * @param \String $val
      */
-    public function setLoginRequest(\ru\ilb\knowledgebase\\DocumentListRequest\LoginRequest $val) {
-        $this->LoginRequest = $val;
-        $this->_properties["LoginRequest"]["text"] = $val;
+    public function setKeyWord($val) {
+        $this->KeyWord = $val;
+        $this->_properties["keyWord"]["text"] = $val;
         return $this;
     }
 
     /**
-     * @param ru\ilb\knowledgebase\\DocumentListRequest\SearchDocument $val
+     * @param \String $val
      */
-    public function setSearchDocument(\ru\ilb\knowledgebase\\DocumentListRequest\SearchDocument $val) {
-        $this->SearchDocument = $val;
-        $this->_properties["SearchDocument"]["text"] = $val;
+    public function setDocument($val) {
+        $this->Document = $val;
+        $this->_properties["document"]["text"] = $val;
         return $this;
     }
 
     /**
-     * @return ru\ilb\knowledgebase\\DocumentListRequest\LoginRequest
+     * @return \String
      */
-    public function getLoginRequest() {
-        return $this->LoginRequest;
+    public function getKeyWord() {
+        return $this->KeyWord;
     }
 
     /**
-     * @return ru\ilb\knowledgebase\\DocumentListRequest\SearchDocument
+     * @return \String
      */
-    public function getSearchDocument() {
-        return $this->SearchDocument;
+    public function getDocument() {
+        return $this->Document;
     }
 
     public function toXmlStr($xmlns = self::NS, $xmlname = self::ROOT) {
@@ -108,13 +108,13 @@ class DocumentListRequest extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyCom
      */
     protected function elementsToXmlWriter(\XMLWriter &$xw, $xmlname = self::ROOT, $xmlns = self::NS) {
         parent::elementsToXmlWriter($xw, $xmlname, $xmlns);
-        $prop = $this->getLoginRequest();
+        $prop = $this->getKeyWord();
         if ($prop !== NULL) {
-            $prop->toXmlWriter($xw);
+            $xw->writeElement('keyWord', $prop);
         }
-        $prop = $this->getSearchDocument();
+        $prop = $this->getDocument();
         if ($prop !== NULL) {
-            $prop->toXmlWriter($xw);
+            $xw->writeElement('document', $prop);
         }
     }
 
@@ -132,13 +132,11 @@ class DocumentListRequest extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyCom
      */
     public function elementsFromXmlReader(\XMLReader &$xr) {
         switch ($xr->localName) {
-            case "LoginRequest":
-                $LoginRequest = \Adaptor_Bindings::create("\\ru\\ilb\\knowledgebase\\\\DocumentListRequest\\LoginRequest");
-                $this->setLoginRequest($LoginRequest->fromXmlReader($xr));
+            case "keyWord":
+                $this->setKeyWord($xr->readString());
                 break;
-            case "SearchDocument":
-                $SearchDocument = \Adaptor_Bindings::create("\\ru\\ilb\\knowledgebase\\\\DocumentListRequest\\SearchDocument");
-                $this->setSearchDocument($SearchDocument->fromXmlReader($xr));
+            case "document":
+                $this->setDocument($xr->readString());
                 break;
             default:
                 parent::elementsFromXmlReader($xr);
@@ -161,15 +159,11 @@ class DocumentListRequest extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyCom
                 $props[$k] = $v;
             }
         }
-        if (isset($props["LoginRequest"])) {
-            $LoginRequest = \Adaptor_Bindings::create("\\ru\\ilb\\knowledgebase\\\\DocumentListRequest\\LoginRequest");
-            $LoginRequest->fromJSON($props["LoginRequest"]);
-            $this->setLoginRequest($LoginRequest);
+        if (isset($props["keyWord"])) {
+            $this->setKeyWord($props["keyWord"]);
         }
-        if (isset($props["SearchDocument"])) {
-            $SearchDocument = \Adaptor_Bindings::create("\\ru\\ilb\\knowledgebase\\\\DocumentListRequest\\SearchDocument");
-            $SearchDocument->fromJSON($props["SearchDocument"]);
-            $this->setSearchDocument($SearchDocument);
+        if (isset($props["document"])) {
+            $this->setDocument($props["document"]);
         }
     }
 
@@ -180,15 +174,11 @@ class DocumentListRequest extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyCom
      *
      */
     public function fromArray($row) {
-        if (isset($row["LoginRequest"])) {
-            $LoginRequest = \Adaptor_Bindings::create("\\ru\\ilb\\knowledgebase\\\\DocumentListRequest\\LoginRequest");
-            $LoginRequest->fromArray($row["LoginRequest"]);
-            $this->setLoginRequest($LoginRequest);
+        if (isset($row["keyWord"])) {
+            $this->setKeyWord($row["keyWord"]);
         }
-        if (isset($row["SearchDocument"])) {
-            $SearchDocument = \Adaptor_Bindings::create("\\ru\\ilb\\knowledgebase\\\\DocumentListRequest\\SearchDocument");
-            $SearchDocument->fromArray($row["SearchDocument"]);
-            $this->setSearchDocument($SearchDocument);
+        if (isset($row["document"])) {
+            $this->setDocument($row["document"]);
         }
     }
 

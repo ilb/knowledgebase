@@ -1,8 +1,11 @@
 <?php
+
+use serialize\Serialize;
+
 require_once '../config/bootstrap.php';
 
-$hreq = new HTTP_Request2Xml("schemas/command.xsd", null, "LoginRequest");
+$hreq = new HTTP_Request2Xml("schemas/command.xsd", null, "AddTag");
 if (!$hreq->isEmpty()) {
     $hreq->validate();
-    $xml = $hreq->getAsXML();
+    echo $hreq->getElementByTagName("tag");
 }

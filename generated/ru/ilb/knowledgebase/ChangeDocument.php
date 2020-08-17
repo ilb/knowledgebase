@@ -1,43 +1,15 @@
 <?php
 
-namespace ru\ilb\knowledgebase\\DocumentListRequest;
+namespace ru\ilb\knowledgebase;
 
-class SearchDocument extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplexType {
+class ChangeDocument extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplexType {
 
     const NS = "";
-    const ROOT = "SearchDocument";
+    const ROOT = "ChangeDocument";
     const PREF = NULL;
-
-    /**
-     * @maxOccurs 1 .
-     * @var \String
-     */
-    protected $KeyWord = null;
 
     public function __construct() {
         parent::__construct();
-        $this->_properties["keyWord"] = array(
-            "prop" => "KeyWord",
-            "ns" => "",
-            "minOccurs" => 1,
-            "text" => $this->KeyWord
-        );
-    }
-
-    /**
-     * @param \String $val
-     */
-    public function setKeyWord($val) {
-        $this->KeyWord = $val;
-        $this->_properties["keyWord"]["text"] = $val;
-        return $this;
-    }
-
-    /**
-     * @return \String
-     */
-    public function getKeyWord() {
-        return $this->KeyWord;
     }
 
     public function toXmlStr($xmlns = self::NS, $xmlname = self::ROOT) {
@@ -80,10 +52,6 @@ class SearchDocument extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplexT
      */
     protected function elementsToXmlWriter(\XMLWriter &$xw, $xmlname = self::ROOT, $xmlns = self::NS) {
         parent::elementsToXmlWriter($xw, $xmlname, $xmlns);
-        $prop = $this->getKeyWord();
-        if ($prop !== NULL) {
-            $xw->writeElement('keyWord', $prop);
-        }
     }
 
     /**
@@ -100,9 +68,6 @@ class SearchDocument extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplexT
      */
     public function elementsFromXmlReader(\XMLReader &$xr) {
         switch ($xr->localName) {
-            case "keyWord":
-                $this->setKeyWord($xr->readString());
-                break;
             default:
                 parent::elementsFromXmlReader($xr);
         }
@@ -116,29 +81,6 @@ class SearchDocument extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplexT
      */
     public function fromJSON($arg) {
         parent::fromJSON($arg);
-        $props = [];
-        if (is_array($arg)) {
-            $props = $arg;
-        } elseif (is_object($arg)) {
-            foreach ($arg as $k => $v) {
-                $props[$k] = $v;
-            }
-        }
-        if (isset($props["keyWord"])) {
-            $this->setKeyWord($props["keyWord"]);
-        }
-    }
-
-    /**
-     * Чтение данных массива
-     * в объект
-     * @param Array $row
-     *
-     */
-    public function fromArray($row) {
-        if (isset($row["keyWord"])) {
-            $this->setKeyWord($row["keyWord"]);
-        }
     }
 
 }

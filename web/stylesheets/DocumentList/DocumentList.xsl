@@ -54,7 +54,7 @@
                             <td>
                                 <a>
                                     <xsl:attribute name="href">
-                                        <xsl:value-of select="$src"/>
+                                        <xsl:value-of select="concat('DocumentView.php?url-0=', $src)"/>
                                     </xsl:attribute>
 
                                     <xsl:value-of select="nameDocument"/>
@@ -67,7 +67,7 @@
                                 <td>
                                     <a>
                                         <xsl:attribute name="href">
-                                            <xsl:value-of select="concat($src, '#', tag)"/>
+                                            <xsl:value-of select="concat('DocumentView.php?url-0=',$src, '#', tag)"/>
                                         </xsl:attribute>
 
                                         <xsl:value-of select="name"/>

@@ -34,7 +34,9 @@ class SubscriptionView extends UseCase {
             if (preg_match_all("/[#]/", $name)) {
                 $name = "#" . explode("#", $name)[1];
             }
-            $subscriptions->subscribe($name, $user);
+            $sub = new \subscription\Subscription($user, $name);
+            $sub->setSource($value['source']);
+            $subscriptions->AddSubscription($sub);
             if ($value['is_read']) {
                 $subscriptions->getSubscriptionsByUserElement($user, $name)->setIsRead(1);
             }

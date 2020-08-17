@@ -47,7 +47,13 @@
                     <xsl:for-each select="/response/elements/subscriprions">
                         <tr>
                             <td>
-                                <xsl:value-of select="element"/>
+                                <a>
+                                    <xsl:attribute name="href">
+                                        <xsl:value-of select="concat('?link_to-0=', source)"/>
+                                    </xsl:attribute>
+                                    <xsl:value-of select="element"/>
+                                </a>
+
                             </td>
                             <td>
                                 <xsl:choose>

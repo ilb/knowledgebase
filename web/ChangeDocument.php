@@ -15,7 +15,6 @@ $repository = new Repository(Config::connect());
 $documentList = new GetCatalog("../web/index.html");
 $documentList->setRepository($repository);
 $catalog = $documentList->execute();
-header("Content-type: text/xml");
 $serialize = new Serialize();
 $xml = $serialize->objToXMLandXSL($catalog, "stylesheets/ChangeDocument/ChangeDocument.xsl");
-echo $xml;
+XML_Output::tryHTML($xml,TRUE);

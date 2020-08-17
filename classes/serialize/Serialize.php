@@ -66,6 +66,10 @@ class Serialize {
         return $this->serializer->encode($response, "xml");
     }
 
+    public function XMLToArr($xml) {
+        return $this->serializer->decode($xml, "xml");
+    }
+
 
     /**
      * @param $response \response\Response
