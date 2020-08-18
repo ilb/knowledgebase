@@ -14,6 +14,26 @@ class Subscription {
     private $element;
 
     /**
+     * Ссылка на статью
+     * @var string
+     */
+    private $source;
+
+    /**
+     * @return string
+     */
+    public function getSource() {
+        return $this->source;
+    }
+
+    /**
+     * @param string $source
+     */
+    public function setSource($source) {
+        $this->source = $source;
+    }
+
+    /**
      * @var \user\User
      */
     private $user;

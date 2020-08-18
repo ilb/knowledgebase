@@ -7,6 +7,7 @@
 namespace usecase\document;
 
 use catalog\Catalog;
+use response\Response;
 use usecase\helper\UseCase;
 
 class DocumentSearch extends UseCase  {
@@ -32,7 +33,7 @@ class DocumentSearch extends UseCase  {
     
     /**
      * ВОзвращает массив найденных ресурсов и ссылки на них
-     * @return array<array<Resource>>
+     * @return \response\Response
      */
     public function execute() {
         $catalog = new Catalog($this->source);
@@ -40,7 +41,12 @@ class DocumentSearch extends UseCase  {
         // Если получать из репозитория то цикл можно убрать
         foreach ($catalog->getDocuments() as $doc) {
             $doc->createResources();
-        }        
-        return $catalog->searchByKeyword($this->keyWord);
+            $doc->getName();
+
+            $keywords = $this->repository->getKeywords($doc->getName());
+            $doc->addKeywords($keywords);
+        }
+        $res = $catalog->searchByKeyword($this->keyWord);
+        return new Response($res);
     }
 }

@@ -10,8 +10,6 @@ use usecase\user\GetUsersList;
 
 require_once '../config/bootstrap.php';
 
-Config::getHeader();
-
 //Получить список всех пользователей и документов и выбирать кого на что подписать
 $repository = new UserRepository(Config::connect());
 $userList = new GetUsersList();

@@ -18,6 +18,10 @@ class Subscriptions {
         $this->subscribtions[] = new \subscription\Subscription($user, $element);
     }
 
+    public function AddSubscription($sub) {
+        $this->subscribtions[] = $sub;
+    }
+
     /**
      * Находит все подписки содержащие в себе измененный документ
      * @param string $nameElement
@@ -70,6 +74,7 @@ class Subscriptions {
         }
         return $find;
     }
+
     /**
      * @param boolean $readed
      * @param integer $filter

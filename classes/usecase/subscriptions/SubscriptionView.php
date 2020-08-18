@@ -2,6 +2,7 @@
 
 namespace usecase\subscriptions;
 
+use response\Response;
 use subscription\Subscriptions;
 use usecase\helper\UseCase;
 use user\User;
@@ -15,7 +16,7 @@ class SubscriptionView extends UseCase {
     private $login;
 
     /**
-     * @param $user string
+     * @param $login
      */
     public function __construct($login) {
         $this->login = $login;
@@ -23,7 +24,6 @@ class SubscriptionView extends UseCase {
 
     /**
      * Показывает все подписки пользователя
-     * @return Subscriptions
      */
     public function execute() {
         $subs = $this->repository->getSubscribtionsByUser($this->login);
@@ -34,11 +34,13 @@ class SubscriptionView extends UseCase {
             if (preg_match_all("/[#]/", $name)) {
                 $name = "#" . explode("#", $name)[1];
             }
-            $subscriptions->subscribe($name, $user);
+            $sub = new \subscription\Subscription($user, $name);
+            $sub->setSource($value['source']);
+            $subscriptions->AddSubscription($sub);
             if ($value['is_read']) {
                 $subscriptions->getSubscriptionsByUserElement($user, $name)->setIsRead(1);
             }
         }
-        return $subscriptions;
+        return new Response($subscriptions);
     }
 }

@@ -6,52 +6,75 @@
     exclude-result-prefixes="xhtml xsl"
     version="1.0">
 
-    <xsl:output
-        media-type="application/xhtml+xml"
-        method="xml"
-        encoding="UTF-8"
-        indent="yes"
-        omit-xml-declaration="no"
-        doctype-public="-//W3C//DTD XHTML 1.1//EN"
-        doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" />
-    <!--    <xsl:variable name="newline">
-        <xsl:text>
-        </xsl:text>
-    </xsl:variable>-->
-    <xsl:strip-space elements="*" />
+    <xsl:variable name="domen">
+        <xsl:text>http://knowledgebaselib/knowledgebase/web/</xsl:text>
+    </xsl:variable>
 
-    <!-- the identity template -->
-    <xsl:template match="@*|node()">
-        <xsl:copy>
-            <xsl:apply-templates select="@*|node()"/>
-        </xsl:copy>
-    </xsl:template>
-    <xsl:template match="processing-instruction('xml-stylesheet')">
-    </xsl:template>
-    <xsl:template match="xhtml:head">
-        <xsl:copy>
-            <xsl:apply-templates select="@*|node()"/>
-            <link rel="stylesheet" type="text/css" href="/knowledgebase/web/oooxhtml/oooxhtml.css"/>
-            <link rel="stylesheet" type="text/css" href="/knowledgebase/web/css/main.css"/>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <xsl:variable name="srcIframe">
+        <xsl:text>/knowledgebase/content</xsl:text>
+    </xsl:variable>
+
+    <xsl:template name="head">
+            <xsl:apply-templates select="xhtml:head"/>
+            <link rel="stylesheet" type="text/css" href="/oooxhtml/oooxhtml.css">
+                <xsl:text><![CDATA[]]></xsl:text>
+            </link>
+            <link rel="stylesheet" type="text/css" href="css/main.css">
+                <xsl:text><![CDATA[]]></xsl:text>
+            </link>
             <script type="text/javascript" src="/privapi/web/scripts/privilegedAPI.js">
                 <xsl:text><![CDATA[]]></xsl:text>
             </script>
-        </xsl:copy>
-    </xsl:template>
-
-    <xsl:template match="xhtml:body">
-        <xsl:copy>
-            <div class="contents">
-                <a href="index.php">
-                    <h1 class="table_font"> &lt; - К файлам</h1>
-                </a>
-            </div>
-            <xsl:apply-templates select="@*|node()"/>
-            <script type="text/javascript" src="/knowledgebase/web/oooxhtml/oooxhtml.js">
+            <link rel="stylesheet" type="text/css" href="css/semantic.min.css">
+                <xsl:text><![CDATA[]]></xsl:text>
+            </link>
+            <script type="text/javascript" src="js/jquery.min.js">
                 <xsl:text><![CDATA[]]></xsl:text>
             </script>
-        </xsl:copy>
+            <script type="text/javascript" src="js/semantic.min.js">
+                <xsl:text><![CDATA[]]></xsl:text>
+            </script>
     </xsl:template>
 
+    <xsl:template name="menu-header">
+        <div class="ui menu">
+            <a class="item" href="DocumentList.php">
+                Список документов
+            </a>
+            <a class="item" href="AddTag.php">
+                Добавить тег
+            </a>
+            <a class="item" href="ChangeDocument.php">
+                Изменение документа
+            </a>
+            <a class="item" href="SubscriptionsList.php">
+                Список подписок
+            </a>
+            <a class="item" href="#">
+                Предложить изменения
+            </a>
+            <a class="item" href="#">
+                Формирование отчетов
+            </a>
+            <a class="item" href="ChangeUser.php">
+                Поменять пользователя
+            </a>
+            <div class="right item">
+                <form class="ui form" action="DocumentFind.php">
+                    <div class="fields">
+                        <div class="fluid field">
+                            <input type="text"  name="keyWord" />
+                        </div>
+                        <div class="field">
+                            <button class="ui button">
+                                Поиск
+                            </button>
+                        </div>
+                    </div>
+
+<!--                    <button style="display: none"/>-->
+                </form>
+            </div>
+        </div>
+    </xsl:template>
 </xsl:stylesheet>

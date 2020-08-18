@@ -12,7 +12,7 @@ abstract class UseCase implements UseCaseInterface {
     protected $repository;
 
     /**
-     * @param $repository \repository\Repository
+     * @param $repository \repository\Repository|\repository\UserRepository
      */
     public function setRepository($repository) {
         $this->repository = $repository;

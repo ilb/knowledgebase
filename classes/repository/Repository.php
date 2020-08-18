@@ -64,7 +64,7 @@ class Repository {
     /**
      * Получить подписку по логину пользователя
      * @param string $login
-     * @return array<dict<string,any>>
+     * @return array
      */
     public function getSubscribtionsByUser($login) {
         $sql = "SELECT
@@ -80,11 +80,9 @@ class Repository {
                 )
             ON
                 `user`.`id_user` = `subscriptions`.`user_id`
-            Where `user`.`login` = ?
-            ORDER BY
-                `user`.`login`";
+            Where `user`.`login` = ?";
         $res = $this->dbconnect->prepare($sql);
-        $res->execute(array($login));
+        $res->execute([$login]);
         return $res->fetchAll(\PDO::FETCH_ASSOC);
     }
 
@@ -140,7 +138,11 @@ class Repository {
                 `material`.`name_material` = ?"
         );
         $res->execute([$documentName]);
-        return $res->fetchAll(\PDO::FETCH_ASSOC);
+        $keywords = [];
+        foreach ($res->fetchAll(\PDO::FETCH_ASSOC) as $keyW) {
+            $keywords[] = $keyW["name_keyword"];
+        }
+        return $keywords;
     }
 
     /**
@@ -203,6 +205,12 @@ class Repository {
         $res = $this->dbconnect->prepare($sql);
         $res->execute([ $material_name ]);
         return $res->fetchAll(\PDO::FETCH_ASSOC)[0]['id_material'];
+    }
+
+    public function getMaterials() {
+        $sql = "SELECT * FROM `material`";
+        $res = $this->dbconnect->query($sql);
+        return $res->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     /**

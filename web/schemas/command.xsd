@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Схема входных данных (запроса) -->
+<xsd:schema elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <xsd:element name="AddTag">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="keyWord" type="xsd:string"/>
+                <xsd:element name="document" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="DocumentView">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="url" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="SubscriptionViewed">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="link_to" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name='AddDocument'>
+        <xsd:complexType>
+            <xsd:sequence>
+
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name='SearchDocument'>
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name='keyWord' type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name='ChangeUser'>
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name='keyWord' type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name='ChangeDocument'>
+        <xsd:complexType>
+            <xsd:sequence>
+
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>
