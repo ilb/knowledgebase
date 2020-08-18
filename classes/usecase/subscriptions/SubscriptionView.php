@@ -35,7 +35,7 @@ class SubscriptionView extends UseCase {
                 $name = "#" . explode("#", $name)[1];
             }
             $sub = new \subscription\Subscription($user, $name);
-            $sub->setSource($value['source']);
+            $sub->setParent($value['source']);
             $subscriptions->AddSubscription($sub);
             if ($value['is_read']) {
                 $subscriptions->getSubscriptionsByUserElement($user, $name)->setIsRead(1);

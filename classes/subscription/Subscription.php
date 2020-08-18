@@ -17,20 +17,20 @@ class Subscription {
      * Ссылка на статью
      * @var string
      */
-    private $source;
+    private $parent;
 
     /**
      * @return string
      */
-    public function getSource() {
-        return $this->source;
+    public function getParent() {
+        return $this->parent;
     }
 
     /**
      * @param string $source
      */
-    public function setSource($source) {
-        $this->source = $source;
+    public function setParent($parent) {
+        $this->parent = $parent;
     }
 
     /**
