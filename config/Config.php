@@ -32,6 +32,13 @@ class Config {
      */
     const DBNAME = "knowledgebase";
 
+
+    /**
+     * Путь до файлов базы знаний
+     * @var string
+     */
+    const pathToKnowledgebase = "/var/apps/knowledgebase";
+
     /**
      * Возвращает сооединение с БД
      * @return PDO

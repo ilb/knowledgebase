@@ -1,11 +1,13 @@
 <?php
 
 use serialize\Serialize;
+use usecase\catalog\GetCatalog;
 
 require_once '../config/bootstrap.php';
+$documentList = new GetCatalog(\config\Config::pathToKnowledgebase);
+$catalog = $documentList->execute();
 
-$hreq = new HTTP_Request2Xml("schemas/command.xsd", null, "AddTag");
-if (!$hreq->isEmpty()) {
-    $hreq->validate();
-    echo $hreq->getElementByTagName("tag");
-}
+$serialize = new Serialize();
+$xml = $serialize->objToXMLandXSL($catalog, "stylesheets/DocumentList/DocumentList.xsl");
+//header("Content-type: text/xml");
+XML_Output::tryHTML($xml,TRUE);

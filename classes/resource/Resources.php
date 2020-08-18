@@ -15,7 +15,6 @@ class Resources {
     }
 
     public function createResource($source, $nameDocument) {
-        $keywords = [];
         $resourceParser = new ResourceParser();
         $rawResources = $resourceParser->getResource($source);
         foreach ($rawResources as $rawResource) {
@@ -23,9 +22,7 @@ class Resources {
                 $rawResource['name'],
                 $nameDocument . "#" . $rawResource['tag']
             );
-            $keywords[] = $rawResource['tag'];
         }
-        return $keywords;
     }
 
     public function getResource() {

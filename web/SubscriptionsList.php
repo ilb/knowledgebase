@@ -18,17 +18,18 @@ if (!$hreq->isEmpty()) {
     $hreq->validate();
     $req->fromXmlStr($hreq->getAsXML());
 }
-if (isset($_GET['link_to'])) {
-
-//    $arr = explode("/", $_GET['link_to']);
-//    $material_name = $arr[count($arr)-1];
-//    $viewed = new usecase\subscriptions\SubscribtionViewed("USer1", $material_name);
-//    $viewed->setRepository($repository);
-//    if ($viewed->execute()) {
-//        header("Location: ". $_GET['link_to']);
-//    }
-//    exit("<h2>Что то пошло не так</h2>");
-}
+// мусор скоро уберу
+//if (isset($_GET['link_to'])) {
+//
+////    $arr = explode("/", $_GET['link_to']);
+////    $material_name = $arr[count($arr)-1];
+////    $viewed = new usecase\subscriptions\SubscribtionViewed("USer1", $material_name);
+////    $viewed->setRepository($repository);
+////    if ($viewed->execute()) {
+////        header("Location: ". $_GET['link_to']);
+////    }
+////    exit("<h2>Что то пошло не так</h2>");
+//}
 
 // Передавать логин пользователя
 $sub = new SubscriptionView("USer1");

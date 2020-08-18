@@ -12,7 +12,7 @@ require_once '../config/bootstrap.php';
 
 // Нужно переделать БД чтобы ссылка на документ менялась с сылкой на ресурс
 $repository = new Repository(Config::connect());
-$documentList = new GetCatalog("../web/index.html");
+$documentList = new GetCatalog(\config\Config::pathToKnowledgebase);
 $documentList->setRepository($repository);
 $catalog = $documentList->execute();
 $serialize = new Serialize();

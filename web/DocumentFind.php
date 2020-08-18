@@ -12,13 +12,12 @@ require_once '../config/bootstrap.php';
 
 if (isset($_GET['keyWord'])) {
     $repository = new Repository(Config::connect());
-    $df = new DocumentSearch("../web/index.html", $_GET['keyWord']);
+    $df = new DocumentSearch(Config::pathToKnowledgebase, $_GET['keyWord']);
     $df->setRepository($repository);
     $response = $df->execute();
     $serialize = new Serialize();
     $xml = $serialize->objToXMLandXSL($response, "stylesheets/DocumentList/DocumentList.xsl");
-    header("Content-type: text/xml");
-    echo $xml;
+    XML_Output::tryHTML($xml,TRUE);
 } else {
     header("Location: DocumentList.php");
 }

@@ -5,6 +5,7 @@ namespace parser;
 class DocumentParser extends Parser {
 
     /**
+     * По индекс файлу
      * @param string $source
      * @return array
      */
@@ -23,6 +24,25 @@ class DocumentParser extends Parser {
                 "name" => $tags[1][$i],
                 "source" => $attribute[1][0]
             );
+        }
+        return $results;
+    }
+
+    /**
+     * Из папки
+     * @param $source
+     * @return array
+     */
+    public function getDocumentsDir($source) {
+        $results = [];
+        $files = scandir($source);
+        foreach ($files as $file) {
+            if (is_file($source . "/" . $file)) {
+                $results[] = array(
+                    "name" => $file,
+                    "source" => $source . "/" . $file,
+                );
+            }
         }
         return $results;
     }

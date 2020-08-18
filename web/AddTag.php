@@ -26,7 +26,7 @@ if (!$hreq->isEmpty()) {
     }
 }
 
-$documentList = new GetCatalog("../web/index.html");
+$documentList = new GetCatalog(\config\Config::pathToKnowledgebase);
 $documentList->setRepository($repository);
 $catalog = $documentList->execute();
 $serialize = new Serialize();

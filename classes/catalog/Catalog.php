@@ -42,7 +42,7 @@ class Catalog {
      */
     public function createDocuments() {
         $parser = new DocumentParser();
-        $rawDocuments = $parser->getDocuments($this->source);
+        $rawDocuments = $parser->getDocumentsDir($this->source);
         foreach ($rawDocuments as $rawDocument) {
             $this->docs[] = new Document($rawDocument['name'], $rawDocument['source']);
         }

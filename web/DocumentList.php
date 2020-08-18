@@ -8,7 +8,7 @@ use usecase\catalog\GetCatalog;
 
 require_once '../config/bootstrap.php';
 
-$documentList = new GetCatalog("../web/index.html");
+$documentList = new GetCatalog(\config\Config::pathToKnowledgebase);
 $catalog = $documentList->execute();
 
 $serialize = new Serialize();

@@ -50,11 +50,12 @@
                     <xsl:for-each select="/response/elements/documents">
 <!--                        Переменная для ссылки на ресурс-->
                         <xsl:variable name="src" select="source"/>
+                        <xsl:variable name="docName" select="nameDocument"/>
                         <tr>
                             <td>
                                 <a>
                                     <xsl:attribute name="href">
-                                        <xsl:value-of select="concat('DocumentView.php?url-0=', $src)"/>
+                                        <xsl:value-of select="concat('DocumentView.php?url-0=', nameDocument)"/>
                                     </xsl:attribute>
 
                                     <xsl:value-of select="nameDocument"/>
@@ -67,7 +68,7 @@
                                 <td>
                                     <a>
                                         <xsl:attribute name="href">
-                                            <xsl:value-of select="concat('DocumentView.php?url-0=',$src, '#', tag)"/>
+                                            <xsl:value-of select="concat('DocumentView.php?url-0=',$docName, '#', tag)"/>
                                         </xsl:attribute>
 
                                         <xsl:value-of select="name"/>
@@ -83,7 +84,7 @@
                             <td>
                                 <a>
                                     <xsl:attribute name="href">
-                                        <xsl:value-of select="concat('#', tag)"/>
+                                        <xsl:value-of select="concat('DocumentView.php?url-0=', name)"/>
                                     </xsl:attribute>
 
                                     <xsl:value-of select="name"/>

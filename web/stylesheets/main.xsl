@@ -10,6 +10,10 @@
         <xsl:text>http://knowledgebaselib/knowledgebase/web/</xsl:text>
     </xsl:variable>
 
+    <xsl:variable name="srcIframe">
+        <xsl:text>/knowledgebase/content</xsl:text>
+    </xsl:variable>
+
     <xsl:template name="head">
             <xsl:apply-templates select="xhtml:head"/>
             <link rel="stylesheet" type="text/css" href="/oooxhtml/oooxhtml.css">

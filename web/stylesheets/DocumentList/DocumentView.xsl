@@ -37,7 +37,7 @@ version="1.0">
         <iframe style="width: 100%; height:60rem">
 
             <xsl:attribute name="src">
-                <xsl:value-of select="Url"/>
+                <xsl:value-of select="concat($srcIframe, '/', Url)"/>
             </xsl:attribute>
 
             <xsl:text><![CDATA[]]></xsl:text>
