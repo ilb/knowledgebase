@@ -31,11 +31,13 @@ class SubscriptionView extends UseCase {
         $user = new User($this->login);
         foreach ($subs as $value) {
             $name = $value['name'];
+            $parent = $value['name'];
             if (preg_match_all("/[#]/", $name)) {
+                $parent = explode("#", $name)[0];
                 $name = "#" . explode("#", $name)[1];
             }
             $sub = new \subscription\Subscription($user, $name);
-            $sub->setParent($value['source']);
+            $sub->setParent($parent);
             $subscriptions->AddSubscription($sub);
             if ($value['is_read']) {
                 $subscriptions->getSubscriptionsByUserElement($user, $name)->setIsRead(1);

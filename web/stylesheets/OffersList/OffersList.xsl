@@ -24,7 +24,7 @@
         <html xml:lang="ru" xmlns="http://www.w3.org/1999/xhtml">
             <head>
                 <xsl:call-template name="head"/>
-                <title>Список подписок</title>
+                <title>Список предложенных документов</title>
             </head>
             <body onload="">
                 <xsl:call-template name="menu-header"/>
@@ -36,41 +36,43 @@
     <xsl:template match="/response">
         <div class="ui container">
             <table summary="" class="ui celled  table">
+                <caption>Предложенные корректировки</caption>
                 <thead>
                     <tr>
-                        <th>Подписка</th>
-                        <th>Прочтена (да\нет)</th>
+                        <th>Пользователь</th>
+                        <th>Материал</th>
+                        <th>Изменения</th>
+                        <th>Принять</th>
+                        <th>Отклонить</th>
                     </tr>
                 </thead>
+
                 <tbody>
-                    <!--                    <xsl:if test="/response/elements/documents">-->
-                    <xsl:for-each select="/response/elements/subscriprions">
+                    <xsl:for-each select="/response/offer">
                         <tr>
                             <td>
-                                <a>
-                                    <xsl:attribute name="href">
-                                        <xsl:value-of select="concat('?link_to-0=', parent)"/>
-                                        <xsl:if test="parent != element">
-                                            <xsl:value-of select="concat('&amp;link_tag-0=', substring(element, 2))"/>
-                                        </xsl:if>
-                                    </xsl:attribute>
-                                    <xsl:value-of select="element"/>
-                                </a>
-
+                                <xsl:value-of select="login"/>
                             </td>
+
                             <td>
-                                <xsl:choose>
-                                    <xsl:when test="isRead = 0">
-                                        нет
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        да
-                                    </xsl:otherwise>
-                                </xsl:choose>
+                                <xsl:value-of select="name_material"/>
+                            </td>
+
+                            <td>
+                                <xsl:value-of select="diff"/>
+                            </td>
+
+                            <td>
+                                <button class="ui fluid button">Принять</button>
+                            </td>
+
+                            <td>
+                                <button class="ui fluid button">
+                                    Отклонить
+                                </button>
                             </td>
                         </tr>
                     </xsl:for-each>
-                    <!--                    </xsl:if>-->
                 </tbody>
             </table>
         </div>

@@ -190,7 +190,8 @@ class Repository {
             INNER JOIN `material` ON `offers`.`material_id` = `material`.`id_material`
             )
         ON
-            `user`.`id_user` = `offers`.`user_id`";
+            `user`.`id_user` = `offers`.`user_id`
+        WHERE `offers`.`accepted` = 0";
         $res = $this->dbconnect->query($sql);
         return $res->fetchAll(\PDO::FETCH_ASSOC);
     }

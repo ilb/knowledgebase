@@ -37,6 +37,7 @@
         <div class="ui container" style="margin-bottom: 10px">
             <form action="" method="post" class="ui form">
                 <h4 class="ui dividing header">Выберите документ и введите новый источник данных</h4>
+                <h2>Пока не работает</h2>
                 <div class="two fields">
 
                     <div class="field">

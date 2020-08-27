@@ -5,9 +5,16 @@
 
 use config\Config;
 use repository\Repository;
+use ru\ilb\knowledgebase\ReportList;
 
 require_once '../config/bootstrap.php';
 
+$hreq = new HTTP_Request2Xml("schemas/command.xsd", null, "ReportList");
+$req = new ReportList();
+if (!$hreq->isEmpty()) {
+    $hreq->validate();
+    $req->fromXmlStr($hreq->getAsXML());
+}
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
 
@@ -22,10 +29,10 @@ require_once '../config/bootstrap.php';
             <fieldset>
                 <legend>Отчет</legend>
                 <div>
-                    <button type="submit" name="reportSubscriptions">
+                    <button type="submit" name="typeReport" value="subscription">
                         Сформировать отчет по подпискам
                     </button>
-                    <button type="submit" name="reportOffer">
+                    <button type="submit" name="typeReport" value="offer">
                         Сформировать отчет по предложенным корректировкам
                     </button>
                 </div>

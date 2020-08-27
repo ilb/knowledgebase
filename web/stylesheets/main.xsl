@@ -39,7 +39,7 @@
     <xsl:template name="menu-header">
         <div class="ui menu">
             <a class="item" href="DocumentList.php">
-                Список документов
+                Документы
             </a>
             <a class="item" href="AddTag.php">
                 Добавить тег
@@ -48,16 +48,25 @@
                 Изменение документа
             </a>
             <a class="item" href="SubscriptionsList.php">
-                Список подписок
+                Подписки
             </a>
-            <a class="item" href="#">
-                Предложить изменения
+            <a class="item" href="OffersList.php">
+                Предложенные изменения
             </a>
-            <a class="item" href="#">
-                Формирование отчетов
+            <a class="item" href="ReportList.php">
+                Отчеты
             </a>
             <a class="item" href="ChangeUser.php">
-                Поменять пользователя
+                Управление пользователями
+            </a>
+            <a class="item" href="SendOffer.php">
+                Предложить корректировку
+            </a>
+            <a class="item" href="MyOffers.php">
+                Мои корректировки
+            </a>
+            <a class="item" href="Notificate.php">
+                Уведомления
             </a>
             <div class="right item">
                 <form class="ui form" action="DocumentFind.php">
