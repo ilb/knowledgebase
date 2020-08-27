@@ -37,9 +37,9 @@
     </xsl:template>
 
     <xsl:template name="menu-header">
-        <div class="ui menu">
+        <div class="ui large vertical menu">
             <a class="item" href="DocumentList.php">
-                Документы
+                Список документов
             </a>
             <a class="item" href="AddTag.php">
                 Добавить тег
@@ -47,8 +47,11 @@
             <a class="item" href="ChangeDocument.php">
                 Изменение документа
             </a>
+            <a class="item" href="AddSubscription.php">
+                Добавить подписку
+            </a>
             <a class="item" href="SubscriptionsList.php">
-                Подписки
+                Список подписок
             </a>
             <a class="item" href="OffersList.php">
                 Предложенные изменения

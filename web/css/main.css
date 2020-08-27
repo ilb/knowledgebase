@@ -2,6 +2,7 @@ table > tr > td{
     padding: 10px;
 }
 
+
 .document {
     background: rgba(173, 173, 173, .7);
 }
@@ -20,4 +21,18 @@ table {
 
 th {
     font-size: 1.2em;
+}
+
+.full {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.article {
+    margin-left: 15px;
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }

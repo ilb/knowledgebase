@@ -27,8 +27,14 @@
                 <title>Список подписок</title>
             </head>
             <body onload="">
-                <xsl:call-template name="menu-header"/>
-                <xsl:apply-templates />
+                <div class="full">
+                    <div class="toc">
+                        <xsl:call-template name="menu-header"/>
+                    </div>
+                    <div class="article">
+                        <xsl:apply-templates />
+                    </div>
+                </div>
             </body>
         </html>
     </xsl:template>
