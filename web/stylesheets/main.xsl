@@ -22,9 +22,6 @@
             <link rel="stylesheet" type="text/css" href="css/main.css">
                 <xsl:text><![CDATA[]]></xsl:text>
             </link>
-            <script type="text/javascript" src="/privapi/web/scripts/privilegedAPI.js">
-                <xsl:text><![CDATA[]]></xsl:text>
-            </script>
             <link rel="stylesheet" type="text/css" href="css/semantic.min.css">
                 <xsl:text><![CDATA[]]></xsl:text>
             </link>
@@ -32,6 +29,9 @@
                 <xsl:text><![CDATA[]]></xsl:text>
             </script>
             <script type="text/javascript" src="js/semantic.min.js">
+                <xsl:text><![CDATA[]]></xsl:text>
+            </script>
+            <script type="text/javascript" src="/privapi/web/scripts/privilegedAPI.js">
                 <xsl:text><![CDATA[]]></xsl:text>
             </script>
     </xsl:template>
@@ -63,7 +63,7 @@
                 Управление пользователями
             </a>
             <a class="item" href="SendOffer.php">
-                Предложить корректировку
+                Предложить изменения
             </a>
             <a class="item" href="MyOffers.php">
                 Мои корректировки

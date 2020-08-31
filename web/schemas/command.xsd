@@ -11,6 +11,24 @@
         </xsd:complexType>
     </xsd:element>
 
+    <xsd:element name='AddDocument'>
+        <xsd:complexType>
+            <xsd:sequence>
+
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name='AddSubscription'>
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="document" type="xsd:string"/>
+                <xsd:element name="name" type="xsd:string"/>
+                <xsd:element name="group" type="xsd:string" minOccurs="0"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
     <xsd:element name="DocumentView">
         <xsd:complexType>
             <xsd:sequence>
@@ -24,14 +42,6 @@
             <xsd:sequence>
                 <xsd:element name="link_to" type="xsd:string"/>
                 <xsd:element name="link_tag" type="xsd:string" minOccurs="0"/>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-
-    <xsd:element name='AddDocument'>
-        <xsd:complexType>
-            <xsd:sequence>
-
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>

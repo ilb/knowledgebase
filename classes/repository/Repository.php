@@ -32,7 +32,6 @@ class Repository {
     public function getSubscribtions() {
         $sql = "SELECT
                     `material`.`name_material` AS `name`,
-                    `material`.`source`,
                     `material`.`type`,
                     `user`.`login`,
                     `subscriptions`.`is_read`
@@ -69,7 +68,6 @@ class Repository {
     public function getSubscribtionsByUser($login) {
         $sql = "SELECT
                 `material`.`name_material` AS `name`,
-                `material`.`source`,
                 `material`.`type`,
                 `user`.`login`,
                 `subscriptions`.`is_read`
@@ -116,6 +114,18 @@ class Repository {
         $sql = "INSERT INTO `subscriptions`( `user_id`, `material_id`, `is_read`) VALUES (?, ?, 0)";
         $res = $this->dbconnect->prepare($sql);
         return $res->execute([$id_user, $id_material]);
+    }
+
+    /**
+     * Возвращает id пользователя из БД
+     * @param $login
+     * @return mixed
+     */
+    public function getUserId($login) {
+        $sql = "Select `id_user` FROM user WHERE login = ?";
+        $res = $this->dbconnect->prepare($sql);
+        $res->execute([ $login ]);
+        return $res->fetchAll(\PDO::FETCH_ASSOC)[0]['id_user'];
     }
 
     /**
@@ -181,7 +191,6 @@ class Repository {
             `offers`.`id_offer`,
             `offers`.`diff`,
             `material`.`name_material`,
-            `material`.`source`,
             `user`.`login`
         FROM
           `user`

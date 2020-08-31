@@ -15,6 +15,7 @@ if (!$hreq->isEmpty()) {
     $hreq->validate();
     $req->fromXmlStr($hreq->getAsXML());
 }
+
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
 
