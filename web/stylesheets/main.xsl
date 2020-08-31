@@ -38,6 +38,22 @@
 
     <xsl:template name="menu-header">
         <div class="ui large vertical menu">
+            <div class="item">
+                <form class="ui form" action="DocumentFind.php">
+                    <div class="fields">
+                        <div class="fluid field">
+                            <input type="text"  name="keyWord" />
+                        </div>
+                        <div class="field">
+                            <button class="ui button">
+                                Поиск
+                            </button>
+                        </div>
+                    </div>
+
+                    <!--                    <button style="display: none"/>-->
+                </form>
+            </div>
             <a class="item" href="DocumentList.php">
                 Список документов
             </a>
@@ -71,22 +87,6 @@
             <a class="item" href="Notificate.php">
                 Уведомления
             </a>
-            <div class="right item">
-                <form class="ui form" action="DocumentFind.php">
-                    <div class="fields">
-                        <div class="fluid field">
-                            <input type="text"  name="keyWord" />
-                        </div>
-                        <div class="field">
-                            <button class="ui button">
-                                Поиск
-                            </button>
-                        </div>
-                    </div>
-
-<!--                    <button style="display: none"/>-->
-                </form>
-            </div>
         </div>
     </xsl:template>
 </xsl:stylesheet>

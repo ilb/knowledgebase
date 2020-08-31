@@ -155,31 +155,6 @@ class Repository {
         return $keywords;
     }
 
-    /**
-     * SELECT
-     * `document`.`name_document`,
-     * `document`.`source_document`
-     * FROM
-     * `document`
-     * INNER JOIN(
-     * `document_to_keyword`
-     * INNER JOIN `keyword` ON `document_to_keyword`.`keyword_id` = `keyword`.`id_keyword`
-     * )
-     * ON
-     * `document_to_keyword`.`document_id` = `document`.`id_document`
-     * WHERE
-     * `keyword`.`name_keyword` = ?
-     */
-    public function getDocumentByKewords($keyWord) {
-        /**
-         * $this->dbconnect
-         */
-        return [
-            [
-                "link" => "https://ilb.github.io/devmethodology/knowlegebase.xhtml#variant__ispol_zovanij"
-            ]
-        ];
-    }
 
     /**
      * Возвращает все правки
@@ -199,8 +174,7 @@ class Repository {
             INNER JOIN `material` ON `offers`.`material_id` = `material`.`id_material`
             )
         ON
-            `user`.`id_user` = `offers`.`user_id`
-        WHERE `offers`.`accepted` = 0";
+            `user`.`id_user` = `offers`.`user_id`";
         $res = $this->dbconnect->query($sql);
         return $res->fetchAll(\PDO::FETCH_ASSOC);
     }
@@ -270,4 +244,32 @@ class Repository {
     public function editResource($documentName, $nameResource, $content) {
 
     }
+
+    /**
+     * Отчет по продчтеным подпискам
+     * @return array
+     */
+    public function getReportSubscribe() {
+        $sql = "SELECT user.login, material.name_material, s.is_read
+            FROM user INNER JOIN (subscriptions s INNER  JOIN material on material.id_material = s.material_id)
+               on user.id_user = s.user_id";
+        $res = $this->dbconnect->query($sql);
+        return $res->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * Отчет о предложенных корректировках
+     * @return array
+     */
+    public function getReportOffer() {
+        $sql = "SELECT DISTINCT
+               u.login,
+               (SELECT COUNT(accepted) FROM offers Where accepted = 1 and u.id_user = offers.user_id) as \"accept\",
+               (SELECT COUNT(accepted) FROM offers WHERE u.id_user = offers.user_id) as \"count\"
+        FROM user u INNER JOIN offers o on u.id_user = o.user_id;";
+        $res = $this->dbconnect->query($sql);
+        return $res->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function getReportMyOffer($login){}
 }
