@@ -266,10 +266,26 @@ class Repository {
                u.login,
                (SELECT COUNT(accepted) FROM offers Where accepted = 1 and u.id_user = offers.user_id) as \"accept\",
                (SELECT COUNT(accepted) FROM offers WHERE u.id_user = offers.user_id) as \"count\"
-        FROM user u INNER JOIN offers o on u.id_user = o.user_id;";
+        FROM user u INNER JOIN offers o on u.id_user = o.user_id";
         $res = $this->dbconnect->query($sql);
         return $res->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    public function getReportMyOffer($login){}
+    /**
+     * Возвращает список предложенных изменений пользователя
+     * @param $login
+     * @return array
+     */
+    public function getReportUser($login){
+        $sql = "SELECT DISTINCT
+        u.login,
+        m.name_material,
+        o.accepted,
+        o.diff
+        FROM user u INNER JOIN ( offers o INNER JOIN material m on o.material_id = m.id_material ) on u.id_user = o.user_id
+        WHERE u.login = ?";
+        $res = $this->dbconnect->prepare($sql);
+        $res->execute([$login]);
+        return $res->fetchAll(\PDO::FETCH_ASSOC);
+    }
 }

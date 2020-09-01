@@ -28,7 +28,3 @@ if (!$hreq->isEmpty()) {
 
 $xml = $serialize->arrToXMLandXSL($reports, "stylesheets/Reports/ReportList.xsl");
 XML_Output::tryHTML($xml,TRUE);
-exit();
-$serialize = new Serialize();
-$xml = $serialize->objToXMLandXSL(new \response\Response(["arr"=>'asd']), "stylesheets/Reports/ReportList.xsl");
-XML_Output::tryHTML($xml,TRUE);
