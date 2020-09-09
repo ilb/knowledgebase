@@ -85,7 +85,7 @@
                         </xsl:for-each>
                     </xsl:for-each>
 <!--                    </xsl:if>-->
-                    <xsl:for-each select="/response/elements/resource">
+                    <xsl:for-each select="/response/elements/resource[name!='']">
                         <tr>
                             <td>
                                 <a>

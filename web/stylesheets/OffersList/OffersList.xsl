@@ -69,7 +69,14 @@
                             </td>
 
                             <td>
-                                <button class="ui fluid button">Принять</button>
+                                <button class="ui fluid button" name="id_offer-0">
+
+                                    <xsl:attribute name="value">
+                                        <xsl:value-of select="id_offer"/>
+                                    </xsl:attribute>
+                                    
+                                    Принять
+                                </button>
                             </td>
 
                             <td>

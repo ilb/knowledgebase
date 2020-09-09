@@ -5,4 +5,5 @@
 
 require_once '../config/bootstrap.php';
 
-
+$xml = "";
+XML_Output::tryHTML($xml,TRUE);

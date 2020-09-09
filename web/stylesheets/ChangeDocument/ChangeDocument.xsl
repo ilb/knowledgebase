@@ -59,7 +59,7 @@
                         </select>
                     </div>
                     <div class="field">
-                        <input type="text" name="newSource" placeholder="URL exemple: http://example.com"/>
+                        <input type="text" name="newSource" placeholder="New name file: test.xhtml"/>
                     </div>
 
                 </div>

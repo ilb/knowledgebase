@@ -9,11 +9,11 @@ use serialize\Serialize;
 use usecase\offers\GetOfferList;
 
 require_once '../config/bootstrap.php';
-
+# TODO: принять предложение
 $repository = new Repository(Config::connect());
 $offerList = new GetOfferList();
 $offerList->setRepository($repository);
 $offerList = $offerList->execute();
-header("Content-type: text/xml");
 $serialize = new Serialize();
-echo $serialize->arrToXMLandXSL($offerList, "stylesheets/OffersList/OffersList.xsl");
+$xml = $serialize->arrToXMLandXSL($offerList, "stylesheets/OffersList/OffersList.xsl");
+XML_Output::tryHTML($xml,TRUE); 
