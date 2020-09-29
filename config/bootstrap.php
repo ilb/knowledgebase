@@ -1,5 +1,7 @@
 <?php
 
+Config_Resources::load(_DIR_ . "/web.xml");
+
 set_include_path(
                 __DIR__ . '/../generated'
                 .  PATH_SEPARATOR . __DIR__ . '/../classes'
@@ -14,8 +16,3 @@ require_once "Config.php";
 // Так лучше не делать наверное ? или вынести в отдельный файл
 //define("DOMEN", "https://ilb.github.io/devmethodology");
 define("DOMEN", "https://demo01.ilb.ru/devmethodology/docs");
-
-// DEBUG 
-ini_set("error_reporting", E_ALL);
-ini_set("display_errors", 1);
-ini_set("display_startup_errors", 1);
