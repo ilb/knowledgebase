@@ -1,7 +1,5 @@
 <?php
 
-Config_Resources::load(_DIR_ . "/web.xml");
-
 set_include_path(
                 __DIR__ . '/../generated'
                 .  PATH_SEPARATOR . __DIR__ . '/../classes'
@@ -12,6 +10,7 @@ set_include_path(
 );
 require_once "phplib-1/__autoload.php";
 require_once "Config.php";
+Config_Resources::load(_DIR_ . "/web.xml");
 
 // Так лучше не делать наверное ? или вынести в отдельный файл
 //define("DOMEN", "https://ilb.github.io/devmethodology");

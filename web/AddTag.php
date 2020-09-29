@@ -6,6 +6,7 @@
 
 use config\Config;
 use repository\Repository;
+use ru\ilb\knowledgebase\AddTag;
 use serialize\Serialize;
 use usecase\catalog\GetCatalog;
 use usecase\document\DocumentAddTag;
@@ -13,10 +14,10 @@ use usecase\document\DocumentAddTag;
 require_once '../config/bootstrap.php';
 
 
-$repository = new Repository(Config::connect());
+$repository = new Repository(Config::getInstance()->connection);
 
 $hreq = new HTTP_Request2Xml("schemas/command.xsd", null, "AddTag");
-$req = new \ru\ilb\knowledgebase\AddTag();
+$req = new AddTag();
 if (!$hreq->isEmpty()) {
     $hreq->validate();
     $req->fromXmlStr($hreq->getAsXML());
@@ -27,7 +28,7 @@ if (!$hreq->isEmpty()) {
     }
 }
 
-$documentList = new GetCatalog(\config\Config::pathToKnowledgebase);
+$documentList = new GetCatalog(Config::getInstance()->filespath);
 $documentList->setRepository($repository);
 $catalog = $documentList->execute();
 $serialize = new Serialize();

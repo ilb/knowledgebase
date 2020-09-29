@@ -11,7 +11,7 @@ use usecase\user\GetUsersList;
 
 require_once '../config/bootstrap.php';
 
-$repository = new UserRepository(Config::connect());
+$repository = new UserRepository(Config::getInstance()->connection);
 if (isset($_POST['changeBtn'])) {
     $id = $_POST['changeBtn'];
     $status = "status_" . $id;

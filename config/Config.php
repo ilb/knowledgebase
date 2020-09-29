@@ -9,41 +9,43 @@ use PDO;
 class Config {
 
     /**
-     * Хост на котором располагается DB
-     * @var string
+     * Экземпляр класса
+     * @var Config
      */
-    const DBHOST = "localhost";
+    private static $Instance;
 
     /**
-     * Пользователь имеющий доступ к DB
+     * Путь к файлам
      * @var string
      */
-    const DBUSER = "root";
+    public $filespath;
 
     /**
-     * Пароль пользователя для доступа DB
-     * @var string
+     * СОединение с БД
+     * @var \PDO
      */
-    const DBPASSWORD = "gfhjkm";
+    public $connection;
 
     /**
-     * Имя базы данных которую подключаем
-     * @var string
+     * Инициализация конифурации.
      */
-    const DBNAME = "knowledgebase";
-
+    private function __construct() {
+        $this->filespath = $_SERVER['ru.bystrobank.apps.knowledgebase.filespath'];
+        $this->connection =  new PDO(
+            "mysql:host=" . $_SERVER['ru.bystrobank.apps.knowledgebase.db_HOST'] .
+            ";dbname=" . $_SERVER['ru.bystrobank.apps.knowledgebase.db'],
+            $_SERVER['ru.bystrobank.apps.knowledgebase.db_USER'],
+            $_SERVER['ru.bystrobank.apps.knowledgebase.db_PASSWORD']);
+    }
 
     /**
-     * Путь до файлов базы знаний
-     * @var string
+     * Получить экземпляр класса
+     * @return Config
      */
-    const pathToKnowledgebase = "/var/apps/knowledgebase";
-
-    /**
-     * Возвращает сооединение с БД
-     * @return PDO
-     */
-    public static function connect() {
-        return new PDO("mysql:host=" . self::DBHOST . ";dbname=" . self::DBNAME, self::DBUSER, self::DBPASSWORD);
+    public static function getInstance() {
+        if (!self::$Instance) {
+            self::$Instance = new Config();
+        }
+        return self::$Instance;
     }
 }

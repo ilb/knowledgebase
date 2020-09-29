@@ -11,7 +11,7 @@ use usecase\report\Report;
 
 require_once '../config/bootstrap.php';
 
-$repository = new Repository(Config::connect());
+$repository = new Repository(Config::getInstance()->connection);
 $serialize = new Serialize();
 
 $hreq = new HTTP_Request2Xml("schemas/command.xsd", null, "ReportList");

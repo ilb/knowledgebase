@@ -9,6 +9,12 @@
     </resource-env-ref>
     <env-entry>
         <description>пользователь к бд приложения knowledgebase</description>
+        <env-entry-name>ru.bystrobank.apps.knowledgebase.db_HOST</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>localhost</env-entry-value>
+    </env-entry>
+    <env-entry>
+        <description>пользователь к бд приложения knowledgebase</description>
         <env-entry-name>ru.bystrobank.apps.knowledgebase.db_USER</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
         <env-entry-value>knowledgebase</env-entry-value>

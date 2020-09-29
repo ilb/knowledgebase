@@ -12,7 +12,7 @@ use usecase\subscriptions\SubscriptionView;
 
 require_once '../config/bootstrap.php';
 
-$repository = new Repository(Config::connect());
+$repository = new Repository(Config::getInstance()->connection);
 $hreq = new HTTP_Request2Xml("schemas/command.xsd", null, "SubscriptionViewed");
 $req = new SubscriptionViewed();
 if (!$hreq->isEmpty()) {
