@@ -17,7 +17,7 @@
         <description>пользователь к бд приложения knowledgebase</description>
         <env-entry-name>ru.bystrobank.apps.knowledgebase.db_USER</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>knowledgebase</env-entry-value>
+        <env-entry-value>root</env-entry-value>
     </env-entry>
     <env-entry>
         <description>пароль к бд приложения knowledgebase</description>

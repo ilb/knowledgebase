@@ -10,7 +10,7 @@ set_include_path(
 );
 require_once "phplib-1/__autoload.php";
 require_once "Config.php";
-Config_Resources::load(_DIR_ . "/web.xml");
+Config_Resources::load(__DIR__ . "/web.xml");
 
 // Так лучше не делать наверное ? или вынести в отдельный файл
 //define("DOMEN", "https://ilb.github.io/devmethodology");
