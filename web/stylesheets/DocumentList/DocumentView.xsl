@@ -26,15 +26,21 @@ version="1.0">
             <title>Список документов</title>
         </head>
         <body onload="">
-            <xsl:call-template name="menu-header"/>
-            <xsl:apply-templates />
+            <div class="full">
+                <div class="toc">
+                    <xsl:call-template name="menu-header"/>
+                </div>
+                <div class="article">
+                    <xsl:apply-templates />
+                </div>
+            </div>
         </body>
     </html>
 </xsl:template>
 
 <xsl:template match="/response">
     <div class="ui fluid container" style="min-height: 50rem">
-        <iframe style="width: 100%; height:60rem">
+        <iframe style="width: 100%; height:95vh">
 
             <xsl:attribute name="src">
                 <xsl:value-of select="concat($srcIframe, '/', Url)"/>

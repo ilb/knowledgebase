@@ -59,15 +59,5 @@ class UserRepository {
         return $res->execute(array($status, $id_user));
     }
 
-    /**
-     * Возвращает id пользователя из БД
-     * @param $login
-     * @return mixed
-     */
-    public function getUserId($login) {
-        $sql = "Select `id_user` FROM user WHERE login = ?";
-        $res = $this->dbconnect->prepare($sql);
-        $res->execute([ $login ]);
-        return $res->fetchAll(\PDO::FETCH_ASSOC)[0]['id_user'];
-    }
+
 }

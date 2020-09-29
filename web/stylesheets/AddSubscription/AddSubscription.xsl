@@ -24,7 +24,7 @@
         <html xml:lang="ru" xmlns="http://www.w3.org/1999/xhtml">
             <head>
                 <xsl:call-template name="head"/>
-                <title>Добавить тег</title>
+                <title>Подписать пользователей</title>
             </head>
             <body onload="">
                 <div class="full">
@@ -42,11 +42,11 @@
     <xsl:template match="/response">
         <div class="ui container" style="margin-bottom: 10px">
             <form action="" method="post" class="ui form">
-                <h4 class="ui dividing header">Выберите документ и введите ключевое слово</h4>
-                <div class="two fields">
+                <h4 class="ui dividing header">Выберите документ и введите имя пользователя либо группы при наличии галочки</h4>
+                <div class="three fields">
 
                     <div class="field">
-                        <select class="ui fluid dropdown" name="document">
+                        <select class="ui fluid dropdown" name="document-0">
                             <xsl:for-each select="/response/elements/documents">
                                 <option>
                                     <xsl:attribute name="value">
@@ -54,11 +54,29 @@
                                     </xsl:attribute>
                                     <xsl:value-of select="nameDocument"/>
                                 </option>
+
+                                <xsl:for-each select="resources/resource[name!='']">
+                                    <option>
+                                        <xsl:attribute name="value">
+                                            <xsl:value-of select="name"/>
+                                        </xsl:attribute>
+                                        <xsl:value-of select="name"/>
+                                    </option>
+                                </xsl:for-each>
+
                             </xsl:for-each>
                         </select>
                     </div>
+
                     <div class="field">
-                        <input type="text" name="keyWord" placeholder="Ключевое слово"/>
+                        <input type="text" name="name-0" placeholder="Имя группы или пользователя"/>
+                    </div>
+
+                    <div class="field">
+                        <label>
+                            Имя группы
+                            <input type="checkbox" class="checkbox" name="group-0"/>
+                        </label>
                     </div>
 
                 </div>

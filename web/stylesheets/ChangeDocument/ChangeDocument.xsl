@@ -27,8 +27,14 @@
                 <title>Изменить ссылкку</title>
             </head>
             <body onload="">
-                <xsl:call-template name="menu-header"/>
-                <xsl:apply-templates />
+                <div class="full">
+                    <div class="toc">
+                        <xsl:call-template name="menu-header"/>
+                    </div>
+                    <div class="article">
+                        <xsl:apply-templates />
+                    </div>
+                </div>
             </body>
         </html>
     </xsl:template>
@@ -37,6 +43,7 @@
         <div class="ui container" style="margin-bottom: 10px">
             <form action="" method="post" class="ui form">
                 <h4 class="ui dividing header">Выберите документ и введите новый источник данных</h4>
+                <h2>Пока не работает</h2>
                 <div class="two fields">
 
                     <div class="field">
@@ -52,7 +59,7 @@
                         </select>
                     </div>
                     <div class="field">
-                        <input type="text" name="newSource" placeholder="URL exemple: http://example.com"/>
+                        <input type="text" name="newSource" placeholder="New name file: test.xhtml"/>
                     </div>
 
                 </div>

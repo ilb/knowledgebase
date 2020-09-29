@@ -2,70 +2,98 @@
 
 namespace ru\ilb\knowledgebase;
 
-class SubscriptionViewed extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplexType {
+class AddSubscription extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplexType {
 
     const NS = "";
-    const ROOT = "SubscriptionViewed";
+    const ROOT = "AddSubscription";
     const PREF = NULL;
 
     /**
      * @maxOccurs 1 .
      * @var \String
      */
-    protected $Link_to = null;
+    protected $Document = null;
 
     /**
      * @maxOccurs 1 .
      * @var \String
      */
-    protected $Link_tag = null;
+    protected $Name = null;
+
+    /**
+     * @maxOccurs 1 .
+     * @var \String
+     */
+    protected $Group = null;
 
     public function __construct() {
         parent::__construct();
-        $this->_properties["link_to"] = array(
-            "prop" => "Link_to",
+        $this->_properties["document"] = array(
+            "prop" => "Document",
             "ns" => "",
             "minOccurs" => 1,
-            "text" => $this->Link_to
+            "text" => $this->Document
         );
-        $this->_properties["link_tag"] = array(
-            "prop" => "Link_tag",
+        $this->_properties["name"] = array(
+            "prop" => "Name",
+            "ns" => "",
+            "minOccurs" => 1,
+            "text" => $this->Name
+        );
+        $this->_properties["group"] = array(
+            "prop" => "Group",
             "ns" => "",
             "minOccurs" => 0,
-            "text" => $this->Link_tag
+            "text" => $this->Group
         );
     }
 
     /**
      * @param \String $val
      */
-    public function setLink_to($val) {
-        $this->Link_to = $val;
-        $this->_properties["link_to"]["text"] = $val;
+    public function setDocument($val) {
+        $this->Document = $val;
+        $this->_properties["document"]["text"] = $val;
         return $this;
     }
 
     /**
      * @param \String $val
      */
-    public function setLink_tag($val) {
-        $this->Link_tag = $val;
-        $this->_properties["link_tag"]["text"] = $val;
+    public function setName($val) {
+        $this->Name = $val;
+        $this->_properties["name"]["text"] = $val;
+        return $this;
+    }
+
+    /**
+     * @param \String $val
+     */
+    public function setGroup($val) {
+        $this->Group = $val;
+        $this->_properties["group"]["text"] = $val;
         return $this;
     }
 
     /**
      * @return \String
      */
-    public function getLink_to() {
-        return $this->Link_to;
+    public function getDocument() {
+        return $this->Document;
     }
 
     /**
      * @return \String
      */
-    public function getLink_tag() {
-        return $this->Link_tag;
+    public function getName() {
+        return $this->Name;
+    }
+
+    /**
+     * @return \String
+     */
+    public function getGroup() {
+        return $this->Group;
     }
 
     public function toXmlStr($xmlns = self::NS, $xmlname = self::ROOT) {
@@ -108,13 +136,17 @@ class SubscriptionViewed extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComp
      */
     protected function elementsToXmlWriter(\XMLWriter &$xw, $xmlname = self::ROOT, $xmlns = self::NS) {
         parent::elementsToXmlWriter($xw, $xmlname, $xmlns);
-        $prop = $this->getLink_to();
+        $prop = $this->getDocument();
         if ($prop !== NULL) {
-            $xw->writeElement('link_to', $prop);
+            $xw->writeElement('document', $prop);
         }
-        $prop = $this->getLink_tag();
+        $prop = $this->getName();
         if ($prop !== NULL) {
-            $xw->writeElement('link_tag', $prop);
+            $xw->writeElement('name', $prop);
+        }
+        $prop = $this->getGroup();
+        if ($prop !== NULL) {
+            $xw->writeElement('group', $prop);
         }
     }
 
@@ -132,11 +164,14 @@ class SubscriptionViewed extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComp
      */
     public function elementsFromXmlReader(\XMLReader &$xr) {
         switch ($xr->localName) {
-            case "link_to":
-                $this->setLink_to($xr->readString());
+            case "document":
+                $this->setDocument($xr->readString());
                 break;
-            case "link_tag":
-                $this->setLink_tag($xr->readString());
+            case "name":
+                $this->setName($xr->readString());
+                break;
+            case "group":
+                $this->setGroup($xr->readString());
                 break;
             default:
                 parent::elementsFromXmlReader($xr);
@@ -159,11 +194,14 @@ class SubscriptionViewed extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComp
                 $props[$k] = $v;
             }
         }
-        if (isset($props["link_to"])) {
-            $this->setLink_to($props["link_to"]);
+        if (isset($props["document"])) {
+            $this->setDocument($props["document"]);
         }
-        if (isset($props["link_tag"])) {
-            $this->setLink_tag($props["link_tag"]);
+        if (isset($props["name"])) {
+            $this->setName($props["name"]);
+        }
+        if (isset($props["group"])) {
+            $this->setGroup($props["group"]);
         }
     }
 
@@ -174,11 +212,14 @@ class SubscriptionViewed extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComp
      *
      */
     public function fromArray($row) {
-        if (isset($row["link_to"])) {
-            $this->setLink_to($row["link_to"]);
+        if (isset($row["document"])) {
+            $this->setDocument($row["document"]);
         }
-        if (isset($row["link_tag"])) {
-            $this->setLink_tag($row["link_tag"]);
+        if (isset($row["name"])) {
+            $this->setName($row["name"]);
+        }
+        if (isset($row["group"])) {
+            $this->setGroup($row["group"]);
         }
     }
 

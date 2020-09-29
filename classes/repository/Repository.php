@@ -32,7 +32,6 @@ class Repository {
     public function getSubscribtions() {
         $sql = "SELECT
                     `material`.`name_material` AS `name`,
-                    `material`.`source`,
                     `material`.`type`,
                     `user`.`login`,
                     `subscriptions`.`is_read`
@@ -69,7 +68,6 @@ class Repository {
     public function getSubscribtionsByUser($login) {
         $sql = "SELECT
                 `material`.`name_material` AS `name`,
-                `material`.`source`,
                 `material`.`type`,
                 `user`.`login`,
                 `subscriptions`.`is_read`
@@ -119,6 +117,18 @@ class Repository {
     }
 
     /**
+     * Возвращает id пользователя из БД
+     * @param $login
+     * @return mixed
+     */
+    public function getUserId($login) {
+        $sql = "Select `id_user` FROM user WHERE login = ?";
+        $res = $this->dbconnect->prepare($sql);
+        $res->execute([ $login ]);
+        return $res->fetchAll(\PDO::FETCH_ASSOC)[0]['id_user'];
+    }
+
+    /**
      * Возвращает все ключевые слова из базы данных
      * @param string $documentName
      */
@@ -145,31 +155,6 @@ class Repository {
         return $keywords;
     }
 
-    /**
-     * SELECT
-     * `document`.`name_document`,
-     * `document`.`source_document`
-     * FROM
-     * `document`
-     * INNER JOIN(
-     * `document_to_keyword`
-     * INNER JOIN `keyword` ON `document_to_keyword`.`keyword_id` = `keyword`.`id_keyword`
-     * )
-     * ON
-     * `document_to_keyword`.`document_id` = `document`.`id_document`
-     * WHERE
-     * `keyword`.`name_keyword` = ?
-     */
-    public function getDocumentByKewords($keyWord) {
-        /**
-         * $this->dbconnect
-         */
-        return [
-            [
-                "link" => "https://ilb.github.io/devmethodology/knowlegebase.xhtml#variant__ispol_zovanij"
-            ]
-        ];
-    }
 
     /**
      * Возвращает все правки
@@ -181,7 +166,6 @@ class Repository {
             `offers`.`id_offer`,
             `offers`.`diff`,
             `material`.`name_material`,
-            `material`.`source`,
             `user`.`login`
         FROM
           `user`
@@ -259,5 +243,49 @@ class Repository {
      */
     public function editResource($documentName, $nameResource, $content) {
 
+    }
+
+    /**
+     * Отчет по продчтеным подпискам
+     * @return array
+     */
+    public function getReportSubscribe() {
+        $sql = "SELECT user.login, material.name_material, s.is_read
+            FROM user INNER JOIN (subscriptions s INNER  JOIN material on material.id_material = s.material_id)
+               on user.id_user = s.user_id";
+        $res = $this->dbconnect->query($sql);
+        return $res->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * Отчет о предложенных корректировках
+     * @return array
+     */
+    public function getReportOffer() {
+        $sql = "SELECT DISTINCT
+               u.login,
+               (SELECT COUNT(accepted) FROM offers Where accepted = 1 and u.id_user = offers.user_id) as \"accept\",
+               (SELECT COUNT(accepted) FROM offers WHERE u.id_user = offers.user_id) as \"count\"
+        FROM user u INNER JOIN offers o on u.id_user = o.user_id";
+        $res = $this->dbconnect->query($sql);
+        return $res->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * Возвращает список предложенных изменений пользователя
+     * @param $login
+     * @return array
+     */
+    public function getReportUser($login){
+        $sql = "SELECT DISTINCT
+        u.login,
+        m.name_material,
+        o.accepted,
+        o.diff
+        FROM user u INNER JOIN ( offers o INNER JOIN material m on o.material_id = m.id_material ) on u.id_user = o.user_id
+        WHERE u.login = ?";
+        $res = $this->dbconnect->prepare($sql);
+        $res->execute([$login]);
+        return $res->fetchAll(\PDO::FETCH_ASSOC);
     }
 }

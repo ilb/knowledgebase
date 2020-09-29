@@ -14,23 +14,41 @@ class SubscriptionCreate extends UseCase  {
     /**
      * @var string
      */
-    private $userLogin;
+    private $name;
     
     /**
      * @var string
      */
     private $material;
-    
+
     /**
-     * @param string $userLogin
-     * @param string $material
+     * @var bool
      */
-    public function __construct($userLogin, $material) {
-        $this->userLogin = $userLogin;
+    private $isGroup;
+
+    /**
+     * @param $name
+     * @param string $material
+     * @param $isGroup
+     */
+    public function __construct($name, $material, $isGroup) {
+        $this->name = $name;
         $this->material = $material;
+        $this->isGroup = $isGroup;
     }
     
     public function execute() {
-        return $this->repository->addSubscription($this->userLogin, $this->material);
+        $users = [];
+        echo $this->material;
+        exit();
+        if ($this->isGroup) {
+            $group = posix_getgrnam($this->name);
+            $users = $group ? $group["members"] : [];
+        } else {
+            $users[] = $this->name;
+        }
+        foreach ($users as $user) {
+            $this->repository->addSubscription($user, $this->material);
+        }
     }
 }

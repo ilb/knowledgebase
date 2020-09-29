@@ -16,13 +16,14 @@ require_once '../config/bootstrap.php';
 $repository = new Repository(Config::connect());
 
 $hreq = new HTTP_Request2Xml("schemas/command.xsd", null, "AddTag");
+$req = new \ru\ilb\knowledgebase\AddTag();
 if (!$hreq->isEmpty()) {
     $hreq->validate();
-
-    $res = new DocumentAddTag($_POST['document'], $_POST['keyWord']);
+    $req->fromXmlStr($hreq->getAsXML());
+    $res = new DocumentAddTag($req->getDocument(),$req->getKeyWord());
     $res->setRepository($repository);
     if (!$res->execute()) {
-    exit("Все плохо");
+        exit("Все плохо");
     }
 }
 

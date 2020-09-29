@@ -2,70 +2,42 @@
 
 namespace ru\ilb\knowledgebase;
 
-class SubscriptionViewed extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplexType {
+class ReportList extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplexType {
 
     const NS = "";
-    const ROOT = "SubscriptionViewed";
+    const ROOT = "ReportList";
     const PREF = NULL;
 
     /**
      * @maxOccurs 1 .
      * @var \String
      */
-    protected $Link_to = null;
-
-    /**
-     * @maxOccurs 1 .
-     * @var \String
-     */
-    protected $Link_tag = null;
+    protected $TypeReport = null;
 
     public function __construct() {
         parent::__construct();
-        $this->_properties["link_to"] = array(
-            "prop" => "Link_to",
+        $this->_properties["typeReport"] = array(
+            "prop" => "TypeReport",
             "ns" => "",
             "minOccurs" => 1,
-            "text" => $this->Link_to
-        );
-        $this->_properties["link_tag"] = array(
-            "prop" => "Link_tag",
-            "ns" => "",
-            "minOccurs" => 0,
-            "text" => $this->Link_tag
+            "text" => $this->TypeReport
         );
     }
 
     /**
      * @param \String $val
      */
-    public function setLink_to($val) {
-        $this->Link_to = $val;
-        $this->_properties["link_to"]["text"] = $val;
-        return $this;
-    }
-
-    /**
-     * @param \String $val
-     */
-    public function setLink_tag($val) {
-        $this->Link_tag = $val;
-        $this->_properties["link_tag"]["text"] = $val;
+    public function setTypeReport($val) {
+        $this->TypeReport = $val;
+        $this->_properties["typeReport"]["text"] = $val;
         return $this;
     }
 
     /**
      * @return \String
      */
-    public function getLink_to() {
-        return $this->Link_to;
-    }
-
-    /**
-     * @return \String
-     */
-    public function getLink_tag() {
-        return $this->Link_tag;
+    public function getTypeReport() {
+        return $this->TypeReport;
     }
 
     public function toXmlStr($xmlns = self::NS, $xmlname = self::ROOT) {
@@ -108,13 +80,9 @@ class SubscriptionViewed extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComp
      */
     protected function elementsToXmlWriter(\XMLWriter &$xw, $xmlname = self::ROOT, $xmlns = self::NS) {
         parent::elementsToXmlWriter($xw, $xmlname, $xmlns);
-        $prop = $this->getLink_to();
+        $prop = $this->getTypeReport();
         if ($prop !== NULL) {
-            $xw->writeElement('link_to', $prop);
-        }
-        $prop = $this->getLink_tag();
-        if ($prop !== NULL) {
-            $xw->writeElement('link_tag', $prop);
+            $xw->writeElement('typeReport', $prop);
         }
     }
 
@@ -132,11 +100,8 @@ class SubscriptionViewed extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComp
      */
     public function elementsFromXmlReader(\XMLReader &$xr) {
         switch ($xr->localName) {
-            case "link_to":
-                $this->setLink_to($xr->readString());
-                break;
-            case "link_tag":
-                $this->setLink_tag($xr->readString());
+            case "typeReport":
+                $this->setTypeReport($xr->readString());
                 break;
             default:
                 parent::elementsFromXmlReader($xr);
@@ -159,11 +124,8 @@ class SubscriptionViewed extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComp
                 $props[$k] = $v;
             }
         }
-        if (isset($props["link_to"])) {
-            $this->setLink_to($props["link_to"]);
-        }
-        if (isset($props["link_tag"])) {
-            $this->setLink_tag($props["link_tag"]);
+        if (isset($props["typeReport"])) {
+            $this->setTypeReport($props["typeReport"]);
         }
     }
 
@@ -174,11 +136,8 @@ class SubscriptionViewed extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComp
      *
      */
     public function fromArray($row) {
-        if (isset($row["link_to"])) {
-            $this->setLink_to($row["link_to"]);
-        }
-        if (isset($row["link_tag"])) {
-            $this->setLink_tag($row["link_tag"]);
+        if (isset($row["typeReport"])) {
+            $this->setTypeReport($row["typeReport"]);
         }
     }
 

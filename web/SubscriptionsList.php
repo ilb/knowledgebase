@@ -7,6 +7,7 @@ use config\Config;
 use repository\Repository;
 use ru\ilb\knowledgebase\SubscriptionViewed;
 use serialize\Serialize;
+use usecase\subscriptions\SubscribtionViewed;
 use usecase\subscriptions\SubscriptionView;
 
 require_once '../config/bootstrap.php';
@@ -17,22 +18,17 @@ $req = new SubscriptionViewed();
 if (!$hreq->isEmpty()) {
     $hreq->validate();
     $req->fromXmlStr($hreq->getAsXML());
+    $material = $req->getLink_to();
+    $material .= empty($req->getLink_tag()) ? "" : "#" . $req->getLink_tag();
+    $viewed = new SubscribtionViewed("User1", $material);
+    $viewed->setRepository($repository);
+    if ($viewed->execute()) {
+        header("Location: DocumentView.php?url-0=" . $req->getLink_to());
+    }
 }
-// мусор скоро уберу
-//if (isset($_GET['link_to'])) {
-//
-////    $arr = explode("/", $_GET['link_to']);
-////    $material_name = $arr[count($arr)-1];
-////    $viewed = new usecase\subscriptions\SubscribtionViewed("USer1", $material_name);
-////    $viewed->setRepository($repository);
-////    if ($viewed->execute()) {
-////        header("Location: ". $_GET['link_to']);
-////    }
-////    exit("<h2>Что то пошло не так</h2>");
-//}
 
 // Передавать логин пользователя
-$sub = new SubscriptionView("USer1");
+$sub = new SubscriptionView("User1");
 $sub->setRepository($repository);
 $response = $sub->execute();
 $serialize = new Serialize();
