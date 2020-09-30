@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
-    <description>Сервис для роботы с учетной записью и связанными с ней сущностями (данные профиля, внешние идентификаторы, сертификаты и пр.)</description>
-    <resource-env-ref>
-        <description>Имя бд приложения knowledgebase</description>
-        <resource-env-ref-name>apps.knowledgebase.db</resource-env-ref-name>
-        <resource-env-ref-type>java.lang.String</resource-env-ref-type>
-    </resource-env-ref>
-    <resource-env-ref>
-        <description>пользователь к бд приложения knowledgebase</description>
-        <resource-env-ref-name>apps.knowledgebase.db_USER</resource-env-ref-name>
-        <resource-env-ref-type>java.lang.String</resource-env-ref-type>
-    </resource-env-ref>
-    <resource-env-ref>
-        <description>пароль к бд приложения knowledgebase</description>
-        <resource-env-ref-name>apps.knowledgebase.db_PASSWORD</resource-env-ref-name>
-        <resource-env-ref-type>java.lang.String</resource-env-ref-type>
-    </resource-env-ref>
-    <resource-env-ref>
-        <description>Путь до файлов knowledgebase</description>
-        <resource-env-ref-name>apps.knowledgebase.filespath</resource-env-ref-name>
-        <resource-env-ref-type>java.lang.String</resource-env-ref-type>
-    </resource-env-ref>
+<description>Сервис для роботы с учетной записью и связанными с ней сущностями (данные профиля, внешние идентификаторы, сертификаты и пр.)</description>
+<resource-env-ref>
+    <description>имя бд приложения knowledgebase</description>
+    <resource-env-ref-name>.apps.knowledgebase.db</resource-env-ref-name>
+    <resource-env-ref-type>java.lang.String</resource-env-ref-type>
+</resource-env-ref>
+<env-entry>
+    <description>пользователь к бд приложения knowledgebase</description>
+    <env-entry-name>apps.knowledgebase.db_USER</env-entry-name>
+    <env-entry-type>java.lang.String</env-entry-type>
+    <env-entry-value>knowledgebase</env-entry-value>
+</env-entry>
+<resource-env-ref>
+    <description>пароль к бд приложения knowledgebase</description>
+    <resource-env-ref-name>.apps.knowledgebase.db_PASSWORD</resource-env-ref-name>
+    <resource-env-ref-type>java.lang.String</resource-env-ref-type>
+</resource-env-ref>
+<env-entry>
+    <description>путь до файлов knowledgebase</description>
+    <env-entry-name>apps.knowledgebase.filespath</env-entry-name>
+    <env-entry-type>java.lang.String</env-entry-type>
+    <env-entry-value>/var/apps/knowledgebase</env-entry-value>
+</env-entry>
 </web-app>
