@@ -30,12 +30,12 @@ class Config {
      * Инициализация конифурации.
      */
     private function __construct() {
-        $this->filespath = $_SERVER['ru.bystrobank.apps.knowledgebase.filespath'];
+        $this->filespath = $_SERVER['apps.knowledgebase.filespath'];
         $this->connection =  new PDO(
             "mysql:host=localhost" .
-            ";dbname=" . $_SERVER['ru.bystrobank.apps.knowledgebase.db'],
-            $_SERVER['ru.bystrobank.apps.knowledgebase.db_USER'],
-            $_SERVER['ru.bystrobank.apps.knowledgebase.db_PASSWORD']);
+            ";dbname=" . $_SERVER['.apps.knowledgebase.db'],
+            $_SERVER['apps.knowledgebase.db_USER'],
+            $_SERVER['.apps.knowledgebase.db_PASSWORD']);
     }
 
     /**
