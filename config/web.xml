@@ -3,22 +3,22 @@
     <description>Сервис для роботы с учетной записью и связанными с ней сущностями (данные профиля, внешние идентификаторы, сертификаты и пр.)</description>
     <resource-env-ref>
         <description>Имя бд приложения knowledgebase</description>
-        <env-entry-name>apps.knowledgebase.db</env-entry-name>
-        <env-entry-type>java.lang.String</env-entry-type>
+        <resource-env-ref-name>apps.knowledgebase.db</resource-env-ref-name>
+        <resource-env-ref-type>java.lang.String</resource-env-ref-type>
     </resource-env-ref>
     <resource-env-ref>
         <description>пользователь к бд приложения knowledgebase</description>
-        <env-entry-name>apps.knowledgebase.db_USER</env-entry-name>
-        <env-entry-type>java.lang.String</env-entry-type>
+        <resource-env-ref-name>apps.knowledgebase.db_USER</resource-env-ref-name>
+        <resource-env-ref-type>java.lang.String</resource-env-ref-type>
     </resource-env-ref>
     <resource-env-ref>
         <description>пароль к бд приложения knowledgebase</description>
-        <env-entry-name>apps.knowledgebase.db_PASSWORD</env-entry-name>
-        <env-entry-type>java.lang.String</env-entry-type>
+        <resource-env-ref-name>apps.knowledgebase.db_PASSWORD</resource-env-ref-name>
+        <resource-env-ref-type>java.lang.String</resource-env-ref-type>
     </resource-env-ref>
     <resource-env-ref>
         <description>Путь до файлов knowledgebase</description>
-        <env-entry-name>apps.knowledgebase.filespath</env-entry-name>
-        <env-entry-type>java.lang.String</env-entry-type>
+        <resource-env-ref-name>apps.knowledgebase.filespath</resource-env-ref-name>
+        <resource-env-ref-type>java.lang.String</resource-env-ref-type>
     </resource-env-ref>
 </web-app>
