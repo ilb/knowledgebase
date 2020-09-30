@@ -6,13 +6,13 @@ class CatalogTest extends \PHPUnit_Framework_TestCase {
     protected $docs;
 
     public function setUp() {
-        $this->catalog = new \catalog\Catalog("../../index.html");
+        $this->catalog = new \catalog\Catalog(\config\Config::getInstance()->filespath);
         $this->catalog->createDocuments();
         $this->docs = $this->catalog->getDocuments();
     }
 
     public function testCountDocument() {
-        $this->assertCount(18, $this->docs);
+        $this->assertCount(17, $this->docs);
     }
 
     /**
