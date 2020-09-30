@@ -9,6 +9,12 @@
     </resource-env-ref>
     <env-entry>
         <description>пользователь к бд приложения knowledgebase</description>
+        <env-entry-name>ru.bystrobank.apps.knowledgebase.db_NAME</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>knowledgebase</env-entry-value>
+    </env-entry>
+    <env-entry>
+        <description>пользователь к бд приложения knowledgebase</description>
         <env-entry-name>ru.bystrobank.apps.knowledgebase.db_HOST</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
         <env-entry-value>localhost</env-entry-value>
@@ -23,7 +29,7 @@
         <description>пароль к бд приложения knowledgebase</description>
         <env-entry-name>ru.bystrobank.apps.knowledgebase.db_PASSWORD</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>123</env-entry-value>
+        <env-entry-value>gfhjkm</env-entry-value>
     </env-entry>
     <env-entry>
         <description>Путь до файлов knowledgebase</description>

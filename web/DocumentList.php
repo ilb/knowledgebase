@@ -3,12 +3,13 @@
  * Description Выводит список всех документов и ресурсов
  */
 
+use config\Config;
 use serialize\Serialize;
 use usecase\catalog\GetCatalog;
 
 require_once '../config/bootstrap.php';
 
-$documentList = new GetCatalog(\config\Config::getInstance()->filespath);
+$documentList = new GetCatalog(Config::getInstance()->filespath);
 $catalog = $documentList->execute();
 
 $serialize = new Serialize();
