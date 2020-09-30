@@ -8,11 +8,6 @@
     </env-entry>
     <env-entry>
         <description>пользователь к бд приложения knowledgebase</description>
-        <env-entry-name>ru.bystrobank.apps.knowledgebase.db_HOST</env-entry-name>
-        <env-entry-type>java.lang.String</env-entry-type>
-    </env-entry>
-    <env-entry>
-        <description>пользователь к бд приложения knowledgebase</description>
         <env-entry-name>ru.bystrobank.apps.knowledgebase.db_USER</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
     </env-entry>
