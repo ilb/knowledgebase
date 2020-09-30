@@ -3,7 +3,7 @@
     <description>Сервис для роботы с учетной записью и связанными с ней сущностями (данные профиля, внешние идентификаторы, сертификаты и пр.)</description>
     <env-entry>
         <description>Имя бд приложения knowledgebase</description>
-        <env-entry-name>ru.bystrobank.apps.knowledgebase.db_NAME</env-entry-name>
+        <env-entry-name>ru.bystrobank.apps.knowledgebase.db</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
         <env-entry-value>knowledgebase</env-entry-value>
     </env-entry>
