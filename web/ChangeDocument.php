@@ -11,8 +11,8 @@ use usecase\catalog\GetCatalog;
 require_once '../config/bootstrap.php';
 
 // Нужно переделать БД чтобы ссылка на документ менялась с сылкой на ресурс
-$repository = new Repository(Config::connect());
-$documentList = new GetCatalog(\config\Config::pathToKnowledgebase);
+$repository = new Repository(Config::getInstance()->connection);
+$documentList = new GetCatalog(\config\Config::getInstance()->filespath);
 $documentList->setRepository($repository);
 $catalog = $documentList->execute();
 $serialize = new Serialize();

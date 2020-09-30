@@ -10,7 +10,7 @@ use usecase\offers\GetOfferList;
 
 require_once '../config/bootstrap.php';
 # TODO: принять предложение
-$repository = new Repository(Config::connect());
+$repository = new Repository(Config::getInstance()->connection);
 $offerList = new GetOfferList();
 $offerList->setRepository($repository);
 $offerList = $offerList->execute();

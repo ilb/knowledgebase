@@ -22,7 +22,7 @@ require_once '../config/bootstrap.php';
 //$documentList = new GetCatalog("../web/index.html");
 //$documentList->setRepository($repository);
 //$catalog = $documentList->execute(); var_dump(posix_getgrnam("docker"));
-$repository = new Repository(Config::connect());
+$repository = new Repository(Config::getInstance()->connection);
 
 $hreq = new HTTP_Request2Xml("schemas/command.xsd", null, "AddSubscription");
 $req = new AddSubscription();
@@ -37,7 +37,7 @@ if (!$hreq->isEmpty()) {
     $addSubscription->execute();
 }
 
-$documentList = new GetCatalog(\config\Config::pathToKnowledgebase);
+$documentList = new GetCatalog(Config::getInstance()->filespath);
 $documentList->setRepository($repository);
 $catalog = $documentList->execute();
 $serialize = new Serialize();

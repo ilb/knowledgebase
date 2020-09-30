@@ -11,8 +11,8 @@ use usecase\document\DocumentSearch;
 require_once '../config/bootstrap.php';
 
 if (isset($_GET['keyWord'])) {
-    $repository = new Repository(Config::connect());
-    $df = new DocumentSearch(Config::pathToKnowledgebase, $_GET['keyWord']);
+    $repository = new Repository(Config::getInstance()->connection);
+    $df = new DocumentSearch(Config::getInstance()->filespath, $_GET['keyWord']);
     $df->setRepository($repository);
     $response = $df->execute();
     $serialize = new Serialize();

@@ -7,7 +7,7 @@ use usecase\offers\GetOfferUser;
 
 require_once '../config/bootstrap.php';
 
-$repository = new Repository(Config::connect());
+$repository = new Repository(Config::getInstance()->connection);
 $serialize = new Serialize();
 $offer = new GetOfferUser("User1");
 $offer->setRepository($repository);
