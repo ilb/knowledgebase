@@ -32,8 +32,8 @@ class Config {
     private function __construct() {
         $this->filespath = $_SERVER['ru.bystrobank.apps.knowledgebase.filespath'];
         $this->connection =  new PDO(
-            "mysql:host=" . $_SERVER['ru.bystrobank.apps.knowledgebase.db_HOST'] .
-            ";dbname=" . $_SERVER['ru.bystrobank.apps.knowledgebase.db_NAME'],
+            "mysql:host=localhost" .
+            ";dbname=" . $_SERVER['ru.bystrobank.apps.knowledgebase.db'],
             $_SERVER['ru.bystrobank.apps.knowledgebase.db_USER'],
             $_SERVER['ru.bystrobank.apps.knowledgebase.db_PASSWORD']);
     }
