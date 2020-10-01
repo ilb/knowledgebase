@@ -1,18 +1,22 @@
 <?php
 
-class CatalogTest extends \PHPUnit_Framework_TestCase {
+use catalog\Catalog;
+use config\Config;
+use PHPUnit\Framework\TestCase;
+
+class CatalogTest extends TestCase {
 
     protected $catalog;
     protected $docs;
 
     public function setUp() {
-        $this->catalog = new \catalog\Catalog(\config\Config::getInstance()->filespath);
+        $this->catalog = new Catalog(Config::getInstance()->filespath);
         $this->catalog->createDocuments();
         $this->docs = $this->catalog->getDocuments();
     }
 
     public function testCountDocument() {
-        $this->assertCount(17, $this->docs);
+        $this->assertCount(18, $this->docs);
     }
 
     /**
@@ -20,7 +24,7 @@ class CatalogTest extends \PHPUnit_Framework_TestCase {
      */
     public function testCountResource($result, $index) {
         $this->docs[$index]->createResources();        
-        $this->assertCount($result, $this->docs[$index]->getResources());
+        $this->assertCount($result, $this->docs[$index]->getResources()->getResource());
     }
 
     public function providerRes() {
