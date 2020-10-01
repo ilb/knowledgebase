@@ -21,8 +21,13 @@ class Repository {
         $this->dbconnect = $connect;
     }
 
+    /**
+     * @param string
+     */
     public function deleteDocument($nameDcoument) {
-
+        $sql = "DELETE FROM `material` WHERE `name_material` = ?";
+        $res = $this->dbconnect->prepare($sql);
+        return $res->execute([ $nameDcoument ]);
     }
 
     /**
@@ -234,8 +239,10 @@ class Repository {
     /**
      * Добавление документа
      */
-    public function addDocument($nameDocument, $source) {
-
+    public function addDocument($nameDocument) {
+        $sql = "INSERT INTO `material` (`name_material`, `type`) VALUES  (?, 'document')";
+        $res = $this->dbconnect->prepare($sql);
+        return $res->execute([$nameDocument]);
     }
 
     /**

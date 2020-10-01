@@ -39,8 +39,6 @@ class SubscriptionCreate extends UseCase  {
     
     public function execute() {
         $users = [];
-        echo $this->material;
-        exit();
         if ($this->isGroup) {
             $group = posix_getgrnam($this->name);
             $users = $group ? $group["members"] : [];
