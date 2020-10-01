@@ -24,6 +24,6 @@
         <description>путь до файлов knowledgebase</description>
         <env-entry-name>apps.knowledgebase.filespath</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>/var/apps/knowledgebase</env-entry-value>
+        <env-entry-value>/var/apps/knowledgebase/docs</env-entry-value>
     </env-entry>
 </web-app>
