@@ -31,11 +31,11 @@ class Config {
      */
     private function __construct() {
         $this->filespath = $_SERVER['apps.knowledgebase.filespath'];
-//        $this->connection =  new PDO(
-//            "mysql:host=localhost" .
-//            ";dbname=" . $_SERVER['.apps.knowledgebase.db'],
-//            $_SERVER['apps.knowledgebase.db_USER'],
-//            $_SERVER['.apps.knowledgebase.db_PASSWORD']);
+        $this->connection =  new PDO(
+            "mysql:host=localhost" .
+            ";dbname=" . $_SERVER['.apps.knowledgebase.db'],
+            $_SERVER['apps.knowledgebase.db_USER'],
+            $_SERVER['.apps.knowledgebase.db_PASSWORD']);
     }
 
     /**
