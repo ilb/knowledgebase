@@ -15,7 +15,7 @@ class CatalogTest extends TestCase {
     }
 
     public function testCountDocument() {
-        $this->assertCount(17, $this->docs);
+        $this->assertCount(18, $this->docs);
     }
 
     /**
@@ -28,9 +28,9 @@ class CatalogTest extends TestCase {
 
     public function providerRes() {
         return array(
-                [11, 0], [4, 1], [7, 2], [21, 3], [11, 4], [8, 5],
+                [11, 0], [4, 1], [7, 2], [21, 3], [9, 4], [8, 5],
                 [1, 6], [5, 7], [1, 8], [15, 9], [14, 10], [7, 11],
-                [29, 12], [39, 13], [7, 14], [12, 15], [5, 16]
+                [29, 12], [39, 13], [7, 14], [2, 15], [12, 16], [5, 17]
         );
     }
 
