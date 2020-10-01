@@ -6,10 +6,6 @@
     exclude-result-prefixes="xhtml xsl"
     version="1.0">
 
-    <xsl:variable name="domen">
-        <xsl:text>http://knowledgebaselib/knowledgebase/web/</xsl:text>
-    </xsl:variable>
-
     <xsl:variable name="srcIframe">
         <xsl:text>/knowledgebase/content</xsl:text>
     </xsl:variable>

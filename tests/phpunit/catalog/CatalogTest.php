@@ -1,7 +1,6 @@
 <?php
 
 use catalog\Catalog;
-use config\Config;
 use PHPUnit\Framework\TestCase;
 
 class CatalogTest extends TestCase {
@@ -10,7 +9,7 @@ class CatalogTest extends TestCase {
     protected $docs;
 
     public function setUp() {
-        $this->catalog = new Catalog(Config::getInstance()->filespath);
+        $this->catalog = new Catalog("/var/apps/knowledgebase");
         $this->catalog->createDocuments();
         $this->docs = $this->catalog->getDocuments();
     }
@@ -29,9 +28,9 @@ class CatalogTest extends TestCase {
 
     public function providerRes() {
         return array(
-                [0, 0], [0, 1], [0, 2], [0, 3], [0, 4], [11, 5],
-                [4, 6], [7, 7], [28, 8], [5, 9], [1, 10], [1, 11],
-                [12, 12], [27, 13], [39, 14], [2, 15], [12, 16], [5, 17]
+                [11, 0], [4, 1], [7, 2], [21, 3], [9, 4], [8, 5],
+                [1, 6], [5, 7], [1, 8], [15, 9], [14, 10], [7, 11],
+                [29, 12], [39, 13], [7, 14], [2, 15], [12, 16], [5, 17]
         );
     }
 

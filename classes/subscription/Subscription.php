@@ -68,13 +68,6 @@ class Subscription {
     }
 
     /**
-     * @return boolean
-     */
-    public function getIsRead() {
-        return $this->isRead;
-    }
-
-    /**
      * Задает значение прочитана или нет 
      * @param boolean $value
      */

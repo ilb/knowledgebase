@@ -14,23 +14,17 @@ class DocumentCreate extends UseCase  {
      * @var string
      */
     private $nameDocument;
-    
-    /**
-     * @var string
-     */
-    private $source;
-    
+
     /**
      * @param string $nameDocument
      * @param string $source
      */
-    public function __construct($nameDocument, $source) {
+    public function __construct($nameDocument) {
         $this->nameDocument = $nameDocument;
-        $this->source = $source;
     }
     
     public function execute() {
-        $this->repository->addDocument($this->nameDocument, $this->source);
+        $this->repository->addDocument($this->nameDocument);
     }
 
 }
