@@ -10,7 +10,7 @@ class SVNParser {
      */
     private $diff;
 
-    private $reg = "/.*:.*\/(.*.xsl)/u";
+    private $reg = "/.*:.*\/(.*.xhtml)/u";
 
     public function __construct($diff) {
         $this->diff = $diff;

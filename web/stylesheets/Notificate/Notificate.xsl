@@ -63,7 +63,7 @@
                                 </a>
                                 <xsl:value-of select="name_material"/>
                             </td>
-                            <td>
+                            <td style="word-break: break-all;">
                                 <xsl:value-of select="diff"/>
                             </td>
                             <td>
