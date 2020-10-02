@@ -40,7 +40,39 @@
 
     <xsl:template match="/response">
         <div class="ui fluid container" >
-
+            <table summary="" class="ui celled table">
+                <caption>
+                    Весь список ресурсов и документов
+                </caption>
+                <thead>
+                    <tr>
+                        <th>Наименование</th>
+                        <th>Изменения</th>
+                        <th>Ознакомлен</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--                    <xsl:if test="/response/elements/documents">-->
+                    <xsl:for-each select="/response/result">
+                        <tr>
+                            <td>
+                                <a>
+                                    <xsl:attribute name="href">
+                                        <xsl:value-of select="concat('DocumentView.php?url-0=', name_material)"/>
+                                    </xsl:attribute>
+                                </a>
+                                <xsl:value-of select="name_material"/>
+                            </td>
+                            <td>
+                                <xsl:value-of select="diff"/>
+                            </td>
+                            <td>
+                                <xsl:value-of select="is_read"/>
+                            </td>
+                        </tr>
+                    </xsl:for-each>
+                </tbody>
+            </table>
         </div>
         <hr/>
     </xsl:template>

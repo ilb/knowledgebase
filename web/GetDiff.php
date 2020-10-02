@@ -1,7 +1,9 @@
 <?php
 
 use config\Config;
+use parser\SVNParser;
 use repository\Repository;
+use usecase\notify\Notificate;
 
 require_once '../config/bootstrap.php';
 
@@ -13,12 +15,12 @@ if ( $_SERVER['REQUEST_METHOD'] != "POST") {
 $repo = new Repository(Config::getInstance()->connection);
 
 
-$pars = new \parser\SVNParser($_POST["diff"]);
+$pars = new SVNParser($_POST["diff"]);
 $result = $pars->getEvent();
 $data = $pars->getData();
 //$result = $pars->getResource($result, $data);
 $result = $pars->merge($result, $data);
 unset($data, $pars);
-$notify = new \usecase\Notificate($result);
+$notify = new Notificate($result);
 $notify->setRepository($repo);
 $notify->execute();

@@ -110,6 +110,22 @@ class Repository {
         }
     }
 
+    public function getNotificateByUser($user) {
+        $sql = "
+            SELECT 
+                m.name_material,
+                n.diff,
+                s.is_read
+            FROM notificate n INNER JOIN 
+                ( subscriptions s INNER JOIN material m on s.material_id = m.id_material) 
+            ON s.id_subscription = n.id_subs
+            WHERE n.id_user = ?";
+        $id = $this->getUserId($user);
+        $res = $this->dbconnect->prepare($sql);
+        $res->execute([$id]);
+        return $res->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
     /**
      * Получить подписку по логину пользователя
      * @param string $login

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace usecase;
+namespace usecase\notify;
 
 
 use usecase\helper\UseCase;
