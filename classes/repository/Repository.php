@@ -50,18 +50,79 @@ class Repository {
                 ORDER BY
                     `user`.`login`";
         $res = $this->dbconnect->query($sql);
-        //        $subscriptions = new \subscription\Subscriptions();
-        //        $user = new \user\User($login);
-        //        foreach ($answ as $value) {
-        //            $name = $value['name'];
-        //            if (preg_match_all("/[#]/", $name)) {
-        //                $name = "#" . explode("#", $name)[1];
-        //            }
-        //            $subscriptions->subscribe($name, $user);
-        //            if ($value['is_read']) {
-        //                $subscriptions->getSubscriptionsByUserElement($user, $name)->setIsRead(1);
-        //            }
-        //        }
+        return $res->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * @param $names array
+     */
+    public function getSubscriptionByNamesMaterial($names) {
+        $sql = "
+            SELECT
+                m.id_material,
+                s.user_id,
+                s.is_read,
+                s.id_subscription
+            FROM material m INNER JOIN subscriptions s on s.material_id = m.id_material
+            WHERE ";
+        for ($i = 0; $i < count($names); $i++ ) {
+            if ($i + 1 == count($names)) {
+                $sql .= "m.name_material LIKE '$names[$i]#%'";
+                break;
+            }
+            $sql .= "m.material LIKE '$names[$i]#%' or ";
+        }
+        $res = $this->dbconnect->query($sql);
+        return $res->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+
+    /**
+     * @param $names array
+     */
+    public function setSubscriptionNotViewed($names) {
+        $sql = "
+            UPDATE subscriptions s SET s.is_read = 0 WHERE ";
+        for ($i = 0; $i < count($names); $i++ ) {
+            if ($i + 1 == count($names)) {
+                $sql .= "s.id_subscription = $names[$i]";
+                break;
+            }
+            $sql .= "s.id_subscription = $names[$i] and ";
+        }
+        $res = $this->dbconnect->query($sql);
+        return $res;
+    }
+
+    /**
+     * @param $elements array
+     */
+    public function addNotificate($elements) {
+        $sql = "INSERT INTO notificate (diff, event, id_subs, id_user) VALUES (?, ?, ?, ?)";
+        $res = $this->dbconnect->prepare($sql);
+        for ($i = 0; $i < count($elements); $i++) {
+            $exec = [];
+            $exec[] = $elements[$i]["data"];
+            $exec[] = $elements[$i]["event"];
+            $exec[] = $elements[$i]["id_subs"];
+            $exec[] = $elements[$i]["id_user"];
+            $res->execute($exec);
+        }
+    }
+
+    public function getNotificateByUser($user) {
+        $sql = "
+            SELECT 
+                m.name_material,
+                n.diff,
+                s.is_read
+            FROM notificate n INNER JOIN 
+                ( subscriptions s INNER JOIN material m on s.material_id = m.id_material) 
+            ON s.id_subscription = n.id_subs
+            WHERE n.id_user = ?";
+        $id = $this->getUserId($user);
+        $res = $this->dbconnect->prepare($sql);
+        $res->execute([$id]);
         return $res->fetchAll(\PDO::FETCH_ASSOC);
     }
 
