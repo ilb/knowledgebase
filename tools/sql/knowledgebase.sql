@@ -7,6 +7,7 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
+DROP DATABASE IF EXISTS `knowledgebase`;
 CREATE DATABASE `knowledgebase` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 USE `knowledgebase`;
 
@@ -498,6 +499,24 @@ INSERT INTO `material_from_keyword` (`material_id`, `keyword_id`) VALUES
 (17,	146),
 (5,	147);
 
+DROP TABLE IF EXISTS `notificate`;
+CREATE TABLE `notificate` (
+  `id_notificate` int(7) NOT NULL AUTO_INCREMENT,
+  `diff` text NOT NULL,
+  `event` varchar(20) NOT NULL,
+  `id_subs` int(7) NOT NULL,
+  `id_user` int(7) NOT NULL,
+  PRIMARY KEY (`id_notificate`),
+  KEY `id_subs` (`id_subs`),
+  KEY `id_user` (`id_user`),
+  CONSTRAINT `notificate_ibfk_1` FOREIGN KEY (`id_subs`) REFERENCES `subscriptions` (`id_subscription`) ON DELETE CASCADE,
+  CONSTRAINT `notificate_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `notificate` (`id_notificate`, `diff`, `event`, `id_subs`, `id_user`) VALUES
+(1,	'skjahdkjajslkdjlaksdkaskldskjahdkjajslkdjlaksdkaskldskjahdkjajslkdjlaksdkaskldskjahdkjajslkdjlaksdkaskldskjahdkjajslkdjlaksdkaskldskjahdkjajslkdjlaksdkaskldskjahdkjajslkdjlaksdkaskldskjahdkjajslkdjlaksdkaskldskjahdkjajslkdjlaksdkaskldskjahdkjajslkdjlaksdkaskldskjahdkjajslkdjlaksdkaskldskjahdkjajslkdjlaksdkaskldskjahdkjajslkdjlaksdkaskldskjahdkjajslkdjlaksdkaskldskjahdkjajslkdjlaksdkaskldskjahdkjajslkdjlaksdkaskldskjahdkjajslkdjlaksdkaskldskjahdkjajslkdjlaksdkaskldskjahdkjajslkdjlaksdkaskldskjahdkjajslkdjlaksdkaskldskjahdkjajslkdjlaksdkaskldskjahdkjajslkdjlaksdkaskldskjahdkjajslkdjlaksdkaskld',	'modificate',	3,	1),
+(2,	'aasd',	'deleted',	5,	1);
+
 DROP TABLE IF EXISTS `offers`;
 CREATE TABLE `offers` (
   `id_offer` int(11) NOT NULL AUTO_INCREMENT,
@@ -541,9 +560,9 @@ CREATE TABLE `subscriptions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `subscriptions` (`id_subscription`, `user_id`, `material_id`, `is_read`) VALUES
-(3,	1,	20,	1),
+(3,	1,	20,	0),
 (4,	2,	20,	0),
-(5,	1,	15,	0);
+(5,	1,	15,	1);
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
@@ -558,4 +577,4 @@ INSERT INTO `user` (`id_user`, `login`, `status`) VALUES
 (2,	'User2',	'mentor'),
 (3,	'admin',	'admin');
 
--- 2020-08-31 07:59:51
+-- 2020-10-02 05:35:11
