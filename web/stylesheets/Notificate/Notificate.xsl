@@ -67,7 +67,14 @@
                                 <xsl:value-of select="diff"/>
                             </td>
                             <td>
-                                <xsl:value-of select="is_read"/>
+                                <xsl:choose>
+                                    <xsl:when test="is_read = 0">
+                                        нет
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        да
+                                    </xsl:otherwise>
+                                </xsl:choose>
                             </td>
                         </tr>
                     </xsl:for-each>
