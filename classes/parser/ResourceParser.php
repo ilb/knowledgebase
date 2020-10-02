@@ -10,7 +10,11 @@ class ResourceParser extends Parser {
      * @return array
      */
     public function getResource($source) {
-        $saitData = $this->getData($source);
+        if (file_exists($source)) {
+            $saitData = $this->getData($source);
+        } else {
+            $saitData = $source;
+        }
         $results = [];
         $tags = array();
         $attribute = array();

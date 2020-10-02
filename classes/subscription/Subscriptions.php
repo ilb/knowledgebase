@@ -15,7 +15,7 @@ class Subscriptions {
      * @param \user\User $user
      */
     public function subscribe($element, $user) {
-        $this->subscribtions[] = new \subscription\Subscription($user, $element);
+        $this->subscribtions[] = new Subscription($user, $element);
     }
 
     public function AddSubscription($sub) {
@@ -97,7 +97,7 @@ class Subscriptions {
      * 
      * @param string $element
      * @param \user\User $user
-     * @return \subscription\Subscription
+     * @return Subscription
      */
     public function getSubscriptionsByUserElement( $user, $element) {
         foreach ($this->subscribtions as $subscription) {
