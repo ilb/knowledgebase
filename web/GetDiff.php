@@ -3,6 +3,7 @@
 use config\Config;
 use parser\SVNParser;
 use repository\Repository;
+use ru\ilb\knowledgebase\GetDiff;
 use usecase\notify\Notificate;
 
 require_once '../config/bootstrap.php';
@@ -13,9 +14,14 @@ if ( $_SERVER['REQUEST_METHOD'] != "POST") {
     exit(1);
 }
 $repo = new Repository(Config::getInstance()->connection);
+$hreq = new HTTP_Request2Xml("schemas/command.xsd", null, "GetDiff");
+$req = new GetDiff();
+if (!$hreq->isEmpty()) {
+    $hreq->validate();
+    $req->fromXmlStr($hreq->getAsXML());
+}
 
-
-$pars = new SVNParser($_POST["diff"]);
+$pars = new SVNParser($req->getDiff());
 $result = $pars->getEvent();
 $data = $pars->getData();
 //$result = $pars->getResource($result, $data);

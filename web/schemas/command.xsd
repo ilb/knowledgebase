@@ -19,6 +19,14 @@
         </xsd:complexType>
     </xsd:element>
 
+    <xsd:element name='GetDiff'>
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="diff" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
     <xsd:element name='AddSubscription'>
         <xsd:complexType>
             <xsd:sequence>
