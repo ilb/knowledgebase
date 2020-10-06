@@ -31,11 +31,10 @@ class Config {
      */
     private function __construct() {
         $this->filespath = $_SERVER['apps.knowledgebase.filespath'];
-        $this->connection =  new PDO(
-            "mysql:host=localhost" .
-            ";dbname=" . $_SERVER['apps.knowledgebase.db_NAME'],
-            $_SERVER['apps.knowledgebase.db_USER'],
-            $_SERVER['apps.knowledgebase.db_PASSWORD']);
+        $DBConfig = \DB_Config::constructFromConnectionString($_SERVER['.apps.knowledgebase.db'])
+            ->setUser($_SERVER['apps.knowledgebase.db_USER'])
+            ->setPass($_SERVER["apps.knowledgebase.db_PASSWORD"]);
+        $this->connection = \DB_PDOFactory::getInstance()->getPDO($DBConfig, array(\PDO::ATTR_PERSISTENT => false, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION));
     }
 
     /**

@@ -93,7 +93,7 @@
             <a href="#ToC-{$link}">&#8617;</a>
             &#160;
             <a style="font-weight: normal; font-size: 0.8em;" href="">
-                Subscibe
+                Подписаться
             </a>
         </xsl:copy>
     </xsl:template>
