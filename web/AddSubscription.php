@@ -22,11 +22,11 @@ $req = new AddSubscription();
 if (!$hreq->isEmpty()) {
     $hreq->validate();
     $req->fromXmlStr($hreq->getAsXML());
-
     // если поставленна галочка группы то значение будет равнятся on
     $addSubscription = new SubscriptionCreate($req->getName(), $req->getDocument(), $req->getGroup() == "on");
     $addSubscription->setRepository($repository);
     $addSubscription->execute();
+    header("Location: SubscriptionList.php");
 }
 
 $documentList = new GetCatalog(Config::getInstance()->filespath);

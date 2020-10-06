@@ -23,7 +23,6 @@
     <xsl:strip-space elements="*" />
 
 
-
     <!-- create ToC entry -->
     <xsl:template match="xhtml:h1" mode="ToC">
         <xsl:value-of select="$newline"/>
@@ -92,7 +91,10 @@
             &#160;
             <a href="#ToC-{$link}">&#8617;</a>
             &#160;
-            <a style="font-weight: normal; font-size: 0.8em;" href="">
+            <a style="font-weight: normal; font-size: 0.6em; color: red;">
+                <xsl:attribute name="href">
+                    <xsl:value-of select="$addSubscription"/>
+                </xsl:attribute>
                 Подписаться
             </a>
         </xsl:copy>
@@ -106,6 +108,13 @@
             <xsl:apply-templates select="@*|node()"/>
             &#160;
             <a href="#ToC-{$link}">&#8617;</a>
+            &#160;
+            <a style="font-weight: normal; font-size: 0.8em; color: red;">
+                <xsl:attribute name="href">
+                    <xsl:value-of select="$addSubscription"/>
+                </xsl:attribute>
+                Подписаться
+            </a>
         </xsl:copy>
     </xsl:template>
     <xsl:template match="xhtml:h4">
@@ -116,6 +125,13 @@
             <xsl:apply-templates select="@*|node()"/>
            &#160;
             <a href="#{$link}">&#x2606;</a>
+            &#160;
+            <a style="font-weight: normal; font-size: 0.8em; color: red;">
+                <xsl:attribute name="href">
+                    <xsl:value-of select="$addSubscription"/>
+                </xsl:attribute>
+                Подписаться
+            </a>
         </xsl:copy>
     </xsl:template>
 

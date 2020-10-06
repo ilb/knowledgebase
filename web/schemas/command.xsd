@@ -14,7 +14,7 @@
     <xsd:element name='AddDocument'>
         <xsd:complexType>
             <xsd:sequence>
-
+                <xsd:element name="name" type="xsd:string"/>
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
