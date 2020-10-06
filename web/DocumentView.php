@@ -1,5 +1,6 @@
 <?php
 
+use config\Config;
 use ru\ilb\knowledgebase\DocumentView;
 use serialize\Serialize;
 
@@ -11,6 +12,10 @@ if (!$hreq->isEmpty()) {
     $hreq->validate();
     $req->fromXmlStr($hreq->getAsXML());
 }
-$ser = new Serialize();
-$xml = $ser->objToXMLandXSL($req, "stylesheets/DocumentList/DocumentView.xsl");
-XML_Output::tryHTML($xml,TRUE);
+// Наворатил что то вообще ...
+$doc = explode("#", $req->getUrl())[0];
+$docContext = file_get_contents(Config::getInstance()->filespath . "/" . $doc);
+header("Content-type: text/xml");
+$docContext = str_replace("href=\"/oooxhtml/oooxhtml.xsl\"", "href=\"oooxhtml/oooxhtml.xsl\"", $docContext);
+echo $docContext;
+//XML_Output::tryHTML($docContext,TRUE);

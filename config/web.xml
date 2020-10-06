@@ -8,22 +8,30 @@
         <description>имя бд приложения knowledgebase</description>
         <resource-env-ref-name>.apps.knowledgebase.db</resource-env-ref-name>
         <resource-env-ref-type>java.lang.String</resource-env-ref-type>
+        <env-entry-value>knowledgebase</env-entry-value>
     </resource-env-ref>
+    <env-entry>
+        <description>пользователь к бд приложения knowledgebase</description>
+        <env-entry-name>apps.knowledgebase.db_NAME</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>knowledgebase</env-entry-value>
+    </env-entry>
     <env-entry>
         <description>пользователь к бд приложения knowledgebase</description>
         <env-entry-name>apps.knowledgebase.db_USER</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>knowledgebase</env-entry-value>
+        <env-entry-value>root</env-entry-value>
     </env-entry>
     <env-entry>
         <description>пароль к бд приложения knowledgebase</description>
         <env-entry-name>apps.knowledgebase.db_PASSWORD</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>gfhjkm</env-entry-value>
     </env-entry>
     <env-entry>
         <description>путь до файлов knowledgebase</description>
         <env-entry-name>apps.knowledgebase.filespath</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>/var/apps/knowledgebase/docs</env-entry-value>
+        <env-entry-value>/var/apps/knowledgebase</env-entry-value>
     </env-entry>
 </web-app>

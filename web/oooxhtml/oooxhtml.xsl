@@ -14,7 +14,10 @@
         omit-xml-declaration="no"
         doctype-public="-//W3C//DTD XHTML 1.1//EN"
         doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" />
+<!--    Как получить имя пользователя и документ на котором он сейчас нахоится добавить новый элемент в документ?-->
+    <xsl:variable name="addSubscription">AddSubscription.php?document-0=?&amp;name-0=?</xsl:variable>
     <xsl:include href="toc.xsl"/>
+<!--    <xsl:include href="../stylesheets/DocumentList/DocumentView.xsl"/>-->
     <!--    <xsl:variable name="newline">
         <xsl:text>
         </xsl:text>
@@ -32,12 +35,11 @@
     <xsl:template match="xhtml:head">
         <xsl:copy>
             <xsl:apply-templates select="@*|node()"/>
-            <link rel="stylesheet" type="text/css" href="/web/oooxhtml/oooxhtml.css"/>
-            <link rel="stylesheet" type="text/css" href="/web/css/main.css"/>
+            <link rel="stylesheet" type="text/css" href="oooxhtml/oooxhtml.css"/>
             <script type="text/javascript" src="/privapi/web/scripts/privilegedAPI.js">
                 <xsl:text><![CDATA[]]></xsl:text>
             </script>
-            <script type="text/javascript" src="/web/oooxhtml/oooxhtml.js">
+            <script type="text/javascript" src="oooxhtml/oooxhtml.js">
                 <xsl:text><![CDATA[]]></xsl:text>
             </script>
         </xsl:copy>

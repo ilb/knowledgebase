@@ -14,14 +14,6 @@ use usecase\user\GetUsersList;
 
 require_once '../config/bootstrap.php';
 
-//Получить список всех пользователей и документов и выбирать кого на что подписать
-//$repository = new UserRepository(Config::connect());
-//$userList = new GetUsersList();
-//$userList->setRepository($repository);
-//$userList->execute();
-//$documentList = new GetCatalog("../web/index.html");
-//$documentList->setRepository($repository);
-//$catalog = $documentList->execute(); var_dump(posix_getgrnam("docker"));
 $repository = new Repository(Config::getInstance()->connection);
 
 $hreq = new HTTP_Request2Xml("schemas/command.xsd", null, "AddSubscription");
