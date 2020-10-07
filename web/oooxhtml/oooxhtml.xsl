@@ -15,9 +15,6 @@
         doctype-public="-//W3C//DTD XHTML 1.1//EN"
         doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" />
 <!--    Как получить имя пользователя и документ на котором он сейчас нахоится добавить новый элемент в документ?-->
-    <xsl:variable name="addSubscription">
-        <xsl:value-of select="concat('AddSubscription.php?name-0=', xhtml:user, '&amp;document-0=', xhtml:file)"/>
-    </xsl:variable>
     <xsl:include href="toc.xsl"/>
 <!--    <xsl:include href="../stylesheets/DocumentList/DocumentView.xsl"/>-->
     <!--    <xsl:variable name="newline">
@@ -51,6 +48,8 @@
     <xsl:template match="xhtml:body">
         <xsl:copy>
             <div class="contents">
+                <xsl:value-of select="$addSubscription"/>
+
                 <p>Содержание</p>
                 <ol>
                     <xsl:apply-templates select="//xhtml:h1" mode="ToC"/>

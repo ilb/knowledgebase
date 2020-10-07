@@ -22,6 +22,9 @@
     </xsl:variable>
     <xsl:strip-space elements="*" />
 
+    <xsl:variable name="addSubscription">
+        <xsl:value-of select="concat('AddSubscription.php?name-0=',  '&amp;document-0=', xhtml:file)"/>
+    </xsl:variable>
 
     <!-- create ToC entry -->
     <xsl:template match="xhtml:h1" mode="ToC">
