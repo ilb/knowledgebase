@@ -55,7 +55,7 @@ class AddSubscription extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplex
         $this->_properties["tag"] = array(
             "prop" => "Tag",
             "ns" => "",
-            "minOccurs" => 1,
+            "minOccurs" => 0,
             "text" => $this->Tag
         );
     }
