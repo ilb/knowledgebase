@@ -69,20 +69,6 @@
                             </td>
                             <td>document</td>
                         </tr>
-                        <xsl:for-each select="resources/resource[name!='']">
-                            <tr>
-                                <td>
-                                    <a>
-                                        <xsl:attribute name="href">
-                                            <xsl:value-of select="concat('DocumentView.php?url-0=',$docName, '#', tag)"/>
-                                        </xsl:attribute>
-
-                                        <xsl:value-of select="name"/>
-                                    </a>
-                                </td>
-                                <td>resource</td>
-                            </tr>
-                        </xsl:for-each>
                     </xsl:for-each>
 <!--                    </xsl:if>-->
                     <xsl:for-each select="/response/elements/resource[name!='']">
