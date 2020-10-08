@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:xhtml="http://www.w3.org/1999/xhtml"
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    exclude-result-prefixes="xhtml xsl"
-    version="1.0">
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+        exclude-result-prefixes="xhtml xsl"
+        version="1.0">
 
     <xsl:output
-        media-type="application/xhtml+xml"
-        method="xml"
-        encoding="UTF-8"
-        indent="yes"
-        omit-xml-declaration="no"
-        doctype-public="-//W3C//DTD XHTML 1.1//EN"
-        doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" />
+            media-type="application/xhtml+xml"
+            method="xml"
+            encoding="UTF-8"
+            indent="yes"
+            omit-xml-declaration="no"
+            doctype-public="-//W3C//DTD XHTML 1.1//EN"
+            doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"/>
 
     <!-- https://github.com/fletcher/MMD-Support/blob/master/XSLT/xhtml-toc-h2.xslt -->
     <xsl:variable name="newline">
         <xsl:text>
         </xsl:text>
     </xsl:variable>
-    <xsl:strip-space elements="*" />
+    <xsl:strip-space elements="*"/>
 
     <xsl:variable name="addSubscription">
-        <xsl:value-of select="concat('AddSubscription.php?name-0=',  '&amp;document-0=', xhtml:file)"/>
+        <xsl:value-of select="concat('AddSubscription.php?name-0=', xhtml:html/xhtml:body/xhtml:user,
+        '&amp;document-0=', xhtml:html/xhtml:body/xhtml:file)"/>
     </xsl:variable>
 
     <!-- create ToC entry -->
@@ -42,7 +43,8 @@
             <xsl:if test="following::xhtml:h2[1][preceding::xhtml:h1[1]]">
                 <xsl:value-of select="$newline"/>
                 <ol>
-                    <xsl:apply-templates select="following::xhtml:h2[preceding::xhtml:h1[1][generate-id() = $myId]]" mode="ToC"/>
+                    <xsl:apply-templates select="following::xhtml:h2[preceding::xhtml:h1[1][generate-id() = $myId]]"
+                                         mode="ToC"/>
                     <xsl:value-of select="$newline"/>
                 </ol>
                 <xsl:value-of select="$newline"/>
@@ -64,7 +66,8 @@
             <xsl:if test="following::xhtml:h3[1][preceding::xhtml:h2[1]]">
                 <xsl:value-of select="$newline"/>
                 <ol>
-                    <xsl:apply-templates select="following::xhtml:h3[preceding::xhtml:h2[1][generate-id() = $myId]]" mode="ToC"/>
+                    <xsl:apply-templates select="following::xhtml:h3[preceding::xhtml:h2[1][generate-id() = $myId]]"
+                                         mode="ToC"/>
                     <xsl:value-of select="$newline"/>
                 </ol>
                 <xsl:value-of select="$newline"/>
@@ -96,7 +99,7 @@
             &#160;
             <a style="font-weight: normal; font-size: 0.6em; color: red;">
                 <xsl:attribute name="href">
-                    <xsl:value-of select="$addSubscription"/>
+                    <xsl:value-of select="concat($addSubscription, '%23', $link)"/>
                 </xsl:attribute>
                 Подписаться
             </a>
@@ -114,7 +117,7 @@
             &#160;
             <a style="font-weight: normal; font-size: 0.8em; color: red;">
                 <xsl:attribute name="href">
-                    <xsl:value-of select="$addSubscription"/>
+                    <xsl:value-of select="concat($addSubscription, '%23', $link)"/>
                 </xsl:attribute>
                 Подписаться
             </a>
@@ -126,12 +129,12 @@
         </xsl:variable>
         <xsl:copy>
             <xsl:apply-templates select="@*|node()"/>
-           &#160;
+            &#160;
             <a href="#{$link}">&#x2606;</a>
             &#160;
             <a style="font-weight: normal; font-size: 0.8em; color: red;">
                 <xsl:attribute name="href">
-                    <xsl:value-of select="$addSubscription"/>
+                    <xsl:value-of select="concat($addSubscription, '%23', $link)"/>
                 </xsl:attribute>
                 Подписаться
             </a>

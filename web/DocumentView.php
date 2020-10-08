@@ -2,6 +2,7 @@
 
 use config\Config;
 use ru\ilb\knowledgebase\DocumentView;
+use usecase\groups\GetGroups;
 
 require_once '../config/bootstrap.php';
 
@@ -15,10 +16,22 @@ if (!$hreq->isEmpty()) {
 $allName = $req->getUrl();
 $doc = explode("#", $allName)[0];
 $docContext = file_get_contents(Config::getInstance()->filespath . "/" . $doc);
-header("Content-type: text/xml");
 $docContext = str_replace("href=\"/oooxhtml/oooxhtml.xsl\"", "href=\"oooxhtml/oooxhtml.xsl\"", $docContext);
-$d = strpos($docContext, "</body>" );
-$dop = "<file>$allName</file><user>User1</user>";
-$docContext = substr($docContext, 0 , $d) . $dop . substr($docContext, $d);
+$d = strpos($docContext, "</body>");
+$dop = "<file>$allName</file>" .
+    "<user>User1</user>";
+
+if ("ldap") {
+    $groups = new GetGroups();
+    $groups = $groups->execute();
+    $dop .= "<groups>";
+    foreach ($groups as $group) {
+        $dop .= "<group>{$group['name']}</group>";
+    }
+    $dop .= "</groups>";
+}
+
+$docContext = substr($docContext, 0, $d) . $dop . substr($docContext, $d);
+header("Content-type: text/xml");
 echo $docContext;
 //XML_Output::tryHTML($docContext,TRUE);

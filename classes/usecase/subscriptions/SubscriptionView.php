@@ -3,6 +3,7 @@
 namespace usecase\subscriptions;
 
 use response\Response;
+use subscription\Subscription;
 use subscription\Subscriptions;
 use usecase\helper\UseCase;
 use user\User;
@@ -36,12 +37,13 @@ class SubscriptionView extends UseCase {
                 $parent = explode("#", $name)[0];
                 $name = "#" . explode("#", $name)[1];
             }
-            $sub = new \subscription\Subscription($user, $name);
+            $sub = new Subscription($user, $name);
             $sub->setParent($parent);
-            $subscriptions->AddSubscription($sub);
             if ($value['is_read']) {
-                $subscriptions->getSubscriptionsByUserElement($user, $name)->setIsRead(1);
+                $sub->setIsRead(1);
             }
+            $subscriptions->AddSubscription($sub);
+
         }
         return new Response($subscriptions);
     }

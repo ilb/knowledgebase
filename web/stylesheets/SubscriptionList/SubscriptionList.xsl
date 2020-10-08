@@ -66,7 +66,7 @@
                             </td>
                             <td>
                                 <xsl:choose>
-                                    <xsl:when test="isRead = 0">
+                                    <xsl:when test="read = 0">
                                         нет
                                     </xsl:when>
                                     <xsl:otherwise>
