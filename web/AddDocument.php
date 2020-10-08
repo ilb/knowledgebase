@@ -21,7 +21,11 @@ if (!$hreq->isEmpty()) {
     $req->fromXmlStr($hreq->getAsXML());
 }
 
-
+// Не знаю что делать с картинками
+if (isset($_FILES["image"])) {
+    $photo = file_get_contents($_FILES["image"]["tmp_name"]);
+    $base64 = 'data:image/' . $_FILES["image"]["name"] . ';base64,' . base64_encode($photo);
+}
 
 $createDoc = new DocumentCreate($req->getName());
 $createDoc->setRepository($repo);
