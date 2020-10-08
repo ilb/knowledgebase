@@ -103,6 +103,10 @@
                 </xsl:attribute>
                 Подписаться
             </a>
+            &#160;
+            <a style="font-weight: normal; font-size: 0.6em; color: #0d22b1; cursor: pointer;" class="subscribe">
+                Подписать
+            </a>
         </xsl:copy>
     </xsl:template>
 
@@ -121,6 +125,10 @@
                 </xsl:attribute>
                 Подписаться
             </a>
+            &#160;
+            <a style="font-weight: normal; font-size: 0.8em; color: #0d22b1; cursor: pointer;" class="subscribe">
+                Подписать
+            </a>
         </xsl:copy>
     </xsl:template>
     <xsl:template match="xhtml:h4">
@@ -138,6 +146,11 @@
                 </xsl:attribute>
                 Подписаться
             </a>
+            &#160;
+            <a style="font-weight: normal; font-size: 0.8em; color: #0d22b1; cursor: pointer;" class="subscribe">
+                Подписать
+            </a>
+
         </xsl:copy>
     </xsl:template>
 
