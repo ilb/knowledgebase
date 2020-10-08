@@ -7,27 +7,27 @@ namespace response;
 class Response {
 
     /**
-     * @var class any
+     * @var mixed
      */
     private $elements;
 
     /**
      * Response constructor.
-     * @param $elem class any
+     * @param $elem mixed
      */
     function __construct($elem) {
         $this->elements = $elem;
     }
 
     /**
-     * @param $elem class any
+     * @param $elem mixed
      */
     function setElement($elem) {
         $this->elements = $elem;
     }
 
     /**
-     * @return class any
+     * @return mixed
      */
     function getElements() {
         return $this->elements;

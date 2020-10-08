@@ -8,8 +8,36 @@ class AddDocument extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplexType
     const ROOT = "AddDocument";
     const PREF = NULL;
 
+    /**
+     * @maxOccurs 1 .
+     * @var \String
+     */
+    protected $Name = null;
+
     public function __construct() {
         parent::__construct();
+        $this->_properties["name"] = array(
+            "prop" => "Name",
+            "ns" => "",
+            "minOccurs" => 1,
+            "text" => $this->Name
+        );
+    }
+
+    /**
+     * @param \String $val
+     */
+    public function setName($val) {
+        $this->Name = $val;
+        $this->_properties["name"]["text"] = $val;
+        return $this;
+    }
+
+    /**
+     * @return \String
+     */
+    public function getName() {
+        return $this->Name;
     }
 
     public function toXmlStr($xmlns = self::NS, $xmlname = self::ROOT) {
@@ -52,6 +80,10 @@ class AddDocument extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplexType
      */
     protected function elementsToXmlWriter(\XMLWriter &$xw, $xmlname = self::ROOT, $xmlns = self::NS) {
         parent::elementsToXmlWriter($xw, $xmlname, $xmlns);
+        $prop = $this->getName();
+        if ($prop !== NULL) {
+            $xw->writeElement('name', $prop);
+        }
     }
 
     /**
@@ -68,6 +100,9 @@ class AddDocument extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplexType
      */
     public function elementsFromXmlReader(\XMLReader &$xr) {
         switch ($xr->localName) {
+            case "name":
+                $this->setName($xr->readString());
+                break;
             default:
                 parent::elementsFromXmlReader($xr);
         }
@@ -81,6 +116,29 @@ class AddDocument extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplexType
      */
     public function fromJSON($arg) {
         parent::fromJSON($arg);
+        $props = [];
+        if (is_array($arg)) {
+            $props = $arg;
+        } elseif (is_object($arg)) {
+            foreach ($arg as $k => $v) {
+                $props[$k] = $v;
+            }
+        }
+        if (isset($props["name"])) {
+            $this->setName($props["name"]);
+        }
+    }
+
+    /**
+     * Чтение данных массива
+     * в объект
+     * @param Array $row
+     *
+     */
+    public function fromArray($row) {
+        if (isset($row["name"])) {
+            $this->setName($row["name"]);
+        }
     }
 
 }

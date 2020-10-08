@@ -2,10 +2,10 @@
 
 namespace ru\ilb\knowledgebase;
 
-class AddSubscription extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplexType {
+class DeleteDocument extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplexType {
 
     const NS = "";
-    const ROOT = "AddSubscription";
+    const ROOT = "DeleteDocument";
     const PREF = NULL;
 
     /**
@@ -14,24 +14,6 @@ class AddSubscription extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplex
      */
     protected $Name = null;
 
-    /**
-     * @maxOccurs 1 .
-     * @var \String
-     */
-    protected $Document = null;
-
-    /**
-     * @maxOccurs 1 .
-     * @var \String
-     */
-    protected $Group = null;
-
-    /**
-     * @maxOccurs 1 .
-     * @var \String
-     */
-    protected $Tag = null;
-
     public function __construct() {
         parent::__construct();
         $this->_properties["name"] = array(
@@ -39,24 +21,6 @@ class AddSubscription extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplex
             "ns" => "",
             "minOccurs" => 1,
             "text" => $this->Name
-        );
-        $this->_properties["document"] = array(
-            "prop" => "Document",
-            "ns" => "",
-            "minOccurs" => 1,
-            "text" => $this->Document
-        );
-        $this->_properties["group"] = array(
-            "prop" => "Group",
-            "ns" => "",
-            "minOccurs" => 0,
-            "text" => $this->Group
-        );
-        $this->_properties["tag"] = array(
-            "prop" => "Tag",
-            "ns" => "",
-            "minOccurs" => 1,
-            "text" => $this->Tag
         );
     }
 
@@ -70,58 +34,10 @@ class AddSubscription extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplex
     }
 
     /**
-     * @param \String $val
-     */
-    public function setDocument($val) {
-        $this->Document = $val;
-        $this->_properties["document"]["text"] = $val;
-        return $this;
-    }
-
-    /**
-     * @param \String $val
-     */
-    public function setGroup($val) {
-        $this->Group = $val;
-        $this->_properties["group"]["text"] = $val;
-        return $this;
-    }
-
-    /**
-     * @param \String $val
-     */
-    public function setTag($val) {
-        $this->Tag = $val;
-        $this->_properties["tag"]["text"] = $val;
-        return $this;
-    }
-
-    /**
      * @return \String
      */
     public function getName() {
         return $this->Name;
-    }
-
-    /**
-     * @return \String
-     */
-    public function getDocument() {
-        return $this->Document;
-    }
-
-    /**
-     * @return \String
-     */
-    public function getGroup() {
-        return $this->Group;
-    }
-
-    /**
-     * @return \String
-     */
-    public function getTag() {
-        return $this->Tag;
     }
 
     public function toXmlStr($xmlns = self::NS, $xmlname = self::ROOT) {
@@ -168,18 +84,6 @@ class AddSubscription extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplex
         if ($prop !== NULL) {
             $xw->writeElement('name', $prop);
         }
-        $prop = $this->getDocument();
-        if ($prop !== NULL) {
-            $xw->writeElement('document', $prop);
-        }
-        $prop = $this->getGroup();
-        if ($prop !== NULL) {
-            $xw->writeElement('group', $prop);
-        }
-        $prop = $this->getTag();
-        if ($prop !== NULL) {
-            $xw->writeElement('tag', $prop);
-        }
     }
 
     /**
@@ -198,15 +102,6 @@ class AddSubscription extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplex
         switch ($xr->localName) {
             case "name":
                 $this->setName($xr->readString());
-                break;
-            case "document":
-                $this->setDocument($xr->readString());
-                break;
-            case "group":
-                $this->setGroup($xr->readString());
-                break;
-            case "tag":
-                $this->setTag($xr->readString());
                 break;
             default:
                 parent::elementsFromXmlReader($xr);
@@ -232,15 +127,6 @@ class AddSubscription extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplex
         if (isset($props["name"])) {
             $this->setName($props["name"]);
         }
-        if (isset($props["document"])) {
-            $this->setDocument($props["document"]);
-        }
-        if (isset($props["group"])) {
-            $this->setGroup($props["group"]);
-        }
-        if (isset($props["tag"])) {
-            $this->setTag($props["tag"]);
-        }
     }
 
     /**
@@ -252,15 +138,6 @@ class AddSubscription extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplex
     public function fromArray($row) {
         if (isset($row["name"])) {
             $this->setName($row["name"]);
-        }
-        if (isset($row["document"])) {
-            $this->setDocument($row["document"]);
-        }
-        if (isset($row["group"])) {
-            $this->setGroup($row["group"]);
-        }
-        if (isset($row["tag"])) {
-            $this->setTag($row["tag"]);
         }
     }
 

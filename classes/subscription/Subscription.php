@@ -76,6 +76,13 @@ class Subscription {
     }
 
     /**
+     * @return bool
+     */
+    public function isRead() {
+        return $this->isRead;
+    }
+
+    /**
      * Принимает имя пользователя и проверяет прочитана ли подписка
      * @param string $userName
      * @return boolean
