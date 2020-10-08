@@ -42,51 +42,15 @@
             <script type="text/javascript" src="oooxhtml/oooxhtml.js">
                 <xsl:text><![CDATA[]]></xsl:text>
             </script>
+            <script type="text/javascript" src="js/subscribe.js">
+                <xsl:text><![CDATA[]]></xsl:text>
+            </script>
         </xsl:copy>
     </xsl:template>
 
     <xsl:template match="xhtml:body">
         <xsl:copy>
             <div class="contents">
-                <form action="AddSubscription.php" method="post">
-                    <fieldset>
-                        <legend>Подписать</legend>
-                        <input type="text" name="name-0"/>
-                        <input type="hidden" name="document-0">
-                            <xsl:attribute name="value">
-                                <xsl:value-of select="xhtml:file"/>
-                            </xsl:attribute>
-                        </input>
-                        <label>
-                            Группа
-                            <input type="checkbox" name="group-0"/>
-                        </label>
-                        <br/>
-                        <label>
-                            Выберите тег
-                            <select name="tag-0">
-                                <option>---</option>
-                                <xsl:for-each select="//xhtml:h2">
-                                    <option>
-                                        <xsl:value-of select="@id"/>
-                                    </option>
-                                </xsl:for-each>
-                                <xsl:for-each select="//xhtml:h3">
-                                    <option>
-                                        <xsl:value-of select="@id"/>
-                                    </option>
-                                </xsl:for-each>
-                                <xsl:for-each select="//xhtml:h4">
-                                    <option>
-                                        <xsl:value-of select="@id"/>
-                                    </option>
-                                </xsl:for-each>
-                            </select>
-                        </label>
-
-                        <button>Подписать</button>
-                    </fieldset>
-                </form>
                 <p>Содержание</p>
                 <ol>
                     <xsl:apply-templates select="//xhtml:h1" mode="ToC"/>
