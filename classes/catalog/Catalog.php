@@ -2,6 +2,7 @@
 
 namespace catalog;
 
+use config\Config;
 use document\Document;
 use parser\DocumentParser;
 use resource\Resources;
@@ -43,11 +44,24 @@ class Catalog {
     public function createDocuments() {
         $parser = new DocumentParser();
         $rawDocuments = $parser->getDocumentsDir($this->source);
+        $repo = new \repository\Repository(Config::getInstance()->connection);
         foreach ($rawDocuments as $rawDocument) {
+            if (!$this->documentIsset($rawDocument['name'], $repo)) {
+                $repo->addDocument($rawDocument['name']);
+            }
             $this->docs[] = new Document($rawDocument['name'], $rawDocument['source']);
         }
     }
-    
+
+    /**
+     * @param $name string
+     * @param $repo \repository\Repository
+     * @return bool
+     */
+    public function documentIsset($name, $repo) {
+        return $repo->documentIsset($name);
+    }
+
     /**
      * 
      * @return array<\document\Document>

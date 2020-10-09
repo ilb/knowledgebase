@@ -5,7 +5,7 @@ namespace ru\ilb\knowledgebase;
 class DocumentView extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplexType {
 
     const NS = "";
-    const ROOT = "DocumentView";
+    const ROOT = "ViewDocument";
     const PREF = NULL;
 
     /**

@@ -306,6 +306,13 @@ class Repository {
         return $res->execute([$nameDocument]);
     }
 
+    public function documentIsset($nameDocument) {
+        $sql = "SELECT `id_material` FROM `material` WHERE `name_material` = ?";
+        $res = $this->dbconnect->prepare($sql);
+        $res->execute([ $nameDocument ]);
+        return $res->rowCount();
+    }
+
     /**
      *
      */
