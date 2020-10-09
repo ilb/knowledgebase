@@ -16,7 +16,7 @@
             doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"/>
     <!--    Как получить имя пользователя и документ на котором он сейчас нахоится добавить новый элемент в документ?-->
     <xsl:include href="toc.xsl"/>
-    <!--    <xsl:include href="../stylesheets/DocumentList/DocumentView.xsl"/>-->
+    <!--    <xsl:include href="../stylesheets/DocumentList/ViewDocument.xsl"/>-->
     <!--    <xsl:variable name="newline">
         <xsl:text>
         </xsl:text>

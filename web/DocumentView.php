@@ -2,7 +2,7 @@
 
 use config\Config;
 use ru\ilb\knowledgebase\DocumentView;
-use usecase\groups\GetGroups;
+use usecase\document\ViewDocument;
 
 require_once '../config/bootstrap.php';
 
@@ -15,7 +15,13 @@ if (!$hreq->isEmpty()) {
 // Наворатил что то вообще ...
 $allName = $req->getUrl();
 $doc = explode("#", $allName)[0];
-$docContext = file_get_contents(Config::getInstance()->filespath . "/" . $doc);
+$dView = new ViewDocument($doc, Config::getInstance()->filespath);
+$path = $dView->execute();
+if (!$path) {
+    echo  "Не существует такого файла";
+    exit();
+}
+$docContext = file_get_contents($path);
 
 //$xslt = new XSLTProcessor();
 //$xhtml = new DOMDocument();
@@ -25,7 +31,6 @@ $docContext = file_get_contents(Config::getInstance()->filespath . "/" . $doc);
 //$xslt->importStylesheet($xsl);
 //echo $xslt->transformToXml($xhtml);
 //exit(1);
-
 $docContext = str_replace("href=\"/oooxhtml/oooxhtml.xsl\"", "href=\"oooxhtml/oooxhtml.xsl\"", $docContext);
 $d = strpos($docContext, "</body>");
 $dop = "<file>$allName</file>" .
@@ -34,4 +39,5 @@ $dop = "<file>$allName</file>" .
 $docContext = substr($docContext, 0, $d) . $dop . substr($docContext, $d);
 header("Content-type: text/xml");
 echo $docContext;
+// если использовать это ломаются скрипты oooxhtml
 //XML_Output::tryHTML($docContext,TRUE);
