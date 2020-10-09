@@ -316,8 +316,10 @@ class Repository {
     /**
      *
      */
-    public function editResource($documentName, $nameResource, $content) {
-
+    public function addRessource($nameResource) {
+        $sql = "INSERT INTO `material` (`name_material`, `type`) VALUES  (?, 'resource')";
+        $res = $this->dbconnect->prepare($sql);
+        return $res->execute([$nameResource]);
     }
 
     /**

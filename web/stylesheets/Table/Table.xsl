@@ -50,7 +50,7 @@
                                 </xsl:when>
                                 <xsl:otherwise>
                                     <xsl:attribute name="href">
-                                        <xsl:value-of select="concat('index.php?dir-0=',name)"/>
+                                        <xsl:value-of select="concat('index.php?dir-0=',parent, name)"/>
                                     </xsl:attribute>
                                 </xsl:otherwise>
                             </xsl:choose>
