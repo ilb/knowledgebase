@@ -99,7 +99,7 @@
             &#160;
             <a style="font-weight: normal; font-size: 0.6em; color: red;">
                 <xsl:attribute name="href">
-                    <xsl:value-of select="concat($addSubscription, '%23', $link)"/>
+                    <xsl:value-of select="concat($addSubscription, '&amp;tag-0=', $link)"/>
                 </xsl:attribute>
                 Подписаться
             </a>
@@ -121,7 +121,7 @@
             &#160;
             <a style="font-weight: normal; font-size: 0.8em; color: red;">
                 <xsl:attribute name="href">
-                    <xsl:value-of select="concat($addSubscription, '%23', $link)"/>
+                    <xsl:value-of select="concat($addSubscription, '&amp;tag-0=', $link)"/>
                 </xsl:attribute>
                 Подписаться
             </a>
@@ -142,7 +142,7 @@
             &#160;
             <a style="font-weight: normal; font-size: 0.8em; color: red;">
                 <xsl:attribute name="href">
-                    <xsl:value-of select="concat($addSubscription, '%23', $link)"/>
+                    <xsl:value-of select="concat($addSubscription, '&amp;tag-0=', $link)"/>
                 </xsl:attribute>
                 Подписаться
             </a>

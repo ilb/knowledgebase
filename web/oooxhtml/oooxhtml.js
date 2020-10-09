@@ -380,7 +380,7 @@ var toggleAnnotations = function (event) {
         onsuccess: function (content) {
           console.log('content', content);
           subtree.appendChild(content);
-          var parsedContent = parseContent(subtree.parentNode.querySelector('.sidebar-subtree > table'), link);
+          var parsedContent = parseContent(subtree.parentNode.querySelector('.sidebar-subtree > table'));
           console.log('parsedContent', parsedContent);
           if (parsedContent) {
             subtree.innerHTML = '';

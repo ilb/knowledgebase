@@ -9,7 +9,7 @@ class CatalogTest extends TestCase {
     protected $docs;
 
     public function setUp() {
-        $this->catalog = new Catalog("/var/apps/knowledgebase/docs");
+        $this->catalog = new Catalog("/var/apps/knowledgebase");
         $this->catalog->createDocuments();
         $this->docs = $this->catalog->getDocuments();
     }
