@@ -10,18 +10,18 @@ function main() {
     doc = window.location.search.split("=")[1].split("#")[0];
 
     var btnSubsList = document.querySelectorAll(".subscribe");
-    btnSubsList.forEach(function (el) {
-        el.addEventListener("click", subscribe);
-    });
+    for (var i = 0; i < btnSubsList.length; i++ ) {
+        btnSubsList[i].addEventListener("click", subscribe);
+    }
 }
 
 function subscribe(e) {
     var target = e.target.parentNode,
         tag = target.id,
-        span = document.createElement("span"),
-        input = document.createElement("input"),
-        button = document.createElement("button"),
-        close = document.createElement("button");
+        span = document.createElementNS('http://www.w3.org/1999/xhtml', "span"),
+        input = document.createElementNS('http://www.w3.org/1999/xhtml',"input"),
+        button = document.createElementNS('http://www.w3.org/1999/xhtml', "button"),
+        close = document.createElementNS('http://www.w3.org/1999/xhtml', "button");
     input.type = "text";
     span.appendChild(input);
     button.addEventListener("click", function (e) {
@@ -47,7 +47,7 @@ function addSubscribe(e, input, span, tag) {
     closeSpan(span);
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
-        res = "";
+        var res = "";
         if (xhr.status == 201) {
             console.log("Успешно");
             res = "Успешно";

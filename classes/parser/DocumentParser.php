@@ -34,13 +34,20 @@ class DocumentParser extends Parser {
      * @return array
      */
     public function getDocumentsDir($source) {
+        return $this->scan($source);
+    }
+
+    private function scan($dir) {
         $results = [];
-        $files = scandir($source);
+        $files = scandir($dir);
         foreach ($files as $file) {
-            if (is_file($source . "/" . $file)) {
+            if (is_dir($dir . "/" . $file) && $file != "." && $file != ".." && $file != "oooxhtml") {
+                $results = array_merge($this->scan($dir . "/" . $file), $results);
+            }
+            if (is_file($dir . "/" . $file)) {
                 $results[] = array(
                     "name" => $file,
-                    "source" => $source . "/" . $file,
+                    "source" => $dir . "/" . $file,
                 );
             }
         }
