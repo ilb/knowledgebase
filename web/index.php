@@ -15,6 +15,11 @@ if ($dir) {
 }
 $docs = new \parser\DocumentParser();
 $docs = $docs->getDirandDocs($path);
+if ($dir) {
+    for ($i = 0; $i < count($docs); $i++) {
+        $docs[$i]['parent'] = $dir;
+    }
+}
 $ser = new \serialize\Serialize();
 $xml = $ser->arrToXMLandXSL($docs, "stylesheets/Table/Table.xsl");
 XML_Output::tryHTML($xml,TRUE);
