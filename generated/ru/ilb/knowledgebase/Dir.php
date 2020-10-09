@@ -2,42 +2,42 @@
 
 namespace ru\ilb\knowledgebase;
 
-class DocumentView extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplexType {
+class Dir extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplexType {
 
     const NS = "";
-    const ROOT = "DocumentView";
+    const ROOT = "Dir";
     const PREF = NULL;
 
     /**
      * @maxOccurs 1 .
      * @var \String
      */
-    protected $Url = null;
+    protected $Dir = null;
 
     public function __construct() {
         parent::__construct();
-        $this->_properties["url"] = array(
-            "prop" => "Url",
+        $this->_properties["dir"] = array(
+            "prop" => "Dir",
             "ns" => "",
-            "minOccurs" => 1,
-            "text" => $this->Url
+            "minOccurs" => 0,
+            "text" => $this->Dir
         );
     }
 
     /**
      * @param \String $val
      */
-    public function setUrl($val) {
-        $this->Url = $val;
-        $this->_properties["url"]["text"] = $val;
+    public function setDir($val) {
+        $this->Dir = $val;
+        $this->_properties["dir"]["text"] = $val;
         return $this;
     }
 
     /**
      * @return \String
      */
-    public function getUrl() {
-        return $this->Url;
+    public function getDir() {
+        return $this->Dir;
     }
 
     public function toXmlStr($xmlns = self::NS, $xmlname = self::ROOT) {
@@ -80,9 +80,9 @@ class DocumentView extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplexTyp
      */
     protected function elementsToXmlWriter(\XMLWriter &$xw, $xmlname = self::ROOT, $xmlns = self::NS) {
         parent::elementsToXmlWriter($xw, $xmlname, $xmlns);
-        $prop = $this->getUrl();
+        $prop = $this->getDir();
         if ($prop !== NULL) {
-            $xw->writeElement('url', $prop);
+            $xw->writeElement('dir', $prop);
         }
     }
 
@@ -100,8 +100,8 @@ class DocumentView extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplexTyp
      */
     public function elementsFromXmlReader(\XMLReader &$xr) {
         switch ($xr->localName) {
-            case "url":
-                $this->setUrl($xr->readString());
+            case "dir":
+                $this->setDir($xr->readString());
                 break;
             default:
                 parent::elementsFromXmlReader($xr);
@@ -124,8 +124,8 @@ class DocumentView extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplexTyp
                 $props[$k] = $v;
             }
         }
-        if (isset($props["url"])) {
-            $this->setUrl($props["url"]);
+        if (isset($props["dir"])) {
+            $this->setDir($props["dir"]);
         }
     }
 
@@ -136,8 +136,8 @@ class DocumentView extends \Happymeal\Port\Adaptor\Data\XML\Schema\AnyComplexTyp
      *
      */
     public function fromArray($row) {
-        if (isset($row["url"])) {
-            $this->setUrl($row["url"]);
+        if (isset($row["dir"])) {
+            $this->setDir($row["dir"]);
         }
     }
 

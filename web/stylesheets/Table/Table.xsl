@@ -42,22 +42,27 @@
                     <tr>
                         <td>
                             <a>
-                                <xsl:attribute name="href">
-                                    <xsl:value-of select="concat('DocumentView.php?url-0=',name)"/>
-                                </xsl:attribute>
+                            <xsl:choose>
+                                <xsl:when test="dir = 0">
+                                    <xsl:attribute name="href">
+                                        <xsl:value-of select="concat('DocumentView.php?url-0=',name)"/>
+                                    </xsl:attribute>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:attribute name="href">
+                                        <xsl:value-of select="concat('index.php?dir-0=',name)"/>
+                                    </xsl:attribute>
+                                </xsl:otherwise>
+                            </xsl:choose>
+
+
                                 <xsl:value-of select="name"/>
                             </a>
-
                         </td>
 
-                        <td>
-                        </td>
-                        <td>
-                        </td>
-
-                        <td>
-
-                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </xsl:for-each>
             </tbody>

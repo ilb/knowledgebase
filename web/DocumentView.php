@@ -17,6 +17,10 @@ $allName = $req->getUrl();
 $doc = explode("#", $allName)[0];
 $dView = new ViewDocument($doc, Config::getInstance()->filespath);
 $path = $dView->execute();
+if (!$path) {
+    echo  "Не существует такого файла";
+    exit();
+}
 $docContext = file_get_contents($path);
 
 //$xslt = new XSLTProcessor();

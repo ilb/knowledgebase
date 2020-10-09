@@ -37,6 +37,21 @@ class DocumentParser extends Parser {
         return $this->scan($source);
     }
 
+
+    public function getDirandDocs($dir) {
+        $results = [];
+        $files = scandir($dir);
+        foreach ($files as $file) {
+            if (is_dir($dir . "/" . $file) && $file != "." && $file != ".." && $file != "oooxhtml") {
+                $results[] = [ "name" => $file . "/", "dir" => true ];
+            }
+            if (is_file($dir . "/" . $file)) {
+                $results[] = [ "name" => $file, "dir" => false ];
+            }
+        }
+        return $results;
+    }
+
     private function scan($dir) {
         $results = [];
         $files = scandir($dir);
