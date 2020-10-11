@@ -444,7 +444,7 @@ var toggleAnnotations = function (event) {
   var fillSidebarContent = function() {
     var contentDiv = document.querySelector('.sidebar .sidebar-menu');
     if (!contentDiv) { return false; }
-    var url = location.href.split('/').slice(0, -1).join('/');
+    var url = location.href.split("?")[0].split('/').slice(0, -1).join('/');
     contentDiv.innerHTML = '';
     loadContent({
       url: url,

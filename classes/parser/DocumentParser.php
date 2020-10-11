@@ -2,6 +2,8 @@
 
 namespace parser;
 
+use config\Config;
+
 class DocumentParser extends Parser {
 
     /**
@@ -34,7 +36,7 @@ class DocumentParser extends Parser {
      * @return array
      */
     public function getDocumentsDir($source) {
-        return $this->scan($source);
+        return $this->scan($source, "");
     }
 
 
@@ -52,16 +54,17 @@ class DocumentParser extends Parser {
         return $results;
     }
 
-    private function scan($dir) {
+    private function scan($dir, $parent) {
         $results = [];
         $files = scandir($dir);
         foreach ($files as $file) {
             if (is_dir($dir . "/" . $file) && $file != "." && $file != ".." && $file != "oooxhtml") {
-                $results = array_merge($this->scan($dir . "/" . $file), $results);
+                $parent = explode(Config::getInstance()->filespath . "/", $dir . "/" . $file)[1];
+                $results = array_merge($this->scan($dir . "/" . $file, $parent), $results);
             }
             if (is_file($dir . "/" . $file)) {
                 $results[] = array(
-                    "name" => $file,
+                    "name" => $parent . "/" . $file,
                     "source" => $dir . "/" . $file,
                 );
             }
