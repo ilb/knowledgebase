@@ -61,42 +61,46 @@
                             </td>
 
                             <td>
-                                <select class="ui fluid dropdown">
+				
+				<xsl:if test="status = 'admin'">
+				    <span>
+					Администратор
+				    </span>
+				</xsl:if>
+				    
+				<xsl:if test="status != 'admin'">
+				    <select class="ui fluid dropdown">
 
-                                    <xsl:attribute name="name">
-                                        <xsl:value-of select="concat('status_', id_user)"/>
-                                    </xsl:attribute>
+					<xsl:attribute name="name">
+					    <xsl:value-of select="concat('status_', id_user)"/>
+					</xsl:attribute>
 
-                                    <option>
-                                        <xsl:if test="status = 'user'">
-                                            <xsl:attribute name="selected">selected</xsl:attribute>
-                                        </xsl:if>
-                                        user
-                                    </option>
+					<option>
+					    <xsl:if test="status = 'user'">
+						<xsl:attribute name="selected">selected</xsl:attribute>
+					    </xsl:if>
+					    user
+					</option>
 
-                                    <option>
-                                        <xsl:if test="status = 'mentor'">
-                                            <xsl:attribute name="selected">selected</xsl:attribute>
-                                        </xsl:if>
-                                        mentor
-                                    </option>
-
-                                    <option>
-                                        <xsl:if test="status = 'admin'">
-                                            <xsl:attribute name="selected">selected</xsl:attribute>
-                                        </xsl:if>
-                                        admin
-                                    </option>
-                                </select>
+					<option>
+					    <xsl:if test="status = 'mentor'">
+						<xsl:attribute name="selected">selected</xsl:attribute>
+					    </xsl:if>
+					    mentor
+					</option>
+				    </select>
+				</xsl:if>
                             </td>
 
                             <td>
-                                <button class="ui fluid button" name="changeBtn">
-                                    <xsl:attribute name="value">
-                                        <xsl:value-of select="id_user"/>
-                                    </xsl:attribute>
-                                    Изменить
-                                </button>
+				<xsl:if test="status != 'admin'">
+				    <button class="ui fluid button" name="changeBtn">
+					<xsl:attribute name="value">
+					    <xsl:value-of select="id_user"/>
+					</xsl:attribute>
+					Изменить
+				    </button>
+				</xsl:if>
                             </td>
                         </tr>
                     </xsl:for-each>

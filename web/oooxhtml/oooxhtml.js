@@ -129,7 +129,8 @@ var toggleAnnotations = function (event) {
   appendStyles();
   appendSettings();
 }());
-;(function(){
+
+(function(){
   var makeRequest = function (args) {
     var url = args.url,
         request = args.request,
@@ -467,9 +468,22 @@ var toggleAnnotations = function (event) {
   appendSidebar();
   fillSidebarContent();
 }());
-;window.onload=function() {
+
+window.onload=function() {
     if (document.location.hash) {
         document.location = document.location;
         console.log('xslt trick: reload hash location ');
+    
+	// Скролл до якоря, иначе не работает
+	var $goalAnchor = document.getElementById(document.location.hash.replace('#', ''));
+	if ($goalAnchor)
+	{
+	    setTimeout(function () {
+		$goalAnchor.scrollIntoView({
+		    behavior: 'smooth',
+		    block: 'start'
+		});
+	    }, 100);
+	}
     }
 };
