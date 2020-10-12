@@ -51,6 +51,9 @@
     <xsl:template match="xhtml:body">
         <xsl:copy>
             <div class="contents">
+                <a href="DocumentList.php">
+                    На главную
+                </a>
                 <p>Содержание</p>
                 <ol>
                     <xsl:apply-templates select="//xhtml:h1" mode="ToC"/>
