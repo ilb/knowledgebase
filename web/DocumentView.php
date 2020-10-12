@@ -15,7 +15,11 @@ if (!$hreq->isEmpty()) {
 // Наворатил что то вообще ...
 $allName = $req->getUrl();
 $doc = explode("#", $allName)[0];
-$docContext = file_get_contents(Config::getInstance()->filespath . "/" . $doc);
+
+preg_match_all("/[a-z]+.*[a-z]+/", $doc, $mathes);
+$path = Config::getInstance()->filespath . "/" . $mathes[0][0];
+
+$docContext = file_get_contents($path);
 
 $docContext = str_replace("href=\"/oooxhtml/oooxhtml.xsl\"", "href=\"oooxhtml/oooxhtml.xsl\"", $docContext);
 $d = strpos($docContext, "</body>");
