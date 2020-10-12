@@ -21,6 +21,12 @@ class Config {
     public $filespath;
 
     /**
+     * Логин пользователя
+     * @var string
+     */
+    public $login;
+
+    /**
      * СОединение с БД
      * @var \PDO
      */
@@ -30,6 +36,7 @@ class Config {
      * Инициализация конифурации.
      */
     private function __construct() {
+        $this->login = "User1";
         $this->filespath = $_SERVER['apps.knowledgebase.filespath'];
         $DBConfig = \DB_Config::constructFromConnectionString($_SERVER['.apps.knowledgebase.db'])
             ->setUser($_SERVER['apps.knowledgebase.db_USER'])
