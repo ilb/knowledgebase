@@ -44,7 +44,7 @@ class DocumentParser extends Parser {
         $results = [];
         $files = scandir($dir);
         foreach ($files as $file) {
-            if (is_dir($dir . "/" . $file) && $file != "." && $file != ".." && $file != "oooxhtml") {
+            if (is_dir($dir . "/" . $file) && $file != "." && $file != ".." && $file[0] != ".") {
                 $results[] = [ "name" => $file . "/", "dir" => true ];
             }
             if (is_file($dir . "/" . $file)) {
@@ -58,7 +58,7 @@ class DocumentParser extends Parser {
         $results = [];
         $files = scandir($dir);
         foreach ($files as $file) {
-            if (is_dir($dir . "/" . $file) && $file != "." && $file != ".." && $file != "oooxhtml") {
+            if (is_dir($dir . "/" . $file) && $file != "." && $file != ".." && $file[0] != ".") {
                 $parent = explode(Config::getInstance()->filespath . "/", $dir . "/" . $file)[1];
                 $results = array_merge($this->scan($dir . "/" . $file, $parent), $results);
             }
