@@ -46,6 +46,10 @@
                 <div class="three fields">
 
                     <div class="field">
+                        <input type="text" name="name-0" placeholder="Имя группы или пользователя"/>
+                    </div>
+
+                    <div class="field">
                         <select class="ui fluid dropdown" name="document-0">
                             <xsl:for-each select="/response/elements/documents">
                                 <option>
@@ -66,10 +70,6 @@
 
                             </xsl:for-each>
                         </select>
-                    </div>
-
-                    <div class="field">
-                        <input type="text" name="name-0" placeholder="Имя группы или пользователя"/>
                     </div>
 
                     <div class="field">

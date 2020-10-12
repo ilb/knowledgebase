@@ -176,10 +176,31 @@ class Repository {
      */
     public function addSubscription($login, $material_name) {
         $id_user = $this->getUserId($login);
+        if (!$id_user) {
+            $id_user = $this->AddUser($login);
+        }
         $id_material = $this->getMaterialId($material_name);
+        if (!$id_material) {
+            if (strpos($material_name, "#")) {
+                $id_material = $this->addRessource($material_name);
+            } else {
+                $id_material = $this->addDocument($material_name);
+            }
+        }
         $sql = "INSERT INTO `subscriptions`( `user_id`, `material_id`, `is_read`) VALUES (?, ?, 0)";
         $res = $this->dbconnect->prepare($sql);
         return $res->execute([$id_user, $id_material]);
+    }
+
+    /**
+     * @param $login
+     * @return string
+     */
+    public function AddUser($login) {
+        $sql = "INSERT INTO `user`(`login`, `status`) VALUES (?, 'user')";
+        $res = $this->dbconnect->prepare($sql);
+        $res->execute([$login]);
+        return $this->dbconnect->lastInsertId();
     }
 
     /**
@@ -191,7 +212,7 @@ class Repository {
         $sql = "Select `id_user` FROM user WHERE login = ?";
         $res = $this->dbconnect->prepare($sql);
         $res->execute([ $login ]);
-        return $res->fetchAll(\PDO::FETCH_ASSOC)[0]['id_user'];
+        return $res->rowCount() ? $res->fetchAll(\PDO::FETCH_ASSOC)[0]['id_user'] : false;
     }
 
     /**
@@ -254,7 +275,7 @@ class Repository {
         $sql = "SELECT `id_material` FROM `material` WHERE `name_material` = ?";
         $res = $this->dbconnect->prepare($sql);
         $res->execute([ $material_name ]);
-        return $res->fetchAll(\PDO::FETCH_ASSOC)[0]['id_material'];
+        return $res->rowCount() ? $res->fetchAll(\PDO::FETCH_ASSOC)[0]['id_material'] : false;
     }
 
     public function getMaterials() {
@@ -273,6 +294,13 @@ class Repository {
     public function addOffers($login, $material_name, $diff) {
         $id_user = $this->getUserId($login);
         $id_material = $this->getMaterialId($material_name);
+        if (!$id_material) {
+            if (strpos($material_name, "#")) {
+                $id_material = $this->addRessource($material_name);
+            } else {
+                $id_material = $this->addDocument($material_name);
+            }
+        }
         $sql = "INSERT INTO `offers`(`material_id`, `user_id`, `diff`) VALUES (?, ?, ?)";
         $res = $this->dbconnect->prepare($sql);
         return $res->execute([ $id_material, $id_user, $diff ]);
@@ -286,6 +314,9 @@ class Repository {
      */
     public function addkeyword($document_name, $new_keyword) {
         $id_document = $this->getMaterialId($document_name);
+        if (!$id_document) {
+            $id_document = $this->addDocument($document_name);
+        }
         $sql = "INSERT INTO `keyword`(`name_keyword`) VALUES (?)";
         $res = $this->dbconnect->prepare($sql);
         if ( !$res->execute([ $new_keyword ]) ) {
@@ -303,12 +334,15 @@ class Repository {
      * @return bool
      */
     public function IssetKeyword($keyword, $nameDocument) {
-        $idDoc = $this->getMaterialId($nameDocument);
+        $id_document = $this->getMaterialId($nameDocument);
+        if (!$id_document) {
+            $id_document = $this->addDocument($nameDocument);
+        }
         $sql = "SELECT *
             FROM keyword inner join material_from_keyword mfk on keyword.id_keyword = mfk.keyword_id
             Where mfk.material_id = ? and keyword.name_keyword = ?";
         $res = $this->dbconnect->prepare($sql);
-        $res->execute([$idDoc, $keyword]);
+        $res->execute([$id_document, $keyword]);
         return $res->rowCount();
     }
 
@@ -318,7 +352,8 @@ class Repository {
     public function addDocument($nameDocument) {
         $sql = "INSERT INTO `material` (`name_material`, `type`) VALUES  (?, 'document')";
         $res = $this->dbconnect->prepare($sql);
-        return $res->execute([$nameDocument]);
+        $res->execute([$nameDocument]);
+        return $this->dbconnect->lastInsertId();
     }
 
     public function documentIsset($nameDocument) {
@@ -329,12 +364,14 @@ class Repository {
     }
 
     /**
-     *
+     * @param $nameResource
+     * @return string
      */
     public function addRessource($nameResource) {
         $sql = "INSERT INTO `material` (`name_material`, `type`) VALUES  (?, 'resource')";
         $res = $this->dbconnect->prepare($sql);
-        return $res->execute([$nameResource]);
+        $res->execute([$nameResource]);
+        return $this->dbconnect->lastInsertId();
     }
 
     /**
