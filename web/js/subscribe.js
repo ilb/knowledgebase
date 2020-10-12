@@ -17,7 +17,7 @@ function main() {
 
 function subscribe(e) {
     var target = e.target.parentNode,
-        tag = target.id,
+        tag = target.tagName === "h1" ? "" : target.id,
         span = document.createElementNS('http://www.w3.org/1999/xhtml', "span"),
         input = document.createElementNS('http://www.w3.org/1999/xhtml',"input"),
         button = document.createElementNS('http://www.w3.org/1999/xhtml', "button"),

@@ -87,6 +87,23 @@
         </li>
     </xsl:template>
 
+    <xsl:template match="xhtml:h1">
+        <xsl:copy>
+            <xsl:apply-templates select="@*|node()"/>
+            &#160;
+            <a style="font-weight: normal; font-size: 0.6em; color: red;">
+                <xsl:attribute name="href">
+                    <xsl:value-of select="$addSubscription"/>
+                </xsl:attribute>
+                Подписаться
+            </a>
+            &#160;
+            <a style="font-weight: normal; font-size: 0.6em; color: #0d22b1; cursor: pointer;" class="subscribe">
+                Подписать
+            </a>
+        </xsl:copy>
+    </xsl:template>
+
     <!-- h1 and xhtml:h2's should point back to the ToC for easy navigation -->
     <xsl:template match="xhtml:h2">
         <xsl:variable name="link">
