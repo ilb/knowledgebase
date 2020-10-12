@@ -24,7 +24,7 @@ if (!$hreq->isEmpty()) {
     $req->fromXmlStr($hreq->getAsXML());
     $tag = $req->getTag();
     $doc = $req->getDocument();
-    if ($tag != "---") {
+    if ($tag != "---" && strlen($tag) > 0) {
         $doc .= "#" . $tag;
     }
     // если поставленна галочка группы то значение будет равнятся on

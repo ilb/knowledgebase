@@ -298,6 +298,21 @@ class Repository {
     }
 
     /**
+     * @param $keyword string
+     * @param $nameDocument string
+     * @return bool
+     */
+    public function IssetKeyword($keyword, $nameDocument) {
+        $idDoc = $this->getMaterialId($nameDocument);
+        $sql = "SELECT *
+            FROM keyword inner join material_from_keyword mfk on keyword.id_keyword = mfk.keyword_id
+            Where mfk.material_id = ? and keyword.name_keyword = ?";
+        $res = $this->dbconnect->prepare($sql);
+        $res->execute([$idDoc, $keyword]);
+        return $res->rowCount();
+    }
+
+    /**
      * Добавление документа
      */
     public function addDocument($nameDocument) {

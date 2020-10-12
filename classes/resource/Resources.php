@@ -16,6 +16,7 @@ class Resources {
     }
 
     public function createResource($source, $nameDocument) {
+        $keyword = [];
         $resourceParser = new ResourceParser();
         $rawResources = $resourceParser->getResource($source);
         $repo = new \repository\Repository(Config::getInstance()->connection);
@@ -27,7 +28,9 @@ class Resources {
                 $rawResource['name'],
                 $nameDocument . "#" . $rawResource['tag']
             );
+            $keyword[] = $rawResource['tag'];
         }
+        return $keyword;
     }
 
     public function getResource() {

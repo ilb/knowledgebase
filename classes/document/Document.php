@@ -3,6 +3,8 @@
 namespace document;
 
 
+use config\Config;
+use repository\Repository;
 use resource\Resources;
 
 class Document {
@@ -118,7 +120,21 @@ class Document {
      */
     public function createResources() {
         $this->resources = new Resources();
-        $this->resources->createResource($this->source, $this->nameDocument);
+        $keyword = $this->resources->createResource($this->source, $this->nameDocument);
+        $repo = new Repository(Config::getInstance()->connection);
+        $this->IssetKeywords($keyword, $repo);
+    }
+
+    /**
+     * @param $keywords array
+     * @param $repo \repository\Repository
+     */
+    public function IssetKeywords($keywords, $repo) {
+        foreach ($keywords as $keyword) {
+            if (!$repo->IssetKeyword($keyword, $this->nameDocument)) {
+                $repo->addkeyword($this->nameDocument, $keyword);
+            }
+        }
     }
 
     /**

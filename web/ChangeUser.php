@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Description Позволяет админу назначит пользователя ментором 
  */
@@ -15,11 +16,17 @@ $repository = new UserRepository(Config::getInstance()->connection);
 if (isset($_POST['changeBtn'])) {
     $id = $_POST['changeBtn'];
     $status = "status_" . $id;
-    $res = new ChangeStatus($id, $_POST[$status]);
-    $res->setRepository($repository);
+
+    $newStatus = $_POST[$status];
+
     $result = "Произошла непредвиденная ошибка";
-    if ( $res->execute() ) {
-        $result = "Пользователь теперь является " . $_POST[$status];
+
+    if ($newStatus !== 'admin') {
+	$res = new ChangeStatus($id, $newStatus);
+	$res->setRepository($repository);
+	if ($res->execute()) {
+	    $result = "Пользователь теперь является " . $newStatus;
+	}
     }
 }
 

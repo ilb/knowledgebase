@@ -45,7 +45,7 @@
                             <xsl:choose>
                                 <xsl:when test="dir = 0">
                                     <xsl:attribute name="href">
-                                        <xsl:value-of select="concat('DocumentView.php?url-0=',name)"/>
+                                        <xsl:value-of select="concat('DocumentView.php?url-0=',parent,name)"/>
                                     </xsl:attribute>
                                 </xsl:when>
                                 <xsl:otherwise>
