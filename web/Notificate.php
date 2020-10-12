@@ -11,7 +11,7 @@ use usecase\notify\GetNotificate;
 require_once '../config/bootstrap.php';
 
 $repository = new Repository(Config::getInstance()->connection);
-$notificate = new GetNotificate("User1");
+$notificate = new GetNotificate(Config::getInstance()->login);
 $notificate->setRepository($repository);
 $res = $notificate->execute();
 $serialize = new Serialize();

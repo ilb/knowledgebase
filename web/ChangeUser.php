@@ -22,11 +22,11 @@ if (isset($_POST['changeBtn'])) {
     $result = "Произошла непредвиденная ошибка";
 
     if ($newStatus !== 'admin') {
-	$res = new ChangeStatus($id, $newStatus);
-	$res->setRepository($repository);
-	if ($res->execute()) {
-	    $result = "Пользователь теперь является " . $newStatus;
-	}
+        $res = new ChangeStatus($id, $newStatus);
+        $res->setRepository($repository);
+        if ($res->execute()) {
+            $result = "Пользователь теперь является " . $newStatus;
+        }
     }
 }
 
