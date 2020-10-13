@@ -23,8 +23,6 @@ class Notificate extends UseCase {
             $names[] = $arr["elem"];
         }
         $subs = $this->repository->getSubscriptionByNamesMaterial($names);
-        // Сюда вставить рассылку по user_id
-        // send($subs[$i]["user_id"]);
 
         $id = [];
         foreach ($subs as $arr) {
@@ -34,8 +32,11 @@ class Notificate extends UseCase {
         for ($i = 0; $i < count($this->elements); $i++) {
             $this->elements[$i]["id_subs"] = $id[$i];
             $this->elements[$i]["id_user"] = $subs[$i]["user_id"];
-
+            $this->elements[$i]["login"] = $subs[$i]["login"];
         }
         $this->repository->addNotificate($this->elements);
+        foreach ($this->elements as $element) {
+            mail($element["login"]."@bystrobank.ru", "База знаний", $element["data"]);
+        }
     }
 }

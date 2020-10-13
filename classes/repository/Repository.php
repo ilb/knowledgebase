@@ -57,13 +57,14 @@ class Repository {
      * @param $names array
      */
     public function getSubscriptionByNamesMaterial($names) {
-        $sql = "
-            SELECT
+        $sql = "SELECT
                 m.id_material,
                 s.user_id,
+                u.login,
                 s.is_read,
                 s.id_subscription
-            FROM material m INNER JOIN subscriptions s on s.material_id = m.id_material
+            FROM material m INNER JOIN (subscriptions s  INNER JOIN user u on s.user_id = u.id_user )
+            on s.material_id = m.id_material
             WHERE ";
         for ($i = 0; $i < count($names); $i++ ) {
             if ($i + 1 == count($names)) {
