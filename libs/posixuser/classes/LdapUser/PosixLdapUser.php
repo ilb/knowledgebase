@@ -37,7 +37,7 @@ class PosixLdapUser implements LdapUser {
 
     /**
      * 
-     * @param type $groupName
+     * @param string $groupName
      * @return boolean
      */
     public function hasPermission($groupName) {
@@ -53,7 +53,7 @@ class PosixLdapUser implements LdapUser {
 
     /**
      * 
-     * @param String $groupName
+     * @param string $groupName
      * @return void
      * @throws Exception
      */

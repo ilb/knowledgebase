@@ -32,6 +32,7 @@ class Notificate extends UseCase {
         for ($i = 0; $i < count($this->elements); $i++) {
             $this->elements[$i]["id_subs"] = $id[$i];
             $this->elements[$i]["id_user"] = $names[$i];
+
         }
         $this->repository->addNotificate($this->elements);
     }
