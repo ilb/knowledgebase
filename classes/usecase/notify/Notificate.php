@@ -23,6 +23,8 @@ class Notificate extends UseCase {
             $names[] = $arr["elem"];
         }
         $subs = $this->repository->getSubscriptionByNamesMaterial($names);
+        // Сюда вставить рассылку по user_id
+        // send($subs[$i]["user_id"]);
 
         $id = [];
         foreach ($subs as $arr) {
