@@ -68,10 +68,10 @@ class Repository {
             WHERE ";
         for ($i = 0; $i < count($names); $i++ ) {
             if ($i + 1 == count($names)) {
-                $sql .= "m.name_material LIKE '$names[$i]#%'";
+                $sql .= "m.name_material LIKE '$names[$i]%'";
                 break;
             }
-            $sql .= "m.name_material LIKE '$names[$i]#%' or ";
+            $sql .= "m.name_material LIKE '$names[$i]%' or ";
         }
         $res = $this->dbconnect->query($sql);
         return $res->fetchAll(\PDO::FETCH_ASSOC);
@@ -82,8 +82,7 @@ class Repository {
      * @param $names array
      */
     public function setSubscriptionNotViewed($names) {
-        $sql = "
-            UPDATE subscriptions s SET s.is_read = 0 WHERE ";
+        $sql = "UPDATE subscriptions s SET s.is_read = 0 WHERE ";
         for ($i = 0; $i < count($names); $i++ ) {
             if ($i + 1 == count($names)) {
                 $sql .= "s.id_subscription = $names[$i]";
