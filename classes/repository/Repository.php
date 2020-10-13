@@ -71,7 +71,7 @@ class Repository {
                 $sql .= "m.name_material LIKE '$names[$i]#%'";
                 break;
             }
-            $sql .= "m.material LIKE '$names[$i]#%' or ";
+            $sql .= "m.name_material LIKE '$names[$i]#%' or ";
         }
         $res = $this->dbconnect->query($sql);
         return $res->fetchAll(\PDO::FETCH_ASSOC);
