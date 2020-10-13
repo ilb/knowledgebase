@@ -98,12 +98,11 @@ class Repository {
      * @param $elements array
      */
     public function addNotificate($elements) {
-        $sql = "INSERT INTO notificate (diff, event, id_subs, id_user) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO notificate (diff, event, id_subs, id_user) VALUES (?, '', ?, ?)";
         $res = $this->dbconnect->prepare($sql);
         for ($i = 0; $i < count($elements); $i++) {
             $exec = [];
             $exec[] = $elements[$i]["data"];
-            $exec[] = $elements[$i]["event"];
             $exec[] = $elements[$i]["id_subs"];
             $exec[] = $elements[$i]["id_user"];
             $res->execute($exec);

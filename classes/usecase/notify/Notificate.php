@@ -31,7 +31,7 @@ class Notificate extends UseCase {
         $this->repository->setSubscriptionNotViewed($id);
         for ($i = 0; $i < count($this->elements); $i++) {
             $this->elements[$i]["id_subs"] = $id[$i];
-            $this->elements[$i]["id_user"] = $names[$i];
+            $this->elements[$i]["id_user"] = $subs[$i]["user_id"];
 
         }
         $this->repository->addNotificate($this->elements);

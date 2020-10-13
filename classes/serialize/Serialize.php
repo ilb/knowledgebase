@@ -53,8 +53,8 @@ class Serialize {
     public function arrToXMLandXSL($response, $path) {
         $xml = $this->serializer->encode($response, "xml");
         // до сих пор остается костыль
-        $arr = explode("\n", $xml);
-        $xml = $arr[0] . "<?xml-stylesheet type=\"text/xsl\" href=\"" . $path . "\"?>" . $arr[1];
+        $arr = explode("<?xml version=\"1.0\"?>", $xml);
+        $xml =  "<?xml version=\"1.0\"?>" . "<?xml-stylesheet type=\"text/xsl\" href=\"" . $path . "\"?>" . $arr[1];
         return $xml;
     }
 
