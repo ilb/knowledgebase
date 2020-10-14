@@ -30,7 +30,18 @@ $subs->setRepository($repo);
 $subs = $subs->execute();
 $ser = new Serialize();
 $subs = explode("<?xml version=\"1.0\"?>" , $ser->arrToXML($subs))[1];
-$docContext = str_replace("href=\"/oooxhtml/oooxhtml.xsl\"", "href=\"oooxhtml/oooxhtml.xsl\"", $docContext);
+if (!strpos($docContext, "oooxhtml.xsl")) {
+    $head = "<?xml-stylesheet type=\"text/xsl\" href=\"oooxhtml/oooxhtml.xsl\"?>";
+    // убрать стили
+    $docContext = str_replace("<link rel=\"stylesheet\" type=\"text/css\" href=\"/oooxhtml/oooxhtml.css\"/>", "", $docContext);
+    // убрать скрипты
+    $docContext = str_replace("<script type=\"text/javascript\" src=\"/privilegedAPI/web/scripts/privilegedAPI.js\"></script>
+        <script type=\"text/javascript\" src=\"/oooxhtml/oooxhtml.js\"></script>", "", $docContext);
+    // подключить свои стили
+    $d = strpos($docContext, "<html");
+    $docContext = substr($docContext, 0, $d) . $head . substr($docContext, $d);
+}
+$docContext = str_replace("href=\"/oooxhtml/", "href=\"oooxhtml/", $docContext);
 $d = strpos($docContext, "</body>");
 $dop = "<file style='display: none'>$allName</file>" .
     "<document style='display: none'>$doc</document>" .
