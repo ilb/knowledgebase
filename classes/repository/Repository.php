@@ -159,7 +159,8 @@ class Repository {
                 )
             ON
                 `user`.`id_user` = `subscriptions`.`user_id`
-            Where `user`.`login` = ?";
+            Where `user`.`login` = ? 
+            ORDER BY id_material DESC";
         $res = $this->dbconnect->prepare($sql);
         $res->execute([$login]);
         return $res->fetchAll(\PDO::FETCH_ASSOC);
@@ -202,9 +203,38 @@ class Repository {
                 $id_material = $this->addDocument($material_name);
             }
         }
+        if ($this->IssetSubs($id_user, $id_material)) {
+            return false;
+        }
         $sql = "INSERT INTO `subscriptions`( `user_id`, `material_id`, `is_read`) VALUES (?, ?, 0)";
         $res = $this->dbconnect->prepare($sql);
         return $res->execute([$id_user, $id_material]);
+    }
+
+    /**
+     * @param $document string
+     * @param $login string
+     * @return bool
+     */
+    public function removeSubscription($document, $login) {
+        $sql = "DELETE FROM subscriptions WHERE user_id = ? and material_id = ?";
+        $id_user = $this->getUserId($login);
+        $id_material = $this->getMaterialId($document);
+        $res = $this->dbconnect->prepare($sql);
+        return $res->execute([$id_user, $id_material]);
+    }
+
+    /**
+     * Проверка существования подписки
+     * @param $id_user int
+     * @param $id_material int
+     * @return int
+     */
+    public function IssetSubs($id_user, $id_material) {
+        $sql = "SELECT * FROM subscriptions WHERE user_id = ? and material_id = ?";
+        $res = $this->dbconnect->prepare($sql);
+        $res->execute([$id_user, $id_material]);
+        return $res->rowCount();
     }
 
     /**

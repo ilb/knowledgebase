@@ -46,6 +46,15 @@
         </xsd:complexType>
     </xsd:element>
 
+    <xsd:element name='RemoveSubscription'>
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="document" type="xsd:string"/>
+                <xsd:element name="tag" type="xsd:string" minOccurs="0"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
     <xsd:element name='Dir'>
         <xsd:complexType>
             <xsd:sequence>

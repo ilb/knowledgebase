@@ -46,11 +46,12 @@
                     <tr>
                         <th>Подписка</th>
                         <th>Прочтена (да\нет)</th>
+                        <th>Удалить подписку</th>
                     </tr>
                 </thead>
                 <tbody>
                     <!--                    <xsl:if test="/response/elements/documents">-->
-                    <xsl:for-each select="/response/elements/subscriprions">
+                    <xsl:for-each select="/response/elements/subscriprions[parent != '']">
                         <tr>
                             <td>
                                 <a>
@@ -73,6 +74,17 @@
                                         да
                                     </xsl:otherwise>
                                 </xsl:choose>
+                            </td>
+                            <td>
+                                <a>
+                                    <xsl:attribute name="href">
+                                        <xsl:value-of select="concat('RemoveSubscription.php', '?document-0=', parent)"/>
+                                        <xsl:if test="parent != element">
+                                            <xsl:value-of select="concat('&amp;tag-0=', substring(element, 2))"/>
+                                        </xsl:if>
+                                    </xsl:attribute>
+                                    Удалить
+                                </a>
                             </td>
                         </tr>
                     </xsl:for-each>

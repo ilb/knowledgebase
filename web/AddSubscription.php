@@ -31,7 +31,7 @@ if (!$hreq->isEmpty()) {
     $addSubscription = new SubscriptionCreate($req->getName(), $doc, $req->getGroup() == "on");
     $addSubscription->setRepository($repository);
     $addSubscription->execute();
-    header("HTTP/1.0: 201 Created");
+    header("Location: SubscriptionsList.php");
 }
 
 $documentList = new GetCatalog(Config::getInstance()->filespath);

@@ -42,13 +42,13 @@ function addSubscribe(e, input, span, tag) {
         query = "";
     query += "?name-0=" + group;
     query += "&document-0=" + doc;
-    query += "&group=on";
+    // query += "&group=on";
     query += "&tag-0=" + tag;
     closeSpan(span);
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
         var res = "";
-        if (xhr.status == 201) {
+        if (xhr.status == 200) {
             console.log("Успешно");
             res = "Успешно";
         } else {
