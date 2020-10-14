@@ -49,6 +49,16 @@
                 response {
                     display: none;
                 }
+                .subscribe {
+                    font-weight: normal; color: #0d22b1; cursor: pointer;
+                    font-size: 15px;
+                }
+                h2 .subscription, h3 .subscription, h4 .subscription, h1 .subscription {
+                    font-size: 15px;
+                }
+                h2 span, h3 span, h4 span, h1 span {
+                    display: none;
+                }
             </style>
         </xsl:copy>
     </xsl:template>

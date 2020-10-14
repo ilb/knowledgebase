@@ -13,6 +13,7 @@ function main() {
     for (var i = 0; i < btnSubsList.length; i++ ) {
         btnSubsList[i].addEventListener("click", subscribe);
     }
+    setEvent();
 }
 
 function subscribe(e) {
@@ -62,4 +63,25 @@ function addSubscribe(e, input, span, tag) {
 
 function closeSpan(span) {
     span.remove();
+}
+
+function setEvent() {
+    for (var i = 1; i < 5; i++) {
+        addEventHover(document.querySelectorAll("h"+i));
+    }
+}
+
+function addEventHover(elements) {
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].addEventListener("mouseenter", function(e) {
+            var parent = e.target;
+            var span = parent.querySelector("span");
+            span.style.display = "inline";
+        });
+        elements[i].addEventListener("mouseleave", function(e) {
+            var parent = e.target;
+            var span = parent.querySelector("span");
+            span.style.display = "none";
+        });
+    }
 }
