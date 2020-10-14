@@ -29,4 +29,8 @@ $result = $pars->merge($result, $data);
 unset($data, $pars);
 $notify = new Notificate($result);
 $notify->setRepository($repo);
-$notify->execute();
+if ($notify->execute()) {
+    header("HTTP/1.0: 200 Sended");
+} else {
+    header("HTTP/1.0: 404 Not Found");
+}

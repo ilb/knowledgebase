@@ -101,6 +101,9 @@ class Repository {
         $sql = "INSERT INTO notificate (diff, event, id_subs, id_user) VALUES (?, '', ?, ?)";
         $res = $this->dbconnect->prepare($sql);
         for ($i = 0; $i < count($elements); $i++) {
+            if (isset($elements["id_user"])) {
+                continue;
+            }
             $exec = [];
             $exec[] = $elements[$i]["data"];
             $exec[] = $elements[$i]["id_subs"];
