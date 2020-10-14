@@ -59,6 +59,7 @@ class Repository {
     public function getSubscriptionByNamesMaterial($names) {
         $sql = "SELECT
                 m.id_material,
+                m.name_material,
                 s.user_id,
                 u.login,
                 s.is_read,
@@ -101,14 +102,16 @@ class Repository {
         $sql = "INSERT INTO notificate (diff, event, id_subs, id_user) VALUES (?, '', ?, ?)";
         $res = $this->dbconnect->prepare($sql);
         for ($i = 0; $i < count($elements); $i++) {
-            if (!isset($elements["id_user"])) {
+            if (!isset($elements["user"])) {
                 continue;
             }
-            $exec = [];
-            $exec[] = $elements[$i]["data"];
-            $exec[] = $elements[$i]["id_subs"];
-            $exec[] = $elements[$i]["id_user"];
-            $res->execute($exec);
+            foreach ($elements[$i]['user'] as $user) {
+                $exec = [];
+                $exec[] = $elements[$i]["data"];
+                $exec[] = $elements[$i]["id_subs"];
+                $exec[] = $user["id_user"];
+                $res->execute($exec);
+            }
         }
     }
 
