@@ -78,7 +78,17 @@ class Repository {
         return $res->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-
+    public function getSubscribtionsByDocUser($name_material, $user) {
+        $sql = "SELECT
+                m.name_material,
+                u.login,
+            FROM material m INNER JOIN (subscriptions s  INNER JOIN user u on s.user_id = u.id_user )
+                on s.material_id = m.id_material
+            WHERE m.name_material Like \"?%\" and u.login = ?";
+        $res = $this->dbconnect->prepare($sql);
+        $res->execute([$name_material, $user]);
+        return $res->fetchAll(\PDO::FETCH_ASSOC);
+    }
     /**
      * @param $names array
      */

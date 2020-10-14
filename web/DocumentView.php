@@ -2,7 +2,6 @@
 
 use config\Config;
 use ru\ilb\knowledgebase\DocumentView;
-use usecase\document\ViewDocument;
 
 require_once '../config/bootstrap.php';
 
