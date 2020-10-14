@@ -30,7 +30,7 @@ unset($data, $pars);
 $notify = new Notificate($result);
 $notify->setRepository($repo);
 if ($notify->execute()) {
-    header("HTTP/1.0: 200 Sended");
+    header("HTTP/1.0: 200 Ok");
 } else {
     header("HTTP/1.0: 404 Not Found");
 }
