@@ -28,9 +28,8 @@ class GetSubscriptionDocUser extends UseCase {
         $this->name_material = $name_material;
     }
 
-
     public function execute() {
-        $result = $this->repository->getSubscribtionsByDocUser($this->name_material, $this->user);
-        return array("response" => $result);
+        $result = $this->repository->getSubscriptionsByDocUser($this->name_material, $this->user);
+        return $result;
     }
 }

@@ -24,7 +24,12 @@
 
     <xsl:variable name="addSubscription">
         <xsl:value-of select="concat('AddSubscription.php?name-0=', xhtml:html/xhtml:body/xhtml:user,
-        '&amp;document-0=', xhtml:html/xhtml:body/xhtml:file)"/>
+        '&amp;document-0=', xhtml:html/xhtml:body/xhtml:document)"/>
+    </xsl:variable>
+
+    <xsl:variable name="removeSubscription">
+        <xsl:value-of select="concat('RemoveSubscription.php?document-0=',
+        xhtml:html/xhtml:body/xhtml:document)"/>
     </xsl:variable>
 
     <!-- create ToC entry -->
@@ -91,12 +96,24 @@
         <xsl:copy>
             <xsl:apply-templates select="@*|node()"/>
             &#160;
-            <a style="font-weight: normal; font-size: 0.6em; color: red;">
-                <xsl:attribute name="href">
-                    <xsl:value-of select="$addSubscription"/>
-                </xsl:attribute>
-                Подписаться
-            </a>
+            <xsl:choose>
+                <xsl:when test="/xhtml:html/xhtml:body/xhtml:response/xhtml:item/xhtml:name_material = /xhtml:html/xhtml:body/xhtml:document">
+                    <a style="font-weight: normal; font-size: 0.8em; color: #ff0000;">
+                        <xsl:attribute name="href">
+                            <xsl:value-of select="$removeSubscription"/>
+                        </xsl:attribute>
+                        Отписаться
+                    </a>
+                </xsl:when>
+                <xsl:otherwise>
+                    <a style="font-weight: normal; font-size: 0.8em; color: #1c5e28;">
+                        <xsl:attribute name="href">
+                            <xsl:value-of select="$addSubscription"/>
+                        </xsl:attribute>
+                        Подписаться
+                    </a>
+                </xsl:otherwise>
+            </xsl:choose>
             &#160;
             <a style="font-weight: normal; font-size: 0.6em; color: #0d22b1; cursor: pointer;" class="subscribe">
                 Подписать
@@ -114,12 +131,24 @@
             &#160;
             <a href="#ToC-{$link}">&#8617;</a>
             &#160;
-            <a style="font-weight: normal; font-size: 0.6em; color: red;">
-                <xsl:attribute name="href">
-                    <xsl:value-of select="concat($addSubscription, '&amp;tag-0=', $link)"/>
-                </xsl:attribute>
-                Подписаться
-            </a>
+            <xsl:choose>
+                <xsl:when test="/xhtml:html/xhtml:body/xhtml:response/xhtml:item/xhtml:name_material = concat(/xhtml:html/xhtml:body/xhtml:document, '#', $link)">
+                    <a style="font-weight: normal; font-size: 0.8em; color: #ff0000;">
+                        <xsl:attribute name="href">
+                            <xsl:value-of select="concat($removeSubscription, '&amp;tag-0=', $link)"/>
+                        </xsl:attribute>
+                        Отписаться
+                    </a>
+                </xsl:when>
+                <xsl:otherwise>
+                    <a style="font-weight: normal; font-size: 0.8em; color: #1c5e28;">
+                        <xsl:attribute name="href">
+                            <xsl:value-of select="concat($addSubscription, '&amp;tag-0=', $link)"/>
+                        </xsl:attribute>
+                        Подписаться
+                    </a>
+                </xsl:otherwise>
+            </xsl:choose>
             &#160;
             <a style="font-weight: normal; font-size: 0.6em; color: #0d22b1; cursor: pointer;" class="subscribe">
                 Подписать
@@ -136,12 +165,24 @@
             &#160;
             <a href="#ToC-{$link}">&#8617;</a>
             &#160;
-            <a style="font-weight: normal; font-size: 0.8em; color: red;">
-                <xsl:attribute name="href">
-                    <xsl:value-of select="concat($addSubscription, '&amp;tag-0=', $link)"/>
-                </xsl:attribute>
-                Подписаться
-            </a>
+            <xsl:choose>
+                <xsl:when test="/xhtml:html/xhtml:body/xhtml:response/xhtml:item/xhtml:name_material = concat(/xhtml:html/xhtml:body/xhtml:document, '#', $link)">
+                    <a style="font-weight: normal; font-size: 0.8em; color: #ff0000;">
+                        <xsl:attribute name="href">
+                            <xsl:value-of select="concat($removeSubscription, '&amp;tag-0=', $link)"/>
+                        </xsl:attribute>
+                        Отписаться
+                    </a>
+                </xsl:when>
+                <xsl:otherwise>
+                    <a style="font-weight: normal; font-size: 0.8em; color: #1c5e28;">
+                        <xsl:attribute name="href">
+                            <xsl:value-of select="concat($addSubscription, '&amp;tag-0=', $link)"/>
+                        </xsl:attribute>
+                        Подписаться
+                    </a>
+                </xsl:otherwise>
+            </xsl:choose>
             &#160;
             <a style="font-weight: normal; font-size: 0.8em; color: #0d22b1; cursor: pointer;" class="subscribe">
                 Подписать
@@ -157,12 +198,24 @@
             &#160;
             <a href="#{$link}">&#x2606;</a>
             &#160;
-            <a style="font-weight: normal; font-size: 0.8em; color: red;">
-                <xsl:attribute name="href">
-                    <xsl:value-of select="concat($addSubscription, '&amp;tag-0=', $link)"/>
-                </xsl:attribute>
-                Подписаться
-            </a>
+            <xsl:choose>
+                <xsl:when test="/xhtml:html/xhtml:body/xhtml:response/xhtml:item/xhtml:name_material = concat(/xhtml:html/xhtml:body/xhtml:document, '#', $link)">
+                    <a style="font-weight: normal; font-size: 0.8em; color: #ff0000;">
+                        <xsl:attribute name="href">
+                            <xsl:value-of select="concat($removeSubscription, '&amp;tag-0=', $link)"/>
+                        </xsl:attribute>
+                        Отписаться
+                    </a>
+                </xsl:when>
+                <xsl:otherwise>
+                    <a style="font-weight: normal; font-size: 0.8em; color: #1c5e28;">
+                        <xsl:attribute name="href">
+                            <xsl:value-of select="concat($addSubscription, '&amp;tag-0=', $link)"/>
+                        </xsl:attribute>
+                        Подписаться
+                    </a>
+                </xsl:otherwise>
+            </xsl:choose>
             &#160;
             <a style="font-weight: normal; font-size: 0.8em; color: #0d22b1; cursor: pointer;" class="subscribe">
                 Подписать

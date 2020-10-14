@@ -45,6 +45,11 @@
             <script type="text/javascript" src="js/subscribe.js">
                 <xsl:text><![CDATA[]]></xsl:text>
             </script>
+            <style>
+                response {
+                    display: none;
+                }
+            </style>
         </xsl:copy>
     </xsl:template>
 
