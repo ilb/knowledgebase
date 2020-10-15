@@ -58,7 +58,7 @@ class Notificate extends UseCase {
                 $message = "Изменение в документе " . $names[0] . "\n";
                 $message .= "Для ознакомления перейдите по ссылке $url\n\n";
                 $message .= "Изменения: \n" . $element["data"];
-                mail($user["login"]."@bystrobank.ru", "База знаний", $message, "Content-type: text/html; charset=utf-8");
+                mail($user["login"] . "@bystrobank.ru", "База знаний", $message, "Content-type: text/plain; charset=utf-8");
             }
         }
         return true;
