@@ -24,7 +24,7 @@ class Config {
      * Путь до пустого файла
      * @var string
      */
-    private $default;
+    public $default;
 
     /**
      * Логин пользователя
