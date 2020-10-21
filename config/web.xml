@@ -26,4 +26,10 @@
         <env-entry-type>java.lang.String</env-entry-type>
         <env-entry-value>/var/apps/knowledgebase</env-entry-value>
     </env-entry>
+    <env-entry>
+        <description>путь до пустого файла</description>
+        <env-entry-name>apps.knowledgebase.default_file</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>empty.xhtml</env-entry-value>
+    </env-entry>
 </web-app>

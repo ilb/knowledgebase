@@ -21,6 +21,12 @@ class Config {
     public $filespath;
 
     /**
+     * Путь до пустого файла
+     * @var string
+     */
+    private $default;
+
+    /**
      * Логин пользователя
      * @var string
      */
@@ -36,6 +42,7 @@ class Config {
      * Инициализация конифурации.
      */
     private function __construct() {
+        $this->default = $_SERVER["default_file"];
         $this->login = $_SERVER['REMOTE_USER'];
         $this->filespath = $_SERVER['apps.knowledgebase.filespath'];
         $DBConfig = \DB_Config::constructFromConnectionString($_SERVER['.apps.knowledgebase.db'])
