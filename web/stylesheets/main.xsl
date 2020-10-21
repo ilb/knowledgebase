@@ -50,6 +50,9 @@
                     <!--                    <button style="display: none"/>-->
                 </form>
             </div>
+            <a class="item" href="CreateDocument.php">
+                Добавить документ
+            </a>
             <a class="item" href="DocumentList.php">
                 Список документов
             </a>
