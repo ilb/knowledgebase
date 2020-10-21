@@ -38,15 +38,14 @@ function setFormEvent() {
                 alert(res["error"]);
             } else {
                 alert(res["result"]);
-                // window.location = "DocumentView.php?url-0=" + docName;
                 sendSVN(docName);
+                window.location = "DocumentView.php?url-0=" + docName;
             }
         };
         xhr.open('POST', "AddDocument.php", true);
         xhr.send(body);
     });
 }
-
 
 function sendSVN(name) {
     var body = {
