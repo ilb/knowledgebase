@@ -39,9 +39,19 @@ class DocumentCreate extends UseCase  {
         } else {
             $res["result"] = "Файл успешно создан";
         }
+        // надо какой то обработчик команды придумать
+        $this->addSVN($path . "/" . $this->nameDocument);
         $this->repository->addDocument($this->nameDocument);
         return  $res;
     }
 
+    /**
+     * Выполняет команду добавления
+     * @param $path string
+     * @return string
+     */
+    private function addSVN($path) {
+        return exec("./../tools/add_svn.sh " . $path . "Add document: " . $this->nameDocument);
+    }
 }
 

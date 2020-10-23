@@ -38,26 +38,10 @@ function setFormEvent() {
                 alert(res["error"]);
             } else {
                 alert(res["result"]);
-                sendSVN(docName);
                 window.location = "DocumentView.php?url-0=" + docName;
             }
         };
         xhr.open('POST', "AddDocument.php", true);
         xhr.send(body);
     });
-}
-
-function sendSVN(name) {
-    var body = {
-        "name": name,
-    };
-    var xhr = new XMLHttpRequest();
-    xhr.onload = function () {
-        console.log(xhr.response)
-        if (xhr.status !== 200) {
-            alert("Ошибка SVN запроса");
-        }
-    };
-    xhr.open('PUT', "svn.net.ilb.ru", true);
-    xhr.send(JSON.stringify(body));
 }

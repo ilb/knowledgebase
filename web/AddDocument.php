@@ -26,11 +26,13 @@ if (isset($_FILES["image"])) {
     $photo = file_get_contents($_FILES["image"]["tmp_name"]);
     $base64 = 'data:image/' . $_FILES["image"]["name"] . ';base64,' . base64_encode($photo);
 }
+
 if ($req->getName() == "") {
     header("HTTP/1.0: 409 Error");
-    echo json_encode(["error"=>"Пустое имя", "post" => file_get_contents("php://input")], JSON_UNESCAPED_UNICODE);
+    echo json_encode(["error"=>"Пустое имя"], JSON_UNESCAPED_UNICODE);
     exit();
 }
+
 $createDoc = new DocumentCreate($req->getName());
 $createDoc->setRepository($repo);
 $response = $createDoc->execute();
