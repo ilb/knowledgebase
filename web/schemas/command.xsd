@@ -11,6 +11,14 @@
         </xsd:complexType>
     </xsd:element>
 
+    <xsd:element name="VCS">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="repo" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
     <xsd:element name='AddDocument'>
         <xsd:complexType>
             <xsd:sequence>
