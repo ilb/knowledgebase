@@ -37,6 +37,7 @@ class DocumentCreate extends UseCase  {
         if (!copy($path. "/" . $empty, $path . "/" . $this->nameDocument)){
             return ["error" => "Ошибка при копировании"];
         } else {
+            chmod($path . "/" . $this->nameDocument, 755);
             $res["result"] = "Файл успешно создан";
         }
         // надо какой то обработчик команды придумать
