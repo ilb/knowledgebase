@@ -10,6 +10,11 @@ interface VCSClient {
     public function update();
 
     /**
+     * @return mixed
+     */
+    public function add();
+
+    /**
      * Делает коммит репозитория
      * @param $msg string
      * @return mixed
