@@ -24,15 +24,16 @@ class VCSClientSVN extends VCSClientImpl implements VCSClient {
      * @return bool|mixed
      */
     public function commit($msg) {
-        $cmd = "svn ci --non-interactive --no-auth-cache --force ". $this->path . " -m ". $msg . " 2>&1";
+        $cmd = "svn ci --non-interactive --no-auth-cache ". $this->path . " -m \"". $msg . "\" 2>&1";
         return $this->exec($cmd);
     }
 
     /**
+     * @param $file
      * @return bool|mixed
      */
-    public function add() {
-        $cmd = "svn add --non-interactive --no-auth-cache --force ". $this->path . " 2>&1";
+    public function add($file) {
+        $cmd = "svn add --non-interactive --no-auth-cache ". $this->path . "/$file 2>&1";
         return $this->exec($cmd);
     }
 }

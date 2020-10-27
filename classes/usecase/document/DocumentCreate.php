@@ -8,6 +8,7 @@ namespace usecase\document;
 
 use config\Config;
 use usecase\helper\UseCase;
+use vcsclient\VCSClientFactory;
 
 class DocumentCreate extends UseCase  {
     
@@ -37,11 +38,15 @@ class DocumentCreate extends UseCase  {
         if (!copy($path. "/" . $empty, $path . "/" . $this->nameDocument)){
             return ["error" => "Ошибка при копировании"];
         } else {
-            chmod($path . "/" . $this->nameDocument, 755);
             $res["result"] = "Файл успешно создан";
         }
-        // надо какой то обработчик команды придумать
-        $this->addSVN($path . "/" . $this->nameDocument);
+        $repo = explode("/", $this->nameDocument);
+        if (count($repo) > 1) {
+            $repo = $repo[0];
+        } else {
+            $repo = "";
+        }
+        $this->addVCS($this->nameDocument, $repo);
         $this->repository->addDocument($this->nameDocument);
         return  $res;
     }
@@ -49,10 +54,14 @@ class DocumentCreate extends UseCase  {
     /**
      * Выполняет команду добавления
      * @param $path string
-     * @return string
+     * @param $repo
+     * @throws \Exception
      */
-    private function addSVN($path) {
-        return exec("./../tools/add_svn.sh " . $path . "Add document: " . $this->nameDocument);
+    private function addVCS($path, $repo) {
+        $VCSClientFactory = new VCSClientFactory(Config::getInstance()->filespath);
+        $VCSClient = $VCSClientFactory->getVCSClient($repo);
+        $VCSClient->add($path);
+        $VCSClient->commit("Update file $path");
     }
 }
 

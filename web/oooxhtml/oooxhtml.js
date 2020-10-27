@@ -90,6 +90,12 @@ var toggleAnnotations = function (event) {
     var settingsContent = document.createElementNS('http://www.w3.org/1999/xhtml','div');
     settingsContent.className = 'settings-content';
 
+    var createButton = document.createElementNS('http://www.w3.org/1999/xhtml','button');
+    createButton.innerHTML = '\u002B';
+    createButton.setAttribute('title', 'Создать новый документ');
+    createButton.setAttribute('onclick', 'createDo()');
+    settingsContent.appendChild(createButton);
+
     var editButton = document.createElementNS('http://www.w3.org/1999/xhtml','button');
     editButton.innerHTML = '\u270e';
     editButton.setAttribute('title', 'Редактировать (alt+E)');
