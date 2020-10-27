@@ -11,4 +11,8 @@ if (!$hreq->isEmpty()) {
     $req->fromXmlStr($hreq->getAsXML());
 }
 
-
+$VCSClientFactory = new \vcsclient\VCSClientFactory($req->getRepo());
+$VCSClient = $VCSClientFactory->getVCSClient();
+$VCSClient->update();
+$VCSClient->add();
+$VCSClient->commit("Update repo " . $req->getRepo());

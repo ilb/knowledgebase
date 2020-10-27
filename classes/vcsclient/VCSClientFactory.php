@@ -45,11 +45,11 @@ class VCSClientFactory {
      * @return VCSClientSVN|null
      */
     public function getVCSClient() {
-        switch ($this->repo) {
+        switch ($this->check()) {
             case "svn":
                 return new VCSClientSVN(Config::getInstance()->filespath . "/" . $this->repo);
             default:
-                return NULL;
+                throw new \Exception(Config::getInstance()->filespath . "/" . $this->repo . " not supported");
         }
     }
 }

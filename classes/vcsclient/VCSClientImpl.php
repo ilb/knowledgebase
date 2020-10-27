@@ -12,12 +12,6 @@ class VCSClientImpl {
      */
     protected $path;
 
-    /**
-     * git or svn
-     * @var string
-     */
-    protected $control;
-
     public function __construct($path) {
         $this->path = $path;
     }

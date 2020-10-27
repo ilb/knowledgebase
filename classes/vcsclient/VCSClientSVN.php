@@ -8,7 +8,6 @@ class VCSClientSVN extends VCSClientImpl implements VCSClient {
 
     public function __construct($path) {
         parent::__construct($path);
-        $this->control = "svn";
     }
 
     /**
