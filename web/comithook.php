@@ -1,6 +1,8 @@
 <?php
 
+use config\Config;
 use ru\ilb\knowledgebase\VCS;
+use vcsclient\VCSClientFactory;
 
 require_once '../config/bootstrap.php';
 
@@ -11,8 +13,8 @@ if (!$hreq->isEmpty()) {
     $req->fromXmlStr($hreq->getAsXML());
 }
 
-$VCSClientFactory = new \vcsclient\VCSClientFactory($req->getRepo());
-$VCSClient = $VCSClientFactory->getVCSClient();
+$VCSClientFactory = new VCSClientFactory(Config::getInstance()->filespath);
+$VCSClient = $VCSClientFactory->getVCSClient($req->getRepo());
 $VCSClient->update();
 $VCSClient->add();
 $VCSClient->commit("Update repo " . $req->getRepo());
