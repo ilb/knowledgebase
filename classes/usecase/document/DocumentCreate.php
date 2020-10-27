@@ -38,6 +38,10 @@ class DocumentCreate extends UseCase  {
         if (!copy($path. "/" . $empty, $path . "/" . $this->nameDocument)){
             return ["error" => "Ошибка при копировании"];
         } else {
+<<<<<<< HEAD
+=======
+            //chmod($path . "/" . $this->nameDocument, 0644);
+>>>>>>> b6b2657144196366c68eb88ac405444c6d5dd07d
             $res["result"] = "Файл успешно создан";
         }
         $repo = explode("/", $this->nameDocument);
