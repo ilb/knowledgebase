@@ -16,5 +16,3 @@ if (!$hreq->isEmpty()) {
 $VCSClientFactory = new VCSClientFactory(Config::getInstance()->filespath);
 $VCSClient = $VCSClientFactory->getVCSClient($req->getRepo());
 $VCSClient->update();
-$VCSClient->add();
-$VCSClient->commit("Update repo " . $req->getRepo());
