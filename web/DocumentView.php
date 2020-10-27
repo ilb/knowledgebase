@@ -4,6 +4,7 @@ use config\Config;
 use repository\Repository;
 use ru\ilb\knowledgebase\DocumentView;
 use serialize\Serialize;
+use usecase\catalog\GetOnlyDir;
 use usecase\subscriptions\GetSubscriptionDocUser;
 
 require_once '../config/bootstrap.php';
@@ -24,12 +25,17 @@ $path = Config::getInstance()->filespath . "/" . $mathes[0][0];
 
 $docContext = file_get_contents($path);
 
+$dirs = new GetOnlyDir();
+$dirs = $dirs->execute();
 $repo = new Repository(Config::getInstance()->connection);
 $subs = new GetSubscriptionDocUser(Config::getInstance()->login, $doc);
 $subs->setRepository($repo);
 $subs = $subs->execute();
 $ser = new Serialize();
+$xmlDirs = explode("<?xml version=\"1.0\"?>" , $ser->arrToXML($dirs))[1];
+$xmlDirs = str_replace("response>", "dirs>", $xmlDirs);
 $subs = explode("<?xml version=\"1.0\"?>" , $ser->arrToXML($subs))[1];
+
 if (!strpos($docContext, "oooxhtml.xsl")) {
     $head = "<?xml-stylesheet type=\"text/xsl\" href=\"oooxhtml/oooxhtml.xsl\"?>";
     // убрать стили
@@ -45,7 +51,7 @@ $docContext = str_replace("href=\"/oooxhtml/", "href=\"oooxhtml/", $docContext);
 $d = strpos($docContext, "</body>");
 $dop = "<file style='display: none'>$allName</file>" .
     "<document style='display: none'>$doc</document>" .
-    "<user style='display: none'>$login</user>" . $subs;
+    "<user style='display: none'>$login</user>" . $subs . $xmlDirs;
 $docContext = substr($docContext, 0, $d) . $dop . substr($docContext, $d);
 header("Content-type: text/xml");
 echo $docContext;

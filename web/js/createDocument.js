@@ -1,11 +1,6 @@
 window.addEventListener('load', function () {
-    main();
-});
-
-
-function main() {
     setFormEvent();
-}
+});
 
 function setFormEvent() {
     var form = document.querySelector("form.create_document");
@@ -36,9 +31,11 @@ function setFormEvent() {
             var res = JSON.parse(xhr.response);
             if (res["error"]) {
                 alert(res["error"]);
-            } else {
+            } else if (res["result"])  {
                 alert(res["result"]);
                 window.location = "DocumentView.php?url-0=" + docName;
+            } else {
+                alert("Непредвиденная ошибка");
             }
         };
         xhr.open('POST', "AddDocument.php", true);
