@@ -22,6 +22,9 @@
         <html xml:lang="ru" xmlns="http://www.w3.org/1999/xhtml">
             <head>
                 <title>Docs</title>
+                <script type="text/javascript" src="js/createDocument.js">
+                    <xsl:text><![CDATA[]]></xsl:text>
+                </script>
             </head>
             <body onload="">
                 <xsl:apply-templates/>
@@ -30,39 +33,72 @@
     </xsl:template>
 
     <xsl:template match="/response">
+        <form class="ui form create_document">
+            <fieldset>
+                <legend>Добавить документ</legend>
+                <div class="two fields">
+                    <div class="field">
+                        <label>
+                            <select class="ui fluid dropdown" style="display: none">
+                                <option>
+                                <xsl:choose>
+                                    <xsl:when test="/response/item/parent != ''">
+                                        <xsl:value-of select="substring(/response/item/parent, 0, string-length(/response/item/parent))"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        ---
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                                </option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="field">
+                        <label>
+                            Имя документа
+                            <input type="text" placeholder="Имя документа"/>
+                        </label>
+                    </div>
+                </div>
+                <div class="field">
+                    <button>
+                        Добавить
+                    </button>
+                </div>
+            </fieldset>
+        </form>
         <table class="ui celled selectable table">
             <tbody>
                 <tr>
                     <th>Name</th>
-                    <th></th>
-                    <th></th>
+                    <th><xsl:text><![CDATA[]]></xsl:text></th>
+                    <th><xsl:text><![CDATA[]]></xsl:text></th>
                     <th>Descr</th>
                 </tr>
                 <xsl:for-each select="/response/item">
                     <tr>
                         <td>
                             <a>
-                            <xsl:choose>
-                                <xsl:when test="dir = 0">
-                                    <xsl:attribute name="href">
-                                        <xsl:value-of select="concat('DocumentView.php?url-0=',parent,name)"/>
-                                    </xsl:attribute>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <xsl:attribute name="href">
-                                        <xsl:value-of select="concat('index.php?dir-0=',parent, name)"/>
-                                    </xsl:attribute>
-                                </xsl:otherwise>
-                            </xsl:choose>
-
+                                <xsl:choose>
+                                    <xsl:when test="dir = 0">
+                                        <xsl:attribute name="href">
+                                            <xsl:value-of select="concat('DocumentView.php?url-0=',parent,name)"/>
+                                        </xsl:attribute>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:attribute name="href">
+                                            <xsl:value-of select="concat('index.php?dir-0=',parent, name)"/>
+                                        </xsl:attribute>
+                                    </xsl:otherwise>
+                                </xsl:choose>
 
                                 <xsl:value-of select="name"/>
                             </a>
                         </td>
 
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><xsl:text><![CDATA[]]></xsl:text></td>
+                        <td><xsl:text><![CDATA[]]></xsl:text></td>
+                        <td><xsl:text><![CDATA[]]></xsl:text></td>
                     </tr>
                 </xsl:for-each>
             </tbody>

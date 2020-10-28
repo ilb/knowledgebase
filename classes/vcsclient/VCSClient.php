@@ -10,9 +10,10 @@ interface VCSClient {
     public function update();
 
     /**
+     * @param $file
      * @return mixed
      */
-    public function add();
+    public function add($file);
 
     /**
      * Делает коммит репозитория

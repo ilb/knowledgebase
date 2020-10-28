@@ -45,6 +45,9 @@
             <script type="text/javascript" src="js/subscribe.js">
                 <xsl:text><![CDATA[]]></xsl:text>
             </script>
+            <script type="text/javascript" src="js/createDocument.js">
+                <xsl:text><![CDATA[]]></xsl:text>
+            </script>
             <style>
                 response {
                     display: none;
@@ -57,6 +60,41 @@
                     font-size: 15px;
                 }
                 h2 span, h3 span, h4 span, h1 span {
+                    display: none;
+                }
+                .fon {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+                    background: #7b7b7b;
+                    z-index: 9999999;
+                }
+                .window {
+                    background: white;
+                    padding: 3%;
+                    width: 40%;
+                    height: 20%;
+                    position: relative;
+                    left: 27%;
+                    top: 27%;
+                }
+                .window > form * {
+                    margin: 5px;
+                }
+                .window > span {
+                    padding: 6px;
+                    position: absolute;
+                    top: 2px;
+                    right: 2px;
+                    cursor: pointer;
+                    font-size: 1.5em;
+                    background: #7b7b7b;
+                    border-radius: 10%;
+                    opacity: .5;
+                }
+                dirs {
                     display: none;
                 }
             </style>
@@ -75,6 +113,43 @@
                 </ol>
             </div>
             <xsl:apply-templates select="@*|node()"/>
+            <div class="fon" style="display: none;">
+                <div class="window">
+                    <form class="ui form create_document">
+                        <div class="two fields">
+                            <div class="field">
+                                <label>
+                                    Directory:
+                                    <select class="ui fluid dropdown">
+                                        <option>
+                                            ---
+                                        </option>
+                                        <xsl:for-each select="xhtml:dirs/xhtml:item">
+                                            <option>
+                                                <xsl:value-of select="."/>
+                                            </option>
+                                        </xsl:for-each>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="field">
+                                <label>
+                                    Имя документа
+                                    <input type="text" placeholder="Имя документа"/>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <button>
+                                Добавить
+                            </button>
+                        </div>
+                    </form>
+                    <span>
+                        X
+                    </span>
+                </div>
+            </div>
         </xsl:copy>
     </xsl:template>
 
