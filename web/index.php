@@ -22,9 +22,24 @@ $docs = new DocumentParser();
 $docs = $docs->getDirandDocs($path);
 if ($dir) {
     for ($i = 0; $i < count($docs); $i++) {
+        if (!$docs[$i]["dir"]) {
+            $docCOntext = file_get_contents($path . "/" . $docs[$i]["name"]);
+            $out = [];
+            preg_match_all("/<title>(.*)<\/title>/", $docCOntext, $out);
+            $docs[$i]["title"] = isset($out[1][0]) ? $out[1][0] : "";
+        }
         $docs[$i]['parent'] = $dir;
     }
 }
+
+$prev = explode("/", $dir);
+if (count($prev) == 1) {
+    $prev = "";
+} else {
+    $prev = implode("/", array_slice($prev, 0, count($prev)-1));
+}
+$docs["parentDir"] = $prev;
+
 $ser = new Serialize();
 $xml = $ser->arrToXMLandXSL($docs, "stylesheets/Table/Table.xsl");
 XML_Output::tryHTML($xml,TRUE);

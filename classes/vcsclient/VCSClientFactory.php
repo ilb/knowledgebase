@@ -7,7 +7,7 @@ class VCSClientFactory {
     /**
      * @const array
      */
-    const dirs = [ ".git", ".svn" ];
+    private $dirs = [ ".git", ".svn" ];
 
     /**
      * @var string
@@ -29,7 +29,7 @@ class VCSClientFactory {
      */
     public function check($repo) {
         $files = scandir($this->path . "/" . $repo);
-        foreach (self::dirs as $dir) {
+        foreach ($this->dirs as $dir) {
             if (in_array($dir, $files)) {
                 return substr($dir, 1);
             }

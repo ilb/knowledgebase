@@ -50,52 +50,52 @@
             </script>
             <style>
                 response {
-                    display: none;
+                display: none;
                 }
                 .subscribe {
-                    font-weight: normal; color: #0d22b1; cursor: pointer;
-                    font-size: 15px;
+                font-weight: normal; color: #0d22b1; cursor: pointer;
+                font-size: 15px;
                 }
                 h2 .subscription, h3 .subscription, h4 .subscription, h1 .subscription {
-                    font-size: 15px;
+                font-size: 15px;
                 }
                 h2 span, h3 span, h4 span, h1 span {
-                    display: none;
+                display: none;
                 }
                 .fon {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    height: 100%;
-                    width: 100%;
-                    background: #7b7b7b;
-                    z-index: 9999999;
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                background: #7b7b7b;
+                z-index: 9999999;
                 }
                 .window {
-                    background: white;
-                    padding: 3%;
-                    width: 40%;
-                    height: 20%;
-                    position: relative;
-                    left: 27%;
-                    top: 27%;
+                background: white;
+                padding: 3%;
+                width: 40%;
+                height: 20%;
+                position: relative;
+                left: 27%;
+                top: 27%;
                 }
                 .window > form * {
-                    margin: 5px;
+                margin: 5px;
                 }
                 .window > span {
-                    padding: 6px;
-                    position: absolute;
-                    top: 2px;
-                    right: 2px;
-                    cursor: pointer;
-                    font-size: 1.5em;
-                    background: #7b7b7b;
-                    border-radius: 10%;
-                    opacity: .5;
+                padding: 6px;
+                position: absolute;
+                top: 2px;
+                right: 2px;
+                cursor: pointer;
+                font-size: 1.5em;
+                background: #7b7b7b;
+                border-radius: 10%;
+                opacity: .5;
                 }
                 dirs {
-                    display: none;
+                display: none;
                 }
             </style>
         </xsl:copy>
@@ -117,18 +117,20 @@
                 <div class="window">
                     <form class="ui form create_document">
                         <div class="two fields">
-                            <div class="field">
+                            <div class="field" style="display:none;">
                                 <label>
                                     Directory:
                                     <select class="ui fluid dropdown">
                                         <option>
-                                            ---
+                                            <xsl:choose>
+                                                <xsl:when test="xhtml:mainDir != ''">
+                                                    <xsl:value-of select="xhtml:mainDir"/>
+                                                </xsl:when>
+                                                <xsl:otherwise>
+                                                    ---
+                                                </xsl:otherwise>
+                                            </xsl:choose>
                                         </option>
-                                        <xsl:for-each select="xhtml:dirs/xhtml:item">
-                                            <option>
-                                                <xsl:value-of select="."/>
-                                            </option>
-                                        </xsl:for-each>
                                     </select>
                                 </label>
                             </div>

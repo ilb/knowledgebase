@@ -505,7 +505,9 @@ var toggleAnnotations = function (event) {
         if (!contentDiv) {
             return false;
         }
-        var url = location.href.split("?")[0].split('/').slice(0, -1).join('/');
+        var url = location.href.split("?")[0].split('/').slice(0, -1).join('/'),
+            dir = location.href.split("?")[1].split("=")[1].split("/").slice(0, -1).join("/");
+        url += "?dir-0=" + dir;
         contentDiv.innerHTML = '';
         loadContent({
             url: url,
@@ -565,7 +567,6 @@ function createForm() {
 function createDocument() {
     var fon = document.querySelector(".fon");
     fon.style.display = "block";
-
 }
 
 function closeModal() {
