@@ -88,7 +88,7 @@
                                 <xsl:value-of select="concat('index.php?dir-0=', parentDir)"/>
                             </xsl:attribute>
 
-                            ../
+                            Parent Directory
                         </a>
                     </td>
 
@@ -99,7 +99,7 @@
                         <xsl:text><![CDATA[]]></xsl:text>
                     </td>
                     <td>
-                        Родительская директория
+                        <xsl:text><![CDATA[]]></xsl:text>
                     </td>
                 </tr>
                 <xsl:for-each select="/response/item">
@@ -109,7 +109,7 @@
                                 <xsl:choose>
                                     <xsl:when test="dir = 0">
                                         <xsl:attribute name="href">
-                                            <xsl:value-of select="concat('DocumentView.php?url-0=',parent,name)"/>
+                                            <xsl:value-of select="concat('DocumentView.php?url-0=',parent,'/', name)"/>
                                         </xsl:attribute>
                                     </xsl:when>
                                     <xsl:otherwise>
