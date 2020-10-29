@@ -41,14 +41,15 @@
                         <label>
                             <select class="ui fluid dropdown" style="display: none">
                                 <option>
-                                <xsl:choose>
-                                    <xsl:when test="/response/item/parent != ''">
-                                        <xsl:value-of select="substring(/response/item/parent, 0, string-length(/response/item/parent))"/>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        ---
-                                    </xsl:otherwise>
-                                </xsl:choose>
+                                    <xsl:choose>
+                                        <xsl:when test="/response/item/parent != ''">
+                                            <xsl:value-of
+                                                    select="substring(/response/item/parent, 0, string-length(/response/item/parent))"/>
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                            ---
+                                        </xsl:otherwise>
+                                    </xsl:choose>
                                 </option>
                             </select>
                         </label>
@@ -71,9 +72,35 @@
             <tbody>
                 <tr>
                     <th>Name</th>
-                    <th><xsl:text><![CDATA[]]></xsl:text></th>
-                    <th><xsl:text><![CDATA[]]></xsl:text></th>
+                    <th>
+                        <xsl:text><![CDATA[]]></xsl:text>
+                    </th>
+                    <th>
+                        <xsl:text><![CDATA[]]></xsl:text>
+                    </th>
                     <th>Descr</th>
+                </tr>
+                <tr>
+                    <td>
+                        <a>
+
+                            <xsl:attribute name="href">
+                                <xsl:value-of select="concat('index.php?dir-0=', parentDir)"/>
+                            </xsl:attribute>
+
+                            ../
+                        </a>
+                    </td>
+
+                    <td>
+                        <xsl:text><![CDATA[]]></xsl:text>
+                    </td>
+                    <td>
+                        <xsl:text><![CDATA[]]></xsl:text>
+                    </td>
+                    <td>
+                        Родительская директория
+                    </td>
                 </tr>
                 <xsl:for-each select="/response/item">
                     <tr>
@@ -87,7 +114,8 @@
                                     </xsl:when>
                                     <xsl:otherwise>
                                         <xsl:attribute name="href">
-                                            <xsl:value-of select="concat('index.php?dir-0=',parent, name)"/>
+                                            <xsl:value-of
+                                                    select="concat('index.php?dir-0=',parent, substring(name, 0, string-length(name)))"/>
                                         </xsl:attribute>
                                     </xsl:otherwise>
                                 </xsl:choose>
@@ -96,9 +124,15 @@
                             </a>
                         </td>
 
-                        <td><xsl:text><![CDATA[]]></xsl:text></td>
-                        <td><xsl:text><![CDATA[]]></xsl:text></td>
-                        <td><xsl:text><![CDATA[]]></xsl:text></td>
+                        <td>
+                            <xsl:text><![CDATA[]]></xsl:text>
+                        </td>
+                        <td>
+                            <xsl:text><![CDATA[]]></xsl:text>
+                        </td>
+                        <td>
+                            <xsl:value-of select="title"/>
+                        </td>
                     </tr>
                 </xsl:for-each>
             </tbody>
