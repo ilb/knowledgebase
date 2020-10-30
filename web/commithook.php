@@ -16,9 +16,10 @@ if (!$hreq->isEmpty()) {
     $req->fromXmlStr($hreq->getAsXML());
 }
 
-if ( isset($_POST['diff']) ) {
+if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
+    $diff = file_get_contents("php://input");
     $repo = new Repository(Config::getInstance()->connection);
-    $pars = new SVNParser($_POST['diff']);
+    $pars = new SVNParser($diff);
     $result = $pars->getEvent();
     $data = $pars->getData();
     $result = $pars->merge($result, $data);
