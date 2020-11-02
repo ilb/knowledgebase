@@ -50,6 +50,8 @@ $repoDocs = explode("/", $doc);
 $vcsFactory = new VCSClientFactory(Config::getInstance()->filespath);
 $vcsClient = $vcsFactory->getVCSClient($repoDocs[0]);
 $editURL = $vcsClient->info(implode("/", array_slice($repoDocs, 1)));
+//print_r($editURL, true);
+//exit(1);
 $editURL = str_replace($_SERVER['ru.bystrobank.apps.svn.ws'], $_SERVER['ru.bystrobank.apps.svn.ws2'], $editURL);
 
 $docContext = str_replace("href=\"/oooxhtml/", "href=\"oooxhtml/", $docContext);
@@ -61,7 +63,8 @@ $dop = "<file style='display: none'>$allName</file>" .
     "<mainDir style='display: none'>$dir</mainDir>" .
     "<document style='display: none'>$doc</document>" .
     "<user style='display: none'>$login</user>" .
-    "<editURL style='display: none'>$editURL</editURL>" . $subs;
+    "<editURL style='display:none'>$editURL</editURL>" 
+    . $subs;
 
 $docContext = substr($docContext, 0, $d) . $dop . substr($docContext, $d);
 header("Content-type: text/xml");
