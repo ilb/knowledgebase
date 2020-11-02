@@ -44,11 +44,11 @@ class DocumentCreate extends UseCase  {
         $path = $this->nameDocument;
         if (count($repo) > 1) {
             $repo = $repo[0];
-            $path = implode("/", array_slice(explode("/", $path), 1));
+            $path = implode("/", array_slice($repo, 1));
         } else {
             $repo = "";
         }
-        $this->addVCS($this->nameDocument, $repo);
+        $this->addVCS($path, $repo);
         $this->repository->addDocument($this->nameDocument);
         return  $res;
     }
