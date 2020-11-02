@@ -21,4 +21,11 @@ interface VCSClient {
      * @return mixed
      */
     public function commit($msg);
+
+    /**
+     * Информация о URL
+     * @param $file
+     * @return mixed
+     */
+    public function info($file);
 }

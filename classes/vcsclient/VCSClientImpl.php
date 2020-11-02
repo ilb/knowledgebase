@@ -23,7 +23,7 @@ class VCSClientImpl {
         if ($res) {
             trigger_error($cmd. " failed:" . join(PHP_EOL, $out));
         }
-        return true;
+        return $out;
     }
 
 }

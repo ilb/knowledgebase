@@ -36,4 +36,13 @@ class VCSClientSVN extends VCSClientImpl implements VCSClient {
         $cmd = "svn add --non-interactive --no-auth-cache ". $this->path . "/$file 2>&1";
         return $this->exec($cmd);
     }
+
+    /**
+     * @param $file
+     * @return mixed|null
+     */
+    public function info($file) {
+        $cmd = "svn info --show-item url " . $this->path . "/$file 2>&1";
+        return $this->exec($cmd);
+    }
 }
