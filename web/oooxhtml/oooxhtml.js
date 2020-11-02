@@ -33,6 +33,7 @@ var getHeadURL = function () {
     // console.log('headURL', headURL);
     // return (headURL || '').replace(/(^\$HeadURL:\s+)(.*)(\s\$)/, '$2');
     var url = document.querySelector("editURL");
+    console.log("URL: ", url);
     return url.innerHTML;
 };
 
