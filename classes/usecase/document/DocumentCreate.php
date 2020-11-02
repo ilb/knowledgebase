@@ -43,8 +43,8 @@ class DocumentCreate extends UseCase  {
         $repo = explode("/", $this->nameDocument);
         $path = $this->nameDocument;
         if (count($repo) > 1) {
-            $repo = $repo[0];
             $path = implode("/", array_slice($repo, 1));
+            $repo = $repo[0];
         } else {
             $repo = "";
         }
