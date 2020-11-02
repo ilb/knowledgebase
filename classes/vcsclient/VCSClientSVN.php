@@ -43,6 +43,7 @@ class VCSClientSVN extends VCSClientImpl implements VCSClient {
      */
     public function info($file) {
         $cmd = "svn info --show-item url " . $this->path . "/$file 2>&1";
+        print_r($cmd, true);
         return $this->exec($cmd);
     }
 }
