@@ -28,10 +28,12 @@ privapi.openLibreOffice = function (file_) {
 };
 
 var getHeadURL = function () {
-    var headURLElem = document.querySelector('meta[name="HeadURL"]');
-    var headURL = headURLElem && headURLElem.getAttribute('content');
-    console.log('headURL', headURL);
-    return (headURL || '').replace(/(^\$HeadURL:\s+)(.*)(\s\$)/, '$2');
+    // var headURLElem = document.querySelector('meta[name="HeadURL"]');
+    // var headURL = headURLElem && headURLElem.getAttribute('content');
+    // console.log('headURL', headURL);
+    // return (headURL || '').replace(/(^\$HeadURL:\s+)(.*)(\s\$)/, '$2');
+    var url = document.querySelector("editURL");
+    return url.innerHTML;
 };
 
 var editDoc = function () {
