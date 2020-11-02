@@ -61,7 +61,7 @@ $dop = "<file style='display: none'>$allName</file>" .
     "<mainDir style='display: none'>$dir</mainDir>" .
     "<document style='display: none'>$doc</document>" .
     "<user style='display: none'>$login</user>" .
-    "<editURL style='display:none'>". $editURL . "</editURL>" 
+    "<editURL style='display:none'>". $editURL[0] . "</editURL>" 
     . $subs;
 
 $docContext = substr($docContext, 0, $d) . $dop . substr($docContext, $d);
