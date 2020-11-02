@@ -50,8 +50,8 @@ $repoDocs = explode("/", $doc);
 $vcsFactory = new VCSClientFactory(Config::getInstance()->filespath);
 $vcsClient = $vcsFactory->getVCSClient($repoDocs[0]);
 $editURL = $vcsClient->info(implode("/", array_slice($repoDocs, 1)));
-//print_r($editURL, true);
-//exit(1);
+print_r($editURL, true);
+exit(1);
 $editURL = str_replace($_SERVER['ru.bystrobank.apps.svn.ws'], $_SERVER['ru.bystrobank.apps.svn.ws2'], $editURL);
 
 $docContext = str_replace("href=\"/oooxhtml/", "href=\"oooxhtml/", $docContext);
