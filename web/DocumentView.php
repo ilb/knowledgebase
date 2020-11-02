@@ -57,13 +57,11 @@ $d = strpos($docContext, "</body>");
 $dir = explode("/", $allName);
 $dir = array_slice($dir, 0, count($dir)-1);
 $dir = implode("/", $dir);
-var_dump($editURL);
-exit(1);
 $dop = "<file style='display: none'>$allName</file>" .
     "<mainDir style='display: none'>$dir</mainDir>" .
     "<document style='display: none'>$doc</document>" .
     "<user style='display: none'>$login</user>" .
-    "<editURL style='display:none'>$editURL</editURL>" 
+    "<editURL style='display:none'>". $editURL . "</editURL>" 
     . $subs;
 
 $docContext = substr($docContext, 0, $d) . $dop . substr($docContext, $d);
