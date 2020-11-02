@@ -32,4 +32,16 @@
         <env-entry-type>java.lang.String</env-entry-type>
         <env-entry-value>empty.xhtml</env-entry-value>
     </env-entry>
+    <env-entry>
+        <description>Редактирование по сертификату</description>
+        <env-entry-name>ru.bystrobank.apps.svn.ws</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>https://devel.net.ilb.ru/repos</env-entry-value>
+    </env-entry>
+    <env-entry>
+        <description>Редактирование по паролю</description>
+        <env-entry-name>ru.bystrobank.apps.svn.ws2</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>https://develb.net.ilb.ru/repos</env-entry-value>
+    </env-entry>
 </web-app>
