@@ -64,7 +64,7 @@ class DocumentParser extends Parser {
             }
             if (is_file($dir . "/" . $file)) {
                 $results[] = array(
-                    "name" => $parent . "/" . $file,
+                    "name" => $parent != "" ? $parent . "/" . $file : $file,
                     "source" => $dir . "/" . $file,
                 );
             }
