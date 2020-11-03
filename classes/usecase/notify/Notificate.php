@@ -26,16 +26,18 @@ class Notificate extends UseCase {
             }
             $names[] = $arr["elem"];
         }
-        mail("gudov@bystrobank.ru", "База знаний", print_r($names, true), "Content-type: text/plain; charset=utf-8");
 
         $subs = $this->repository->getSubscriptionByNamesMaterial($names);
-        mail("gudov@bystrobank.ru", "База знаний", print_r($subs, true), "Content-type: text/plain; charset=utf-8");
+        
         $id = [];
         foreach ($subs as $arr) {
             $id[] = $arr["id_subscription"];
             for ($i = 0; $i < count($this->elements); $i++) {
                 $this->elements[$i]['full_name'] = $arr['name_material'];
                 $name = explode("#", $arr['name_material'])[0];
+                if (strpos($this->elements[$i]['elem'], "trunk/docs")>=0) {
+                    $this->elements[$i]['elem'] = str_replace("trunk/docs", "knowledgebasedoc",  $this->elements[$i]['elem']);
+                }
                 if ($this->elements[$i]['elem'] == $name) {
                     $this->elements[$i]["id_subs"] = $arr["id_subscription"];
                     $user = [];
@@ -52,7 +54,6 @@ class Notificate extends UseCase {
         $this->repository->setSubscriptionNotViewed($id);
         $this->repository->addNotificate($this->elements);
         
-        mail("gudov@bystrobank.ru", "База знаний", print_r($this->elements, true), "Content-type: text/plain; charset=utf-8");
         foreach ($this->elements as $element) {
             if (!isset($element["user"])){
                 continue;
