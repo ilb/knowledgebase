@@ -22,6 +22,7 @@ class Notificate extends UseCase {
         foreach ($this->elements as $arr) {
             if (strpos($arr["elem"], "trunk/docs")>=0) {
                 $names[] = str_replace("trunk/docs", "knowledgebasedoc",  $arr["elem"]);
+                continue;
             }
             $names[] = $arr["elem"];
         }
@@ -51,6 +52,7 @@ class Notificate extends UseCase {
         $this->repository->setSubscriptionNotViewed($id);
         $this->repository->addNotificate($this->elements);
         
+        mail("gudov@bystrobank.ru", "База знаний", print_r($this->elements, true), "Content-type: text/plain; charset=utf-8");
         foreach ($this->elements as $element) {
             if (!isset($element["user"])){
                 continue;
