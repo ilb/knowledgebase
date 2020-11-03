@@ -44,7 +44,7 @@ class Notificate extends UseCase {
         }
         $this->repository->setSubscriptionNotViewed($id);
         $this->repository->addNotificate($this->elements);
-        file_put_contents("/tmp/dump123/test". time() . ".txt", print_r($this->elements, true));
+        
         foreach ($this->elements as $element) {
             if (!isset($element["user"])){
                 continue;

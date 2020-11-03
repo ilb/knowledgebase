@@ -18,7 +18,6 @@ if (!$hreq->isEmpty()) {
 
 if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
     $diff = file_get_contents("php://input");
-    file_put_contents("/tmp/dump123/test". time() . ".txt", $diff);
     $repo = new Repository(Config::getInstance()->connection);
     $pars = new SVNParser($diff);
     $result = $pars->getEvent();
@@ -29,7 +28,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
     $notify->setRepository($repo);
     $notify->execute();
 }
-file_put_contents("/tmp/dump123/test". time() . ".txt", print_r($_GET, true));
+
 $VCSClientFactory = new VCSClientFactory(Config::getInstance()->filespath);
 $VCSClient = $VCSClientFactory->getVCSClient($req->getRepo());
 $VCSClient->update();
