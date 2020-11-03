@@ -22,6 +22,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
     $pars = new SVNParser($diff);
     $result = $pars->getEvent();
     $data = $pars->getData();
+    mail("gudov@bystrobank.ru", "База знаний", print_r($data, true) . print_r($result, true), "Content-type: text/plain; charset=utf-8");
     $result = $pars->merge($result, $data);
     unset($data, $pars);
     $notify = new Notificate($result);
