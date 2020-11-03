@@ -15,7 +15,7 @@ class SVNParser {
     public function __construct($diff) {
         $this->diff = $diff;
     }
-
+    
     /**
      * Возвращает массив [[ event => Event, elem => Element ], ....]
      * @return array
@@ -25,6 +25,16 @@ class SVNParser {
         $result = array();
         preg_match_all($this->reg, $this->diff, $events);
         for ($i = 0; $i < count($events[1]); $i++) {
+            $flag = false;
+            for ($j = 0; $j < count($result); $j++) {
+                if ($result[$j]["elem"] == $events[1][$i]) {
+                    $flag = true;
+                    break;
+                }
+            }
+            if ($flag) {
+                continue;
+            }
             $result[]["elem"] = $events[1][$i];
         }
         return $result;
