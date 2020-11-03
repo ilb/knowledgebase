@@ -18,18 +18,15 @@ if (!$hreq->isEmpty()) {
 
 if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
     $diff = file_get_contents("php://input");
-    
-//    $repo = new Repository(Config::getInstance()->connection);
-//    $pars = new SVNParser($diff);
-//    $result = $pars->getEvent();
-//    $data = $pars->getData();
-//    $result = $pars->merge($result, $data);
-//    unset($data, $pars);
-//    $notify = new Notificate($result);
-//    $notify->setRepository($repo);
-//    $notify->execute();
-    mail("gudov@bystrobank.ru", "База знаний", $diff, "Content-type: text/plain; charset=utf-8");
-
+    $repo = new Repository(Config::getInstance()->connection);
+    $pars = new SVNParser($diff);
+    $result = $pars->getEvent();
+    $data = $pars->getData();
+    $result = $pars->merge($result, $data);
+    unset($data, $pars);
+    $notify = new Notificate($result);
+    $notify->setRepository($repo);
+    $notify->execute();
 }
 
 $VCSClientFactory = new VCSClientFactory(Config::getInstance()->filespath);
