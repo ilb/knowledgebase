@@ -69,10 +69,11 @@ class Repository {
             WHERE ";
         for ($i = 0; $i < count($names); $i++ ) {
             if ($i + 1 == count($names)) {
-                $sql .= "m.name_material LIKE '$names[$i]%'";
+                $sql .= "m.name_material LIKE '". $names[$i]. "%'";
                 break;
             }
             $sql .= "m.name_material LIKE '$names[$i]%' or ";
+            mail("gudov@bystrobank.ru", "База знаний", print_r($sql, true), "Content-type: text/plain; charset=utf-8");
         }
         $res = $this->dbconnect->query($sql);
         return $res->fetchAll(\PDO::FETCH_ASSOC);

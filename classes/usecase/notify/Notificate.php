@@ -27,9 +27,9 @@ class Notificate extends UseCase {
             $names[] = $arr["elem"];
         }
         mail("gudov@bystrobank.ru", "База знаний", print_r($names, true), "Content-type: text/plain; charset=utf-8");
-        mail("gudov@bystrobank.ru", "База знаний", print_r($this->elements, true), "Content-type: text/plain; charset=utf-8");
 
         $subs = $this->repository->getSubscriptionByNamesMaterial($names);
+        mail("gudov@bystrobank.ru", "База знаний", print_r($subs, true), "Content-type: text/plain; charset=utf-8");
         $id = [];
         foreach ($subs as $arr) {
             $id[] = $arr["id_subscription"];
