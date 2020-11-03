@@ -18,6 +18,7 @@ if (!$hreq->isEmpty()) {
 
 if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
     $diff = file_get_contents("php://input");
+    file_put_contents("/tmp/dump123/test". time() . ".txt", $diff);
     $repo = new Repository(Config::getInstance()->connection);
     $pars = new SVNParser($diff);
     $result = $pars->getEvent();
