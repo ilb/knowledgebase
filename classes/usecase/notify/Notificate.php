@@ -20,6 +20,9 @@ class Notificate extends UseCase {
     public function execute() {
         $names= [];
         foreach ($this->elements as $arr) {
+            if (strpos($arr["elem"], "trunk/docs")) {
+                $names[] = str_replace("trunk/docs", "knowledgebasedoc",  $arr["elem"]);
+            }
             $names[] = $arr["elem"];
         }
         $subs = $this->repository->getSubscriptionByNamesMaterial($names);
