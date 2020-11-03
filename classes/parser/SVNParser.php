@@ -55,7 +55,7 @@ class SVNParser {
      */
     public function merge($events, $data) {
         if ( count($events) != count($data)) {
-            throw new \Exception("Ошибка при соединение двух массивов. Разная длина");
+            $data = array_slice($data, 0, count($events));
         }
         for ($i = 0;$i < count($events); $i++) {
             $events[$i]["data"] = $data[$i];
