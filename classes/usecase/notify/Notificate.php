@@ -21,7 +21,7 @@ class Notificate extends UseCase {
         $names= [];
         foreach ($this->elements as $arr) {
             if (strpos($arr["elem"], "trunk/docs")) {
-                $names[] = str_replace("trunk/docs", "knowledgebasedoc",  $arr["elem"]);
+                $names[] = str_replace("trunk/docs", "knowledgebasedoc",  $arr["elem"])[0];
             }
             $names[] = $arr["elem"];
         }
