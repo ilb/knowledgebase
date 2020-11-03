@@ -20,12 +20,12 @@ class Notificate extends UseCase {
     public function execute() {
         $names= [];
         foreach ($this->elements as $arr) {
-            if (strpos($arr["elem"], "trunk/docs")) {
+            if (strpos($arr["elem"], "trunk/docs")>=0) {
                 $names[] = str_replace("trunk/docs", "knowledgebasedoc",  $arr["elem"])[0];
             }
             $names[] = $arr["elem"];
         }
-        mail("gudov@bystrobank.ru", "База знаний", print_r($names, true), "Content-type: text/plain; charset=utf-8");
+        
         $subs = $this->repository->getSubscriptionByNamesMaterial($names);
         $id = [];
         foreach ($subs as $arr) {
