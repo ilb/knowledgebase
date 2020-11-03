@@ -25,6 +25,7 @@ function subscribe(e) {
         close = document.createElementNS('http://www.w3.org/1999/xhtml', "button");
     input.type = "text";
     span.appendChild(input);
+    span.style.display = "inline";
     button.addEventListener("click", function (e) {
         addSubscribe(e, input, span, tag)
     });
