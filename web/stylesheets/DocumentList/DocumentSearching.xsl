@@ -24,7 +24,7 @@
         <html xml:lang="ru" xmlns="http://www.w3.org/1999/xhtml">
             <head>
                 <xsl:call-template name="head"/>
-                <title>Список документов</title>
+                <title>Поиск</title>
             </head>
             <body onload="">
                 <div class="full">

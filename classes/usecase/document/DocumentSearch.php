@@ -3,11 +3,9 @@
 /**
  * Поиск по документам тут
  */
-
 namespace usecase\document;
 
 use usecase\helper\UseCase;
-use requests\Curl;
 
 class DocumentSearch extends UseCase  {
     
@@ -50,14 +48,14 @@ class DocumentSearch extends UseCase  {
             $arr = [];
             $curl->setURL(
                 $this->source .
-                "$repo/svndocument/_search?pretty&q=" . 
-                $this->keyWord  
+                "/$repo/svndocument/_search?pretty&q=" . 
+                urlencode($this->keyWord)
             );
             $temp = $curl->getWithJSON();
             $arr["path"] = str_replace(
                     "trunk/docs", 
                     "knowledgebasedoc", 
-                    trim($temp["hits"]["hits"][0]["_source"]["path"], "")
+                    trim($temp["hits"]["hits"][0]["_source"]["fullname"], "/")
             );
             $arr["name"] = $temp["hits"]["hits"][0]["_source"]["name"];
             $result["doc"] = $arr;

@@ -33,7 +33,7 @@
     </xsl:template>
 
     <xsl:template match="/response">
-        <form class="ui form create_document">
+        <form class="ui form create_document" action="">
             <fieldset>
                 <legend>Добавить документ</legend>
                 <div class="two fields">
@@ -57,7 +57,7 @@
                     <div class="field">
                         <label>
                             Имя документа
-                            <input type="text" placeholder="Имя документа"/>
+                            <input type="text"/>
                         </label>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                 </div>
             </fieldset>
         </form>
-        <table class="ui celled selectable table">
+        <table summary="" class="ui celled selectable table">
             <tbody>
                 <tr>
                     <th>Name</th>
