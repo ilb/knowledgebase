@@ -6,6 +6,8 @@
 namespace usecase\document;
 
 use usecase\helper\UseCase;
+use requests\Curl;
+use parser\DocumentParser;
 
 class DocumentSearch extends UseCase  {
     
@@ -41,7 +43,7 @@ class DocumentSearch extends UseCase  {
      */
     public function execute() {
         $result = [];
-        $pars = new \parser\DocumentParser();
+        $pars = new DocumentParser();
         $repos = $pars->getRepos($this->dir);
         $curl = new Curl("");
         foreach ($repos as $repo) {
