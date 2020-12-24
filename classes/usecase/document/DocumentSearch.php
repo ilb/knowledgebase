@@ -6,9 +6,8 @@
 
 namespace usecase\document;
 
-use catalog\Catalog;
-use response\Response;
 use usecase\helper\UseCase;
+use requests\Curl;
 
 class DocumentSearch extends UseCase  {
     
@@ -23,12 +22,19 @@ class DocumentSearch extends UseCase  {
     private $keyWord;
     
     /**
+     *
+     * @var string
+     */
+    private $dir;
+    
+    /**
      * @param string $source
      * @param string $keyWord
      */
-    public function __construct($source, $keyWord) {
+    public function __construct($dir, $source, $keyWord) {
         $this->source = $source;
         $this->keyWord = $keyWord;
+        $this->dir = $dir;
     }
     
     /**
@@ -36,17 +42,28 @@ class DocumentSearch extends UseCase  {
      * @return \response\Response
      */
     public function execute() {
-        $catalog = new Catalog($this->source);
-        $catalog->createDocuments();
-        // Если получать из репозитория то цикл можно убрать
-        foreach ($catalog->getDocuments() as $doc) {
-            $doc->createResources();
-            $doc->getName();
-
-            $keywords = $this->repository->getKeywords($doc->getName());
-            $doc->addKeywords($keywords);
+        $result = [];
+        $pars = new \parser\DocumentParser();
+        $repos = $pars->getRepos($this->dir);
+        $curl = new Curl("");
+        foreach ($repos as $repo) {
+            $arr = [];
+            $curl->setURL(
+                $this->source .
+                "$repo/svndocument/_search?pretty&q=" . 
+                $this->keyWord  
+            );
+            $temp = $curl->getWithJSON();
+            $arr["path"] = str_replace(
+                    "trunk/docs", 
+                    "knowledgebasedoc", 
+                    trim($temp["hits"]["hits"][0]["_source"]["path"], "")
+            );
+            $arr["name"] = $temp["hits"]["hits"][0]["_source"]["name"];
+            $result["doc"] = $arr;
         }
-        $res = $catalog->searchByKeyword($this->keyWord);
-        return new Response($res);
+        return array(
+            "docs" => $result,
+        );
     }
 }

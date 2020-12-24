@@ -11,12 +11,10 @@ use usecase\document\DocumentSearch;
 require_once '../config/bootstrap.php';
 
 if (isset($_GET['keyWord'])) {
-    $repository = new Repository(Config::getInstance()->connection);
-    $df = new DocumentSearch(Config::getInstance()->filespath, $_GET['keyWord']);
-    $df->setRepository($repository);
+    $df = new DocumentSearch(Config::getInstance()->filespath, "http://devel:9200", $_GET['keyWord']);
     $response = $df->execute();
     $serialize = new Serialize();
-    $xml = $serialize->objToXMLandXSL($response, "stylesheets/DocumentList/DocumentList.xsl");
+    $xml = $serialize->arrToXMLandXSL($response, "stylesheets/DocumentList/DocumentSearching.xsl");
     XML_Output::tryHTML($xml,TRUE);
 } else {
     header("Location: DocumentList.php");
