@@ -68,7 +68,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <xsl:value-of select="content"/>
+                                <xsl:value-of select="content" disable-output-escaping="yes"/>
                             </td> 
                         </tr>
                     </xsl:for-each>
