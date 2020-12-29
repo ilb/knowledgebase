@@ -66,6 +66,11 @@
                                 </a>
                             </td>
                         </tr>
+                        <tr>
+                            <td colspan="2">
+                                <xsl:value-of select="content"/>
+                            </td> 
+                        </tr>
                     </xsl:for-each>
                 </tbody>
             </table>

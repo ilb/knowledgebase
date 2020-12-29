@@ -46,22 +46,39 @@ class DocumentSearch extends UseCase  {
         $pars = new DocumentParser();
         $repos = $pars->getRepos($this->dir);
         $curl = new Curl("");
-        foreach ($repos as $repo) {
+//        foreach ($repos as $repo) {
             $arr = [];
             $curl->setURL(
                 $this->source .
-                "/$repo/svndocument/_search?pretty&q=" . 
-                urlencode($this->keyWord)
+                "/_search"
             );
-            $temp = $curl->getWithJSON();
+            $data = [
+                "query"=> [
+                    "match"=> [
+                        "content"=> $this->keyWord,
+                    ],
+                ],
+                "highlight"=> [
+                      "fields"=> [
+                           "content"=> [],
+                      ],
+
+                ],
+            ];
+            $curl->setData($data);
+            $temp = $curl->getWithData();
+            if ($temp["hits"]["total"] == 0) {
+                return ["docs" => []]; 
+            }
             $arr["path"] = str_replace(
                     "trunk/docs", 
                     "knowledgebasedoc", 
-                    trim($temp["hits"]["hits"][0]["_source"]["fullname"], "/")
+                    trim($temp["hits"]["hits"][0]["_source"]["path"]["virtual"], "/")
             );
-            $arr["name"] = $temp["hits"]["hits"][0]["_source"]["name"];
+            $arr["name"] = $temp["hits"]["hits"][0]["_source"]["file"]["filename"];
+            $arr["content"] = $temp["hits"]["hits"][0]["highlight"]["content"][0];
             $result["doc"] = $arr;
-        }
+//        }
         return array(
             "docs" => $result,
         );

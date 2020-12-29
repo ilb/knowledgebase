@@ -11,43 +11,39 @@
     </xsl:variable>
 
     <xsl:template name="head">
-            <xsl:apply-templates select="xhtml:head"/>
-            <link rel="stylesheet" type="text/css" href="/oooxhtml/oooxhtml.css">
-                <xsl:text><![CDATA[]]></xsl:text>
-            </link>
-            <link rel="stylesheet" type="text/css" href="css/main.css">
-                <xsl:text><![CDATA[]]></xsl:text>
-            </link>
-            <link rel="stylesheet" type="text/css" href="css/semantic.min.css">
-                <xsl:text><![CDATA[]]></xsl:text>
-            </link>
-            <script type="text/javascript" src="js/jquery.min.js">
-                <xsl:text><![CDATA[]]></xsl:text>
-            </script>
-            <script type="text/javascript" src="js/semantic.min.js">
-                <xsl:text><![CDATA[]]></xsl:text>
-            </script>
-            <script type="text/javascript" src="/privapi/web/scripts/privilegedAPI.js">
-                <xsl:text><![CDATA[]]></xsl:text>
-            </script>
+        <xsl:apply-templates select="xhtml:head"/>
+        <link rel="stylesheet" type="text/css" href="/oooxhtml/oooxhtml.css">
+            <xsl:text><![CDATA[]]></xsl:text>
+        </link>
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+            <xsl:text><![CDATA[]]></xsl:text>
+        </link>
+        <link rel="stylesheet" type="text/css" href="css/semantic.min.css">
+            <xsl:text><![CDATA[]]></xsl:text>
+        </link>
+        <script type="text/javascript" src="js/jquery.min.js">
+            <xsl:text><![CDATA[]]></xsl:text>
+        </script>
+        <script type="text/javascript" src="js/semantic.min.js">
+            <xsl:text><![CDATA[]]></xsl:text>
+        </script>
+        <script type="text/javascript" src="/privapi/web/scripts/privilegedAPI.js">
+            <xsl:text><![CDATA[]]></xsl:text>
+        </script>
     </xsl:template>
 
     <xsl:template name="menu-header">
         <div class="ui large vertical menu">
             <div class="item">
                 <form class="ui form" action="DocumentFind.php">
-                    <div class="fields">
-                        <div class="fluid field">
-                            <input type="text"  name="keyWord" />
-                        </div>
-                        <div class="field">
-                            <button class="ui button">
-                                Поиск
-                            </button>
-                        </div>
+                    <div class="fluid field">
+                        <input type="text"  name="keyWord" />
                     </div>
-
-                    <!--                    <button style="display: none"/>-->
+                    <div class="field">
+                        <button class="ui button">
+                            Поиск
+                        </button>
+                    </div>
                 </form>
             </div>
             <a class="item" href="CreateDocument.php">

@@ -80,20 +80,24 @@ class Curl {
     }
     
     /**
+     * 
+     */
+     public function getWithData() {
+        $json = json_encode($this->data, JSON_UNESCAPED_UNICODE);
+        $json = str_replace("[]", "{}", $json);
+        curl_setopt($this->ch, CURLOPT_POSTFIELDS, $json);
+        curl_setopt($this->ch, CURLOPT_HTTPHEADER, array(
+            "Content-type: application/json",
+        ));
+        return json_decode(curl_exec($this->ch), true);
+    }
+    
+    /**
      * Просто делает GET и возвращает ответ
      * @return type
      */
     public function get() {
         return curl_exec($this->ch);
-    }
-    
-   /**
-    * TODO: 
-    */
-    public function POST() {
-        if (!empty($this->data)) {
-            $this->setDataCurl();
-        }
     }
     
     /**
