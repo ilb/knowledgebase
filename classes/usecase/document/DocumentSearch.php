@@ -75,7 +75,11 @@ class DocumentSearch extends UseCase  {
                     "knowledgebasedoc", 
                     trim($temp["hits"]["hits"][0]["_source"]["path"]["virtual"], "/")
             );
-            $arr["name"] = $temp["hits"]["hits"][0]["_source"]["file"]["filename"];
+            if (isset($temp["hits"]["hits"][0]["_source"]["meta"]["title"])) {
+                $arr["name"] = $temp["hits"]["hits"][0]["_source"]["meta"]["title"];
+            } else {
+                $arr["name"] = $temp["hits"]["hits"][0]["_source"]["file"]["filename"];
+            }
             $arr["content"] = $temp["hits"]["hits"][0]["highlight"]["content"][0];
             $result["doc"] = $arr;
 //        }

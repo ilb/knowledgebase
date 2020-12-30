@@ -41,39 +41,19 @@
 
     <xsl:template match="/response">
         <div class="ui container">
-            <table summary="" class="ui celled  table">
-                <caption>
-                    Найденные документы
-                </caption>
-                <thead>
-                    <tr>
-                        <th>Наименование</th>
-                        <th>Ссылка</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <xsl:for-each select="/response/docs/doc">
-                        <tr>
-                            <td>
-                                <xsl:value-of select="name"/>
-                            </td>
-                            <td>
-                                <a>
-                                    <xsl:attribute name="href">
-                                        <xsl:value-of select="concat('DocumentView.php?url-0=', path)"/>
-                                    </xsl:attribute>
-                                    Посмотреть
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <xsl:value-of select="content" disable-output-escaping="yes"/>
-                            </td> 
-                        </tr>
-                    </xsl:for-each>
-                </tbody>
-            </table>
+            <xsl:for-each select="/response/docs/doc">
+                <div class="ui raised segment">
+                    <a class="ui red ribbon label">
+                        <xsl:attribute name="href">
+                            <xsl:value-of select="concat('DocumentView.php?url-0=', path)"/>
+                        </xsl:attribute>
+                        <xsl:value-of select="name"/>
+                    </a>
+                    <p>
+                        <xsl:value-of select="content" disable-output-escaping="yes"/>
+                    </p>
+                </div>
+            </xsl:for-each>
         </div>
     <hr/>
     </xsl:template>
