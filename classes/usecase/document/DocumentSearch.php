@@ -89,7 +89,7 @@ class DocumentSearch extends UseCase  {
             $result["doc"] = $arr;
 //        }
         return array(
-            "search_element"=> $this->source,
+            "search_element"=> $this->keyWord,
             "docs" => $result,
         );
     }
