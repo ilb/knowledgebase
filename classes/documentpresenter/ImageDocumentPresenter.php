@@ -13,13 +13,13 @@ namespace documentpresenter;
  *
  * @author gudov
  */
-class ImageDocumentPresenter {
+class ImageDocumentPresenter implements DocumentPresenter  {
     
     /**
      * 
      * @param string $path
      */
-    public function present($path) {
-        echo file_get_contents($path);
+    public function present($docContext) {
+        echo $docContext;
     }
 }

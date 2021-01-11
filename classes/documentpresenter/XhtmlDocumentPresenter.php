@@ -18,14 +18,13 @@ use vcsclient\VCSClientFactory;
  *
  * @author gudov
  */
-class XhtmlDocumentPresenter {
+class XhtmlDocumentPresenter implements DocumentPresenter {
 
     /**
      * 
-     * @param string $path
+     * @param string $docContext
      */
-    public function present($path) {
-        $docContext = file_get_contents($path);
+    public function present($docContext) {
 //        $repo = new Repository(Config::getInstance()->connection);
 //        $subs = new GetSubscriptionDocUser(Config::getInstance()->login, $doc);
 //        $subs->setRepository($repo);

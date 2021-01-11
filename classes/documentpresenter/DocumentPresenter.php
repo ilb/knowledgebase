@@ -14,8 +14,8 @@ namespace documentpresenter;
  */
 interface DocumentPresenter {
     /**
-     * Показывает документ по пути
-     * @param string $path
+     * Показывает документ 
+     * @param string $docContext
      */
-    public function present($path);
+    public function present($docContext);
 }

@@ -29,7 +29,11 @@ class GetMimeType extends UseCase {
     
     public function execute() {
         $mimeType = new Mime_Type();
-        return $mimeType->getTypeByContentAndExt($this->filePath,  pathinfo($this->filePath, PATHINFO_EXTENSION));
+        $mime = $mimeType->getTypeByContentAndExt($this->filePath,  pathinfo($this->filePath, PATHINFO_EXTENSION));
+        return array(
+            "content" => file_get_contents($this->filePath),
+            "mime_type" => $mime,
+        );
     }
 
 }

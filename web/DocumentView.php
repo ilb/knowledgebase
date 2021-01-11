@@ -19,11 +19,11 @@ preg_match_all("/[a-z]+.*[a-z]+/", $doc, $mathes);
 $path = Config::getInstance()->filespath . "/" . $mathes[0][0];
 
 $defineMimeType = new GetMimeType($path);
-$mimeType = $defineMimeType->execute();
-header("Content-type: $mimeType");
+$data = $defineMimeType->execute();
+header("Content-type: " . $data["mime_type"]);
 
-$documentPrFactory = new DocumentPresenterFactory($mimeType);
+$documentPrFactory = new DocumentPresenterFactory($data["mime_type"]);
 $documentPresent = $documentPrFactory->getDocumentPresenter();
-$documentPresent->present($path);
+$documentPresent->present($data["content"]);
 // если использовать это ломаются скрипты oooxhtml
 //XML_Output::tryHTML($docContext,TRUE);
