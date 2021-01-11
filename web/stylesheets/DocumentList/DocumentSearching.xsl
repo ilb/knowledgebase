@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Шаблон формы -->
 <xsl:stylesheet
-    xmlns="http://www.w3.org/1999/xhtml"
+            xmlns="http://www.w3.org/1999/xhtml"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     exclude-result-prefixes="xhtml xsl"
@@ -41,9 +41,6 @@
 
     <xsl:template match="/response">
         <div class="ui container">
-            <xsl:if test="/response/docs/doc = ''">
-                <p>Ничего не найденно</p>
-            </xsl:if>
             <xsl:for-each select="/response/docs/doc">
                 <div class="ui raised segment">
                     <a class="ui red ribbon label">
