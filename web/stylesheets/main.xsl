@@ -37,7 +37,11 @@
             <div class="item">
                 <form class="ui form" action="DocumentFind.php">
                     <div class="fluid field">
-                        <input type="text"  name="keyWord" />
+                        <input type="text"  name="keyWord">
+                            <xsl:attribute name="value">
+                                <xsl:value-of select="/response/search_element != ''"/>
+                            </xsl:attribute>
+                        </input>
                     </div>
                     <div class="field">
                         <button class="ui button">

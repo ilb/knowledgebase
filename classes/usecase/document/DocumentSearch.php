@@ -69,11 +69,11 @@ class DocumentSearch extends UseCase  {
             $temp = $curl->getWithData();
             
             if (isset($temp["error"])) {
-                return ["docs" => []]; 
+                return ["search_element"=> $this->source,"docs" => []]; 
             }
             
             if ($temp["hits"]["total"] == 0) {
-                return ["docs" => []]; 
+                return ["search_element"=> $this->source,"docs" => []]; 
             }
             $arr["path"] = str_replace(
                     "trunk/docs", 
@@ -89,6 +89,7 @@ class DocumentSearch extends UseCase  {
             $result["doc"] = $arr;
 //        }
         return array(
+            "search_element"=> $this->source,
             "docs" => $result,
         );
     }
