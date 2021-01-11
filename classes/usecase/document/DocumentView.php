@@ -6,16 +6,17 @@
  * and open the template in the editor.
  */
 
-namespace usecase\mime;
+namespace usecase\document;
 
 use usecase\helper\UseCase;
+use documentpresenter\DocumentPresenterFactory;
 
 /**
- * Description of GetMimeType
+ * Description of DocumentView
  *
  * @author gudov
  */
-class GetMimeType extends UseCase {
+class DocumentView extends UseCase  {
     
     /**
      *
@@ -24,16 +25,18 @@ class GetMimeType extends UseCase {
     private $filePath;
     
     public function __construct($path) {
-        $this->path = $path;
+        $this->filePath = $path;
     }
     
+    /**
+     * 
+     * @return \documentpresenter\DocumentPresenter     
+     */
     public function execute() {
         $mimeType = new Mime_Type();
         $mime = $mimeType->getTypeByContentAndExt($this->filePath,  pathinfo($this->filePath, PATHINFO_EXTENSION));
-        return array(
-            "content" => file_get_contents($this->filePath),
-            "mime_type" => $mime,
-        );
+        header("Content-type: $mime");
+        $documentPrFactory = new DocumentPresenterFactory();
+        return $documentPrFactory->getDocumentPresenter($data["mime_type"]);
     }
-
 }

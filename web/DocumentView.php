@@ -1,8 +1,7 @@
 <?php
 
 use config\Config;
-use documentpresenter\DocumentPresenterFactory;
-use usecase\mime\GetMimeType;
+use usecase\document\DocumentView;
 
 require_once '../config/bootstrap.php';
 
@@ -18,12 +17,6 @@ $login = Config::getInstance()->login;
 preg_match_all("/[a-z]+.*[a-z]+/", $doc, $mathes);
 $path = Config::getInstance()->filespath . "/" . $mathes[0][0];
 
-$defineMimeType = new GetMimeType($path);
-$data = $defineMimeType->execute();
-header("Content-type: " . $data["mime_type"]);
-
-$documentPrFactory = new DocumentPresenterFactory($data["mime_type"]);
-$documentPresent = $documentPrFactory->getDocumentPresenter();
-$documentPresent->present($data["content"]);
-// если использовать это ломаются скрипты oooxhtml
-//XML_Output::tryHTML($docContext,TRUE);
+$usecase = new DocumentView($path);
+$documentPresent = $usecase->execute();
+$documentPresent->present($path);

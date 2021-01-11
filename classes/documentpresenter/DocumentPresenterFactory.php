@@ -16,28 +16,14 @@ namespace documentpresenter;
 class DocumentPresenterFactory {
     
     /**
-     *  Mime type
-     * @var string
-     */
-    private $mimeType;
-    
-    /**
-     * Init
-     * @param string $mimeType
-     */
-    public function __construct($mimeType) {
-         $this->mimeType = $mimeType;
-    }
-    
-    /**
      * 
      * @return \documentpresenter\DocumentPresenter
      */
-    public function getDocumentPresenter() {
-        $splitmimeType = explode( "/", $this->mimeType);
+    public function getDocumentPresenter($mimeType) {
+        $splitmimeType = explode( "/", $mimeType);
         if ($splitmimeType[0] == "application") {
             return new XhtmlDocumentPresenter();
         }
-        return new ImageDocumentPresenter();
+        return new DefaultDocumentPresenter();
     }
 }
