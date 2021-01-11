@@ -24,7 +24,7 @@ if (!$hreq->isEmpty()) {
     $viewed = new SubscribtionViewed($login, $material);
     $viewed->setRepository($repository);
     if ($viewed->execute()) {
-        header("Location: DocumentView.php?url-0=" . $req->getLink_to() . "#" .$req->getLink_tag());
+        header("Location: DocumentView.php/" . $req->getLink_to() . "#" .$req->getLink_tag());
     }
 }
 

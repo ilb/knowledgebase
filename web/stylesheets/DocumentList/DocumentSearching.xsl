@@ -45,7 +45,7 @@
                 <div class="ui raised segment">
                     <a class="ui red ribbon label">
                         <xsl:attribute name="href">
-                            <xsl:value-of select="concat('DocumentView.php?url-0=', path)"/>
+                            <xsl:value-of select="concat('DocumentView.php/', path)"/>
                         </xsl:attribute>
                         <xsl:value-of select="name"/>
                     </a>
