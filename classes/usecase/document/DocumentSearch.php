@@ -69,11 +69,11 @@ class DocumentSearch extends UseCase  {
             $temp = $curl->getWithData();
             
             if (isset($temp["error"])) {
-                return ["search_element"=> $this->source,"docs" => []]; 
+                return ["search_element"=> $this->keyWord,"docs" => []]; 
             }
             
             if ($temp["took"] == 0) {
-                return ["search_element"=> $this->source,"docs" => []]; 
+                return ["search_element"=> $this->keyWord,"docs" => []]; 
             }
             $arr["path"] = str_replace(
                     "trunk/docs", 

@@ -31,7 +31,7 @@ $path = Config::getInstance()->filespath . "/" . $mathes[0][0];
 
 $docContext = file_get_contents($path);
 
-// TODO: для отображения картинок
+// TODO:для отображения картинок
 //$typesImage = ["png", "jpg", "jpeg", "gif"];
 //$type = explode(".", $string);
 //foreach ($typesImage as $value) {
