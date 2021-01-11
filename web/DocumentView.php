@@ -18,6 +18,11 @@ if (!$hreq->isEmpty()) {
 }
 // Наворатил что то вообще ...
 $allName = $req->getUrl();
+if (trim($allName) == "") {
+    header("Location: DocumentList.php");
+}
+
+
 $doc = explode("#", $allName)[0];
 $login = Config::getInstance()->login;
 
@@ -25,6 +30,16 @@ preg_match_all("/[a-z]+.*[a-z]+/", $doc, $mathes);
 $path = Config::getInstance()->filespath . "/" . $mathes[0][0];
 
 $docContext = file_get_contents($path);
+
+$typesImage = ["png", "jpg", "jpeg", "gif"];
+$type = explode(".", $string);
+foreach ($typesImage as $value) {
+    if ($type[count($type)-1] == $value) {
+        header("Content-type: image/*");
+        echo $docContext;
+        exit(0);
+    }
+}
 
 $repo = new Repository(Config::getInstance()->connection);
 $subs = new GetSubscriptionDocUser(Config::getInstance()->login, $doc);

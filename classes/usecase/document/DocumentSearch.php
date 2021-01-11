@@ -43,8 +43,8 @@ class DocumentSearch extends UseCase  {
      */
     public function execute() {
         $result = [];
-        $pars = new DocumentParser();
-        $repos = $pars->getRepos($this->dir);
+//        $pars = new DocumentParser();
+        //$repos = $pars->getRepos($this->dir); было для поиска по репозиториям
         $curl = new Curl("");
 //        foreach ($repos as $repo) {
             $arr = [];
@@ -67,6 +67,11 @@ class DocumentSearch extends UseCase  {
             ];
             $curl->setData($data);
             $temp = $curl->getWithData();
+            
+            if (isset($temp["error"])) {
+                return ["docs" => []]; 
+            }
+            
             if ($temp["hits"]["total"] == 0) {
                 return ["docs" => []]; 
             }
@@ -80,7 +85,7 @@ class DocumentSearch extends UseCase  {
             } else {
                 $arr["name"] = $temp["hits"]["hits"][0]["_source"]["file"]["filename"];
             }
-            $arr["content"] = $temp["hits"]["hits"][0]["highlight"]["content"][0];
+            $arr["content"] = implode("...", $temp["hits"]["hits"][0]["highlight"]["content"]);
             $result["doc"] = $arr;
 //        }
         return array(
