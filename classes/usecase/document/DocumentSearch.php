@@ -72,7 +72,7 @@ class DocumentSearch extends UseCase  {
                 return ["search_element"=> $this->source,"docs" => []]; 
             }
             
-            if ($temp["hits"]["total"] == 0) {
+            if ($temp["took"] == 0) {
                 return ["search_element"=> $this->source,"docs" => []]; 
             }
             $arr["path"] = str_replace(
