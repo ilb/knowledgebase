@@ -44,4 +44,9 @@
         <env-entry-type>java.lang.String</env-entry-type>
         <env-entry-value>https://develb.net.ilb.ru/repos</env-entry-value>
     </env-entry>
+    <resource-env-ref>
+        <description>Сервис elasticsearch</description>
+        <resource-env-ref-name>.apps.elasticsearch.ws</resource-env-ref-name>
+        <resource-env-ref-type>java.lang.String</resource-env-ref-type>
+    </resource-env-ref>
 </web-app>
