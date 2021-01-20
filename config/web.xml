@@ -6,7 +6,7 @@
     </description>
     <resource-env-ref>
         <description>имя бд приложения knowledgebase</description>
-        <resource-env-ref-name>.apps.knowledgebase.db</resource-env-ref-name>
+        <resource-env-ref-name>apps.knowledgebase.db</resource-env-ref-name>
         <resource-env-ref-type>java.lang.String</resource-env-ref-type>
     </resource-env-ref>
     <env-entry>

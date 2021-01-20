@@ -45,7 +45,7 @@ class Config {
         $this->default = $_SERVER["apps.knowledgebase.default_file"];
         $this->login = $_SERVER['REMOTE_USER'];
         $this->filespath = $_SERVER['apps.knowledgebase.filespath'];
-        $DBConfig = \DB_Config::constructFromConnectionString($_SERVER['.apps.knowledgebase.db'])
+        $DBConfig = \DB_Config::constructFromConnectionString($_SERVER['apps.knowledgebase.db'])
             ->setUser($_SERVER['apps.knowledgebase.db_USER'])
             ->setPass($_SERVER["apps.knowledgebase.db_PASSWORD"]);
         $this->connection = \DB_PDOFactory::getInstance()->getPDO($DBConfig, array(\PDO::ATTR_PERSISTENT => false, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION));
