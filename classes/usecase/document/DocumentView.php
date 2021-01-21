@@ -37,7 +37,7 @@ class DocumentView extends UseCase  {
         $mime = $mimeType->getTypeByContentAndExt($this->filePath,  pathinfo($this->filePath, PATHINFO_EXTENSION));
         $documentPrFactory = new DocumentPresenterFactory();
         return array(
-            "mime_type" => $mime,
+            "contentType" => $mime,
             "content" => $documentPrFactory->getDocumentPresenter($mime)
         );
     }

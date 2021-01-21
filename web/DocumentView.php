@@ -21,5 +21,5 @@ $path = Config::getInstance()->filespath . "/" . $mathes[0][0];
 $usecase = new DocumentView($path);
 $documentPresentData = $usecase->execute();
 
-header("Content-type: " . $documentPresentData["mime_type"]);
+header("Content-type: " . $documentPresentData["contentType"]);
 echo $documentPresentData["content"]->present($path);
