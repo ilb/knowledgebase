@@ -20,8 +20,7 @@ class DocumentPresenterFactory {
      * @return \documentpresenter\DocumentPresenter
      */
     public function getDocumentPresenter($mimeType) {
-        $splitmimeType = explode( "/", $mimeType);
-        if ($splitmimeType[0] == "application") {
+        if ($mimeType == "application/xhtml+xml") {
             return new XhtmlDocumentPresenter();
         }
         return new DefaultDocumentPresenter();

@@ -5,6 +5,7 @@ use usecase\document\DocumentView;
 
 require_once '../config/bootstrap.php';
 
+
 if (!isset($_SERVER["PATH_INFO"])) {
     header("Location: DocumentList.php");
 }
@@ -18,5 +19,7 @@ preg_match_all("/[a-z]+.*[a-z]+/", $doc, $mathes);
 $path = Config::getInstance()->filespath . "/" . $mathes[0][0];
 
 $usecase = new DocumentView($path);
-$documentPresent = $usecase->execute();
-$documentPresent->present($path);
+$documentPresentData = $usecase->execute();
+
+header("Content-type: " . $documentPresentData["mime_type"]);
+echo $documentPresentData["content"]->present($path);

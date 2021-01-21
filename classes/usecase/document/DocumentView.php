@@ -17,7 +17,7 @@ use documentpresenter\DocumentPresenterFactory;
  * @author gudov
  */
 class DocumentView extends UseCase  {
-    
+       
     /**
      *
      * @var string
@@ -33,10 +33,12 @@ class DocumentView extends UseCase  {
      * @return \documentpresenter\DocumentPresenter     
      */
     public function execute() {
-        $mimeType = new Mime_Type();
+        $mimeType = new \Mime_Type();
         $mime = $mimeType->getTypeByContentAndExt($this->filePath,  pathinfo($this->filePath, PATHINFO_EXTENSION));
-        header("Content-type: $mime");
         $documentPrFactory = new DocumentPresenterFactory();
-        return $documentPrFactory->getDocumentPresenter($data["mime_type"]);
+        return array(
+            "mime_type" => $mime,
+            "content" => $documentPrFactory->getDocumentPresenter($mime)
+        );
     }
 }

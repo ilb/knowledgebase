@@ -26,13 +26,13 @@ class XhtmlDocumentPresenter implements DocumentPresenter {
      */
     public function present($path) {
         $docContext = file_get_contents($path);
-        $repo = new Repository(Config::getInstance()->connection);
-        $subs = new GetSubscriptionDocUser(Config::getInstance()->login, $doc);
-        $subs->setRepository($repo);
-        $subs = $subs->execute();
-        $ser = new Serialize();
+//        $repo = new Repository(Config::getInstance()->connection);
+//        $subs = new GetSubscriptionDocUser(Config::getInstance()->login, $doc);
+//        $subs->setRepository($repo);
+//        $subs = $subs->execute();
+//        $ser = new Serialize();
 
-        $subs = explode("<?xml version=\"1.0\"?>", $ser->arrToXML($subs))[1];
+        $subs = explode("<?xml version=\"1.0\"?>", $ser->arrToXML([]))[1];
 
         if (!strpos($docContext, "oooxhtml.xsl")) {
             $head = "<?xml-stylesheet type=\"text/xsl\" href=\"/oooxhtml/oooxhtml.xsl\"?>";
@@ -65,7 +65,7 @@ class XhtmlDocumentPresenter implements DocumentPresenter {
                 . $subs;
 
         $docContext = substr($docContext, 0, $d) . $dop . substr($docContext, $d);
-        echo $docContext;
+        return $docContext;
     }
     
 }

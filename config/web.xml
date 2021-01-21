@@ -15,11 +15,11 @@
         <env-entry-type>java.lang.String</env-entry-type>
         <env-entry-value>knowledgebase</env-entry-value>
     </env-entry>
-    <env-entry>
+<!--    <env-entry>
         <description>пароль к бд приложения knowledgebase</description>
         <env-entry-name>apps.knowledgebase.db_PASSWORD</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-    </env-entry>
+    </env-entry>-->
     <env-entry>
         <description>путь до файлов knowledgebase</description>
         <env-entry-name>apps.knowledgebase.filespath</env-entry-name>
