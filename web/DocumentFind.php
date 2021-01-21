@@ -11,7 +11,7 @@ use usecase\document\DocumentSearch;
 require_once '../config/bootstrap.php';
 
 if (isset($_GET['keyWord'])) {
-    $df = new DocumentSearch(Config::getInstance()->filespath, "http://localhost:9200", $_GET['keyWord']);
+    $df = new DocumentSearch(Config::getInstance()->filespath, $_SERVER[".apps.elasticsearch.ws"], $_GET['keyWord']);
     $response = $df->execute();
     $serialize = new Serialize();
     $xml = $serialize->arrToXMLandXSL($response, "stylesheets/DocumentList/DocumentSearching.xsl");
