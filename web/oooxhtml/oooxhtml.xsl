@@ -23,6 +23,10 @@
     </xsl:variable>-->
     <xsl:strip-space elements="*"/>
 
+    <xsl:variable name="mainURL">
+        <xsl:text>/~gudov/knowledgebase/web/</xsl:text>
+    </xsl:variable>
+    
     <!-- the identity template -->
     <xsl:template match="@*|node()">
         <xsl:copy>
@@ -39,13 +43,22 @@
             <script type="text/javascript" src="/privapi/web/scripts/privilegedAPI.js">
                 <xsl:text><![CDATA[]]></xsl:text>
             </script>
-            <script type="text/javascript" src="oooxhtml/oooxhtml.js">
+            <script type="text/javascript">
+                <xsl:attribute name="src">
+                    <xsl:value-of select="concat($mainURL, 'oooxhtml/oooxhtml.js')"/>
+                </xsl:attribute>
                 <xsl:text><![CDATA[]]></xsl:text>
             </script>
-            <script type="text/javascript" src="js/subscribe.js">
+            <script type="text/javascript">
+                <xsl:attribute name="src">
+                    <xsl:value-of select="concat($mainURL, 'js/subscribe.js')"/>
+                </xsl:attribute>
                 <xsl:text><![CDATA[]]></xsl:text>
             </script>
-            <script type="text/javascript" src="js/createDocument.js">
+            <script type="text/javascript">
+                <xsl:attribute name="src">
+                    <xsl:value-of select="concat($mainURL, 'js/createDocument.js')"/>
+                </xsl:attribute>
                 <xsl:text><![CDATA[]]></xsl:text>
             </script>
             <style>

@@ -17,5 +17,5 @@ interface DocumentPresenter {
      * Показывает документ 
      * @param string $docContext
      */
-    public function present($docContext);
+    public function present($docContext, $doc, $login);
 }

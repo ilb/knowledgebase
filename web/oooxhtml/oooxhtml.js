@@ -508,9 +508,10 @@ var toggleAnnotations = function (event) {
         if (!contentDiv) {
             return false;
         }
-        var url = location.href.split("?")[0].split('/').slice(0, -1).join('/'),
-            dir = location.href.split("?")[1].split("=")[1].split("/").slice(0, -1).join("/");
-        url += "?dir-0=" + dir;
+        var url = location.href.split("DocumentView.php")[0].split('/').slice(0, -1).join('/'),
+            dir = location.href.split("DocumentView.php")[1].split("/").slice(0, -1).join("/");
+        url += "?dir-0=" + dir.slice(1);
+        console.log(url)
         contentDiv.innerHTML = '';
         loadContent({
             url: url,
