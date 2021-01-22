@@ -1,6 +1,5 @@
 <?php
-require('DocumentList.php');
-/*
+
 use config\Config;
 use parser\DocumentParser;
 use ru\ilb\knowledgebase\Dir;
@@ -44,4 +43,3 @@ $docs["parentDir"] = $prev;
 $ser = new Serialize();
 $xml = $ser->arrToXMLandXSL($docs, "stylesheets/Table/Table.xsl");
 XML_Output::tryHTML($xml,TRUE);
-*/

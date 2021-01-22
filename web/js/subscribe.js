@@ -7,7 +7,7 @@ window.addEventListener('load', function () {
 
 function main() {
     // имя документа
-    doc = window.location.search.split("=")[1].split("#")[0];
+    doc = location.href.split("DocumentView.php")[1].split("/").slice(0, -1).join("/").slice(1);
 
     var btnSubsList = document.querySelectorAll(".subscribe");
     for (var i = 0; i < btnSubsList.length; i++ ) {
