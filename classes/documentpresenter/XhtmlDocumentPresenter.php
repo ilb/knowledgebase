@@ -12,6 +12,7 @@ use repository\Repository;
 use serialize\Serialize;
 use usecase\subscriptions\GetSubscriptionDocUser;
 use vcsclient\VCSClientFactory;
+use config\Config;
 
 /**
  * Description of XhtmlDocumentPresenter
