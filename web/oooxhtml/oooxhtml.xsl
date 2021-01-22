@@ -24,7 +24,7 @@
     <xsl:strip-space elements="*"/>
 
     <xsl:variable name="mainURL">
-        <xsl:text>/~gudov/knowledgebase/web/</xsl:text>
+        <xsl:text>/knowledgebase/web/</xsl:text>
     </xsl:variable>
     
     <!-- the identity template -->
