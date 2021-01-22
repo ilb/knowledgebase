@@ -25,6 +25,9 @@
             <head>
                 <xsl:call-template name="head"/>
                 <title>Список документов</title>
+                <script type="text/javascript" src="js/loadDocument.js">
+                    <xsl:text><![CDATA[]]></xsl:text>
+                </script>
             </head>
             <body onload="">
                 <div class="full">
@@ -41,52 +44,10 @@
 
     <xsl:template match="/response">
         <div class="ui container">
-            <table summary="" class="ui celled  table">
-                <caption>
-                    Весь список ресурсов и документов
-                </caption>
-                <thead>
-                    <tr>
-                        <th>Наименование</th>
-                        <th>Тип материала</th>
-                    </tr>
-                </thead>
-                <tbody>
-<!--                    <xsl:if test="/response/elements/documents">-->
-                    <xsl:for-each select="/response/elements/documents">
-<!--                        Переменная для ссылки на ресурс-->
-                        <xsl:variable name="src" select="source"/>
-                        <xsl:variable name="docName" select="nameDocument"/>
-                        <tr>
-                            <td>
-                                <a>
-                                    <xsl:attribute name="href">
-                                        <xsl:value-of select="concat('DocumentView.php/', nameDocument)"/>
-                                    </xsl:attribute>
-
-                                    <xsl:value-of select="nameDocument"/>
-                                </a>
-                            </td>
-                            <td>document</td>
-                        </tr>
-                    </xsl:for-each>
-<!--                    </xsl:if>-->
-                    <xsl:for-each select="/response/elements/resource[name!='']">
-                        <tr>
-                            <td>
-                                <a>
-                                    <xsl:attribute name="href">
-                                        <xsl:value-of select="concat('DocumentView.php/', name)"/>
-                                    </xsl:attribute>
-
-                                    <xsl:value-of select="name"/>
-                                </a>
-                            </td>
-                            <td>resource</td>
-                        </tr>
-                    </xsl:for-each>
-                </tbody>
-            </table>
+            <h1>
+                Список всех документов <small>для раскрытия папки нажмите на нее</small>
+            </h1>
+            
         </div>
     <hr/>
     </xsl:template>

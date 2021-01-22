@@ -44,7 +44,7 @@ class DocumentParser extends Parser {
         $results = [];
         $files = scandir($dir);
         foreach ($files as $file) {
-            if (is_dir($dir . "/" . $file) && $file != "." && $file != ".." && $file[0] != ".") {
+            if (is_dir($dir . "/" . $file) && $file != "." && strpos($file, ".content") == false && $file[0] != "." ) {
                 $results[] = [ "name" => $file . "/", "dir" => true ];
             }
             if (is_file($dir . "/" . $file)) {

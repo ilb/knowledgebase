@@ -37,3 +37,10 @@ th {
     justify-content: center;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
+.scale_text {
+    font-size: 18px !important;
+}

@@ -17,7 +17,11 @@ $dir = $req->getDir();
 $path = Config::getInstance()->filespath;
 $loadDir = new LoadDir($dir, $path);
 $docs = $loadDir->execute();
-$ser = new Serialize();
+//echo "<pre>";
+//print_r($docs);
+//echo "</pre>";
+//exit(0);
 
-$xml = $ser->arrToXMLandXSL($docs, "stylesheets/Table/Table.xsl");
-XML_Output::tryHTML($xml,TRUE);
+$ser = new Serialize();
+header("Content-type: application/json");
+echo $ser->arrToJSON($docs);

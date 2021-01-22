@@ -102,7 +102,7 @@
                         <xsl:text><![CDATA[]]></xsl:text>
                     </td>
                 </tr>
-                <xsl:for-each select="/response/item">
+                <xsl:for-each select="/response/content">
                     <tr>
                         <td>
                             <a>
