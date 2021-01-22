@@ -510,7 +510,7 @@ var toggleAnnotations = function (event) {
         }
         var url = location.href.split("DocumentView.php")[0].split('/').slice(0, -1).join('/'),
             dir = location.href.split("DocumentView.php")[1].split("/").slice(0, -1).join("/");
-        url += "?dir-0=" + dir.slice(1);
+        url += "/LoadDir.php?dir-0=" + dir.slice(1);
         console.log(url)
         contentDiv.innerHTML = '';
         loadContent({

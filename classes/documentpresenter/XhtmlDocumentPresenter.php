@@ -12,6 +12,7 @@ use repository\Repository;
 use serialize\Serialize;
 use usecase\subscriptions\GetSubscriptionDocUser;
 use vcsclient\VCSClientFactory;
+use config\Config;
 
 /**
  * Description of XhtmlDocumentPresenter
@@ -26,8 +27,8 @@ class XhtmlDocumentPresenter implements DocumentPresenter {
      */
     public function present($mainDir, $doc, $login) {
         $path = $mainDir . "/" . $doc;
-
         $docContext = file_get_contents($path);
+        
         $repo = new Repository(Config::getInstance()->connection);
         $subs = new GetSubscriptionDocUser(Config::getInstance()->login, $doc);
         $subs->setRepository($repo);

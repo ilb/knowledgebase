@@ -39,7 +39,7 @@
     <xsl:template match="xhtml:head">
         <xsl:copy>
             <xsl:apply-templates select="@*|node()"/>
-            <link rel="stylesheet" type="text/css" href="oooxhtml/oooxhtml.css"/>
+            <link rel="stylesheet" type="text/css" href="/oooxhtml/oooxhtml.css"/>
             <script type="text/javascript" src="/privapi/web/scripts/privilegedAPI.js">
                 <xsl:text><![CDATA[]]></xsl:text>
             </script>

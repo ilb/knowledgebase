@@ -20,7 +20,7 @@ class DocumentSearch extends UseCase {
     /**
      * @var string
      */
-    private $keyWord;
+    private $q;
 
     /**
      *
@@ -34,7 +34,7 @@ class DocumentSearch extends UseCase {
      */
     public function __construct($dir, $source, $keyWord) {
         $this->source = $source;
-        $this->keyWord = $keyWord;
+        $this->q = $keyWord;
         $this->dir = $dir;
     }
 
@@ -55,7 +55,7 @@ class DocumentSearch extends UseCase {
         $data = [
             "query" => [
                 "match" => [
-                    "content" => $this->keyWord,
+                    "content" => $this->q,
                 ],
             ],
             "highlight" => [
@@ -69,7 +69,7 @@ class DocumentSearch extends UseCase {
         $temp = $curl->getWithData();
 
         if (isset($temp["error"])) {
-            return ["search_element" => $this->keyWord, "docs" => []];
+            return ["search_element" => $this->q, "docs" => []];
         }
 
         if ($temp["took"] == 0) {
@@ -97,7 +97,7 @@ class DocumentSearch extends UseCase {
 //            exit(0);
 //        }
         return array(
-            "search_element" => $this->keyWord,
+            "search_element" => $this->q,
             "docs" => $result,
         );
     }

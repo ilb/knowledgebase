@@ -20,6 +20,6 @@ class DefaultDocumentPresenter implements DocumentPresenter  {
      * @param string $path
      */
     public function present($path, $doc, $login) {
-        return file_get_contents($path);
+        return file_get_contents($path . "/" . $doc);
     }
 }

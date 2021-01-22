@@ -85,7 +85,7 @@
                         <a>
 
                             <xsl:attribute name="href">
-                                <xsl:value-of select="concat('index.php?dir-0=', parentDir)"/>
+                                <xsl:value-of select="concat('LoadDir.php?dir-0=', parentDir)"/>
                             </xsl:attribute>
 
                             Parent Directory
@@ -122,7 +122,7 @@
                                     <xsl:otherwise>
                                         <xsl:attribute name="href">
                                             <xsl:value-of
-                                                    select="concat('index.php?dir-0=',parent, substring(name, 0, string-length(name)))"/>
+                                                    select="concat('LoadDir.php?dir-0=',parent, substring(name, 0, string-length(name)))"/>
                                         </xsl:attribute>
                                     </xsl:otherwise>
                                 </xsl:choose>
