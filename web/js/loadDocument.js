@@ -1,6 +1,6 @@
 function getListDir(dir, parent) {
     var xhr = new XMLHttpRequest();
-    let json = {};
+    var json = {};
     xhr.onload = function () {
 //        console.log(xhr.response);
         json = JSON.parse(xhr.response);
@@ -13,16 +13,16 @@ function getListDir(dir, parent) {
 
 function createStruct(obj, parent) {
     // главный див который будет добавлен в parent 
-    let main = document.createElement("div");
+    var main = document.createElementNS('http://www.w3.org/1999/xhtml', "div");
     main.className = "ui list scale_text";
     // проходимся в цикле по всем элементам и добавляем каждый как отдельный item  
     // в main div
     obj["content"].forEach(function (e) {
-        let item = document.createElement("div"),
-                icon = document.createElement("i"),
-                content = document.createElement("div"),
-                header = document.createElement("div"),
-                span = document.createElement("span"),
+        var item = document.createElementNS('http://www.w3.org/1999/xhtml', "div"),
+                icon = document.createElementNS('http://www.w3.org/1999/xhtml', "i"),
+                content = document.createElementNS('http://www.w3.org/1999/xhtml',"div"),
+                header = document.createElementNS('http://www.w3.org/1999/xhtml', "div"),
+                span = document.createElementNS('http://www.w3.org/1999/xhtml', "span"),
                 name = "",
                 link = null;
         item.className = "item";
@@ -34,7 +34,7 @@ function createStruct(obj, parent) {
             name = e.name;
             header.addEventListener("click", function (e) {
                 if (icon.classList.contains("open")) {
-                    let list = content.querySelector(".list");
+                    var list = content.querySelector(".list");
                     content.removeChild(list);
                 } else {
                     getListDir(name, content);
@@ -50,7 +50,7 @@ function createStruct(obj, parent) {
             } else {
                 name = e.name;
             }
-            let a = document.createElement("a");
+            var a = document.createElementNS('http://www.w3.org/1999/xhtml',"a");
             a.href = "DocumentView.php/" + e.parent + "/" + e.name;
             a.target = "_blank";
             a.innerHTML = name;
