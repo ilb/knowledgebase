@@ -116,7 +116,7 @@ function createStruct(obj, parent) {
                 name = e.name;
             }
             var a = document.createElementNS('http://www.w3.org/1999/xhtml', "a");
-            a.href = "DocumentView.php/" + e.parent + "/" + e.name;
+            a.href = "DocumentView.php/" + e.parent + e.name;
             a.target = "_blank";
             a.innerHTML = name;
             link = a;

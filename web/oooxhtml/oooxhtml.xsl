@@ -40,7 +40,11 @@
     <xsl:template match="xhtml:head">
         <xsl:copy>
             <xsl:apply-templates select="@*|node()"/>
-            <link rel="stylesheet" type="text/css" href="/oooxhtml/oooxhtml.css"/>
+            <link rel="stylesheet" type="text/css">
+                <xsl:attribute name="href">
+                    <xsl:value-of select="concat($mainURL, 'oooxhtml/oooxhtml.css)"/>
+                </xsl:attribute>
+            </link>
             <script type="text/javascript" src="/privapi/web/scripts/privilegedAPI.js">
                 <xsl:text><![CDATA[]]></xsl:text>
             </script>
