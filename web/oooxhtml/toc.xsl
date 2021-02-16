@@ -23,7 +23,7 @@
     <xsl:strip-space elements="*"/>
 
     <xsl:variable name="addSubscription">
-        <xsl:value-of select="concat('AddSubscription.php?name-0=', xhtml:html/xhtml:body/xhtml:user,
+        <xsl:value-of select="concat('/knowledgebase/web/AddSubscription.php?name-0=', xhtml:html/xhtml:body/xhtml:user,
         '&amp;document-0=', xhtml:html/xhtml:body/xhtml:document)"/>
     </xsl:variable>
 
