@@ -1,5 +1,5 @@
 var doc = "",
-    url = "AddSubscription.php";
+    url = "/knowledgebase/web/AddSubscription.php";
 window.addEventListener('load', function () {
     main();
 });
@@ -44,7 +44,7 @@ function addSubscribe(e, input, span, tag) {
         query = "";
     query += "?name-0=" + group;
     query += "&document-0=" + doc;
-    // query += "&group=on";
+     query += "&group=on";
     query += "&tag-0=" + tag;
     closeSpan(span);
     var xhr = new XMLHttpRequest();

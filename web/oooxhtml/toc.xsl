@@ -28,7 +28,7 @@
     </xsl:variable>
 
     <xsl:variable name="removeSubscription">
-        <xsl:value-of select="concat('RemoveSubscription.php?document-0=',
+        <xsl:value-of select="concat('/knowledgebase/web/RemoveSubscription.php?document-0=',
         xhtml:html/xhtml:body/xhtml:document)"/>
     </xsl:variable>
 
