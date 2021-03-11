@@ -37,7 +37,7 @@ class XhtmlDocumentPresenter implements DocumentPresenter {
 
         $subs = explode("<?xml version=\"1.0\"?>", $ser->arrToXML($subs))[1];
 
-            $head = "<?xml-stylesheet type=\"text/xsl\" href=\"/~gudov/knowledgebase/web/oooxhtml/oooxhtml.xsl\"?>";
+            $head = "<?xml-stylesheet type=\"text/xsl\" href=\"/knowledgebase/web/oooxhtml/oooxhtml.xsl\"?>";
             // убрать стили
             $docContext = str_replace("<link rel=\"stylesheet\" type=\"text/css\" href=\"/oooxhtml/oooxhtml.css\"/>", "", $docContext);
             $docContext = str_replace("<?xml-stylesheet type=\"text/xsl\" href=\"/oooxhtml/oooxhtml.xsl\"?>", "", $docContext);
