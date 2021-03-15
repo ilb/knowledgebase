@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/">
+    <Environment name=".apps.knowledgebase.db" value="mysql://db:3306/knowledgebase" type="java.lang.String" override="false"/>
+    <Environment name="apps.knowledgebase.db_USER" value="root" type="java.lang.String" override="false"/>
+    <Environment name="apps.knowledgebase.db_PASSWORD" value="123456" type="java.lang.String" override="false"/>
+    <Environment name="ru.bystrobank.apps.deepfaq.ws" value="http://deepfaq:5005" type="java.lang.String" override="false"/>
+</Context>
