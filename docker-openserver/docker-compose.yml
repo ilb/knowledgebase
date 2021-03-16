@@ -1,5 +1,5 @@
 # Версия docker-compose
-version: '3.7'
+version: '3.3'
 
 # Список наших сервисов (контейнеров)
 services:
